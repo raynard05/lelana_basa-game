@@ -2,17 +2,20 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { Eye, EyeOff, User, Lock } from 'lucide-react';
+import { Eye, EyeOff, User, Lock, UserCircle, School, Hash } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import './login.css';
+import './register.css';
 
-export default function Home() {
+export default function RegisterPage() {
+  const [namaLengkap, setNamaLengkap] = useState('');
   const [username, setUsername] = useState('');
+  const [kelas, setKelas] = useState('');
+  const [absen, setAbsen] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
+  const [agreeTerms, setAgreeTerms] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
@@ -75,8 +78,20 @@ export default function Home() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Login attempt:', { username, password, rememberMe });
+    
+    // Validasi absen harus angka
+    if (isNaN(Number(absen)) || absen === '') {
+      alert('Absen harus berupa angka!');
+      return;
+    }
+    
+    if (!agreeTerms) {
+      alert('Anda harus menyetujui syarat dan ketentuan!');
+      return;
+    }
+    
+    // Handle register logic here
+    console.log('Register attempt:', { namaLengkap, username, kelas, absen: Number(absen), password, agreeTerms });
   };
 
   return (
@@ -116,20 +131,68 @@ export default function Home() {
           />
         </div>
 
-        {/* Login Form */}
+        {/* Register Form */}
         <div className="login-form-container" ref={formRef}>
           <form onSubmit={handleSubmit} className="login-form">
+            {/* Nama Lengkap Input */}
+            <div className="input-group">
+              <div className="input-wrapper-shadcn">
+                <UserCircle className="input-icon-shadcn" size={20} />
+                <Input
+                  type="text"
+                  placeholder="Jeneng Jangkep"
+                  value={namaLengkap}
+                  onChange={(e) => setNamaLengkap(e.target.value)}
+                  className="input-shadcn"
+                  required
+                />
+              </div>
+            </div>
+
             {/* Username Input */}
             <div className="input-group">
               <div className="input-wrapper-shadcn">
                 <User className="input-icon-shadcn" size={20} />
                 <Input
                   type="text"
-                  placeholder="Username"
+                  placeholder="Username , (Tuladha: bagus67)"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   className="input-shadcn"
                   required
+                />
+              </div>
+            </div>
+
+            {/* Kelas Input */}
+            <div className="input-group">
+              <div className="input-wrapper-shadcn">
+                <School className="input-icon-shadcn" size={20} />
+                <Input
+                  type="text"
+                  placeholder="Klas (Tuladha : 7A, 8B)"
+                  value={kelas}
+                  onChange={(e) => setKelas(e.target.value)}
+                  className="input-shadcn"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Absen Input */}
+            <div className="input-group">
+              <div className="input-wrapper-shadcn">
+                <Hash className="input-icon-shadcn" size={20} />
+                <Input
+                  type="number"
+                  placeholder="Nomer Absen"
+                  value={absen}
+                  onChange={(e) => setAbsen(e.target.value)}
+                  className="input-shadcn"
+                  required
+                  min="1"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                 />
               </div>
             </div>
@@ -157,30 +220,27 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Remember Me & Forgot Password */}
+            {/* Terms Agreement */}
             <div className="form-options">
               <Label className="remember-me">
                 <Checkbox
-                  checked={rememberMe}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setRememberMe(e.target.checked)}
+                  checked={agreeTerms}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAgreeTerms(e.target.checked)}
                 />
-                <span className="checkbox-label">Ingat Saya</span>
+                <span className="checkbox-label">Setuju dengan syarat & ketentuan</span>
               </Label>
-              <a href="#" className="forgot-password">
-                Lupa Kata Sandi?
-              </a>
             </div>
 
             {/* Submit Button */}
             <Button type="submit" className="w-full mt-2">
-              Wiwiti
+              Wiwit Lelana
             </Button>
 
-            {/* Register Link */}
+            {/* Login Link */}
             <div className="register-link">
-              <span className="register-text">Belum punya akun? </span>
-              <a href="/register" className="register-link-text">
-                Daftar disini
+              <span className="register-text">Sudah punya akun? </span>
+              <a href="/" className="register-link-text">
+                Masuk disini
               </a>
             </div>
           </form>

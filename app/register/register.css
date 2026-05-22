@@ -1,4 +1,4 @@
-/* Login Page Styles - Optimized for 360x800 */
+/* Register Page Styles - Optimized for 360x800 */
 
 * {
   margin: 0;
@@ -44,7 +44,7 @@
   align-items: center;
   justify-content: flex-start;
   padding: 20px;
-  padding-top: 20px; /* Dikurangi dari 40px ke 20px */
+  padding-top: 20px;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -54,7 +54,7 @@
 /* When keyboard is open */
 .login-content.keyboard-open {
   justify-content: flex-start;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .login-content.keyboard-open .logo-container {
@@ -62,21 +62,22 @@
 }
 
 .login-content.keyboard-open .logo-image {
-  max-width: 180px;
+  max-width: 150px;
   transition: max-width 0.3s ease;
 }
 
 .login-content.keyboard-open .sugeng-rawuh-banner {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .login-content.keyboard-open .sugeng-rawuh-image {
-  max-width: 200px;
+  max-width: 180px;
   transition: max-width 0.3s ease;
 }
 
 /* Sugeng Rawuh Banner */
 .sugeng-rawuh-banner {
+  margin-bottom: 10px; /* Dikurangi dari default untuk mendekatkan ke form */
   animation: slideDown 0.8s ease-out;
 }
 
@@ -105,16 +106,17 @@
   width: 100%;
   max-width: 320px;
   background: rgba(255, 252, 252, 0.418);
-  border-radius: 20px;
+  border-radius: 30px;
   padding: 25px 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  margin-top: -30px; /* Menggerakkan form ke atas */
   animation: slideUp 0.8s ease-out 0.5s both;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px; /* Dikurangi dari 16px untuk form yang lebih panjang */
 }
 
 /* Input Groups */
@@ -165,9 +167,9 @@
 /* Form Options */
 .form-options {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  font-size: 13px;
+  font-size: 12px;
   margin-top: 4px;
 }
 
@@ -185,21 +187,21 @@
 }
 
 .forgot-password {
-color: #5D4037;
+  color: #8B5A2B;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s;
 }
 
 .forgot-password:hover {
-  color: #864f13;
+  color: #D4A574;
   text-decoration: underline;
 }
 
 /* Register Link */
 .register-link {
   text-align: center;
-  margin-top: 16px;
+  margin-top: 12px;
   font-size: 13px;
   color: #5D4037;
 }
@@ -210,7 +212,7 @@ color: #5D4037;
 }
 
 .register-link-text {
-color: #813f02;
+  color: #813f02;
   text-decoration: none;
   font-weight: 700;
   transition: color 0.2s;
@@ -259,7 +261,7 @@ color: #813f02;
 @media (max-width: 360px) {
   .login-content {
     padding: 15px;
-    padding-top: 60px;
+    padding-top: 40px;
   }
 
   .sugeng-rawuh-image {
@@ -268,10 +270,10 @@ color: #813f02;
   } 
   .sugeng-rawuh-banner{
    transform: translate(0px,-105px);
-   margin-bottom: -60px;
+   margin-bottom: -95px;
   }
 
-.logo-container {
+  .logo-container {
     margin-bottom: 0px;
   }
 
@@ -281,9 +283,13 @@ color: #813f02;
   }
 
   .login-form-container {
-  
     max-width: 300px;
-    padding: 20px 16px;
+    padding: 18px 14px;
+  
+  }
+
+  .login-form {
+    gap: 12px;
   }
 
   .login-input {
@@ -307,35 +313,39 @@ color: #813f02;
   }
 
   .form-options {
-    font-size: 12px;
+    font-size: 11px;
   }
 }
 
 /* Landscape Mode */
 @media (max-height: 600px) and (orientation: landscape) {
   .login-content {
-    padding-top: 20px;
-    justify-content: center;
+    padding-top: 10px;
+    justify-content: flex-start;
   }
 
   .sugeng-rawuh-banner {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .sugeng-rawuh-image {
-    max-width: 200px;
-  }
-
-  .logo-container {
-    margin-bottom: 15px;
-  }
-
-  .logo-image {
     max-width: 180px;
   }
 
+  .logo-container {
+    margin-bottom: 10px;
+  }
+
+  .logo-image {
+    max-width: 160px;
+  }
+
   .login-form-container {
-    padding: 18px 16px;
+    padding: 16px 14px;
+  }
+
+  .login-form {
+    gap: 10px;
   }
 }
 
