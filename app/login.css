@@ -256,7 +256,7 @@ color: #813f02;
 }
 
 /* Responsive Adjustments for 360x800 */
-@media (max-width: 360px) {
+@media (max-width: 360px ) {
   .login-content {
     padding: 15px;
     padding-top: 60px;
@@ -283,7 +283,7 @@ color: #813f02;
   .login-form-container {
   
     max-width: 300px;
-    padding: 20px 16px;
+    padding: 20px 10px;
   }
 
   .login-input {
@@ -340,12 +340,116 @@ color: #813f02;
 }
 
 /* High Resolution Displays */
-@media (min-width: 361px) and (max-width: 480px) {
-  .login-content {
-    max-width: 400px;
+@media (min-width: 361px) and (max-width: 380px) {
+ .login-content {
+    padding: 15px;
+    padding-top: 60px;
+  }
+
+  .sugeng-rawuh-image {
+    max-width: 600px;
+    transform:translateY(-35);
+  } 
+  .sugeng-rawuh-banner{
+   transform: translate(0px,-115px);
+   margin-bottom: -80px;
+  }
+
+.logo-container {
+    margin-bottom: 0px;
+  }
+
+  .logo-image {
+    max-width: 300px;
+    transform: translateY(-55);
   }
 
   .login-form-container {
-    max-width: 340px;
+  
+    max-width: 300px;
+    padding: 20px 10px;
+  }
+
+  .login-input {
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+
+  .input-shadcn {
+    font-size: 14px !important;
+    padding: 12px 10px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  .input-icon-shadcn {
+    left: 10px;
+  }
+
+  .toggle-password-shadcn {
+    right: 10px;
+  }
+
+  .form-options {
+    font-size: 12px;
+  }
+}
+
+
+
+
+/* High Resolution Displays */
+@media (min-width: 390px)  {
+ .login-content {
+    padding: 15px;
+    padding-top: 100px;
+  }
+
+  .sugeng-rawuh-image {
+    max-width: 800px;
+    transform:translateY(-35);
+  } 
+  .sugeng-rawuh-banner{
+   transform: translate(0px,-115px);
+   margin-bottom: -80px;
+  }
+
+.logo-container {
+    margin-bottom: 0px;
+  }
+
+  .logo-image {
+    max-width: 320px;
+    transform: translateY(-55);
+  }
+
+  .login-form-container {
+  
+    max-width: 300px;
+    padding: 20px 10px;
+  }
+
+  .login-input {
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+
+  .input-shadcn {
+    font-size: 14px !important;
+    padding: 12px 10px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  .input-icon-shadcn {
+    left: 10px;
+  }
+
+  .toggle-password-shadcn {
+    right: 10px;
+  }
+
+  .form-options {
+    font-size: 12px;
   }
 }
