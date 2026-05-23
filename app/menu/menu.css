@@ -1,5 +1,4 @@
-/* Menu Page Styles - Optimized for 360x800 and Landscape */
-
+/* Responsive Mobile Landscape Menu */
 * {
   margin: 0;
   padding: 0;
@@ -15,132 +14,142 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000; /* Background hitam untuk area yang tidak tercover */
+  /* Use CSS background image to avoid z-index blocking issues on mobile */
+  background-image: url('/menu_assets/bg_menu.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000;
+  touch-action: manipulation;
 }
 
-/* Background */
-.menu-background {
+/* Individual Top Buttons with explicit high z-index and touch-action */
+.info-btn,
+.sound-btn {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.background-image {
-  object-fit: contain; /* Ubah dari cover ke contain agar gambar fit */
-  object-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-/* Top Bar */
-.menu-top-bar {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
-}
-
-/* Bottom Bar - Logout */
-.menu-bottom-bar {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10;
-}
-
-.info-button,
-.sound-button,
-.logout-button {
-  width: 60px;
-  height: 60px;
+  top: 5vh;
+  z-index: 100;
+  width: 15vh;
+  height: 15vh;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 80px;
+  max-height: 80px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  touch-action: manipulation;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.info-button:hover,
-.sound-button:hover,
-.logout-button:hover {
-  transform: scale(1.1);
+.info-btn {
+  left: 5vw;
 }
 
-.info-button:active,
-.sound-button:active,
-.logout-button:active {
-  transform: scale(0.95);
+.sound-btn {
+  right: 5vw;
 }
 
-.info-icon,
-.sound-icon,
-.logout-icon {
-  width: 35px;
-  height: 35px;
+/* Hover effects only on desktop with hover capabilities */
+@media (hover: hover) and (pointer: fine) {
+  .info-btn:hover,
+  .sound-btn:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* Use opacity instead of scale on active to avoid touch-cancel issues on mobile */
+.info-btn:active,
+.sound-btn:active {
+  opacity: 0.7;
+}
+
+/* CRITICAL: Set pointer-events: none on images inside buttons/containers 
+   so touch events directly target the clickable elements (button / overlay-btn) */
+.icon-img {
   object-fit: contain;
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+  pointer-events: none;
 }
 
-/* Content Overlay */
+/* Center Content Area */
 .menu-content {
   position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 900px;
-  height: 100%;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px 20px;
-  gap: 20px;
+  height: 100%;
+  width: 100%;
 }
 
-/* Logo Container */
-.menu-logo-container {
-  animation: fadeInDown 1s ease-out;
+.logo-container {
+  width: 60vh;
+  max-width: 90vw;
+  aspect-ratio: 5 / 3; /* Matches 500 / 300 */
+  margin-bottom: -2vh;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0; /* CRITICAL: Prevent container from shrinking to 0 height on small landscape viewports */
 }
 
-.menu-logo {
-  width: auto;
-  height: auto;
-  max-width: 400px;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.6));
+  pointer-events: none;
 }
 
-/* Subtitle */
-.menu-subtitle {
-  animation: fadeIn 1.2s ease-out 0.3s both;
+.subtitle-container {
+  width: 45vh;
+  max-width: 70vw;
+  aspect-ratio: 5 / 1; /* Matches 400 / 80 */
+  margin-bottom: 2vh;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0; /* CRITICAL: Prevent container from shrinking to 0 height on small landscape viewports */
 }
 
-.subtitle-image {
-  width: auto;
-  height: auto;
-
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+.subtitle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.6));
+  pointer-events: none;
 }
 
-/* Menu Options Container */
-.menu-options-container {
+.options-container {
   position: relative;
-  animation: fadeInUp 1.4s ease-out 0.5s both;
+  width: 45vh;
+  max-width: 70vw;
+  aspect-ratio: 3 / 2; /* Matches 300 / 200 */
+  z-index: 30;
+  flex-shrink: 0; /* CRITICAL: Prevent container from shrinking to 0 height on small landscape viewports */
 }
 
-.menu-options-image {
-  width: auto;
-  height: auto;
-  max-width: 400px;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+.options-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+  pointer-events: none;
 }
 
-/* Menu Buttons Overlay */
-.menu-buttons-overlay {
+/* Button overlays */
+.options-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -148,272 +157,46 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 1px 0;
+  padding: 1% 0;
+  z-index: 40;
+  touch-action: manipulation;
 }
 
-.menu-button {
+.overlay-btn {
   flex: 1;
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
   position: relative;
-  
+  border-radius: 4px;
+  touch-action: manipulation;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  display: block; /* CRITICAL: Ensure block display for correct layout calculation */
+  height: 100%; /* CRITICAL: Take up full height of the flex segment */
 }
 
-.menu-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.1);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 12px;
-}
-
-.menu-button:hover::before {
-  opacity: 1;
-}
-
-.menu-button:active {
-  transform: scale(1);
-}
-
-/* Screen reader only */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* Animations */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (hover: hover) and (pointer: fine) {
+  .overlay-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.overlay-btn:active {
+  background: rgba(255, 255, 255, 0.3);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+/* Portrait orientation safety fallback */
+@media (orientation: portrait) {
+  .logo-container { width: 80vw; margin-bottom: -1vw; }
+  .subtitle-container { width: 60vw; margin-bottom: 3vw; }
+  .options-container { width: 60vw; }
+  .info-btn,
+  .sound-btn {
+    width: 15vw;
+    height: 15vw;
+    top: 3vh;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .info-btn { left: 4vw; }
+  .sound-btn { right: 4vw; }
 }
-
-
-/* Landscape Mode - 850x380 */
-@media (orientation: landscape) and (max-height: 380px) and (max-width: 850px) {
-  .menu-buttons-overlay {
-    background-color: transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 1px 0;
-  }
-
-  .menu-bottom-bar {
-    bottom: 10px;
-    right: 20px;
-  }
-
-  .logout-button {
-    width: 55px;
-    height: 55px;
-  }
-
-  .logout-icon {
-    width: 55px;
-    height: 55px;
-  }
-  
-  .menu-container {
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .background-image {
-    object-fit: cover !important; /* Cover untuk mobile landscape */
-  }
-
-  .menu-content {
-    justify-content:center;
-    padding: 15px 30px;
-    gap: 40px;
-    max-width: 80%;
-  }
-
-  .menu-logo-container {
-    flex: 0 0 auto;
-  }
-
-  .menu-logo {
-    max-width: 190px;
-    transform: translateY(20px);
-  }
-
-  .menu-subtitle {
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%) translateY(50px);
-  }
-
-  .subtitle-image {
-    max-width: 250px;
-  }
-
-  .menu-options-container {
-    flex: 0 0 auto;
-    margin-bottom: 50px;
-   
-  }
-
-  .menu-options-image {
-    max-width: 170px;
-  }
-
-  .menu-top-bar {
-    top: 10px;
-    left: 15px;
-    right: 15px;
-  }
-
-
-  .info-icon,
-  .sound-icon {
-    width: 55px;
-    height: 55px;
-  }
-
-}
- 
-
-
-
-/* Landscape Mode - 800x360 */
-@media (orientation: landscape) and (min-height: 320px) and (min-width:852px) {
-  .menu-buttons-overlay {
-    background-color: transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 1px 0;
-  }
-
-  .menu-bottom-bar {
-    bottom: 10px;
-    right: 20px;
-  }
-
-  .logout-button {
-    width: 55px;
-    height: 55px;
-  }
-
-  .logout-icon {
-    width: 55px;
-    height: 55px;
-  }
-   .menu-container {
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .background-image {
-    object-fit: cover !important; /* Cover untuk mobile landscape */
-  }
-
-  .menu-content {
-    justify-content:center;
-    padding: 15px 30px;
-    gap: 40px;
-    max-width: 80%;
-  }
-
-  .menu-logo-container {
-    flex: 0 0 auto;
-  }
-
-  .menu-logo {
-    max-width: 230px;
-    transform: translateY(20px);
-  }
-
-  .menu-subtitle {
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%) translateY(80px);
-  }
-
-  .subtitle-image {
-    max-width: 250px;
-  }
-
-  .menu-options-container {
-    flex: 0 0 auto;
-    margin-bottom: 50px;
-   
-  }
-
-  .menu-options-image {
-    max-width: 190px;
-  }
-
-  .menu-top-bar {
-    top: 10px;
-    left: 15px;
-    right: 15px;
-  }
-
-  .info-icon,
-  .sound-icon {
-    width: 70px;
-    height: 90px;
-  }
-
-}
- 
- 
-
-
-
-
