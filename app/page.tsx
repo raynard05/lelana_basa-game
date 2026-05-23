@@ -55,6 +55,23 @@ export default function Home() {
       window.addEventListener('resize', handleResize);
     }
 
+    // Add auto-fullscreen on first user interaction
+    const enableFullscreen = () => {
+      if (!document.fullscreenElement) {
+        const docEl = document.documentElement as any;
+        if (docEl.requestFullscreen) {
+          docEl.requestFullscreen().catch(() => {});
+        } else if (docEl.webkitRequestFullscreen) {
+          docEl.webkitRequestFullscreen();
+        }
+      }
+      window.removeEventListener('click', enableFullscreen);
+      window.removeEventListener('touchstart', enableFullscreen);
+    };
+
+    window.addEventListener('click', enableFullscreen);
+    window.addEventListener('touchstart', enableFullscreen);
+
     // Add focus/blur listeners to all inputs
     const inputs = document.querySelectorAll('input');
     inputs.forEach(input => {
@@ -68,6 +85,8 @@ export default function Home() {
       } else {
         window.removeEventListener('resize', handleResize);
       }
+      window.removeEventListener('click', enableFullscreen);
+      window.removeEventListener('touchstart', enableFullscreen);
       inputs.forEach(input => {
         input.removeEventListener('focus', handleFocus);
         input.removeEventListener('blur', handleBlur);

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import './menu.css';
@@ -8,6 +8,32 @@ import './menu.css';
 export default function MenuPage() {
   const [isSoundOn, setIsSoundOn] = useState(true);
   const router = useRouter();
+
+  useEffect(() => {
+    const enableFullscreen = () => {
+      if (!document.fullscreenElement) {
+        const docEl = document.documentElement as any;
+        if (docEl.requestFullscreen) {
+          docEl.requestFullscreen().catch((err: any) => console.log('Fullscreen error:', err));
+        } else if (docEl.webkitRequestFullscreen) {
+          docEl.webkitRequestFullscreen();
+        } else if (docEl.msRequestFullscreen) {
+          docEl.msRequestFullscreen();
+        }
+      }
+      // Remove listeners after the first interaction has triggered
+      window.removeEventListener('click', enableFullscreen);
+      window.removeEventListener('touchstart', enableFullscreen);
+    };
+
+    window.addEventListener('click', enableFullscreen);
+    window.addEventListener('touchstart', enableFullscreen);
+
+    return () => {
+      window.removeEventListener('click', enableFullscreen);
+      window.removeEventListener('touchstart', enableFullscreen);
+    };
+  }, []);
 
   const handleMenuClick = (menu: string) => {
     console.log('Navigating to:', menu);
