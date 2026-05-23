@@ -39,7 +39,6 @@
   border: none;
   cursor: pointer;
   border-radius: 50%;
-
   touch-action: manipulation;
   display: flex;
   align-items: center;
@@ -99,6 +98,8 @@
   justify-content: center;
   height: 100%;
   width: 100%;
+  /* Shift the entire central menu upwards to clear the character's body and the buffalo */
+  transform: translateY(-4vh);
 }
 
 .logo-container {
@@ -106,7 +107,8 @@
   max-width: 90vw;
   aspect-ratio: 5 / 3;
   /* Matches 500 / 300 */
-  margin-bottom: -2vh;
+  /* Pull the subtitle ribbon much closer to the wooden sign */
+  margin-bottom: -7vh;
   display: flex;
   justify-content: center;
   flex-shrink: 0;
@@ -123,10 +125,11 @@
 }
 
 .subtitle-container {
-  width: 45vh;
-  max-width: 70vw;
+  width: 52vh;
+  max-width: 80vw;
   aspect-ratio: 5 / 1;
   /* Matches 400 / 80 */
+  /* Pull the options menu closer to the subtitle ribbon */
   margin-bottom: 2vh;
   z-index: 20;
   display: flex;
@@ -146,8 +149,8 @@
 
 .options-container {
   position: relative;
-  width: 45vh;
-  max-width: 70vw;
+  width: 52vh;
+  max-width: 80vw;
   aspect-ratio: 3 / 2;
   /* Matches 300 / 200 */
   z-index: 30;
@@ -213,7 +216,7 @@
 
   .subtitle-container {
     width: 60vw;
-    margin-bottom: 3vw;
+    margin-bottom: 5vw;
   }
 
   .options-container {
