@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Eye, EyeOff, User, Lock } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -16,6 +17,7 @@ export default function Home() {
   const [showPassword, setShowPassword] = useState(false);
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const handleResize = () => {
@@ -77,6 +79,9 @@ export default function Home() {
     e.preventDefault();
     // Handle login logic here
     console.log('Login attempt:', { username, password, rememberMe });
+    
+    // Redirect to menu page after successful login
+    router.push('/menu');
   };
 
   return (
