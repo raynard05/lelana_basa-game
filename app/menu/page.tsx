@@ -21,17 +21,14 @@ export default function MenuPage() {
           docEl.msRequestFullscreen();
         }
       }
-      // Remove listeners after the first interaction has triggered
+      // Remove listener after the first interaction has triggered
       window.removeEventListener('click', enableFullscreen);
-      window.removeEventListener('touchstart', enableFullscreen);
     };
 
     window.addEventListener('click', enableFullscreen);
-    window.addEventListener('touchstart', enableFullscreen);
 
     return () => {
       window.removeEventListener('click', enableFullscreen);
-      window.removeEventListener('touchstart', enableFullscreen);
     };
   }, []);
 
