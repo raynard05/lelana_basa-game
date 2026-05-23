@@ -10,9 +10,6 @@ export default function MenuPage() {
   const router = useRouter();
 
   const handleMenuClick = (menu: string) => {
-    if (typeof window !== 'undefined') {
-      window.alert('Menu clicked: ' + menu);
-    }
     console.log('Navigating to:', menu);
     switch(menu) {
       case 'materi':
@@ -31,17 +28,11 @@ export default function MenuPage() {
   };
 
   const toggleSound = () => {
-    if (typeof window !== 'undefined') {
-      window.alert('Sound clicked, isSoundOn was: ' + isSoundOn);
-    }
     setIsSoundOn(!isSoundOn);
     console.log('Sound toggled');
   };
 
   const handleInfo = () => {
-    if (typeof window !== 'undefined') {
-      window.alert('Info clicked');
-    }
     console.log('Info clicked');
   };
 
