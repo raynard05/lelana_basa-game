@@ -25,9 +25,9 @@
 
 /* Individual Top Buttons with explicit high z-index and touch-action */
 .info-btn,
-.sound-btn {
+.sound-btn,
+.logout-btn {
   position: absolute;
-  top: 5vh;
   z-index: 100;
   width: 15vh;
   height: 15vh;
@@ -39,7 +39,7 @@
   border: none;
   cursor: pointer;
   border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
   touch-action: manipulation;
   display: flex;
   align-items: center;
@@ -48,24 +48,34 @@
 }
 
 .info-btn {
+  top: 5vh;
   left: 5vw;
 }
 
 .sound-btn {
+  top: 5vh;
+  right: 5vw;
+}
+
+.logout-btn {
+  bottom: 5vh;
   right: 5vw;
 }
 
 /* Hover effects only on desktop with hover capabilities */
 @media (hover: hover) and (pointer: fine) {
+
   .info-btn:hover,
-  .sound-btn:hover {
-    transform: scale(1.1);
+  .sound-btn:hover,
+  .logout-btn:hover {
+    transform: scale(1.5);
   }
 }
 
 /* Use opacity instead of scale on active to avoid touch-cancel issues on mobile */
 .info-btn:active,
-.sound-btn:active {
+.sound-btn:active,
+.logout-btn:active {
   opacity: 0.7;
 }
 
@@ -94,11 +104,13 @@
 .logo-container {
   width: 60vh;
   max-width: 90vw;
-  aspect-ratio: 5 / 3; /* Matches 500 / 300 */
+  aspect-ratio: 5 / 3;
+  /* Matches 500 / 300 */
   margin-bottom: -2vh;
   display: flex;
   justify-content: center;
-  flex-shrink: 0; /* CRITICAL: Prevent container from shrinking to 0 height on small landscape viewports */
+  flex-shrink: 0;
+  /* CRITICAL: Prevent container from shrinking to 0 height on small landscape viewports */
 }
 
 .logo-img {
@@ -106,19 +118,21 @@
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
   pointer-events: none;
 }
 
 .subtitle-container {
   width: 45vh;
   max-width: 70vw;
-  aspect-ratio: 5 / 1; /* Matches 400 / 80 */
+  aspect-ratio: 5 / 1;
+  /* Matches 400 / 80 */
   margin-bottom: 2vh;
   z-index: 20;
   display: flex;
   justify-content: center;
-  flex-shrink: 0; /* CRITICAL: Prevent container from shrinking to 0 height on small landscape viewports */
+  flex-shrink: 0;
+  /* CRITICAL: Prevent container from shrinking to 0 height on small landscape viewports */
 }
 
 .subtitle-img {
@@ -126,7 +140,7 @@
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
   pointer-events: none;
 }
 
@@ -134,9 +148,11 @@
   position: relative;
   width: 45vh;
   max-width: 70vw;
-  aspect-ratio: 3 / 2; /* Matches 300 / 200 */
+  aspect-ratio: 3 / 2;
+  /* Matches 300 / 200 */
   z-index: 30;
-  flex-shrink: 0; /* CRITICAL: Prevent container from shrinking to 0 height on small landscape viewports */
+  flex-shrink: 0;
+  /* CRITICAL: Prevent container from shrinking to 0 height on small landscape viewports */
 }
 
 .options-img {
@@ -144,7 +160,7 @@
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
   pointer-events: none;
 }
 
@@ -172,8 +188,10 @@
   touch-action: manipulation;
   transition: background-color 0.2s ease;
   width: 100%;
-  display: block; /* CRITICAL: Ensure block display for correct layout calculation */
-  height: 100%; /* CRITICAL: Take up full height of the flex segment */
+  display: block;
+  /* CRITICAL: Ensure block display for correct layout calculation */
+  height: 100%;
+  /* CRITICAL: Take up full height of the flex segment */
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -188,15 +206,39 @@
 
 /* Portrait orientation safety fallback */
 @media (orientation: portrait) {
-  .logo-container { width: 80vw; margin-bottom: -1vw; }
-  .subtitle-container { width: 60vw; margin-bottom: 3vw; }
-  .options-container { width: 60vw; }
+  .logo-container {
+    width: 80vw;
+    margin-bottom: -1vw;
+  }
+
+  .subtitle-container {
+    width: 60vw;
+    margin-bottom: 3vw;
+  }
+
+  .options-container {
+    width: 60vw;
+  }
+
   .info-btn,
-  .sound-btn {
+  .sound-btn,
+  .logout-btn {
     width: 15vw;
     height: 15vw;
-    top: 3vh;
   }
-  .info-btn { left: 4vw; }
-  .sound-btn { right: 4vw; }
+
+  .info-btn {
+    top: 3vh;
+    left: 4vw;
+  }
+
+  .sound-btn {
+    top: 3vh;
+    right: 4vw;
+  }
+
+  .logout-btn {
+    bottom: 3vh;
+    right: 4vw;
+  }
 }

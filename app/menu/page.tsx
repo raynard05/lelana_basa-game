@@ -36,6 +36,11 @@ export default function MenuPage() {
     console.log('Info clicked');
   };
 
+  const handleLogout = () => {
+    console.log('Logging out...');
+    router.push('/');
+  };
+
   return (
     <div className="menu-container">
       {/* Main Content Center - Rendered first so absolute buttons sit on top in DOM order */}
@@ -66,6 +71,11 @@ export default function MenuPage() {
 
       <button className="sound-btn" onClick={toggleSound} type="button" aria-label="Sound Toggle">
         <Image src={isSoundOn ? '/main/sound_on.png' : '/main/sound_off.png'} alt="Sound Toggle" fill sizes="80px" className="icon-img" priority />
+      </button>
+
+      {/* Logout button placed in bottom right */}
+      <button className="logout-btn" onClick={handleLogout} type="button" aria-label="Log Out">
+        <Image src="/menu_assets/log_out .png" alt="Log Out" fill sizes="80px" className="icon-img" priority />
       </button>
     </div>
   );
