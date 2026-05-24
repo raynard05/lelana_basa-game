@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser, logoutUser } from '@/app/actions/auth';
+import Music from '@/components/Music';
 import './menu.css';
 
 export default function MenuPage() {
-  const [isSoundOn, setIsSoundOn] = useState(true);
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [isValidating, setIsValidating] = useState(true);
   const router = useRouter();
@@ -30,28 +30,6 @@ export default function MenuPage() {
     checkAuth();
   }, [router]);
 
-  useEffect(() => {
-    const enableFullscreen = () => {
-      if (!document.fullscreenElement) {
-        const docEl = document.documentElement as any;
-        if (docEl.requestFullscreen) {
-          docEl.requestFullscreen().catch((err: any) => console.log('Fullscreen error:', err));
-        } else if (docEl.webkitRequestFullscreen) {
-          docEl.webkitRequestFullscreen();
-        } else if (docEl.msRequestFullscreen) {
-          docEl.msRequestFullscreen();
-        }
-      }
-      window.removeEventListener('click', enableFullscreen);
-    };
-
-    window.addEventListener('click', enableFullscreen);
-
-    return () => {
-      window.removeEventListener('click', enableFullscreen);
-    };
-  }, []);
-
   const handleMenuClick = (menu: string) => {
     console.log('Navigating to:', menu);
     switch(menu) {
@@ -62,17 +40,12 @@ export default function MenuPage() {
         router.push('/sinopsis');
         break;
       case 'wiwiti':
-        router.push('/game');
+        router.push('/babak1');
         break;
       case 'profil':
         router.push('/profil');
         break;
     }
-  };
-
-  const toggleSound = () => {
-    setIsSoundOn(!isSoundOn);
-    console.log('Sound toggled');
   };
 
   const handleInfo = () => {
@@ -128,9 +101,7 @@ export default function MenuPage() {
         <Image src="/menu_assets/information.png" alt="Information" fill sizes="80px" className="icon-img" priority />
       </button>
 
-      <button className="sound-btn" onClick={toggleSound} type="button" aria-label="Sound Toggle">
-        <Image src={isSoundOn ? '/main/sound_on.png' : '/main/sound_off.png'} alt="Sound Toggle" fill sizes="80px" className="icon-img" priority />
-      </button>
+      <Music className="sound-btn" />
 
       {/* Logout button placed in bottom right */}
       <button className="logout-btn" onClick={handleLogout} type="button" aria-label="Log Out">

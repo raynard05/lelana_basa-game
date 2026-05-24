@@ -84,10 +84,26 @@ export default function JavaneseGame() {
       window.speechSynthesis.onvoiceschanged = () => {};
     }
 
+    // Stop audio immediately if sound is turned off globally
+    const handleSoundToggle = () => {
+      const savedSound = localStorage.getItem('isSoundOn');
+      if (savedSound === 'false') {
+        if (audioRef.current) {
+          audioRef.current.pause();
+        }
+        if (typeof window !== "undefined" && window.speechSynthesis) {
+          window.speechSynthesis.cancel();
+        }
+      }
+    };
+
+    window.addEventListener('soundToggle', handleSoundToggle);
+
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
       }
+      window.removeEventListener('soundToggle', handleSoundToggle);
     };
   }, []);
 
@@ -105,6 +121,12 @@ export default function JavaneseGame() {
   };
 
   const speak = (text: string) => {
+    // Respect the global sound setting
+    if (typeof window !== 'undefined' && localStorage.getItem('isSoundOn') === 'false') {
+      console.log('TTS playback skipped: Sound is disabled.');
+      return;
+    }
+
     if (audioRef.current) {
       audioRef.current.pause();
     }
