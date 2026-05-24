@@ -3,16 +3,16 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { MapPin, Clock, ArrowRight } from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
 import { getCurrentUser } from '@/app/actions/auth';
 import Home from '@/components/Home';
 import Music from '@/components/Music';
+import Timer from '@/components/Timer';
 import './babak1.css';
 
 export default function Babak1Page() {
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [isValidating, setIsValidating] = useState(true);
-  const [timeLeft, setTimeLeft] = useState(60); // 1 minute timer
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [isLocked, setIsLocked] = useState(false);
@@ -40,23 +40,6 @@ export default function Babak1Page() {
     checkAuth();
   }, [router]);
 
-  // 2. Ticking Countdown Timer logic
-  useEffect(() => {
-    if (isValidating || isAnswerCorrect || isLocked || showPopup) return;
-
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [isValidating, isAnswerCorrect, isLocked, showPopup]);
-
   // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
@@ -66,24 +49,15 @@ export default function Babak1Page() {
     };
   }, []);
 
-  // 3. Trigger when time runs out
-  useEffect(() => {
-    if (timeLeft === 0 && !isLocked && !showPopup) {
-      setIsLocked(true);
-      setShowPopup('timeout');
-      
-      // Auto-proceed to the next page after 2 seconds
-      proceedTimeoutRef.current = setTimeout(() => {
-        handleProceed();
-      }, 2000);
-    }
-  }, [timeLeft, isLocked, showPopup]);
-
-  // Format seconds to MM:SS
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  const handleTimeOut = () => {
+    if (isLocked || showPopup) return;
+    setIsLocked(true);
+    setShowPopup('timeout');
+    
+    // Auto-proceed to the next page after 2 seconds
+    proceedTimeoutRef.current = setTimeout(() => {
+      handleProceed();
+    }, 2000);
   };
 
   const handleOptionClick = (optionId: string) => {
@@ -113,6 +87,10 @@ export default function Babak1Page() {
   };
 
   const handleProceed = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('babak1_page1_timer_expiration');
+      localStorage.removeItem('babak1_page1_timer_paused_time');
+    }
     router.push('/game');
   };
 
@@ -137,10 +115,12 @@ export default function Babak1Page() {
       {/* Top Controls */}
       <Home className="nav-btn home-btn" />
 
-      <div className="timer-badge">
-        <Clock className="timer-icon" size={20} />
-        <span>{formatTime(timeLeft)}</span>
-      </div>
+      <Timer
+        initialTime={3600}
+        isLocked={isLocked || !!showPopup}
+        onTimeOut={handleTimeOut}
+        storageKey="babak1_page1_timer"
+      />
 
       {/* Skip button replaced by Music Component */}
       <Music className="nav-btn music-btn" />

@@ -40,7 +40,7 @@ export default function MenuPage() {
         router.push('/sinopsis');
         break;
       case 'wiwiti':
-        router.push('/babak1');
+        router.push('/babak1/page1');
         break;
       case 'profil':
         router.push('/profil');

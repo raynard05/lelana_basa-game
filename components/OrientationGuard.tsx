@@ -18,10 +18,10 @@ export default function OrientationGuard() {
           <div className="rotation-icon-wrapper">
             <RotateCw className="rotation-device-icon" size={54} />
           </div>
-          <h2 className="orientation-warning-title">Mangga Miringaken Layar</h2>
+          <h2 className="orientation-warning-title">Mangga miringake layar</h2>
           <p className="orientation-warning-desc">
-            Sinaunipun langkung sekeca wonten mode lanskap (horizontal).
-            Miringaken HP panjenengan supados saged dolanan.
+                Sinaune bakal luwih penak yen mode landscape (horizontal)
+                Miringake Hp-ne supaya bisa dolanan.
           </p>
         </div>
       </div>

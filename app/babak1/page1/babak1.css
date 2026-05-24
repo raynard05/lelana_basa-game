@@ -181,7 +181,6 @@
   margin-top: 0.2vh;
 }
 
-/* Right Column: Title and choices */
 .column-right {
   flex: 1.2;
   display: flex;
@@ -190,7 +189,7 @@
   align-items: center;
   gap: 1.5vh;
   padding-left: 2%;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 
 .analysis-header {
@@ -434,4 +433,33 @@
     top: 3vh;
     right: 4vw;
   }
+}
+
+/* Desktop & Laptop responsiveness overrides */
+@media (min-width: 1025px) and (orientation: landscape) {
+  .column-right {
+    margin-top: 5%;
+
+  }
+
+  
+/* Option Buttons styling */
+.option-btn {
+  width: 100%;
+  height: 10vh;
+  min-height: 35px;
+  background: linear-gradient(180deg, #F0B863 0%, #D49033 100%);
+  border: 2.5px solid #5A3500;
+  border-radius: 12px;
+  color: #261100;
+  font-size: 2.3vh;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s ease, filter 0.2s ease;
+  touch-action: manipulation;
+}
 }

@@ -61,9 +61,32 @@ export default function Music({ className, style }: MusicProps) {
       }
     };
 
+    const handlePauseBgMusic = () => {
+      const audio = getGlobalAudio();
+      if (audio) {
+        audio.pause();
+      }
+    };
+
+    const handleResumeBgMusic = () => {
+      const savedSound = localStorage.getItem('isSoundOn');
+      const enabled = savedSound !== 'false';
+      if (enabled) {
+        const audio = getGlobalAudio();
+        if (audio) {
+          audio.play().catch(() => {});
+        }
+      }
+    };
+
     window.addEventListener('soundToggle', handleToggleEvent);
+    window.addEventListener('pauseBackgroundMusic', handlePauseBgMusic);
+    window.addEventListener('resumeBackgroundMusic', handleResumeBgMusic);
+
     return () => {
       window.removeEventListener('soundToggle', handleToggleEvent);
+      window.removeEventListener('pauseBackgroundMusic', handlePauseBgMusic);
+      window.removeEventListener('resumeBackgroundMusic', handleResumeBgMusic);
     };
   }, []);
 
