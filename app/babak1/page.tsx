@@ -16,7 +16,7 @@ export default function Babak1Page() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [isLocked, setIsLocked] = useState(false);
-  const [showPopup, setShowPopup] = useState<'correct' | 'incorrect' | null>(null);
+  const [showPopup, setShowPopup] = useState<'correct' | 'incorrect' | 'timeout' | null>(null);
   const proceedTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const router = useRouter();
@@ -65,6 +65,19 @@ export default function Babak1Page() {
       }
     };
   }, []);
+
+  // 3. Trigger when time runs out
+  useEffect(() => {
+    if (timeLeft === 0 && !isLocked && !showPopup) {
+      setIsLocked(true);
+      setShowPopup('timeout');
+      
+      // Auto-proceed to the next page after 2 seconds
+      proceedTimeoutRef.current = setTimeout(() => {
+        handleProceed();
+      }, 2000);
+    }
+  }, [timeLeft, isLocked, showPopup]);
 
   // Format seconds to MM:SS
   const formatTime = (seconds: number) => {
@@ -199,8 +212,14 @@ export default function Babak1Page() {
         <div className="popup-overlay" onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
           <div className="popup-card">
             <Image
-              src={showPopup === 'correct' ? '/main/pop_up/pop_100.png' : '/main/pop_up/pop_salah.png'}
-              alt={showPopup === 'correct' ? 'Bener' : 'Kleru'}
+              src={
+                showPopup === 'correct'
+                  ? '/main/pop_up/pop_100.png'
+                  : showPopup === 'incorrect'
+                  ? '/main/pop_up/pop_salah.png'
+                  : '/main/pop_up/pop_waktuhabis1.webp'
+              }
+              alt={showPopup === 'correct' ? 'Bener' : showPopup === 'incorrect' ? 'Kleru' : 'Waktu Habis'}
               width={320}
               height={240}
               className="popup-image"
