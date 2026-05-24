@@ -163,19 +163,26 @@ export default function Babak1Page() {
               );
             })}
 
-            {/* Proceed Button appears once the correct answer is chosen */}
-            {isAnswerCorrect && (
-              <div className="proceed-container">
-                <button
-                  onClick={handleProceed}
-                  className="proceed-btn"
-                  type="button"
-                >
-                  <span>Nerusake Misi</span>
-                  <ArrowRight size={20} />
-                </button>
-              </div>
-            )}
+            {/* Proceed Button container is always rendered to prevent layout shift */}
+            <div 
+              className="proceed-container"
+              style={{ 
+                visibility: isAnswerCorrect ? 'visible' : 'hidden',
+                opacity: isAnswerCorrect ? 1 : 0,
+                pointerEvents: isAnswerCorrect ? 'auto' : 'none',
+                transition: 'opacity 0.3s ease-in-out'
+              }}
+            >
+              <button 
+                onClick={handleProceed} 
+                className="proceed-btn"
+                type="button"
+                disabled={!isAnswerCorrect}
+              >
+                <span>Nerusake Misi</span>
+                <ArrowRight size={20} />
+              </button>
+            </div>
           </div>
 
         </div>

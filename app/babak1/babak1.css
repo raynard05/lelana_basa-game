@@ -278,10 +278,11 @@
   flex-shrink: 0;
 }
 
+/* Proceed Button Overlay when user solves the puzzle */
 .proceed-container {
   display: flex;
   justify-content: center;
-  margin-top: 3.5vh; /* Increased spacing to separate the proceed button from options */
+  margin-top: 1vh;
   animation: fadeInUp 0.5s ease-out;
 }
 
