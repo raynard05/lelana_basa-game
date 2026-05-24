@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mic, MicOff, Volume2, RotateCcw, CheckCircle2, XCircle, Play } from "lucide-react";
+import { useRouter } from 'next/navigation';
+import { getCurrentUser } from '@/app/actions/auth';
 
 // Types for Web Speech API
 interface SpeechRecognitionEvent extends Event {
@@ -21,6 +23,25 @@ interface SpeechRecognition extends EventTarget {
 }
 
 export default function JavaneseGame() {
+  const [isValidating, setIsValidating] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const user = await getCurrentUser();
+        if (!user) {
+          router.push('/');
+        } else {
+          setIsValidating(false);
+        }
+      } catch (err) {
+        console.error('Auth verification error:', err);
+        router.push('/');
+      }
+    };
+    checkAuth();
+  }, [router]);
   const [gameState, setGameState] = useState<"idle" | "intro" | "listening" | "result">("idle");
   const [transcript, setTranscript] = useState("");
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
@@ -188,6 +209,14 @@ export default function JavaneseGame() {
     { id: 'b', text: "iya bu, arep lunga", correct: false },
     { id: 'c', text: "iya bu kula arep lunga", correct: false }
   ];
+
+  if (isValidating) {
+    return (
+      <div className="min-h-screen bg-[#020617] text-slate-100 flex flex-col items-center justify-center p-6 font-sans">
+        <div style={{ color: '#F59E0B', fontSize: '20px', fontWeight: 'bold' }}>Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#020617] text-slate-100 flex flex-col items-center justify-center p-6 font-sans overflow-hidden">

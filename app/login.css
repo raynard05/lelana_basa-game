@@ -1,4 +1,4 @@
-/* Login Page Styles - Optimized for 360x800 */
+/* Login Page Styles - Responsive */
 
 * {
   margin: 0;
@@ -10,105 +10,80 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  height: 100dvh; /* Dynamic viewport height for mobile */
+  height: 100dvh;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Use CSS background image for maximum compatibility and performance */
+  background-image: url('/login_assets/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000;
 }
 
-/* Background */
-.login-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.background-image {
-  object-fit: cover;
-  object-position: center;
-}
-
-/* Content Overlay */
 .login-content {
   position: relative;
-  z-index: 1;
+  z-index: 10;
   width: 100%;
-  max-width: 360px;
-  height: 100%;
+  max-width: 700px;
+  /* Increased to allow wider logo than the form */
+  height: auto;
+  max-height: 96vh;
+  max-height: 96dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: 20px;
-  padding-top: 20px; /* Dikurangi dari 40px ke 20px */
+  justify-content: center;
+  padding: 24px;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  transition: all 0.3s ease;
 }
 
-/* When keyboard is open */
-.login-content.keyboard-open {
-  justify-content: flex-start;
-  padding-top: 20px;
+/* Hide scrollbars but keep scrolling functionality for visual cleanliness */
+.login-content::-webkit-scrollbar {
+  display: none;
 }
 
-.login-content.keyboard-open .logo-container {
-  margin-bottom: 0;
+.login-content {
+  scrollbar-width: none;
 }
 
-.login-content.keyboard-open .logo-image {
-  max-width: 180px;
-  transition: max-width 0.3s ease;
-}
-
-.login-content.keyboard-open .sugeng-rawuh-banner {
-  margin-bottom: 15px;
-}
-
-.login-content.keyboard-open .sugeng-rawuh-image {
-  max-width: 200px;
-  transition: max-width 0.3s ease;
-}
-
-/* Sugeng Rawuh Banner */
-.sugeng-rawuh-banner {
-  animation: slideDown 0.8s ease-out;
-}
-
-.sugeng-rawuh-image {
-  width: auto;
-  height: auto;
-  max-width: 280px;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-}
-
-/* Logo Container */
+/* Logo styling */
 .logo-container {
-  margin-bottom: 30px;
-  animation: fadeIn 1s ease-out 0.3s both;
+  width: 100%;
+  max-width: 628px;
+  /* Wide logo on desktop */
+  margin-bottom: 28px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  animation: fadeIn 1s ease-out;
 }
 
 .logo-image {
-  width: auto;
-  height: auto;
-  max-width: 400px;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
 }
 
-/* Login Form Container */
+/* Card */
 .login-form-container {
   width: 100%;
-  max-width: 320px;
-  background: rgba(255, 252, 252, 0.418);
-  border-radius: 20px;
-  padding: 25px 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  animation: slideUp 0.8s ease-out 0.5s both;
+  max-width: 380px;
+  /* Keep form container compact and neat */
+  background: rgba(255, 252, 252, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 30px 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.8s ease-out 0.2s both;
+  flex-shrink: 0;
 }
 
 .login-form {
@@ -117,24 +92,21 @@
   gap: 16px;
 }
 
-/* Input Groups */
 .input-group {
   width: 100%;
 }
 
-/* Shadcn Input Wrapper */
 .input-wrapper-shadcn {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 0;
 }
 
 .input-icon-shadcn {
   position: absolute;
-  left: 12px;
+  left: 14px;
   z-index: 10;
-  color: #D4A574; /* Warna lebih terang agar terlihat di background gelap */
+  color: #D4A574;
   pointer-events: none;
 }
 
@@ -143,14 +115,25 @@
   padding-right: 44px !important;
 }
 
+/* Override autofill styling for Google Chrome to keep the brown gradient theme */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 100px #4E3429 inset !important;
+  -webkit-text-fill-color: #FFF8E1 !important;
+  transition: background-color 5000s ease-in-out 0s;
+  border-color: #8B5A2B !important;
+}
+
 .toggle-password-shadcn {
   position: absolute;
-  right: 12px;
+  right: 14px;
   z-index: 10;
   background: transparent;
   border: none;
   cursor: pointer;
-  color: #D4A574; /* Warna lebih terang agar terlihat di background gelap */
+  color: #D4A574;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,7 +145,6 @@
   opacity: 0.7;
 }
 
-/* Form Options */
 .form-options {
   display: flex;
   justify-content: space-between;
@@ -176,7 +158,8 @@
   align-items: center;
   gap: 6px;
   cursor: pointer;
-  color: #000000;
+  color: #FFF8E1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .checkbox-label {
@@ -185,59 +168,51 @@
 }
 
 .forgot-password {
-color: #5D4037;
+  color: #FFF8E1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s;
 }
 
 .forgot-password:hover {
-  color: #864f13;
-  text-decoration: underline;
-}
-
-/* Register Link */
-.register-link {
-  text-align: center;
-  margin-top: 16px;
-  font-size: 13px;
-  color: #5D4037;
-}
-
-.register-text {
-  color: #000000;
-  font-weight: 400;
-}
-
-.register-link-text {
-color: #813f02;
-  text-decoration: none;
-  font-weight: 700;
-  transition: color 0.2s;
-}
-
-.register-link-text:hover {
   color: #D4A574;
   text-decoration: underline;
 }
 
-/* Animations */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.register-link {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
 }
 
+.register-text {
+  color: #FFF8E1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+}
+
+.register-link-text {
+  color: #D4A574;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.2s;
+  margin-left: 4px;
+}
+
+.register-link-text:hover {
+  color: #FFF8E1;
+  text-decoration: underline;
+}
+
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -247,209 +222,66 @@ color: #813f02;
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Responsive Adjustments for 360x800 */
-@media (max-width: 360px ) {
+/* Mobile responsive adjustments */
+@media (max-width: 480px) {
   .login-content {
-    padding: 15px;
-    padding-top: 60px;
-  }
-
-  .sugeng-rawuh-image {
-    max-width: 600px;
-    transform:translateY(-35);
-  } 
-  .sugeng-rawuh-banner{
-   transform: translate(0px,-105px);
-   margin-bottom: -60px;
-  }
-
-.logo-container {
-    margin-bottom: 0px;
-  }
-
-  .logo-image {
-    max-width: 300px;
-    transform: translateY(-55);
+    max-width: 100%;
+    padding: 16px;
   }
 
   .login-form-container {
-  
-    max-width: 300px;
-    padding: 20px 10px;
-  }
-
-  .login-input {
-    font-size: 14px;
-    padding: 12px 10px;
-  }
-
-  .input-shadcn {
-    font-size: 14px !important;
-    padding: 12px 10px !important;
-    padding-left: 40px !important;
-    padding-right: 40px !important;
-  }
-
-  .input-icon-shadcn {
-    left: 10px;
-  }
-
-  .toggle-password-shadcn {
-    right: 10px;
-  }
-
-  .form-options {
-    font-size: 12px;
-  }
-}
-
-/* Landscape Mode */
-@media (max-height: 600px) and (orientation: landscape) {
-  .login-content {
-    padding-top: 20px;
-    justify-content: center;
-  }
-
-  .sugeng-rawuh-banner {
-    margin-bottom: 10px;
-  }
-
-  .sugeng-rawuh-image {
-    max-width: 200px;
+    padding: 24px 16px;
+    border-radius: 20px;
   }
 
   .logo-container {
-    margin-bottom: 15px;
+    /* Bleed to edge of screen to make the logo look massive */
+    width: calc(100% + 120px);
+    margin-left: -16px;
+    margin-right: -16px;
+    max-width: 500vw;
+    margin-bottom: 50px;
   }
 
-  .logo-image {
-    max-width: 180px;
-  }
+}
 
-  .login-form-container {
-    padding: 18px 16px;
+/* Avoid absolute/fixed heights issues on extremely small height devices in portrait */
+@media (max-height: 600px) and (orientation: portrait) {
+  .login-content {
+    justify-content: flex-start;
+    padding-top: 20px;
   }
 }
 
-/* High Resolution Displays */
-@media (min-width: 361px) and (max-width: 380px) {
- .login-content {
-    padding: 15px;
-    padding-top: 60px;
-  }
-
-  .sugeng-rawuh-image {
-    max-width: 600px;
-    transform:translateY(-35);
-  } 
-  .sugeng-rawuh-banner{
-   transform: translate(0px,-115px);
-   margin-bottom: -80px;
-  }
-
-.logo-container {
-    margin-bottom: 0px;
-  }
-
-  .logo-image {
-    max-width: 300px;
-    transform: translateY(-55);
-  }
-
-  .login-form-container {
-  
-    max-width: 300px;
-    padding: 20px 10px;
-  }
-
-  .login-input {
-    font-size: 14px;
-    padding: 12px 10px;
-  }
-
-  .input-shadcn {
-    font-size: 14px !important;
-    padding: 12px 10px !important;
-    padding-left: 40px !important;
-    padding-right: 40px !important;
-  }
-
-  .input-icon-shadcn {
-    left: 10px;
-  }
-
-  .toggle-password-shadcn {
-    right: 10px;
-  }
-
-  .form-options {
-    font-size: 12px;
-  }
+/* Error alert notification styling */
+.error-alert {
+  background: rgba(239, 68, 68, 0.25);
+  border: 2.5px solid rgba(239, 68, 68, 0.4);
+  color: #FFEAEA;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 8px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+  animation: shake 0.4s ease-in-out;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-
-
-
-/* High Resolution Displays */
-@media (min-width: 390px)  {
- .login-content {
-    padding: 15px;
-    padding-top: 100px;
-  }
-
-  .sugeng-rawuh-image {
-    max-width: 800px;
-    transform:translateY(-35);
-  } 
-  .sugeng-rawuh-banner{
-   transform: translate(0px,-115px);
-   margin-bottom: -80px;
-  }
-
-.logo-container {
-    margin-bottom: 0px;
-  }
-
-  .logo-image {
-    max-width: 320px;
-    transform: translateY(-55);
-  }
-
-  .login-form-container {
-  
-    max-width: 300px;
-    padding: 20px 10px;
-  }
-
-  .login-input {
-    font-size: 14px;
-    padding: 12px 10px;
-  }
-
-  .input-shadcn {
-    font-size: 14px !important;
-    padding: 12px 10px !important;
-    padding-left: 40px !important;
-    padding-right: 40px !important;
-  }
-
-  .input-icon-shadcn {
-    left: 10px;
-  }
-
-  .toggle-password-shadcn {
-    right: 10px;
-  }
-
-  .form-options {
-    font-size: 12px;
-  }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
 }

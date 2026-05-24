@@ -3,10 +3,12 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Eye, EyeOff, User, Lock, UserCircle, School, Hash } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
+import { registerUser } from '@/app/actions/auth';
 import './register.css';
 
 export default function RegisterPage() {
@@ -18,7 +20,11 @@ export default function RegisterPage() {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const handleResize = () => {
@@ -76,64 +82,77 @@ export default function RegisterPage() {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+    setSuccessMessage(null);
     
     // Validasi absen harus angka
     if (isNaN(Number(absen)) || absen === '') {
-      alert('Absen harus berupa angka!');
+      setError('Nomer absen kudu angka!');
       return;
     }
     
     if (!agreeTerms) {
-      alert('Anda harus menyetujui syarat dan ketentuan!');
+      setError('Sampeyan kudu setuju karo syarat & ketentuan!');
       return;
     }
     
-    // Handle register logic here
-    console.log('Register attempt:', { namaLengkap, username, kelas, absen: Number(absen), password, agreeTerms });
+    setIsLoading(true);
+
+    try {
+      const res = await registerUser({
+        namaLengkap,
+        username,
+        kelas,
+        absen,
+        password,
+        agreeTerms,
+      });
+
+      if (!res.success) {
+        setError(res.error || 'Gagal ndhaptar pangguna.');
+        setIsLoading(false);
+        return;
+      }
+
+      setSuccessMessage('Ndhaptar kasil! Sampeyan bakal dialihake menyang kaca mlebu...');
+      setIsLoading(false);
+
+      // Redirect to login page after 2 seconds
+      setTimeout(() => {
+        router.push('/');
+      }, 2000);
+    } catch (err) {
+      console.error('Register submit error:', err);
+      setError('Koneksi bermasalah, silakan coba lagi.');
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className="login-container">
-      {/* Background Image */}
-      <div className="login-background">
-        <Image
-          src="/login_assets/background.png"
-          alt="Background"
-          fill
-          priority
-          className="background-image"
-        />
-      </div>
-
       {/* Content Overlay */}
       <div className={`login-content ${isKeyboardOpen ? 'keyboard-open' : ''}`}>
         {/* Lelana Basa Logo */}
         <div className="logo-container">
           <Image
-            src="/login_assets/lelana_basa.png"
+            src="/login_assets/lelana_subtitle.png"
             alt="Lelana Basa"
-            width={3000}
-            height={200}
+            width={628}
+            height={324}
             className="logo-image"
-          />
-        </div>
-
-        {/* Sugeng Rawuh Banner */}
-        <div className="sugeng-rawuh-banner">
-          <Image
-            src="/login_assets/sugeng_rawuh.png"
-            alt="Sugeng Rawuh"
-            width={5000}
-            height={80}
-            className="sugeng-rawuh-image"
+            priority
+            unoptimized
           />
         </div>
 
         {/* Register Form */}
         <div className="login-form-container" ref={formRef}>
           <form onSubmit={handleSubmit} className="login-form">
+            {error && <div className="error-alert">{error}</div>}
+            {successMessage && <div className="success-alert">{successMessage}</div>}
+
             {/* Nama Lengkap Input */}
             <div className="input-group">
               <div className="input-wrapper-shadcn">
@@ -145,6 +164,7 @@ export default function RegisterPage() {
                   onChange={(e) => setNamaLengkap(e.target.value)}
                   className="input-shadcn"
                   required
+                  disabled={isLoading}
                 />
               </div>
             </div>
@@ -160,6 +180,7 @@ export default function RegisterPage() {
                   onChange={(e) => setUsername(e.target.value)}
                   className="input-shadcn"
                   required
+                  disabled={isLoading}
                 />
               </div>
             </div>
@@ -175,6 +196,7 @@ export default function RegisterPage() {
                   onChange={(e) => setKelas(e.target.value)}
                   className="input-shadcn"
                   required
+                  disabled={isLoading}
                 />
               </div>
             </div>
@@ -193,6 +215,7 @@ export default function RegisterPage() {
                   min="1"
                   inputMode="numeric"
                   pattern="[0-9]*"
+                  disabled={isLoading}
                 />
               </div>
             </div>
@@ -208,12 +231,14 @@ export default function RegisterPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   className="input-shadcn"
                   required
+                  disabled={isLoading}
                 />
                 <button
                   type="button"
                   className="toggle-password-shadcn"
                   onClick={() => setShowPassword(!showPassword)}
                   aria-label="Toggle password visibility"
+                  disabled={isLoading}
                 >
                   {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
                 </button>
@@ -226,14 +251,15 @@ export default function RegisterPage() {
                 <Checkbox
                   checked={agreeTerms}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAgreeTerms(e.target.checked)}
+                  disabled={isLoading}
                 />
                 <span className="checkbox-label">Setuju dengan syarat & ketentuan</span>
               </Label>
             </div>
 
             {/* Submit Button */}
-            <Button type="submit" className="w-full mt-2">
-              Wiwit Lelana
+            <Button type="submit" className="w-full mt-2" disabled={isLoading}>
+              {isLoading ? 'Ngolah...' : 'Wiwit Lelana'}
             </Button>
 
             {/* Login Link */}

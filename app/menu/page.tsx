@@ -3,11 +3,32 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { getCurrentUser, logoutUser } from '@/app/actions/auth';
 import './menu.css';
 
 export default function MenuPage() {
   const [isSoundOn, setIsSoundOn] = useState(true);
+  const [currentUser, setCurrentUser] = useState<any>(null);
+  const [isValidating, setIsValidating] = useState(true);
   const router = useRouter();
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const user = await getCurrentUser();
+        if (!user) {
+          router.push('/');
+        } else {
+          setCurrentUser(user);
+          setIsValidating(false);
+        }
+      } catch (err) {
+        console.error('Auth verification error:', err);
+        router.push('/');
+      }
+    };
+    checkAuth();
+  }, [router]);
 
   useEffect(() => {
     const enableFullscreen = () => {
@@ -21,7 +42,6 @@ export default function MenuPage() {
           docEl.msRequestFullscreen();
         }
       }
-      // Remove listener after the first interaction has triggered
       window.removeEventListener('click', enableFullscreen);
     };
 
@@ -59,10 +79,26 @@ export default function MenuPage() {
     console.log('Info clicked');
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     console.log('Logging out...');
+    try {
+      await logoutUser();
+      localStorage.removeItem('user_session');
+    } catch (err) {
+      console.error('Logout error:', err);
+    }
     router.push('/');
   };
+
+  if (isValidating) {
+    return (
+      <div className="menu-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ color: '#FFF8E1', fontSize: '20px', fontWeight: 'bold', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+          Loading...
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="menu-container">

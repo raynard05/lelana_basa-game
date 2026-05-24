@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
+import { loginUser } from '@/app/actions/auth';
 import './login.css';
 
 export default function Home() {
@@ -16,6 +17,8 @@ export default function Home() {
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -24,7 +27,7 @@ export default function Home() {
       // Detect if keyboard is open by checking if viewport height decreased
       const viewportHeight = window.visualViewport?.height || window.innerHeight;
       const windowHeight = window.innerHeight;
-      
+
       if (viewportHeight < windowHeight * 0.75) {
         setIsKeyboardOpen(true);
       } else {
@@ -60,7 +63,7 @@ export default function Home() {
       if (!document.fullscreenElement) {
         const docEl = document.documentElement as any;
         if (docEl.requestFullscreen) {
-          docEl.requestFullscreen().catch(() => {});
+          docEl.requestFullscreen().catch(() => { });
         } else if (docEl.webkitRequestFullscreen) {
           docEl.webkitRequestFullscreen();
         }
@@ -91,55 +94,54 @@ export default function Home() {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Login attempt:', { username, password, rememberMe });
-    
-    // Redirect to menu page after successful login
-    router.push('/menu');
+    setError(null);
+    setIsLoading(true);
+
+    try {
+      const res = await loginUser({ username, password });
+      if (!res.success) {
+        setError(res.error || 'Terjadi kesalahan saat masuk.');
+        setIsLoading(false);
+        return;
+      }
+
+      // Store user info in localStorage for client-side state
+      if (res.user) {
+        localStorage.setItem('user_session', JSON.stringify(res.user));
+      }
+
+      router.push('/menu');
+    } catch (err) {
+      console.error('Submit error:', err);
+      setError('Koneksi bermasalah, silakan coba lagi.');
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className="login-container">
-      {/* Background Image */}
-      <div className="login-background">
-        <Image
-          src="/login_assets/background.png"
-          alt="Background"
-          fill
-          priority
-          className="background-image"
-        />
-      </div>
-
       {/* Content Overlay */}
       <div className={`login-content ${isKeyboardOpen ? 'keyboard-open' : ''}`}>
         {/* Lelana Basa Logo */}
         <div className="logo-container">
           <Image
-            src="/login_assets/lelana_basa.png"
+            src="/login_assets/lelana_subtitle.png"
             alt="Lelana Basa"
-            width={3000}
-            height={200}
+            width={628}
+            height={324}
             className="logo-image"
-          />
-        </div>
-
-        {/* Sugeng Rawuh Banner */}
-        <div className="sugeng-rawuh-banner">
-          <Image
-            src="/login_assets/sugeng_rawuh.png"
-            alt="Sugeng Rawuh"
-            width={5000}
-            height={80}
-            className="sugeng-rawuh-image"
+            priority
+            unoptimized
           />
         </div>
 
         {/* Login Form */}
         <div className="login-form-container" ref={formRef}>
           <form onSubmit={handleSubmit} className="login-form">
+            {error && <div className="error-alert">{error}</div>}
+
             {/* Username Input */}
             <div className="input-group">
               <div className="input-wrapper-shadcn">
@@ -151,6 +153,7 @@ export default function Home() {
                   onChange={(e) => setUsername(e.target.value)}
                   className="input-shadcn"
                   required
+                  disabled={isLoading}
                 />
               </div>
             </div>
@@ -166,12 +169,14 @@ export default function Home() {
                   onChange={(e) => setPassword(e.target.value)}
                   className="input-shadcn"
                   required
+                  disabled={isLoading}
                 />
                 <button
                   type="button"
                   className="toggle-password-shadcn"
                   onClick={() => setShowPassword(!showPassword)}
                   aria-label="Toggle password visibility"
+                  disabled={isLoading}
                 >
                   {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
                 </button>
@@ -184,6 +189,7 @@ export default function Home() {
                 <Checkbox
                   checked={rememberMe}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => setRememberMe(e.target.checked)}
+                  disabled={isLoading}
                 />
                 <span className="checkbox-label">Ingat Saya</span>
               </Label>
@@ -193,8 +199,8 @@ export default function Home() {
             </div>
 
             {/* Submit Button */}
-            <Button type="submit" className="w-full mt-2">
-              Wiwiti
+            <Button type="submit" className="w-full mt-2" disabled={isLoading}>
+              {isLoading ? 'Mriksa...' : 'Wiwiti'}
             </Button>
 
             {/* Register Link */}
