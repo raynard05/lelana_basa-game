@@ -179,13 +179,14 @@
 
 /* Right Column: Title and choices */
 .column-right {
-  flex: 1;
+  flex: 1.2;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.8vh;
+  align-items: center;
+  gap: 1.5vh;
   padding-left: 2%;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .analysis-header {
@@ -193,23 +194,34 @@
   font-weight: 900;
   color: #2D1500;
   text-align: center;
-  margin-bottom: 1vh;
+  margin-bottom: 2vh;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8vh;
+  width: 100%;
+  max-width: 34vh;
+  align-items: center;
 }
 
 /* Option Buttons styling */
 .option-btn {
   width: 100%;
+  height: 6.2vh;
   background: linear-gradient(180deg, #F0B863 0%, #D49033 100%);
   border: 2.5px solid #5A3500;
   border-radius: 12px;
   color: #261100;
   font-size: 2.2vh;
   font-weight: 800;
-  padding: 1.3vh 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.1s ease, filter 0.2s ease;
   touch-action: manipulation;
@@ -285,28 +297,39 @@
 }
 
 /* Proceed Button Overlay when user solves the puzzle */
-.proceed-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 1vh;
-  animation: fadeInUp 0.5s ease-out;
-}
-
-.proceed-btn {
-  background: linear-gradient(180deg, #4ADE80 0%, #16A34A 100%);
-  border: 2.5px solid #064E3B;
-  border-radius: 12px;
-  color: white;
-  font-size: 2.2vh;
-  font-weight: 900;
-  padding: 1.3vh 3vw;
-  cursor: pointer;
+/* Premium Popup Modal Styles */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 11, 0, 0.85);
   display: flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.4);
-  animation: pulseSuccess 1.5s infinite;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease-out;
 }
+
+.popup-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90vw;
+  width: 60vh;
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.popup-image {
+  width: 100%;
+  height: auto;
+  max-width: 120vh;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+  margin: 0;
+}
+
+
 
 /* Animations */
 @keyframes btnShake {

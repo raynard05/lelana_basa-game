@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { MapPin, Clock, ArrowRight } from 'lucide-react';
@@ -15,6 +15,9 @@ export default function Babak1Page() {
   const [timeLeft, setTimeLeft] = useState(60); // 1 minute timer
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
+  const [isLocked, setIsLocked] = useState(false);
+  const [showPopup, setShowPopup] = useState<'correct' | 'incorrect' | null>(null);
+  const proceedTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const router = useRouter();
 
@@ -39,7 +42,7 @@ export default function Babak1Page() {
 
   // 2. Ticking Countdown Timer logic
   useEffect(() => {
-    if (isValidating || isAnswerCorrect) return;
+    if (isValidating || isAnswerCorrect || isLocked || showPopup) return;
 
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
@@ -52,7 +55,16 @@ export default function Babak1Page() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [isValidating, isAnswerCorrect]);
+  }, [isValidating, isAnswerCorrect, isLocked, showPopup]);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (proceedTimeoutRef.current) {
+        clearTimeout(proceedTimeoutRef.current);
+      }
+    };
+  }, []);
 
   // Format seconds to MM:SS
   const formatTime = (seconds: number) => {
@@ -62,21 +74,29 @@ export default function Babak1Page() {
   };
 
   const handleOptionClick = (optionId: string) => {
-    if (isAnswerCorrect) return; // Prevent clicking after correct answer
-
+    if (isLocked) return; // Allow only 1 attempt per question round
+    setIsLocked(true);
     setSelectedOption(optionId);
 
-    // Correct answer is "sapantaran" (Jaka Slewah is a childhood friend, 15 years old)
-    if (optionId === 'sapantaran') {
-      setIsAnswerCorrect(true);
-    } else {
-      setIsAnswerCorrect(false);
-      // Reset incorrect state after a short shake duration to allow re-trying
-      setTimeout(() => {
-        setIsAnswerCorrect(null);
-        setSelectedOption(null);
-      }, 800);
+    const correct = optionId === 'sapantaran';
+    setIsAnswerCorrect(correct);
+
+    setTimeout(() => {
+      const type = correct ? 'correct' : 'incorrect';
+      setShowPopup(type);
+      
+      // Auto-proceed to the next page after 2 seconds
+      proceedTimeoutRef.current = setTimeout(() => {
+        handleProceed();
+      }, 2000);
+    }, 1000); // 1 second delay
+  };
+
+  const handleOverlayClick = () => {
+    if (proceedTimeoutRef.current) {
+      clearTimeout(proceedTimeoutRef.current);
     }
+    handleProceed();
   };
 
   const handleProceed = () => {
@@ -118,17 +138,17 @@ export default function Babak1Page() {
 
           {/* Left Column: Portrait & metadata */}
           <div className="column-left">
-            <div className="avatar-border1">
-              <Image
-                src="/babak1/pages_1_assets/aktor_npc.png"
-                alt="Jaka Slewah"
-                width={100}
-                height={100}
-                className="avatar-image-el"
-                priority
-                unoptimized
-              />
-            </div>
+
+            <Image
+              src="/babak1/pages_1_assets/aktor_npc.png"
+              alt="Jaka Slewah"
+              width={100}
+              height={100}
+              className="avatar-image-el"
+              priority
+              unoptimized
+            />
+
 
           </div>
 
@@ -136,50 +156,31 @@ export default function Babak1Page() {
           <div className="column-right">
 
 
-            {options.map((opt) => {
-              const isSelected = selectedOption === opt.id;
-              let btnClass = "option-btn";
+            <div className="options-container">
+              {options.map((opt) => {
+                const isSelected = selectedOption === opt.id;
+                let btnClass = "option-btn";
 
-              if (isSelected) {
-                if (isAnswerCorrect) {
-                  btnClass += " correct-option";
-                } else if (isAnswerCorrect === false) {
-                  btnClass += " incorrect-option";
+                if (isSelected) {
+                  if (isAnswerCorrect) {
+                    btnClass += " correct-option";
+                  } else if (isAnswerCorrect === false) {
+                    btnClass += " incorrect-option";
+                  }
                 }
-              }
 
-              return (
-                <button
-                  key={opt.id}
-                  onClick={() => handleOptionClick(opt.id)}
-                  className={btnClass}
-                  disabled={isAnswerCorrect === true}
-                  type="button"
-                >
-                  {opt.label}
-                </button>
-              );
-            })}
-
-            {/* Proceed Button container is always rendered to prevent layout shift */}
-            <div
-              className="proceed-container"
-              style={{
-                visibility: isAnswerCorrect ? 'visible' : 'hidden',
-                opacity: isAnswerCorrect ? 1 : 0,
-                pointerEvents: isAnswerCorrect ? 'auto' : 'none',
-                transition: 'opacity 0.3s ease-in-out'
-              }}
-            >
-              <button
-                onClick={handleProceed}
-                className="proceed-btn"
-                type="button"
-                disabled={!isAnswerCorrect}
-              >
-                <span>Nerusake Misi</span>
-                <ArrowRight size={20} />
-              </button>
+                return (
+                  <button
+                    key={opt.id}
+                    onClick={() => handleOptionClick(opt.id)}
+                    className={btnClass}
+                    disabled={isLocked}
+                    type="button"
+                  >
+                    {opt.label}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -189,8 +190,25 @@ export default function Babak1Page() {
       {/* Bottom Subtitle / Instruction Banner */}
       <div className="bottom-banner">
         <div className="banner-content-layout">
+
         </div>
       </div>
+
+      {/* Delayed Popup Modals */}
+      {showPopup && (
+        <div className="popup-overlay" onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
+          <div className="popup-card">
+            <Image
+              src={showPopup === 'correct' ? '/main/pop_up/pop_100.png' : '/main/pop_up/pop_salah.png'}
+              alt={showPopup === 'correct' ? 'Bener' : 'Kleru'}
+              width={320}
+              height={240}
+              className="popup-image"
+              unoptimized
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
