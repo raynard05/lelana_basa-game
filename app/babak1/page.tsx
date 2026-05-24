@@ -118,7 +118,7 @@ export default function Babak1Page() {
 
           {/* Left Column: Portrait & metadata */}
           <div className="column-left">
-            <div className="avatar-border">
+            <div className="avatar-border1">
               <Image
                 src="/babak1/pages_1_assets/aktor_npc.png"
                 alt="Jaka Slewah"
@@ -129,9 +129,7 @@ export default function Babak1Page() {
                 unoptimized
               />
             </div>
-            <h2 className="char-title">Jaka Slewah</h2>
-            <p className="char-relation">Kanca cilik Jaka Tulus</p>
-            <span className="char-age-tag">(15 taun)</span>
+
           </div>
 
           {/* Right Column: Title & choices */}
@@ -164,17 +162,17 @@ export default function Babak1Page() {
             })}
 
             {/* Proceed Button container is always rendered to prevent layout shift */}
-            <div 
+            <div
               className="proceed-container"
-              style={{ 
+              style={{
                 visibility: isAnswerCorrect ? 'visible' : 'hidden',
                 opacity: isAnswerCorrect ? 1 : 0,
                 pointerEvents: isAnswerCorrect ? 'auto' : 'none',
                 transition: 'opacity 0.3s ease-in-out'
               }}
             >
-              <button 
-                onClick={handleProceed} 
+              <button
+                onClick={handleProceed}
                 className="proceed-btn"
                 type="button"
                 disabled={!isAnswerCorrect}
