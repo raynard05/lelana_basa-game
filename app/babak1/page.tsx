@@ -15,7 +15,7 @@ export default function Babak1Page() {
   const [timeLeft, setTimeLeft] = useState(60); // 1 minute timer
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
-  
+
   const router = useRouter();
 
   // 1. Session check on mount
@@ -65,7 +65,7 @@ export default function Babak1Page() {
     if (isAnswerCorrect) return; // Prevent clicking after correct answer
 
     setSelectedOption(optionId);
-    
+
     // Correct answer is "sapantaran" (Jaka Slewah is a childhood friend, 15 years old)
     if (optionId === 'sapantaran') {
       setIsAnswerCorrect(true);
@@ -103,7 +103,7 @@ export default function Babak1Page() {
     <div className="babak1-container">
       {/* Top Controls */}
       <Home className="nav-btn home-btn" />
-      
+
       <div className="timer-badge">
         <Clock className="timer-icon" size={20} />
         <span>{formatTime(timeLeft)}</span>
@@ -115,12 +115,12 @@ export default function Babak1Page() {
       {/* Main Analysis Card */}
       <div className="card-frame">
         <div className="card-content-layout">
-          
+
           {/* Left Column: Portrait & metadata */}
           <div className="column-left">
             <div className="avatar-border">
-              <Image 
-                src="/babak1/pages_1_assets/aktor_npc.png" 
+              <Image
+                src="/babak1/pages_1_assets/aktor_npc.png"
                 alt="Jaka Slewah"
                 width={200}
                 height={200}
@@ -136,12 +136,12 @@ export default function Babak1Page() {
 
           {/* Right Column: Title & choices */}
           <div className="column-right">
-            <h3 className="analysis-header">Analisis Paraga</h3>
-            
+
+
             {options.map((opt) => {
               const isSelected = selectedOption === opt.id;
               let btnClass = "option-btn";
-              
+
               if (isSelected) {
                 if (isAnswerCorrect) {
                   btnClass += " correct-option";
@@ -166,8 +166,8 @@ export default function Babak1Page() {
             {/* Proceed Button appears once the correct answer is chosen */}
             {isAnswerCorrect && (
               <div className="proceed-container">
-                <button 
-                  onClick={handleProceed} 
+                <button
+                  onClick={handleProceed}
                   className="proceed-btn"
                   type="button"
                 >
@@ -184,8 +184,6 @@ export default function Babak1Page() {
       {/* Bottom Subtitle / Instruction Banner */}
       <div className="bottom-banner">
         <div className="banner-content-layout">
-          <MapPin className="banner-icon" size={24} fill="currentColor" />
-          <span>Analisisen sapa mitra tuturmu sadurunge nerusake misi basa!</span>
         </div>
       </div>
     </div>

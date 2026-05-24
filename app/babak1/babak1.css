@@ -96,8 +96,8 @@
 /* Main Analysis Card */
 .card-frame {
   position: relative;
-  width: 106vh;
-  max-width: 90vw;
+  width: 150vh;
+  max-width: 200vw;
   aspect-ratio: 960 / 520;
   background-image: url('/babak1/pages_1_assets/layout_analisis.webp');
   background-size: contain;
@@ -105,8 +105,9 @@
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  padding: 5% 7%;
+  padding: 10% 7%;
   z-index: 10;
+  margin-top: 5%;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
   transform: translateY(-2vh);
 }
@@ -245,7 +246,7 @@
 .bottom-banner {
   position: absolute;
   bottom: 4vh;
-  width: 106vh;
+  width: 140vh;
   max-width: 90vw;
   height: 9vh;
   background-image: url('/babak1/pages_1_assets/subtitle.png');
@@ -277,11 +278,10 @@
   flex-shrink: 0;
 }
 
-/* Proceed Button Overlay when user solves the puzzle */
 .proceed-container {
   display: flex;
   justify-content: center;
-  margin-top: 1vh;
+  margin-top: 3.5vh; /* Increased spacing to separate the proceed button from options */
   animation: fadeInUp 0.5s ease-out;
 }
 
@@ -303,9 +303,19 @@
 
 /* Animations */
 @keyframes btnShake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-6px); }
-  75% { transform: translateX(6px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-6px);
+  }
+
+  75% {
+    transform: translateX(6px);
+  }
 }
 
 @keyframes fadeInUp {
@@ -313,6 +323,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -323,9 +334,11 @@
   0% {
     box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.5);
   }
+
   70% {
     box-shadow: 0 0 0 10px rgba(22, 163, 74, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
   }
@@ -366,7 +379,7 @@
     padding: 3vw;
     bottom: 3vh;
   }
-  
+
   .banner-content-layout {
     font-size: 1.8vh;
   }
