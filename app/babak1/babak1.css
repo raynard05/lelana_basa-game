@@ -98,7 +98,7 @@
 /* Main Analysis Card */
 .card-frame {
   position: relative;
-  width: 175vh;
+  width: 170vh;
   max-width: 200vw;
   aspect-ratio: 960 / 520;
   background-image: url('/babak1/pages_1_assets/layout_analisis.webp');
@@ -251,9 +251,9 @@
 .bottom-banner {
   position: absolute;
   bottom: 4vh;
-  width: 170vh;
+  width: 160vh;
   max-width: 90vw;
-  height: 10vh;
+  height: 12vh;
   background-image: url('/babak1/pages_1_assets/subtitle.png');
   background-size: 100% 100%;
   background-position: center;
