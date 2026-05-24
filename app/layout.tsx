@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import OrientationGuard from "@/components/OrientationGuard";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -36,12 +37,19 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <OrientationGuard />
         {children}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                function enableFullscreen() {
+                function enableFullscreenAndLock() {
+                  var path = window.location.pathname;
+                  // Skip orientation locking and fullscreen on login and register pages
+                  if (path === '/' || path === '/register') {
+                    return;
+                  }
+
                   if (!document.fullscreenElement) {
                     var docEl = document.documentElement;
                     var requestMethod = docEl.requestFullscreen || 
@@ -49,11 +57,21 @@ export default function RootLayout({
                                         docEl.mozRequestFullScreen || 
                                         docEl.msRequestFullscreen;
                     if (requestMethod) {
-                      requestMethod.call(docEl).catch(function(err) {});
+                      requestMethod.call(docEl).then(function() {
+                        if (screen.orientation && screen.orientation.lock) {
+                          screen.orientation.lock('landscape').catch(function(err) {
+                            console.log('Screen orientation lock failed:', err);
+                          });
+                        }
+                      }).catch(function(err) {});
+                    }
+                  } else {
+                    if (screen.orientation && screen.orientation.lock) {
+                      screen.orientation.lock('landscape').catch(function(err) {});
                     }
                   }
                 }
-                document.addEventListener('click', enableFullscreen);
+                document.addEventListener('click', enableFullscreenAndLock);
               })();
             `
           }}
