@@ -122,8 +122,8 @@ export default function Babak1Page() {
               <Image
                 src="/babak1/pages_1_assets/aktor_npc.png"
                 alt="Jaka Slewah"
-                width={200}
-                height={200}
+                width={100}
+                height={100}
                 className="avatar-image-el"
                 priority
                 unoptimized
