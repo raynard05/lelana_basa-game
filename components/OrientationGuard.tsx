@@ -20,13 +20,14 @@ export default function OrientationGuard() {
           </div>
           <h2 className="orientation-warning-title">Mangga Miringaken Layar</h2>
           <p className="orientation-warning-desc">
-            Sinaunipun langkung sekeca wonten mode lanskap (horizontal). 
+            Sinaunipun langkung sekeca wonten mode lanskap (horizontal).
             Miringaken HP panjenengan supados saged dolanan.
           </p>
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .orientation-warning-overlay {
           display: none;
           position: fixed;
