@@ -80,9 +80,6 @@ export default function UnggahUngguhOptions({
 
   const handleCardClick = (id: 'A' | 'B' | 'C' | 'D', audioUrl: string) => {
     if (disabled) return;
-    if (onSelect) {
-      onSelect(id);
-    }
     playAudio(id, audioUrl);
   };
 
@@ -105,6 +102,8 @@ export default function UnggahUngguhOptions({
         .unggah-ungguh-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          grid-auto-flow: column;
           gap: 20px;
         }
 
@@ -230,9 +229,11 @@ export default function UnggahUngguhOptions({
         }
 
         /* Mobile / Small Screens Layout */
-        @media (max-width: 768px) {
+        @media (max-width: 768px) and (orientation: portrait) {
           .unggah-ungguh-grid {
             grid-template-columns: 1fr;
+            grid-template-rows: unset;
+            grid-auto-flow: unset;
             gap: 12px;
           }
 
@@ -256,6 +257,48 @@ export default function UnggahUngguhOptions({
           .speaker-button {
             width: 38px;
             height: 38px;
+          }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+          .unggah-ungguh-container {
+            transform: translateY(3%);
+            padding: 6px 14px;
+            border-width: 2px;
+            border-radius: 12px;
+          }
+          .unggah-ungguh-grid {
+            gap: 6px;
+          }
+          .speech-level-card {
+            padding: 6px 10px;
+            border-width: 1.5px;
+            border-radius: 10px;
+            min-height: auto;
+            gap: 8px;
+          }
+          .letter-badge {
+            width: 22px;
+            height: 22px;
+            font-size: 11px;
+            border-width: 1.5px;
+            border-radius: 6px;
+          }
+          .speech-title {
+            font-size: 12px;
+          }
+          .speech-quote {
+            font-size: 10px;
+            line-height: 1.15;
+          }
+          .speaker-button {
+            width: 26px;
+            height: 26px;
+            border-width: 1.5px;
+          }
+          .speaker-button svg {
+            width: 12px !important;
+            height: 12px !important;
           }
         }
       `}} />

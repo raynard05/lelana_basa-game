@@ -50,6 +50,13 @@ export default function Babak1Page() {
     };
   }, []);
 
+  // Initialize game score to 0 on mount
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('game_score', '0');
+    }
+  }, []);
+
   const handleTimeOut = () => {
     if (isLocked || showPopup) return;
     setIsLocked(true);
@@ -68,6 +75,10 @@ export default function Babak1Page() {
 
     const correct = optionId === 'sapantaran';
     setIsAnswerCorrect(correct);
+
+    if (correct && typeof window !== 'undefined') {
+      localStorage.setItem('game_score', '100');
+    }
 
     setTimeout(() => {
       const type = correct ? 'correct' : 'incorrect';

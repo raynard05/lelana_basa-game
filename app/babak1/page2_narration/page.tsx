@@ -34,7 +34,7 @@ export default function Babak1Page2() {
   }, [router]);
 
   const handleSkip = () => {
-    router.push('/game');
+    router.push('/babak1/page3');
   };
 
   if (isValidating) {
