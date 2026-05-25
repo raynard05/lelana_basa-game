@@ -44,7 +44,7 @@
 
 .babak2-container .music-btn {
   top: 5vh;
-  right: calc(5vw + 80px + 2vw);
+  right: calc(5vw + 50px + 1vw);
   /* Music button next to Skip button */
 }
 
@@ -71,7 +71,7 @@
   background-image: url('/babak1/pages_2_assets/narration_layout1.webp');
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  width: 90vw;
+  width: 80vw;
   height: 75vh;
   max-width: 1100px;
   max-height: 500px;
@@ -85,7 +85,7 @@
 
 /* Audio Player Container */
 .audio-container-page2 {
-  width: 85vw;
+  width: 78vw;
   max-width: 800px;
   display: flex;
   justify-content: center;
