@@ -8,6 +8,7 @@ import { getCurrentUser } from '@/app/actions/auth';
 import Home from '@/components/Home';
 import Music from '@/components/Music';
 import Timer from '@/components/Timer';
+
 import './babak1.css';
 
 export default function Babak1Page() {
@@ -53,7 +54,7 @@ export default function Babak1Page() {
     if (isLocked || showPopup) return;
     setIsLocked(true);
     setShowPopup('timeout');
-    
+
     // Auto-proceed to the next page after 2 seconds
     proceedTimeoutRef.current = setTimeout(() => {
       handleProceed();
@@ -71,7 +72,7 @@ export default function Babak1Page() {
     setTimeout(() => {
       const type = correct ? 'correct' : 'incorrect';
       setShowPopup(type);
-      
+
       // Auto-proceed to the next page after 2 seconds
       proceedTimeoutRef.current = setTimeout(() => {
         handleProceed();
@@ -91,7 +92,7 @@ export default function Babak1Page() {
       localStorage.removeItem('babak1_page1_timer_expiration');
       localStorage.removeItem('babak1_page1_timer_paused_time');
     }
-    router.push('/game');
+    router.push('/babak1/page2_narration');
   };
 
   if (isValidating) {
@@ -124,6 +125,8 @@ export default function Babak1Page() {
 
       {/* Skip button replaced by Music Component */}
       <Music className="nav-btn music-btn" />
+
+
 
       {/* Main Analysis Card */}
       <div className="card-frame">
@@ -196,8 +199,8 @@ export default function Babak1Page() {
                 showPopup === 'correct'
                   ? '/main/pop_up/pop_100.png'
                   : showPopup === 'incorrect'
-                  ? '/main/pop_up/pop_salah.png'
-                  : '/main/pop_up/pop_waktuhabis1.webp'
+                    ? '/main/pop_up/pop_salah.png'
+                    : '/main/pop_up/pop_waktuhabis1.webp'
               }
               alt={showPopup === 'correct' ? 'Bener' : showPopup === 'incorrect' ? 'Kleru' : 'Waktu Habis'}
               width={320}

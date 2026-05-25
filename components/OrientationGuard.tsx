@@ -20,8 +20,8 @@ export default function OrientationGuard() {
           </div>
           <h2 className="orientation-warning-title">Mangga miringake layar</h2>
           <p className="orientation-warning-desc">
-                Sinaune bakal luwih penak yen mode landscape (horizontal)
-                Miringake Hp-ne supaya bisa dolanan.
+            Sinaune bakal luwih penak yen mode landscape (horizontal)
+            Miringake Hp-ne supaya bisa dolanan.
           </p>
         </div>
       </div>
