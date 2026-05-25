@@ -206,7 +206,7 @@ export default function Babak1Page3() {
   return (
     <div className="page3-container">
       {/* Top Left Home Button */}
-      <Home className="nav-btn home-btn" />
+      <Home className="nav3-btn home3-btn" />
 
       {/* Top Center Timer */}
       <Timer
