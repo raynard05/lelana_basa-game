@@ -42,7 +42,7 @@
   left: 5vw;
 }
 
-.music-btn {
+.babak2-container .music-btn {
   top: 5vh;
   right: calc(5vw + 80px + 2vw);
   /* Music button next to Skip button */
@@ -106,7 +106,7 @@
     left: 4vw;
   }
 
-  .music-btn {
+  .babak2-container .music-btn {
     top: 3vh;
     right: calc(4vw + 12vw + 3vw);
   }

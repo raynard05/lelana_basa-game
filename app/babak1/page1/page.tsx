@@ -125,9 +125,6 @@ export default function Babak1Page() {
 
       {/* Skip button replaced by Music Component */}
       <Music className="nav-btn music-btn" />
-
-
-
       {/* Main Analysis Card */}
       <div className="card-frame">
         <div className="card-content-layout">
@@ -144,15 +141,11 @@ export default function Babak1Page() {
               priority
               unoptimized
             />
-
-
           </div>
 
           {/* Right Column: Title & choices */}
           <div className="column-right">
-
-
-            <div className="options-container">
+           <div className="options-container">
               {options.map((opt) => {
                 const isSelected = selectedOption === opt.id;
                 let btnClass = "option-btn";

@@ -50,7 +50,7 @@
   left: 5vw;
 }
 
-.music-btn {
+.babak1-container .music-btn {
   top: 5vh;
   right: 5vw;
 }
@@ -431,7 +431,7 @@
     left: 4vw;
   }
 
-  .music-btn {
+  .babak1-container .music-btn {
     top: 3vh;
     right: 4vw;
   }
