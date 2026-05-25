@@ -262,13 +262,13 @@ export default function UnggahUngguhOptions({
 
         @media (max-height: 600px) and (orientation: landscape) {
           .unggah-ungguh-container {
-            transform: translateY(3%);
-            padding: 6px 14px;
+            transform: translateY(20%);
+            padding:15px 8px;
             border-width: 2px;
             border-radius: 12px;
           }
           .unggah-ungguh-grid {
-            gap: 6px;
+            gap: 10px;
           }
           .speech-level-card {
             padding: 6px 10px;
