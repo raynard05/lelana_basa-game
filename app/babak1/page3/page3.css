@@ -373,12 +373,12 @@
   }
 
   .character-portrait {
-    height: 60vh;
-    transform: translateY(-18%);
+    height: 48vh;
+    transform: translateY(-5%);
   }
 
   .dialog-bubble-wrapper {
-    transform: translate(-10%, -160%);
+    transform: translate(-8%, -110%);
     max-width: 50vw;
   }
 
