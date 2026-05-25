@@ -260,15 +260,15 @@ export default function UnggahUngguhOptions({
           }
         }
 
-        @media (max-height: 600px) and (orientation: landscape) {
+        @media (min-height:400px ) and (max-height: 600px) and (orientation: landscape) {
           .unggah-ungguh-container {
             transform: translateY(20%);
-            padding:15px 8px;
+            padding:20px 8px;
             border-width: 2px;
             border-radius: 12px;
           }
           .unggah-ungguh-grid {
-            gap: 10px;
+            gap: 6px;
           }
           .speech-level-card {
             padding: 6px 10px;
@@ -301,6 +301,51 @@ export default function UnggahUngguhOptions({
             height: 12px !important;
           }
         }
+
+        
+        @media (min-height:300px ) and (max-height: 400px) and (orientation: landscape) {
+          .unggah-ungguh-container {
+            transform: translateY(5%);
+            padding:4px 8px;
+            border-width: 2px;
+            border-radius: 12px;
+          }
+          .unggah-ungguh-grid {
+            gap: 8px;
+          }
+          .speech-level-card {
+            padding: 6px 10px;
+            border-width: 1.5px;
+            border-radius: 10px;
+            min-height: auto;
+            gap: 8px;
+          }
+          .letter-badge {
+            width: 22px;
+            height: 22px;
+            font-size: 11px;
+            border-width: 1.5px;
+            border-radius: 6px;
+          }
+          .speech-title {
+            font-size: 12px;
+          }
+          .speech-quote {
+            font-size: 10px;
+            line-height: 1.15;
+          }
+          .speaker-button {
+            width: 26px;
+            height: 26px;
+            border-width: 1.5px;
+          }
+          .speaker-button svg {
+            width: 12px !important;
+            height: 12px !important;
+          }
+        }
+          
+
       `}} />
 
       <div className="unggah-ungguh-grid">

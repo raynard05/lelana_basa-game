@@ -40,8 +40,8 @@ export default function GameStatusHeader({
           gap: 10px;
           user-select: none;
           font-family: 'Outfit', 'Inter', sans-serif;
-          align-items: flex-start;
-          width: fit-content;
+          align-items: flex-end;
+          width: 200px;
         }
 
         .status-badge {
@@ -60,7 +60,7 @@ export default function GameStatusHeader({
           letter-spacing: 0.5px;
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.25);
           text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-          min-width: 190px;
+          width: 100%;
           position: relative;
           overflow: hidden;
           transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.2s ease, box-shadow 0.2s ease;
@@ -119,11 +119,13 @@ export default function GameStatusHeader({
             flex-direction: column !important;
             align-items: flex-end !important;
             gap: 6px;
+            width: 150px !important;
           }
           .status-badge {
             padding: 4px 14px;
             font-size: 13px;
-            min-width: 130px;
+            width: 100% !important;
+            min-width: unset !important;
             border-width: 1.5px;
           }
           .star-svg-glow {
