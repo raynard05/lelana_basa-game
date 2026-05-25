@@ -5,7 +5,6 @@ import Image from 'next/image';
 
 interface RecordButtonProps {
   onTranscript?: (transcript: string) => void;
-  onRecordingComplete?: (audioBlob: Blob) => void;
   lang?: string; // Default is Javanese ('jv-ID')
   className?: string;
   style?: React.CSSProperties;
@@ -14,16 +13,13 @@ interface RecordButtonProps {
 
 export default function RecordButton({
   onTranscript,
-  onRecordingComplete,
   lang = 'jv-ID', // default to Javanese
   className = '',
   style,
   disabled = false,
 }: RecordButtonProps) {
   const [isRecording, setIsRecording] = useState(false);
-  const [recognition, setRecognition] = useState<any>(null);
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const audioChunksRef = useRef<Blob[]>([]);
+  const recognitionRef = useRef<any>(null);
 
   // Initialize browser SpeechRecognition
   useEffect(() => {
@@ -57,67 +53,37 @@ export default function RecordButton({
           setIsRecording(false);
         };
 
-        setRecognition(rec);
+        recognitionRef.current = rec;
       } else {
         console.warn('Browser does not support SpeechRecognition Web API.');
       }
     }
   }, [lang, onTranscript]);
 
-  const startRecording = async () => {
+  const startRecording = () => {
     if (disabled) return;
 
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-
-      // 1. Start browser SpeechRecognition
-      if (recognition) {
-        recognition.lang = lang;
-        recognition.start();
-      } else {
-        setIsRecording(true);
+    if (recognitionRef.current) {
+      try {
+        recognitionRef.current.lang = lang;
+        recognitionRef.current.start();
+      } catch (err) {
+        console.error('Failed to start speech recognition:', err);
+        setIsRecording(false);
       }
-
-      // 2. Start MediaRecorder for capturing raw audio data
-      audioChunksRef.current = [];
-      const mediaRecorder = new MediaRecorder(stream);
-      mediaRecorderRef.current = mediaRecorder;
-
-      mediaRecorder.ondataavailable = (event) => {
-        if (event.data.size > 0) {
-          audioChunksRef.current.push(event.data);
-        }
-      };
-
-      mediaRecorder.onstop = () => {
-        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
-        if (onRecordingComplete) {
-          onRecordingComplete(audioBlob);
-        }
-        // Stop all tracks to release microphone access
-        stream.getTracks().forEach((track) => track.stop());
-      };
-
-      mediaRecorder.start();
-    } catch (err) {
-      console.error('Microphone access denied or failed:', err);
-      setIsRecording(false);
+    } else {
+      alert('Browser Anda tidak mendukung Speech Recognition.');
     }
   };
 
   const stopRecording = () => {
-    if (recognition) {
+    if (recognitionRef.current) {
       try {
-        recognition.stop();
+        recognitionRef.current.stop();
       } catch (err) {
         // already stopped
       }
     }
-
-    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
-      mediaRecorderRef.current.stop();
-    }
-
     setIsRecording(false);
   };
 
