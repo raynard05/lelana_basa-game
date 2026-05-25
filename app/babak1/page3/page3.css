@@ -50,6 +50,11 @@
   left: 5vw;
 }
 
+.music3-btn {
+  top: 5vh;
+  right: calc(5vw + 200px + 2vw);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .nav-btn:hover {
     transform: scale(1.15);
@@ -261,6 +266,17 @@
     left: 4vw;
   }
 
+  .nav3-btn {
+    width: 12vw;
+    height: 12vw;
+  }
+
+  .music3-btn {
+    top: 3vh;
+    right: calc(4vw + 150px + 3vw);
+    left: unset;
+  }
+
   .timer-container-page3 {
     top: 3vh;
   }
@@ -311,35 +327,49 @@
   }
 }
 
-/* Small heights in landscape (e.g. mobile landscape) */
-@media (max-height: 500px) and (orientation: landscape) {
-  .home-btn {
-    top: 2vh;
-    left: 2vw;
-    width: 8vh;
-    height: 8vh;
-    max-width: 44px;
-    max-height: 44px;
+/* Small heights in landscape (e.g. mobile landscape) using responsive ratio */
+@media (max-height: 600px) and (orientation: landscape) {
+  .home3-btn {
+    top: 5vh;
+    left: 5vw;
+    width: 15vh;
+    height: 15vh;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 80px;
+    max-height: 80px;
+  }
+
+  .music3-btn {
+    top: 5vh;
+    right: calc(5vw + 150px + 2vw);
+    left: unset;
+    width: 15vh;
+    height: 15vh;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 80px;
+    max-height: 80px;
   }
 
   .timer-badge {
-    top: 2vh;
-    padding: 4px 14px;
-    font-size: 13px;
+    top: 5vh;
+    padding: 6px 20px;
+    font-size: 16px;
   }
 
   .timer-icon {
-    width: 16px !important;
-    height: 16px !important;
+    width: 20px !important;
+    height: 20px !important;
   }
 
   .status-header-page3 {
-    top: 2vh;
-    right: 2vw;
+    top: 5vh;
+    right: 5vw;
   }
 
   .character-dialog-row {
-    gap: 15px;
+    gap: 1.5vw;
   }
 
   .character-portrait {
@@ -350,11 +380,10 @@
   .dialog-bubble-wrapper {
     transform: translate(-10%, -160%);
     max-width: 50vw;
-
   }
 
   .options-wrapper-page3 {
-    top: 37vh;
+    top: 42vh;
   }
 
   .bottom-actions-row {
@@ -362,13 +391,15 @@
   }
 
   .bottom-actions-row button {
-    width: 160px !important;
-    height: 44px !important;
+    width: 17.5vw !important;
+    height: 10.7vh !important;
+    max-width: 160px;
+    max-height: 44px;
   }
 
   .transcript-feedback {
     bottom: 15vh;
-    padding: 4px 12px;
-    font-size: 12px;
+    padding: 1vh 1.3vw;
+    font-size: 2.9vh;
   }
 }

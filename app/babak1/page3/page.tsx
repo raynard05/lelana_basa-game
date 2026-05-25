@@ -11,6 +11,7 @@ import DialogBubble from '@/components/DialogBubble';
 import UnggahUngguhOptions, { OptionData } from '@/components/UnggahUngguhOptions';
 import RecordButton from '@/components/RecordButton';
 import ListenButton from '@/components/ListenButton';
+import Music from '@/components/Music';
 
 import './page3.css';
 
@@ -207,6 +208,9 @@ export default function Babak1Page3() {
     <div className="page3-container">
       {/* Top Left Home Button */}
       <Home className="nav3-btn home3-btn" />
+
+      {/* Top Right Music Toggle Button */}
+      <Music className="nav3-btn music3-btn" />
 
       {/* Top Center Timer */}
       <Timer

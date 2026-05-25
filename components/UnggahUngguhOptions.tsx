@@ -260,88 +260,45 @@ export default function UnggahUngguhOptions({
           }
         }
 
-        @media (min-height:400px ) and (max-height: 600px) and (orientation: landscape) {
+        @media (max-height: 600px) and (orientation: landscape) {
           .unggah-ungguh-container {
-            transform: translateY(20%);
-            padding:20px 8px;
+            transform: translateY(2vh);
+            padding: 4.8vh 1vw;
             border-width: 2px;
-            border-radius: 12px;
+            border-radius: 2.9vh;
           }
           .unggah-ungguh-grid {
-            gap: 6px;
+            gap: 1.4vh;
           }
           .speech-level-card {
-            padding: 6px 10px;
+            padding: 1.4vh 1.1vw;
             border-width: 1.5px;
-            border-radius: 10px;
+            border-radius: 2.4vh;
             min-height: auto;
-            gap: 8px;
+            gap: 0.9vw;
           }
           .letter-badge {
-            width: 22px;
-            height: 22px;
-            font-size: 11px;
+            width: 5.3vh;
+            height: 5.3vh;
+            font-size: 2.6vh;
             border-width: 1.5px;
-            border-radius: 6px;
+            border-radius: 1.4vh;
           }
           .speech-title {
-            font-size: 12px;
+            font-size: 2.9vh;
           }
           .speech-quote {
-            font-size: 10px;
+            font-size: 2.4vh;
             line-height: 1.15;
           }
           .speaker-button {
-            width: 26px;
-            height: 26px;
+            width: 6.3vh;
+            height: 6.3vh;
             border-width: 1.5px;
           }
           .speaker-button svg {
-            width: 12px !important;
-            height: 12px !important;
-          }
-        }
-
-        
-        @media (min-height:300px ) and (max-height: 400px) and (orientation: landscape) {
-          .unggah-ungguh-container {
-            transform: translateY(5%);
-            padding:4px 8px;
-            border-width: 2px;
-            border-radius: 12px;
-          }
-          .unggah-ungguh-grid {
-            gap: 8px;
-          }
-          .speech-level-card {
-            padding: 6px 10px;
-            border-width: 1.5px;
-            border-radius: 10px;
-            min-height: auto;
-            gap: 8px;
-          }
-          .letter-badge {
-            width: 22px;
-            height: 22px;
-            font-size: 11px;
-            border-width: 1.5px;
-            border-radius: 6px;
-          }
-          .speech-title {
-            font-size: 12px;
-          }
-          .speech-quote {
-            font-size: 10px;
-            line-height: 1.15;
-          }
-          .speaker-button {
-            width: 26px;
-            height: 26px;
-            border-width: 1.5px;
-          }
-          .speaker-button svg {
-            width: 12px !important;
-            height: 12px !important;
+            width: 2.9vh !important;
+            height: 2.9vh !important;
           }
         }
           
