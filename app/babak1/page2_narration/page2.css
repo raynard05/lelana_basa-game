@@ -44,7 +44,7 @@
 
 .babak2-container .music-btn {
   top: 5vh;
-  right: calc(5vw + 50px + 1vw);
+  right: calc(5vw + 50px + 2vw);
   /* Music button next to Skip button */
 }
 
