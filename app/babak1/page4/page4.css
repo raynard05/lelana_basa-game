@@ -109,7 +109,7 @@
 }
 
 /* Character & Dialog Row */
-.character-dialog-row {
+.page4-container .character-dialog-row {
   position: absolute;
   top: 18vh;
   left: 5vw;
@@ -122,32 +122,32 @@
   margin: 0 auto;
 }
 
-.character-portrait-container {
+.page4-container .character-portrait-container {
   flex-shrink: 0;
   display: flex;
   align-items: flex-end;
 }
 
-.character-portrait {
+.page4-container .character-portrait {
   height: 50vh;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
 }
 
-.dialog-bubble-wrapper {
+.page4-container .dialog-bubble-wrapper {
   flex-grow: 1;
   margin-bottom: 2vh;
   max-width: 48vw;
 }
 
-.dialog-bubble-wrapper-page4 {
+.page4-container .dialog-bubble-wrapper-page4 {
   flex-grow: 1;
   margin-bottom: 2vh;
   max-width: 48vw;
 }
 
-.character2-absolute-container {
+.page4-container .character2-absolute-container {
   position: absolute;
   bottom: 0;
   right: 5vw;
@@ -157,7 +157,7 @@
   align-items: flex-end;
 }
 
-.character2-portrait {
+.page4-container .character2-portrait {
   height: 60vh;
   width: auto;
   object-fit: contain;
@@ -262,15 +262,15 @@
 
 /* Tablet / Landscape adjustments */
 @media (max-height: 700px) {
-  .character-portrait {
+  .page4-container .character-portrait {
     height: 32vh;
   }
 
-  .character2-portrait {
+  .page4-container .character2-portrait {
     height: 32vh;
   }
 
-  .character-dialog-row {
+  .page4-container .character-dialog-row {
     top: 15vh;
     align-items: flex-start;
   }
@@ -314,7 +314,7 @@
     right: 4vw;
   }
 
-  .character-dialog-row {
+  .page4-container .character-dialog-row {
     position: relative;
     top: 12vh;
     margin-bottom: 2vh;
@@ -323,16 +323,16 @@
     gap: 12px;
   }
 
-  .dialog-bubble-wrapper {
+  .page4-container .dialog-bubble-wrapper {
     max-width: 100%;
     width: 100%;
   }
 
-  .character-portrait {
+  .page4-container .character-portrait {
     height: 20vh;
   }
 
-  .character2-absolute-container {
+  .page4-container .character2-absolute-container {
     position: relative;
     bottom: unset;
     right: unset;
@@ -342,7 +342,7 @@
     margin-top: 2vh;
   }
 
-  .character2-portrait {
+  .page4-container .character2-portrait {
     height: 20vh;
     width: auto;
   }
@@ -411,16 +411,16 @@
     right: 5vw;
   }
 
-  .character-dialog-row {
+  .page4-container .character-dialog-row {
     gap: -1vw;
   }
 
-  .character-portrait {
+  .page4-container .character-portrait {
     height: 92vh;
     transform: translate(-18%, 1%);
   }
 
-  .character2-absolute-container {
+  .page4-container .character2-absolute-container {
     position: absolute;
     bottom: 0;
     right: 5vw;
@@ -429,7 +429,7 @@
     align-items: flex-end;
   }
 
-  .character2-portrait {
+  .page4-container .character2-portrait {
     height: 90vh;
     transform: translate(10%, 5%);
   }
@@ -443,18 +443,18 @@
       transform: translate(-10vw, 10vh) !important;
     }
 
-    .character-dialog-row {
+    .page4-container .character-dialog-row {
       top: 8vh;
       gap: -1vw;
       align-items: flex-start;
     }
 
-    .character-portrait {
+    .page4-container .character-portrait {
       height: 85vh;
       transform: translate(-18%, 10%) !important;
     }
 
-    .character2-portrait {
+    .page4-container .character2-portrait {
       height: 90vh;
       transform: translate(10%, 5%) !important;
     }
@@ -500,7 +500,7 @@
   }
 
   @media (max-width: 960px) {
-    .character-dialog-row {
+    .page4-container .character-dialog-row {
       align-items: flex-start;
       top: 12vh;
     }
@@ -563,18 +563,18 @@
 
 /* Fullscreen laptop / desktop (height > 720px) adjustment */
 @media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
-  .character-dialog-row {
+  .page4-container .character-dialog-row {
     top: 8vh;
     gap: -1vw;
     align-items: flex-start;
   }
 
-  .character-portrait {
+  .page4-container .character-portrait {
     height: 82vh !important;
     transform: translate(-12%, 5%) !important;
   }
 
-  .character2-portrait {
+  .page4-container .character2-portrait {
     height: 80vh !important;
     transform: translate(10%, 5%) !important;
   }
