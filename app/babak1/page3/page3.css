@@ -115,7 +115,7 @@
   left: 5vw;
   right: 5vw;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 20px;
   z-index: 20;
   max-width: 1200px;
@@ -245,6 +245,7 @@
 
   .character-dialog-row {
     top: 15vh;
+    align-items: flex-start;
   }
 
   .options-wrapper-page3 {
@@ -327,8 +328,8 @@
   }
 }
 
-/* Small heights in landscape (e.g. mobile landscape) using responsive ratio */
-@media (max-height: 600px) and (orientation: landscape) {
+/* Small heights in landscape (e.g. mobile landscape & short desktop) using responsive ratio */
+@media (max-height: 720px) and (orientation: landscape) {
   .home3-btn {
     top: 5vh;
     left: 5vw;
@@ -377,9 +378,74 @@
     transform: translateY(-5%);
   }
 
-  .dialog-bubble-wrapper {
-    transform: translate(-8%, -110%);
-    max-width: 50vw;
+  /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
+  @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
+    .dialog-bubble-wrapper {
+      max-width: 62vw;
+      margin-bottom: 0;
+      transform: translate(-5%, 40%);
+    }
+
+    .character-dialog-row {
+      top: 15vh;
+      gap: 3.3vh;
+      align-items: flex-start;
+    }
+
+    .character-portrait {
+      height: 46vh;
+      transform: none;
+    }
+
+    .bottom-actions-row button {
+      width: 260px !important;
+      height: 70px !important;
+      max-width: none !important;
+      max-height: none !important;
+    }
+
+    /* Dialogue bubble responsive ratio overrides for laptop/desktop */
+    .dialog-bubble-wrapper .dialog-bubble-container {
+      padding: 2.2vh 3.3vh !important;
+      border-width: 0.4vh !important;
+      border-radius: 2.2vh !important;
+      min-height: auto !important;
+      box-shadow: 0 0.8vh 2.2vh rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .dialog-bubble-wrapper .dialog-actor {
+      font-size: 2.5vh !important;
+      margin-bottom: 0.8vh !important;
+    }
+
+    .dialog-bubble-wrapper .dialog-text {
+      font-size: 2.2vh !important;
+      line-height: 1.4 !important;
+    }
+
+    .dialog-bubble-wrapper .dialog-bubble-tail {
+      width: 3vh !important;
+      height: 3.3vh !important;
+    }
+
+    .dialog-bubble-wrapper .dialog-bubble-container.left .dialog-bubble-tail {
+      left: -2.7vh !important;
+    }
+
+    .dialog-bubble-wrapper .dialog-bubble-container.right .dialog-bubble-tail {
+      right: -2.7vh !important;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .character-dialog-row {
+      align-items: flex-end;
+    }
+
+    .dialog-bubble-wrapper {
+      transform: translate(-10%, -90%);
+      max-width: 50vw;
+    }
   }
 
   .options-wrapper-page3 {
@@ -390,11 +456,13 @@
     bottom: 2vh;
   }
 
-  .bottom-actions-row button {
-    width: 17.5vw !important;
-    height: 10.7vh !important;
-    max-width: 160px;
-    max-height: 44px;
+  @media (max-width: 960px) {
+    .bottom-actions-row button {
+      width: 17.5vw !important;
+      height: 10.7vh !important;
+      max-width: 160px;
+      max-height: 44px;
+    }
   }
 
   .transcript-feedback {

@@ -114,7 +114,7 @@ export default function GameStatusHeader({
           }
         }
 
-        @media (max-height: 600px) and (orientation: landscape) {
+        @media (max-height: 720px) and (orientation: landscape) {
           .game-status-header-container {
             flex-direction: column !important;
             align-items: flex-end !important;

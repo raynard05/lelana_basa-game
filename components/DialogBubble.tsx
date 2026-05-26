@@ -92,29 +92,29 @@ export default function DialogBubble({
           }
         }
 
-        @media (max-height: 600px) and (orientation: landscape) {
+        @media (max-height: 720px) and (max-width: 960px) and (orientation: landscape) and (pointer: coarse) {
           .dialog-bubble-container {
-            padding: 12px 10px;
-            border-width: 2px;
+            padding: 3.3vh 2.7vh;
+            border-width: 0.6vh;
             min-height: auto;
-            border-radius: 12px;
+            border-radius: 3.3vh;
           }
           .dialog-actor {
-            font-size: 14px;
+            font-size: 3.9vh;
           }
           .dialog-text {
-            font-size: 12px;
+            font-size: 3.3vh;
             line-height: 1.3;
           }
           .dialog-bubble-tail {
-            width: 16px;
-            height: 18px;
+            width: 4.4vh;
+            height: 5vh;
           }
           .dialog-bubble-container.left .dialog-bubble-tail {
-            left: -14px;
+            left: -3.8vh;
           }
           .dialog-bubble-container.right .dialog-bubble-tail {
-            right: -14px;
+            right: -3.8vh;
           }
         }
       `}} />

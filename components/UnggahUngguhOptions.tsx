@@ -260,7 +260,7 @@ export default function UnggahUngguhOptions({
           }
         }
 
-        @media (max-height: 600px) and (orientation: landscape) {
+        @media (max-height: 720px) and (orientation: landscape) {
           .unggah-ungguh-container {
             transform: translateY(2vh);
             padding: 4.8vh 1vw;

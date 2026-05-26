@@ -253,12 +253,12 @@ export default function Babak1Page3() {
 
       {/* Speech Level Choices Grid */}
       <div className="options-wrapper-page3">
-        
+
         <UnggahUngguhOptions
           options={optionsData}
           selectedId={selectedOption}
           onSelect={handleOptionSelect}
-          disabled={isLocked} 
+          disabled={isLocked}
         />
 
       </div>
@@ -277,13 +277,13 @@ export default function Babak1Page3() {
           onTranscript={handleTranscript}
           lang="jv-ID"
           disabled={isLocked}
-          style={{ width: '220px', height: '60px' }}
+          style={{ width: '260px', height: '70px' }}
         />
         {/* Listen Button for Jaka Slewah's spoken dialogue */}
         <ListenButton
           audioUrl="/audio/MP3 BABAK 1/2. Jaka slewah 1.mp3"
           disabled={isLocked}
-          style={{ width: '220px', height: '60px' }}
+          style={{ width: '260px', height: '70px' }}
         />
       </div>
 
