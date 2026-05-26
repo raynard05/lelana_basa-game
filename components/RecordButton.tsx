@@ -35,6 +35,7 @@ export default function RecordButton({
 
         rec.onstart = () => {
           setIsRecording(true);
+          window.dispatchEvent(new Event('pauseBackgroundMusic'));
         };
 
         rec.onresult = (event: any) => {
@@ -51,6 +52,7 @@ export default function RecordButton({
 
         rec.onend = () => {
           setIsRecording(false);
+          window.dispatchEvent(new Event('resumeBackgroundMusic'));
         };
 
         recognitionRef.current = rec;

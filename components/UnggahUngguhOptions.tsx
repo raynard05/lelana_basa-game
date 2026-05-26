@@ -41,6 +41,21 @@ export default function UnggahUngguhOptions({
     };
   }, []);
 
+  // Listen to global pause event to stop option audio when another audio plays or recording starts
+  useEffect(() => {
+    const handleGlobalPause = () => {
+      if (audioRef.current && !audioRef.current.paused) {
+        audioRef.current.pause();
+        setPlayingId(null);
+      }
+    };
+
+    window.addEventListener('pauseBackgroundMusic', handleGlobalPause);
+    return () => {
+      window.removeEventListener('pauseBackgroundMusic', handleGlobalPause);
+    };
+  }, []);
+
   const playAudio = (id: 'A' | 'B' | 'C' | 'D', audioUrl: string, e?: React.MouseEvent) => {
     if (e) {
       e.stopPropagation(); // Prevent card selection when clicking the speaker button specifically
