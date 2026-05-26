@@ -117,7 +117,8 @@
   display: flex;
   align-items: flex-start;
   gap: 3vw;
-  z-index: 30; /* Set z-index higher so Jaka and dialogue render above Lelana */
+  z-index: 30;
+  /* Set z-index higher so Jaka and dialogue render above Lelana */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -440,7 +441,7 @@
       width: 38vw !important;
       max-width: 38vw !important;
       margin-bottom: 0 !important;
-      transform: translate(-10vw, 10vh) !important;
+      transform: translate(-15vw, 10vh) !important;
     }
 
     .page5-container .character-dialog-row {
@@ -491,7 +492,7 @@
     }
 
     .dialog-bubble-container-page5.left .dialog-bubble-tail {
-      left: -2.7vh !important;
+      left: -2.5vh !important;
     }
 
     .dialog-bubble-container-page5.right .dialog-bubble-tail {
@@ -583,7 +584,7 @@
     width: 38vw !important;
     max-width: 38vw !important;
     margin-bottom: 0 !important;
-    transform: translate(-6vw, 12vh) !important;
+    transform: translate(-15vw, 12vh) !important;
   }
 
   .bottom-actions-row button {
