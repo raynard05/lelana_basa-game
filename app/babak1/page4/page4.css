@@ -440,7 +440,7 @@
       width: 38vw !important;
       max-width: 38vw !important;
       margin-bottom: 0 !important;
-      transform: translate(-6vw, 10vh) !important;
+      transform: translate(-10vw, 10vh) !important;
     }
 
     .character-dialog-row {
@@ -450,8 +450,8 @@
     }
 
     .character-portrait {
-      height: 92vh;
-      transform: translate(-18%, 1%) !important;
+      height: 85vh;
+      transform: translate(-18%, 10%) !important;
     }
 
     .character2-portrait {
@@ -558,5 +558,70 @@
     bottom: 15vh;
     padding: 1vh 1.3vw;
     font-size: 2.9vh;
+  }
+}
+
+/* Fullscreen laptop / desktop (height > 720px) adjustment */
+@media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
+  .character-dialog-row {
+    top: 8vh;
+    gap: -1vw;
+    align-items: flex-start;
+  }
+
+  .character-portrait {
+    height: 82vh !important;
+    transform: translate(-12%, 5%) !important;
+  }
+
+  .character2-portrait {
+    height: 80vh !important;
+    transform: translate(10%, 5%) !important;
+  }
+
+  .dialog-bubble-wrapper-page4 {
+    width: 38vw !important;
+    max-width: 38vw !important;
+    margin-bottom: 0 !important;
+    transform: translate(-6vw, 12vh) !important;
+  }
+
+  .bottom-actions-row button {
+    width: 260px !important;
+    height: 70px !important;
+    max-width: none !important;
+    max-height: none !important;
+  }
+
+  /* Dialogue bubble responsive ratio overrides for laptop/desktop fullscreen */
+  .dialog-bubble-container-page4 {
+    padding: 2vh 3vh !important;
+    border-width: 0.4vh !important;
+    border-radius: 2vh !important;
+    min-height: auto !important;
+    box-shadow: 0 0.8vh 2.2vh rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .dialog-bubble-container-page4 .dialog-actor {
+    font-size: 2.5vh !important;
+    margin-bottom: 0.8vh !important;
+  }
+
+  .dialog-bubble-container-page4 .dialog-text {
+    font-size: 2.2vh !important;
+    line-height: 1.4 !important;
+  }
+
+  .dialog-bubble-container-page4 .dialog-bubble-tail {
+    width: 3vh !important;
+    height: 3.3vh !important;
+  }
+
+  .dialog-bubble-container-page4.left .dialog-bubble-tail {
+    left: -2.7vh !important;
+  }
+
+  .dialog-bubble-container-page4.right .dialog-bubble-tail {
+    right: -2.7vh !important;
   }
 }

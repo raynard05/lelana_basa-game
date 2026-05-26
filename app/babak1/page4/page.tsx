@@ -15,28 +15,6 @@ import Music from '@/components/Music';
 
 import './page4.css';
 
-const optionsData: OptionData[] = [
-  {
-    id: 'A',
-    text: 'Senadyan aku ora ngerti sapa bapakku, aku rak ya ora tau milara marang kowe.',
-    audioUrl: '/audio/MP3 BABAK 1/3. Ngoko Lugu babak 1.mp3',
-  },
-  {
-    id: 'B',
-    text: 'Senadyan aku ora ngerti sapa bapakku, aku rak ya ora tau gawe milara marang panjenengan.',
-    audioUrl: '/audio/MP3 BABAK 1/4. Ngoko Alus babak 1.mp3',
-  },
-  {
-    id: 'C',
-    text: 'Senadyan kula mboten ngertos sinten bapak kula, kula rak nggih mboten nate damel milala dhateng sampeyan.',
-    audioUrl: '/audio/MP3 BABAK 1/5. krama lugu babak 1.mp3',
-  },
-  {
-    id: 'D',
-    text: 'Senadyan kula mboten ngertos sinten rama kula, kula rak nggih mboten nate damel milara dhumateng panjenengan.',
-    audioUrl: '/audio/MP3 BABAK 1/6. krama alus babak 1.mp3',
-  },
-];
 
 export default function Babak1Page4() {
   const [currentUser, setCurrentUser] = useState<any>(null);
@@ -99,37 +77,37 @@ export default function Babak1Page4() {
     }, 2000);
   };
 
-  const calculateSimilarity = (str1: string, str2: string): number => {
-    const clean = (s: string) => s.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").trim();
-    const s1 = clean(str1);
-    const s2 = clean(str2);
-    if (s1 === s2) return 1.0;
-    if (s1.length === 0 || s2.length === 0) return 0.0;
-
-    const dp = Array(s2.length + 1).fill(null).map(() => Array(s1.length + 1).fill(null));
-    for (let i = 0; i <= s1.length; i++) dp[0][i] = i;
-    for (let j = 0; j <= s2.length; j++) dp[j][0] = j;
-    for (let j = 1; j <= s2.length; j++) {
-      for (let i = 1; i <= s1.length; i++) {
-        const cost = s1[i - 1] === s2[j - 1] ? 0 : 1;
-        dp[j][i] = Math.min(
-          dp[j][i - 1] + 1,
-          dp[j - 1][i] + 1,
-          dp[j - 1][i - 1] + cost
-        );
-      }
-    }
-    const distance = dp[s2.length][s1.length];
-    const maxLength = Math.max(s1.length, s2.length);
-    return (maxLength - distance) / maxLength;
-  };
-
-  const handleOptionSelect = (id: 'A' | 'B' | 'C' | 'D') => {
+  const handleTranscript = (text: string) => {
     if (isLocked) return;
-    setIsLocked(true);
-    setSelectedOption(id);
+    setTranscriptFeedback(text);
 
-    const correct = id === 'A'; // Ngoko Lugu is correct since Jaka Slewah is a peer (childhood friend)
+    // Auto clear feedback text after 5 seconds
+    if (feedbackTimeoutRef.current) clearTimeout(feedbackTimeoutRef.current);
+    feedbackTimeoutRef.current = setTimeout(() => {
+      setTranscriptFeedback(null);
+    }, 5000);
+
+    // Helper to normalize words (lowercase, remove accents, and strip punctuation)
+    const normalizeWord = (w: string) => {
+      return w
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "")
+        .trim();
+    };
+
+    // Words from transcript
+    const words = text.split(/\s+/).map(normalizeWord).filter(Boolean);
+
+    // Allowed target words (supporting both 'amerga' and 'amarga' spelling)
+    const targetWords = ['aku', 'luput', 'apa', 'marang', 'kowe', 'kenek', 'amerga', 'amarga'];
+
+    // Check count of target words spoken
+    const matchedCount = words.filter(word => targetWords.includes(word)).length;
+    const correct = matchedCount >= 2;
+
+    setIsLocked(true);
     setIsAnswerCorrect(correct);
 
     if (correct) {
@@ -150,33 +128,6 @@ export default function Babak1Page4() {
     }, 1000);
   };
 
-  const handleTranscript = (text: string) => {
-    setTranscriptFeedback(text);
-
-    // Auto clear feedback text after 5 seconds
-    if (feedbackTimeoutRef.current) clearTimeout(feedbackTimeoutRef.current);
-    feedbackTimeoutRef.current = setTimeout(() => {
-      setTranscriptFeedback(null);
-    }, 5000);
-
-    // Calculate similarity against all options to find 80% match
-    let bestOptionId: 'A' | 'B' | 'C' | 'D' | null = null;
-    let highestSimilarity = 0;
-
-    optionsData.forEach(opt => {
-      const sim = calculateSimilarity(text, opt.text);
-      if (sim > highestSimilarity) {
-        highestSimilarity = sim;
-        bestOptionId = opt.id;
-      }
-    });
-
-    // Trigger option selection if matching by 80% or more
-    if (highestSimilarity >= 0.8 && bestOptionId) {
-      handleOptionSelect(bestOptionId);
-    }
-  };
-
   const handleOverlayClick = () => {
     if (proceedTimeoutRef.current) {
       clearTimeout(proceedTimeoutRef.current);
@@ -189,7 +140,7 @@ export default function Babak1Page4() {
       localStorage.removeItem('babak1_page4_timer_expiration');
       localStorage.removeItem('babak1_page4_timer_paused_time');
     }
-    router.push('/game'); // End of Babak 1, proceed to general game hub
+    router.push('/babak1/page5'); // End of Babak 1, proceed to general game hub
   };
 
   if (isValidating) {
@@ -263,16 +214,6 @@ export default function Babak1Page4() {
         />
       </div>
 
-      {/* Speech Level Choices Grid */}
-      {/* <div className="options-wrapper-page4">
-        <UnggahUngguhOptions
-          options={optionsData}
-          selectedId={selectedOption}
-          onSelect={handleOptionSelect}
-          disabled={isLocked}
-        />
-      </div> */}
-
       {/* Real-time speech transcript feedback overlay */}
       {transcriptFeedback && (
         <div className="transcript-feedback">
@@ -284,7 +225,7 @@ export default function Babak1Page4() {
       <div className="bottom-actions-row">
         {/* Listen Button for Jaka Slewah's spoken dialogue */}
         <ListenButton
-          audioUrl="/audio/MP3 BABAK 1/2. Jaka slewah 1.mp3"
+          audioUrl="/audio/MP3 BABAK 1/soundpage4.mp3"
           disabled={isLocked}
           style={{ width: '260px', height: '70px' }}
         />
