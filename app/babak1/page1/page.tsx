@@ -50,10 +50,23 @@ export default function Babak1Page() {
     };
   }, []);
 
-  // Initialize game score to 0 on mount
+  // Initialize game score to 0 and clear all timers on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('game_score', '0');
+      
+      // Clear all timer keys from previous sessions to prevent sudden timeout bugs
+      const timerKeys = [
+        'babak1_page1_timer_expiration',
+        'babak1_page1_timer_paused_time',
+        'babak1_page3_timer_expiration',
+        'babak1_page3_timer_paused_time',
+        'babak1_page4_timer_expiration',
+        'babak1_page4_timer_paused_time',
+        'babak1_page5_timer_expiration',
+        'babak1_page5_timer_paused_time'
+      ];
+      timerKeys.forEach(key => localStorage.removeItem(key));
     }
   }, []);
 
