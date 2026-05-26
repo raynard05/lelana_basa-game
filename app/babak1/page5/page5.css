@@ -109,36 +109,59 @@
 }
 
 /* Character & Dialog Row */
-.character-dialog-row {
+.page5-container .character-dialog-row {
   position: absolute;
   top: 18vh;
   left: 5vw;
   right: 5vw;
   display: flex;
   align-items: flex-start;
-  gap: 20px;
-  z-index: 20;
+  gap: 3vw;
+  z-index: 30; /* Set z-index higher so Jaka and dialogue render above Lelana */
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.character-portrait-container {
+.page5-container .character-portrait-container {
   flex-shrink: 0;
   display: flex;
   align-items: flex-end;
 }
 
-.character-portrait {
+.page5-container .character-portrait {
   height: 50vh;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
 }
 
-.dialog-bubble-wrapper {
+.page5-container .dialog-bubble-wrapper {
   flex-grow: 1;
   margin-bottom: 2vh;
-  max-width: 56vw;
+  max-width: 48vw;
+}
+
+.page5-container .dialog-bubble-wrapper-page5 {
+  flex-grow: 1;
+  margin-bottom: 2vh;
+  max-width: 48vw;
+}
+
+.page5-container .character2-absolute-container {
+  position: absolute;
+  bottom: 0;
+  right: 5vw;
+  z-index: 20;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+}
+
+.page5-container .character2-portrait {
+  height: 60vh;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
 }
 
 /* Central Options Card Placement */
@@ -239,11 +262,15 @@
 
 /* Tablet / Landscape adjustments */
 @media (max-height: 700px) {
-  .character-portrait {
+  .page5-container .character-portrait {
     height: 32vh;
   }
 
-  .character-dialog-row {
+  .page5-container .character2-portrait {
+    height: 32vh;
+  }
+
+  .page5-container .character-dialog-row {
     top: 15vh;
     align-items: flex-start;
   }
@@ -287,7 +314,7 @@
     right: 4vw;
   }
 
-  .character-dialog-row {
+  .page5-container .character-dialog-row {
     position: relative;
     top: 12vh;
     margin-bottom: 2vh;
@@ -296,13 +323,28 @@
     gap: 12px;
   }
 
-  .dialog-bubble-wrapper {
+  .page5-container .dialog-bubble-wrapper {
     max-width: 100%;
     width: 100%;
   }
 
-  .character-portrait {
+  .page5-container .character-portrait {
     height: 20vh;
+  }
+
+  .page5-container .character2-absolute-container {
+    position: relative;
+    bottom: unset;
+    right: unset;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+  }
+
+  .page5-container .character2-portrait {
+    height: 20vh;
+    width: auto;
   }
 
   .options-wrapper-page5 {
@@ -369,31 +411,54 @@
     right: 5vw;
   }
 
-  .character-dialog-row {
-    gap: 1.5vw;
+  .page5-container .character-dialog-row {
+    gap: -1vw;
   }
 
-  .character-portrait {
-    height: 48vh;
-    transform: translateY(-5%);
+  .page5-container .character-portrait {
+    height: 92vh;
+    transform: translate(-18%, 1%);
+  }
+
+  .page5-container .character2-absolute-container {
+    position: absolute;
+    bottom: 0;
+    right: 5vw;
+    z-index: 20;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .page5-container .character2-portrait {
+    height: 90vh;
+    transform: translate(10%, 5%);
   }
 
   /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
   @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
-    .dialog-bubble-wrapper {
-      max-width: 62vw;
-      margin-bottom: 0;
-      transform: translate(-5%, 40%);
+    .dialog-bubble-wrapper-page5 {
+      width: 38vw !important;
+      max-width: 38vw !important;
+      margin-bottom: 0 !important;
+      transform: translate(-10vw, 10vh) !important;
     }
-    .character-dialog-row {
-      top: 15vh;
-      gap: 3.3vh;
+
+    .page5-container .character-dialog-row {
+      top: 8vh;
+      gap: -1vw;
       align-items: flex-start;
     }
-    .character-portrait {
-      height: 46vh;
-      transform: none;
+
+    .page5-container .character-portrait {
+      height: 85vh;
+      transform: translate(-18%, 12%) !important;
     }
+
+    .page5-container .character2-portrait {
+      height: 90vh;
+      transform: translate(10%, 5%) !important;
+    }
+
     .bottom-actions-row button {
       width: 260px !important;
       height: 70px !important;
@@ -402,41 +467,73 @@
     }
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop */
-    .dialog-bubble-wrapper .dialog-bubble-container {
-      padding: 2.2vh 3.3vh !important;
+    .dialog-bubble-container-page5 {
+      padding: 2vh 3vh !important;
       border-width: 0.4vh !important;
-      border-radius: 2.2vh !important;
+      border-radius: 2vh !important;
       min-height: auto !important;
       box-shadow: 0 0.8vh 2.2vh rgba(0, 0, 0, 0.15) !important;
     }
-    .dialog-bubble-wrapper .dialog-actor {
+
+    .dialog-bubble-container-page5 .dialog-actor {
       font-size: 2.5vh !important;
       margin-bottom: 0.8vh !important;
     }
-    .dialog-bubble-wrapper .dialog-text {
+
+    .dialog-bubble-container-page5 .dialog-text {
       font-size: 2.2vh !important;
       line-height: 1.4 !important;
     }
-    .dialog-bubble-wrapper .dialog-bubble-tail {
+
+    .dialog-bubble-container-page5 .dialog-bubble-tail {
       width: 3vh !important;
       height: 3.3vh !important;
     }
-    .dialog-bubble-wrapper .dialog-bubble-container.left .dialog-bubble-tail {
+
+    .dialog-bubble-container-page5.left .dialog-bubble-tail {
       left: -2.7vh !important;
     }
-    .dialog-bubble-wrapper .dialog-bubble-container.right .dialog-bubble-tail {
+
+    .dialog-bubble-container-page5.right .dialog-bubble-tail {
       right: -2.7vh !important;
     }
   }
 
   @media (max-width: 960px) {
-    .character-dialog-row {
-      align-items: flex-end;
+    .page5-container .character-dialog-row {
+      align-items: flex-start;
+      top: 12vh;
     }
 
-    .dialog-bubble-wrapper {
-      transform: translate(-10%, -90%);
-      max-width: 50vw;
+    .dialog-bubble-wrapper-page5 {
+      width: 38vw !important;
+      max-width: 38vw !important;
+      margin-bottom: 0 !important;
+      transform: translate(-10vw, 10vh) !important;
+    }
+
+    /* Dialogue bubble responsive ratio overrides for mobile landscape */
+    .dialog-bubble-container-page5 {
+      padding: 2.2vh 3vh !important;
+      border-width: 0.5vh !important;
+      border-radius: 2.5vh !important;
+      box-shadow: 0 0.8vh 2vh rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .dialog-bubble-container-page5 .dialog-actor {
+      font-size: 3vh !important;
+      margin-bottom: 0.5vh !important;
+    }
+
+    .dialog-bubble-container-page5 .dialog-text {
+      font-size: 2.5vh !important;
+      line-height: 1.35 !important;
+    }
+
+    .dialog-bubble-container-page5 .dialog-bubble-tail {
+      width: 3.5vh !important;
+      height: 4vh !important;
+      left: -3vh !important;
     }
   }
 
@@ -461,5 +558,70 @@
     bottom: 15vh;
     padding: 1vh 1.3vw;
     font-size: 2.9vh;
+  }
+}
+
+/* Fullscreen laptop / desktop (height > 720px) adjustment */
+@media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
+  .page5-container .character-dialog-row {
+    top: 8vh;
+    gap: -1vw;
+    align-items: flex-start;
+  }
+
+  .page5-container .character-portrait {
+    height: 82vh !important;
+    transform: translate(-12%, 5%) !important;
+  }
+
+  .page5-container .character2-portrait {
+    height: 80vh !important;
+    transform: translate(10%, 5%) !important;
+  }
+
+  .dialog-bubble-wrapper-page5 {
+    width: 38vw !important;
+    max-width: 38vw !important;
+    margin-bottom: 0 !important;
+    transform: translate(-6vw, 12vh) !important;
+  }
+
+  .bottom-actions-row button {
+    width: 260px !important;
+    height: 70px !important;
+    max-width: none !important;
+    max-height: none !important;
+  }
+
+  /* Dialogue bubble responsive ratio overrides for laptop/desktop fullscreen */
+  .dialog-bubble-container-page5 {
+    padding: 2vh 3vh !important;
+    border-width: 0.4vh !important;
+    border-radius: 2vh !important;
+    min-height: auto !important;
+    box-shadow: 0 0.8vh 2.2vh rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .dialog-bubble-container-page5 .dialog-actor {
+    font-size: 2.5vh !important;
+    margin-bottom: 0.8vh !important;
+  }
+
+  .dialog-bubble-container-page5 .dialog-text {
+    font-size: 2.2vh !important;
+    line-height: 1.4 !important;
+  }
+
+  .dialog-bubble-container-page5 .dialog-bubble-tail {
+    width: 3vh !important;
+    height: 3.3vh !important;
+  }
+
+  .dialog-bubble-container-page5.left .dialog-bubble-tail {
+    left: -2.7vh !important;
+  }
+
+  .dialog-bubble-container-page5.right .dialog-bubble-tail {
+    right: -2.7vh !important;
   }
 }
