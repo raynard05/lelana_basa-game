@@ -77,8 +77,8 @@ export default function MenuPage() {
     <div className="menu-container">
       {/* Main Content Center - Rendered first so absolute buttons sit on top in DOM order */}
       <div className="menu-content">
-        <div className="logo-container">
-          <Image src="/main/lelana_basa.png" alt="Lelana Basa Logo" width={500} height={300} className="logo-img" priority />
+        <div className="menu-logo-container">
+          <Image src="/main/lelana_basa.png" alt="Lelana Basa Logo" width={500} height={300} className="menu-logo-img" priority />
         </div>
         
         <div className="subtitle-container">
