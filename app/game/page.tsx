@@ -107,6 +107,19 @@ export default function JavaneseGame() {
     };
   }, []);
 
+  // Play sound effects when results are shown
+  useEffect(() => {
+    if (gameState === "result") {
+      if (isCorrect) {
+        const audio = new Audio('/main/MP3_soundeffect/correct_soundeffect.wav');
+        audio.play().catch((err) => console.log('Correct sound playback failed:', err));
+      } else {
+        const audio = new Audio('/main/MP3_soundeffect/wrong_soundeffect.mp3');
+        audio.play().catch((err) => console.log('Wrong sound playback failed:', err));
+      }
+    }
+  }, [gameState, isCorrect]);
+
   const getBestLocalVoice = () => {
     if (typeof window === "undefined" || !window.speechSynthesis) return null;
     const voices = window.speechSynthesis.getVoices();

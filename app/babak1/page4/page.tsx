@@ -67,6 +67,17 @@ export default function Babak1Page4() {
     };
   }, []);
 
+  // Play sound effects when popups appear
+  useEffect(() => {
+    if (showPopup === 'correct') {
+      const audio = new Audio('/main/MP3_soundeffect/correct_soundeffect.wav');
+      audio.play().catch((err) => console.log('Correct sound playback failed:', err));
+    } else if (showPopup === 'incorrect' || showPopup === 'timeout') {
+      const audio = new Audio('/main/MP3_soundeffect/wrong_soundeffect.mp3');
+      audio.play().catch((err) => console.log('Wrong sound playback failed:', err));
+    }
+  }, [showPopup]);
+
   const handleTimeOut = () => {
     if (isLocked || showPopup) return;
     setIsLocked(true);
