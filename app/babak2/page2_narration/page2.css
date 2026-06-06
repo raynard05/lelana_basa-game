@@ -1,0 +1,114 @@
+/* stylesheet for Babak 2 Page 2 Intro Narration */
+
+.babak2-page2-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/babak1/pages_2_assets/narration_bg1.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+/* Nav Controls */
+.babak2-page2-nav-btn {
+  position: absolute;
+  z-index: 100;
+  width: 15vh;
+  height: 15vh;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 80px;
+  max-height: 80px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  touch-action: manipulation;
+}
+
+.babak2-page2-home-btn {
+  top: 5vh;
+  left: 5vw;
+}
+
+.babak2-page2-container .babak2-page2-music-btn {
+  top: 5vh;
+  right: calc(5vw + 50px + 2vw);
+  /* Music button next to Skip button */
+}
+
+.babak2-page2-skip-btn {
+  top: 5vh;
+  right: 5vw;
+  /* Skip button is in the top-right corner to continue */
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .babak2-page2-nav-btn:hover {
+    transform: scale(1.15);
+  }
+}
+
+.babak2-page2-nav-btn:active {
+  opacity: 0.7;
+}
+
+/* Main Card Frame */
+.babak2-page2-card-frame {
+  margin-top: 7%;
+  position: relative;
+  background-image: url('/babak2/page_2_assets/narration_layout2.webp');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 80vw;
+  height: 75vh;
+  max-width: 1100px;
+  max-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Audio Player Container */
+.babak2-page2-audio-container {
+  width: 78vw;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  transform: translateY(-20%);
+  z-index: 10;
+}
+
+/* Mobile responsive modifications */
+@media (orientation: portrait) {
+  .babak2-page2-nav-btn {
+    width: 12vw;
+    height: 12vw;
+  }
+
+  .babak2-page2-home-btn {
+    top: 3vh;
+    left: 4vw;
+  }
+
+  .babak2-page2-container .babak2-page2-music-btn {
+    top: 3vh;
+    right: calc(4vw + 12vw + 3vw);
+  }
+
+  .babak2-page2-skip-btn {
+    top: 3vh;
+    right: 4vw;
+  }
+}
