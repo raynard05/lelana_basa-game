@@ -110,8 +110,7 @@ export default function Babak1Page5() {
     const words = text.split(/\s+/).map(normalizeWord).filter(Boolean);
 
     // Allowed target words (supporting both 'amerga' and 'amarga' spelling)
-    const targetWords = ['aku', 'iya', 'bakal', 'lunga', 'saiki', 'tak', 'nyingkrih', 'ngalih'];
-
+    const targetWords = ['aku', 'iya', 'bakal', 'lunga', 'saiki', 'tak', 'nyingkrih', 'ngalih', "iyo", "yo", "wes" ,"wis", "ya"];
 
     // Check count of target words spoken
     const matchedCount = words.filter(word => targetWords.includes(word)).length;
@@ -150,7 +149,7 @@ export default function Babak1Page5() {
       localStorage.removeItem('babak1_page5_timer_expiration');
       localStorage.removeItem('babak1_page5_timer_paused_time');
     }
-    router.push('/'); // End of Babak 1, proceed to general game hub
+    router.push('/babak2/page1'); // End of Babak 1, proceed to Babak 2 Page 1
   };
 
   if (isValidating) {
