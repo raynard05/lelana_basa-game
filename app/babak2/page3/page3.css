@@ -96,6 +96,9 @@
   height: 20px !important;
 }
 
+
+
+
 /* Game Status Header Position (Top-Right) */
 .babak2-page3-status-header {
   position: absolute;
@@ -364,13 +367,15 @@
   }
 
   .babak2-page3-character-dialog-row {
-    gap: 4vw;
+    gap: 8vw;
   }
 
   .babak2-page3-character-portrait {
-    height: 48vh;
-    transform: translateY(-5%);
+    height: 55vh;
+    transform: translateY(-15%)  translateX(15%);
   }
+  
+
 
   /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
   @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
@@ -438,7 +443,7 @@
     }
 
     .babak2-page3-dialog-bubble-wrapper {
-      transform: translate(-10%, -90%);
+      transform: translate(-12%, -120%);
       max-width: 50vw;
     }
   }
