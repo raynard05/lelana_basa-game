@@ -444,7 +444,7 @@
     }
 
     .dialog-bubble-wrapper {
-      transform: translate(-10%, -90%);
+      transform: translate(-10%, -125%);
       max-width: 50vw;
     }
   }

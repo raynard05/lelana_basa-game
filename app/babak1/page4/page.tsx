@@ -205,7 +205,7 @@ export default function Babak1Page4() {
         <div className="dialog-bubble-wrapper dialog-bubble-wrapper-page4">
           <DialogBubble
             actorName="Jaka Slewah"
-            dialogueText="Halah, rasah omong! Pokoké kowe lunga saka kéné, aku emoh dadi kancamu!"
+            dialogueText="Halah, rasah kakehan omong! Aku emoh dadi kancamu!"
             speakerPosition="left"
             className="dialog-bubble-container-page4"
           />

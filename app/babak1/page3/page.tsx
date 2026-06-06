@@ -18,22 +18,22 @@ import './page3.css';
 const optionsData: OptionData[] = [
   {
     id: 'A',
-    text: 'Senadyan aku ora ngerti sapa bapakku, aku rak ya ora tau milara marang kowe.',
+    text: 'Apa merga aku ora nduwe bapak, banjur awakmu ora gelem kancanan karo aku?',
     audioUrl: '/audio/MP3 BABAK 1/3. Ngoko Lugu babak 1.mp3',
   },
   {
     id: 'B',
-    text: 'Senadyan aku ora ngerti sapa bapakku, aku rak ya ora tau gawe milara marang panjenengan.',
+    text: 'Apa amarga kula ora nduwe bapak, banjur panjenengan ora gelem kancanan karo aku?',
     audioUrl: '/audio/MP3 BABAK 1/4. Ngoko Alus babak 1.mp3',
   },
   {
     id: 'C',
-    text: 'Senadyan kula mboten ngertos sinten bapak kula, kula rak nggih mboten nate damel milala dhateng sampeyan.',
+    text: 'Menapa amergi kula mboten gadhah bapak, banjur sampeyan mboten purun kancanan kalih kula?',
     audioUrl: '/audio/MP3 BABAK 1/5. krama lugu babak 1.mp3',
   },
   {
     id: 'D',
-    text: 'Senadyan kula mboten ngertos sinten rama kula, kula rak nggih mboten nate damel milara dhumateng panjenengan.',
+    text: 'Menapa amergi kula mboten gadhah rama, lajeng panjenengan mboten purun kancanan kalih kula?',
     audioUrl: '/audio/MP3 BABAK 1/6. krama alus babak 1.mp3',
   },
 ];
@@ -256,7 +256,7 @@ export default function Babak1Page3() {
         <div className="dialog-bubble-wrapper">
           <DialogBubble
             actorName="Jaka Slewah"
-            dialogueText="Aja cedhak-cedhak aku! Kana lunga, aku ora sudi srawung karo bocah lola sing ora duwe bapak kaya kowe!"
+            dialogueText="Aja cedhak-cedhak aku! Aku ora sudi kancanan karo awakmu!"
             speakerPosition="left"
           />
         </div>
