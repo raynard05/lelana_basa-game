@@ -4,6 +4,8 @@
   position: relative;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
+  background-color: black;
   background-image: url('/menu_assets/bg_menu.webp');
   background-size: cover;
   background-position: center;
