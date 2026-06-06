@@ -448,7 +448,7 @@
 
   /* Option Buttons styling */
   .option-btn {
-    width: 100%;
+    width: 120%;
     height: 10vh;
     min-height: 35px;
     background: linear-gradient(180deg, #F0B863 0%, #D49033 100%);
