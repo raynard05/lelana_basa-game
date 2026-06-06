@@ -66,6 +66,10 @@ export default function Babak2Page() {
       const timerKeys = [
         'babak2_page1_timer_expiration',
         'babak2_page1_timer_paused_time',
+        'babak2_page3_timer_expiration',
+        'babak2_page3_timer_paused_time',
+        'babak2_page4_timer_expiration',
+        'babak2_page4_timer_paused_time',
       ];
       timerKeys.forEach(key => localStorage.removeItem(key));
     }

@@ -1,10 +1,10 @@
-/* stylesheet for Babak 2 Page 2 Intro Narration */
+/* stylesheet for Main Page Intro Narration */
 
-.babak2-page2-container {
+.mainpage-container {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-image: url('/babak1/pages_2_assets/narration_bg1.webp');
+  background-image: url('/menu_assets/bg_menu.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -17,7 +17,7 @@
 }
 
 /* Nav Controls */
-.babak2-page2-nav-btn {
+.mainpage-nav-btn {
   position: absolute;
   z-index: 100;
   width: 15vh;
@@ -37,38 +37,38 @@
   touch-action: manipulation;
 }
 
-.babak2-page2-home-btn {
+.mainpage-home-btn {
   top: 5vh;
   left: 5vw;
 }
 
-.babak2-page2-container .babak2-page2-music-btn {
+.mainpage-container .mainpage-music-btn {
   top: 5vh;
   right: calc(5vw + 50px + 2vw);
   /* Music button next to Skip button */
 }
 
-.babak2-page2-skip-btn {
+.mainpage-skip-btn {
   top: 5vh;
   right: 5vw;
   /* Skip button is in the top-right corner to continue */
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .babak2-page2-nav-btn:hover {
+  .mainpage-nav-btn:hover {
     transform: scale(1.15);
   }
 }
 
-.babak2-page2-nav-btn:active {
+.mainpage-nav-btn:active {
   opacity: 0.7;
 }
 
 /* Main Card Frame */
-.babak2-page2-card-frame {
+.mainpage-card-frame {
   margin-top: 7%;
   position: relative;
-  background-image: url('/babak2/page_2_assets/narration_layout2_A.webp');
+  background-image: url('/main_page_assets/main_page_layout.webp');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 80vw;
@@ -81,7 +81,7 @@
 }
 
 /* Audio Player Container */
-.babak2-page2-audio-container {
+.mainpage-audio-container {
   width: 78vw;
   max-width: 800px;
   display: flex;
@@ -92,22 +92,22 @@
 
 /* Mobile responsive modifications */
 @media (orientation: portrait) {
-  .babak2-page2-nav-btn {
+  .mainpage-nav-btn {
     width: 12vw;
     height: 12vw;
   }
 
-  .babak2-page2-home-btn {
+  .mainpage-home-btn {
     top: 3vh;
     left: 4vw;
   }
 
-  .babak2-page2-container .babak2-page2-music-btn {
+  .mainpage-container .mainpage-music-btn {
     top: 3vh;
     right: calc(4vw + 12vw + 3vw);
   }
 
-  .babak2-page2-skip-btn {
+  .mainpage-skip-btn {
     top: 3vh;
     right: 4vw;
   }

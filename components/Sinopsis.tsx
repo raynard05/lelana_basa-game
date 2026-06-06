@@ -5,9 +5,25 @@ import { Volume2 } from 'lucide-react';
 
 interface SinopsisProps {
   music_assets: string;
+  backgroundColor?: string;
+  borderColor?: string;
+  textColor?: string;
+  iconColor?: string;
+  progressColor?: string;
+  trackColor?: string;
+  thumbColor?: string;
 }
 
-export default function Sinopsis({ music_assets }: SinopsisProps) {
+export default function Sinopsis({
+  music_assets,
+  backgroundColor = '#1c180d',
+  borderColor = '#d4a574',
+  textColor = '#f5e6c8',
+  iconColor = '#d4a574',
+  progressColor = '#f3d393',
+  trackColor = '#59513e',
+  thumbColor = '#f3d393',
+}: SinopsisProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -100,8 +116,8 @@ export default function Sinopsis({ music_assets }: SinopsisProps) {
         .sinopsis-player-container {
           display: flex;
           align-items: center;
-          background: #1c180d;
-          border: 1.5px solid #d4a574;
+          background: ${backgroundColor};
+          border: 1.5px solid ${borderColor};
           border-radius: 12px;
           padding: 10px 24px;
           width: 100%;
@@ -116,7 +132,7 @@ export default function Sinopsis({ music_assets }: SinopsisProps) {
           align-items: center;
           gap: 12px;
           cursor: pointer;
-          color: #f5e6c8;
+          color: ${textColor};
           transition: opacity 0.2s ease;
         }
 
@@ -125,7 +141,7 @@ export default function Sinopsis({ music_assets }: SinopsisProps) {
         }
 
         .sinopsis-icon {
-          color: #d4a574;
+          color: ${iconColor};
           flex-shrink: 0;
           display: flex;
           align-items: center;
@@ -135,7 +151,7 @@ export default function Sinopsis({ music_assets }: SinopsisProps) {
           font-size: 16px;
           font-weight: 700;
           white-space: nowrap;
-          color: #f5e6c8;
+          color: ${textColor};
         }
 
         .sinopsis-scrubber-container {
@@ -153,7 +169,7 @@ export default function Sinopsis({ music_assets }: SinopsisProps) {
           border-radius: 3px;
           outline: none;
           cursor: pointer;
-          background: linear-gradient(to right, #f3d393 ${progressPct}%, #59513e ${progressPct}%);
+          background: linear-gradient(to right, ${progressColor} ${progressPct}%, ${trackColor} ${progressPct}%);
           transition: background 0.1s ease;
         }
 
@@ -163,7 +179,7 @@ export default function Sinopsis({ music_assets }: SinopsisProps) {
           width: 14px;
           height: 14px;
           border-radius: 50%;
-          background: #f3d393;
+          background: ${thumbColor};
           cursor: pointer;
           box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
           transition: transform 0.1s ease;
@@ -177,7 +193,7 @@ export default function Sinopsis({ music_assets }: SinopsisProps) {
           width: 14px;
           height: 14px;
           border-radius: 50%;
-          background: #f3d393;
+          background: ${thumbColor};
           cursor: pointer;
           border: none;
           box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
@@ -189,7 +205,7 @@ export default function Sinopsis({ music_assets }: SinopsisProps) {
         }
 
         .sinopsis-timer {
-          color: #f5e6c8;
+          color: ${textColor};
           font-size: 15px;
           font-weight: 600;
           white-space: nowrap;
