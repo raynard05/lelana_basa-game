@@ -18,22 +18,22 @@ import './page3.css';
 const optionsData: OptionData[] = [
   {
     id: 'A',
-    text: 'Ora bisa, Bu. Atiku perih banget amarga diece.',
+    text: 'Ora isa, Bu. atiku lara banget.',
     audioUrl: '/audio/MP3 BABAK 1/3. Ngoko Lugu babak 1.mp3',
   },
   {
     id: 'B',
-    text: 'Ora bisa, Bu. Penggalihku perih banget amarga dipunina..',
+    text: 'Ora isa, Bu, ati kula lara banget.',
     audioUrl: '/audio/MP3 BABAK 1/4. Ngoko Alus babak 1.mp3',
   },
   {
     id: 'C',
-    text: 'Mboten saged, Bu. Manah kula perih sanget amargi dipunina.',
+    text: 'Mboten saged, Bu. Manahku lara banget.',
     audioUrl: '/audio/MP3 BABAK 1/5. krama lugu babak 1.mp3',
   },
   {
     id: 'D',
-    text: 'Mboten saged, Bu. Manah kula sampun perih sanget amargi asring dipunina.',
+    text: 'Mboten saged, Bu. Manah kula sakit sanget.',
     audioUrl: '/audio/MP3 BABAK 1/6. krama alus babak 1.mp3',
   },
 ];
@@ -254,7 +254,7 @@ export default function Babak2Page3() {
         <div className="babak2-page3-dialog-bubble-wrapper">
           <DialogBubble
             actorName="Wandan Wanguri"
-            dialogueText="Wis, aja nangis wae, mengko mundhak dadi tontonan tangga. Lungguha dhisik sing kepenak, Ibu bakal crita kabeh."
+            dialogueText="Wis, aja nangis ae, Le. Mengko dadi rasan-rasane tangga. Lungguha dhisik, Ibu bakal crita."
             speakerPosition="left"
           />
         </div>

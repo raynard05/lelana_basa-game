@@ -191,7 +191,7 @@ export default function Babak2Page4() {
         <div className="babak2-page4-character-portrait-container">
           <Image
             src="/babak2/page_4_assets/jaka slewah 3.webp"
-            alt="Jaka Slewah"
+            alt="Wandan Wanguri"
             width={500}
             height={500}
             className="babak2-page4-character-portrait"
@@ -201,8 +201,8 @@ export default function Babak2Page4() {
         </div>
         <div className="babak2-page4-dialog-bubble-wrapper babak2-page4-dialog-bubble-wrapper-page4">
           <DialogBubble
-            actorName="Jaka Slewah"
-            dialogueText="Halah, rasah omong! Pokoké kowe lunga saka kéné, aku emoh dadi kancamu!"
+            actorName="Wandan Wanguri"
+            dialogueText="Saiki budhala menyang Kraton Majapahit. Sejatine bapakmu iku priyayi luhur, yaiku Patih Pangulang Jagad."
             speakerPosition="left"
             className="babak2-page4-dialog-bubble-container"
           />
