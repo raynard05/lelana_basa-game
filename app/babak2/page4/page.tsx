@@ -148,7 +148,7 @@ export default function Babak2Page4() {
       localStorage.removeItem('babak2_page4_timer_expiration');
       localStorage.removeItem('babak2_page4_timer_paused_time');
     }
-    router.push('/babak3/page1'); // Proceed to general game hub
+    router.push('/babak3/page1_narration'); // Proceed to Babak 3 Page 1 Narration
   };
 
   if (isValidating) {
