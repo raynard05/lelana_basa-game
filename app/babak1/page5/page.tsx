@@ -315,7 +315,7 @@ export default function Babak1Page5() {
       <div className="status-header-page5">
         <GameStatusHeader
           babak={1}
-          misi={2}
+          misi={3}
           score={score}
         />
       </div>
