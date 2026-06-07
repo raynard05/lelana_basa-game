@@ -23,7 +23,8 @@ export default function Babak1Page4() {
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [isLocked, setIsLocked] = useState(false);
   const [score, setScore] = useState(0);
-  const [showPopup, setShowPopup] = useState<'correct' | 'incorrect' | 'timeout' | null>(null);
+  const [showPopup, setShowPopup] = useState<'pop_25' | 'pop_50' | 'pop_75' | 'pop_100' | 'pop_cobalagi' | 'pop_salah' | 'timeout' | null>(null);
+  const [attempts, setAttempts] = useState(1);
   const [transcriptFeedback, setTranscriptFeedback] = useState<string | null>(null);
 
   const proceedTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -69,10 +70,10 @@ export default function Babak1Page4() {
 
   // Play sound effects when popups appear
   useEffect(() => {
-    if (showPopup === 'correct') {
+    if (showPopup && ['pop_25', 'pop_50', 'pop_75', 'pop_100'].includes(showPopup)) {
       const audio = new Audio('/main/MP3_soundeffect/correct_soundeffect.wav');
       audio.play().catch((err) => console.log('Correct sound playback failed:', err));
-    } else if (showPopup === 'incorrect' || showPopup === 'timeout') {
+    } else if (showPopup && ['pop_cobalagi', 'pop_salah', 'timeout'].includes(showPopup)) {
       const audio = new Audio('/main/MP3_soundeffect/wrong_soundeffect.mp3');
       audio.play().catch((err) => console.log('Wrong sound playback failed:', err));
     }
@@ -114,35 +115,75 @@ export default function Babak1Page4() {
     // Allowed target words (supporting both 'amerga' and 'amarga' spelling)
     const targetWords = ['aku', 'luput', 'apa', 'marang', 'kowe', "opo", "salahku","nyapo", "gak" , "gelem", "dadi", "kancaku", "iyo", "wis", "salah", 'iya' , 'Ora', "kancoku" , "yo"] ;
     // Check count of target words spoken
-    const matchedCount = words.filter(word => targetWords.includes(word)).length;
-    const correct = matchedCount >= 2;
+    const uniqueMatched = Array.from(new Set(words.filter(word => targetWords.includes(word))));
+    const matchedCount = uniqueMatched.length;
 
     setIsLocked(true);
+
+    let earnedPoints = 0;
+    if (attempts === 1) {
+      if (matchedCount === 1) {
+        earnedPoints = 50;
+      } else if (matchedCount === 2) {
+        earnedPoints = 75;
+      } else if (matchedCount > 2) {
+        earnedPoints = 100;
+      }
+    } else { // attempts === 2
+      if (matchedCount === 1) {
+        earnedPoints = 25;
+      } else if (matchedCount === 2) {
+        earnedPoints = 50;
+      } else if (matchedCount > 2) {
+        earnedPoints = 75;
+      }
+    }
+
+    const correct = earnedPoints > 0;
     setIsAnswerCorrect(correct);
 
     if (correct) {
-      const newScore = score + 100;
+      const newScore = score + earnedPoints;
       setScore(newScore);
       if (typeof window !== 'undefined') {
         localStorage.setItem('game_score', newScore.toString());
       }
+      
+      setTimeout(() => {
+        setShowPopup(`pop_${earnedPoints}` as any);
+
+        proceedTimeoutRef.current = setTimeout(() => {
+          handleProceed();
+        }, 4000); // 4-second delay for correct popup
+      }, 1000);
+    } else {
+      // Failed attempt (0 words matched)
+      setTimeout(() => {
+        if (attempts === 1) {
+          setShowPopup('pop_cobalagi');
+        } else {
+          setShowPopup('pop_salah');
+          proceedTimeoutRef.current = setTimeout(() => {
+            handleProceed();
+          }, 2000); // 2-second delay for incorrect popup on 2nd attempt
+        }
+      }, 1000);
     }
-
-    setTimeout(() => {
-      const type = correct ? 'correct' : 'incorrect';
-      setShowPopup(type);
-
-      proceedTimeoutRef.current = setTimeout(() => {
-        handleProceed();
-      }, correct ? 4000 : 2000); // 4-second delay for correct, 2-second for incorrect
-    }, 1000);
   };
 
   const handleOverlayClick = () => {
     if (proceedTimeoutRef.current) {
       clearTimeout(proceedTimeoutRef.current);
     }
-    handleProceed();
+    
+    if (showPopup === 'pop_cobalagi') {
+      setAttempts(2);
+      setIsLocked(false);
+      setShowPopup(null);
+      setIsAnswerCorrect(null);
+    } else {
+      handleProceed();
+    }
   };
 
   const handleProceed = () => {
@@ -254,13 +295,11 @@ export default function Babak1Page4() {
           <div className="popup-card">
             <Image
               src={
-                showPopup === 'correct'
-                  ? '/main/pop_up/pop_100.png'
-                  : showPopup === 'incorrect'
-                    ? '/main/pop_up/pop_salah.png'
-                    : '/main/pop_up/pop_waktuhabis1.webp'
+                showPopup === 'timeout'
+                  ? '/main/pop_up/pop_waktuhabis1.webp'
+                  : `/main/pop_up/${showPopup}.png`
               }
-              alt={showPopup === 'correct' ? 'Bener' : showPopup === 'incorrect' ? 'Kleru' : 'Waktu Habis'}
+              alt={showPopup}
               width={320}
               height={240}
               className="popup-image"
