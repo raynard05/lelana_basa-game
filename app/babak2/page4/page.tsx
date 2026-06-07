@@ -109,7 +109,7 @@ export default function Babak2Page4() {
     const words = text.split(/\s+/).map(normalizeWord).filter(Boolean);
 
     // Allowed target words (supporting both 'amerga' and 'amarga' spelling)
-    const targetWords = ['aku', 'luput', 'apa', 'marang', 'kowe', 'kenek', 'amerga', 'amarga'];
+    const targetWords = ['sendika','dhawuh', 'ibu', 'kula', 'badhe', 'mangkat','dhateng','kraton', 'majapahit', 'sapunika', 'kagem', 'nemoni', 'rama', 'patih','inggih', 'budhal', 'pamit', 'nyuwun', 'palilah', 'menyang' , 'kerajaan' , 'sakniki', 'nggih'];
 
     // Check count of target words spoken
     const matchedCount = words.filter(word => targetWords.includes(word)).length;
@@ -148,7 +148,7 @@ export default function Babak2Page4() {
       localStorage.removeItem('babak2_page4_timer_expiration');
       localStorage.removeItem('babak2_page4_timer_paused_time');
     }
-    router.push('/babak2/page5'); // Proceed to general game hub
+    router.push('/babak3/page1'); // Proceed to general game hub
   };
 
   if (isValidating) {
