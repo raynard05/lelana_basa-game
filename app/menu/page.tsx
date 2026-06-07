@@ -32,7 +32,7 @@ export default function MenuPage() {
 
   const handleMenuClick = (menu: string) => {
     console.log('Navigating to:', menu);
-    switch(menu) {
+    switch (menu) {
       case 'materi':
         router.push('/materi');
         break;
@@ -80,13 +80,13 @@ export default function MenuPage() {
         <div className="menu-logo-container">
           <Image src="/main/lelana_basa.png" alt="Lelana Basa Logo" width={500} height={300} className="menu-logo-img" priority />
         </div>
-        
+
         <div className="subtitle-container">
           <Image src="/menu_assets/teks_menu.png" alt="Sinau Undha Usuk Basa Jawa" width={400} height={80} className="subtitle-img" priority />
         </div>
 
         <div className="options-container">
-          <Image src="/menu_assets/opsi_menu.png" alt="Menu Options" width={300} height={200} className="options-img" priority />
+          <Image src="/menu_assets/menu_rev.png" alt="Menu Options" width={300} height={200} className="options-img" priority />
           <div className="options-overlay">
             <button onClick={() => handleMenuClick('materi')} className="overlay-btn" aria-label="Materi"></button>
             <button onClick={() => handleMenuClick('sinopsis')} className="overlay-btn" aria-label="Sinopsis Carita"></button>
