@@ -80,7 +80,8 @@ export default function Babak1Page5() {
           particleCount: 150,
           spread: 80,
           origin: { y: 0.6 },
-          colors: ['#FF1493', '#00BFFF', '#32CD32', '#FFD700', '#FF4500', '#9400D3']
+          colors: ['#FF1493', '#00BFFF', '#32CD32', '#FFD700', '#FF4500', '#9400D3'],
+          zIndex: 9999999
         });
       } else if (showPopup === 'pop_streak') {
         const end = Date.now() + 3000;
@@ -93,7 +94,8 @@ export default function Babak1Page5() {
             origin: { x: 0, y: 0.8 },
             colors: colors,
             shapes: ['star', 'circle', 'square'],
-            scalar: 1.2
+            scalar: 1.2,
+            zIndex: 9999999
           });
           confetti({
             particleCount: 3,
@@ -102,7 +104,8 @@ export default function Babak1Page5() {
             origin: { x: 1, y: 0.8 },
             colors: colors,
             shapes: ['star', 'circle', 'square'],
-            scalar: 1.2
+            scalar: 1.2,
+            zIndex: 9999999
           });
           if (Math.random() < 0.1) {
             confetti({
@@ -114,7 +117,8 @@ export default function Babak1Page5() {
               shapes: ['star'],
               scalar: 1.5,
               gravity: 0.6,
-              drift: Math.random() * 2 - 1
+              drift: Math.random() * 2 - 1,
+              zIndex: 9999999
             });
           }
           if (Date.now() < end) {
