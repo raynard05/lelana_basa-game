@@ -372,7 +372,7 @@
 
   .babak2-page3-character-portrait {
     height: 55vh;
-    transform: translateY(-15%)  translateX(15%);
+    transform: translateY(-10%)  translateX(15%);
   }
   
 
@@ -387,14 +387,14 @@
 
     .babak2-page3-character-dialog-row {
       top: 15vh;
-      gap: 3.3vh;
+      gap: 8vh;
       align-items: flex-start;
     }
 
     .babak2-page3-character-portrait {
       height: 55vh;
       transform: none;
-      transform: translateY(-10%);
+      transform: translateY(-10%) translateX(10%);
     }
 
     .babak2-page3-bottom-actions-row button {
@@ -443,13 +443,13 @@
     }
 
     .babak2-page3-dialog-bubble-wrapper {
-      transform: translate(-12%, -120%);
+      transform: translate(-12%, -100%);
       max-width: 50vw;
     }
   }
 
   .babak2-page3-options-wrapper {
-    top: 45vh;
+    top: 48vh;
   }
 
   .babak2-page3-bottom-actions-row {
