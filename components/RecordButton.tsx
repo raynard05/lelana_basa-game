@@ -20,8 +20,23 @@ export default function RecordButton({
 }: RecordButtonProps) {
   const [isRecording, setIsRecording] = useState(false);
   const recognitionRef = useRef<any>(null);
+  
+  const onTranscriptRef = useRef(onTranscript);
+  const langRef = useRef(lang);
 
-  // Initialize browser SpeechRecognition
+  // Keep references up to date to avoid re-running the initialization hook
+  useEffect(() => {
+    onTranscriptRef.current = onTranscript;
+  }, [onTranscript]);
+
+  useEffect(() => {
+    langRef.current = lang;
+    if (recognitionRef.current) {
+      recognitionRef.current.lang = lang;
+    }
+  }, [lang]);
+
+  // Initialize browser SpeechRecognition once on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const SpeechRecognition =
@@ -31,7 +46,7 @@ export default function RecordButton({
         const rec = new SpeechRecognition();
         rec.continuous = false;
         rec.interimResults = false;
-        rec.lang = lang;
+        rec.lang = langRef.current;
 
         rec.onstart = () => {
           setIsRecording(true);
@@ -40,8 +55,8 @@ export default function RecordButton({
 
         rec.onresult = (event: any) => {
           const resultText = event.results[0][0].transcript;
-          if (onTranscript) {
-            onTranscript(resultText);
+          if (onTranscriptRef.current) {
+            onTranscriptRef.current(resultText);
           }
         };
 
@@ -60,7 +75,18 @@ export default function RecordButton({
         console.warn('Browser does not support SpeechRecognition Web API.');
       }
     }
-  }, [lang, onTranscript]);
+
+    // Cleanup to prevent memory leaks and active dangling speech recognition sessions
+    return () => {
+      if (recognitionRef.current) {
+        try {
+          recognitionRef.current.abort();
+        } catch (e) {
+          // ignore
+        }
+      }
+    };
+  }, []);
 
   const startRecording = () => {
     if (disabled) return;
