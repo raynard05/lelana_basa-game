@@ -150,10 +150,25 @@ export default function Home({ className, style }: HomeProps) {
                 transform: scale(1) translateY(0);
               }
             }
+
+            @media (max-width: 960px) {
+             .home-confirm-title {
+              font-size : 0.9rem ; 
+
+             }
+              .home-confirm-btn {
+                font-size: 0.7rem;
+                padding: 10px 10px;
+                min-width: 130px;
+              }
+              .home-confirm-buttons {
+                gap: 16px;
+              }
+            }
           `}} />
           <div className="home-confirm-card" onClick={(e) => e.stopPropagation()}>
             <div className="home-confirm-title">
-              Punapa panjenengan yakin badhe wangsul dhateng menu? Sesi dolanan badhe dipunpungkasi.
+              Apa awakmu yakin arep metu saka dolanan iki?
             </div>
             <div className="home-confirm-buttons">
               <button className="home-confirm-btn" onClick={handleConfirmYes}>
