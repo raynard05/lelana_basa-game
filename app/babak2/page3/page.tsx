@@ -94,7 +94,10 @@ export default function Babak2Page3() {
 
   // Play sound effects when popups appear
   useEffect(() => {
-    if (showPopup && ['pop_25', 'pop_50', 'pop_75', 'pop_100', 'pop_streak'].includes(showPopup)) {
+    let applauseAudio: HTMLAudioElement | null = null;
+    let applauseTimeout: NodeJS.Timeout | null = null;
+
+    if (showPopup && ['pop_25', 'pop_50', 'pop_75', 'pop_100'].includes(showPopup)) {
       const audio = new Audio('/main/MP3_soundeffect/correct_soundeffect.wav');
       audio.play().catch((err) => console.log('Correct sound playback failed:', err));
       
@@ -107,53 +110,74 @@ export default function Babak2Page3() {
           colors: ['#FF1493', '#00BFFF', '#32CD32', '#FFD700', '#FF4500', '#9400D3'],
           zIndex: 9999999
         });
-      } else if (showPopup === 'pop_streak') {
-        const end = Date.now() + 3000;
-        const colors = ['#FFD700', '#FFA500', '#FFF8E1', '#F0B863', '#ECC560'];
-        (function frame() {
-          confetti({
-            particleCount: 3,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0, y: 0.8 },
-            colors: colors,
-            shapes: ['star', 'circle', 'square'],
-            scalar: 1.2,
-            zIndex: 9999999
-          });
-          confetti({
-            particleCount: 3,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1, y: 0.8 },
-            colors: colors,
-            shapes: ['star', 'circle', 'square'],
-            scalar: 1.2,
-            zIndex: 9999999
-          });
-          if (Math.random() < 0.1) {
-            confetti({
-              particleCount: 8,
-              angle: 270,
-              spread: 80,
-              origin: { x: Math.random(), y: 0 },
-              colors: colors,
-              shapes: ['star'],
-              scalar: 1.5,
-              gravity: 0.6,
-              drift: Math.random() * 2 - 1,
-              zIndex: 9999999
-            });
-          }
-          if (Date.now() < end) {
-            requestAnimationFrame(frame);
-          }
-        }());
       }
+    } else if (showPopup === 'pop_streak') {
+      // Play applause for streak popup
+      applauseAudio = new Audio('/main/MP3_soundeffect/aplause.mp3');
+      applauseAudio.play().catch((err) => console.log('Applause sound playback failed:', err));
+
+      applauseTimeout = setTimeout(() => {
+        if (applauseAudio) {
+          applauseAudio.pause();
+          applauseAudio.currentTime = 0;
+        }
+      }, 4000);
+
+      // Trigger premium gold confetti
+      const end = Date.now() + 3000;
+      const colors = ['#FFD700', '#FFA500', '#FFF8E1', '#F0B863', '#ECC560'];
+      (function frame() {
+        confetti({
+          particleCount: 3,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0, y: 0.8 },
+          colors: colors,
+          shapes: ['star', 'circle', 'square'],
+          scalar: 1.2,
+          zIndex: 9999999
+        });
+        confetti({
+          particleCount: 3,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1, y: 0.8 },
+          colors: colors,
+          shapes: ['star', 'circle', 'square'],
+          scalar: 1.2,
+          zIndex: 9999999
+        });
+        if (Math.random() < 0.1) {
+          confetti({
+            particleCount: 8,
+            angle: 270,
+            spread: 80,
+            origin: { x: Math.random(), y: 0 },
+            colors: colors,
+            shapes: ['star'],
+            scalar: 1.5,
+            gravity: 0.6,
+            drift: Math.random() * 2 - 1,
+            zIndex: 9999999
+          });
+        }
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      }());
     } else if (showPopup && ['pop_cobalagi', 'pop_salah', 'timeout'].includes(showPopup)) {
       const audio = new Audio('/main/MP3_soundeffect/wrong_soundeffect.mp3');
       audio.play().catch((err) => console.log('Wrong sound playback failed:', err));
     }
+
+    // Cleanup audio playback on change or unmount
+    return () => {
+      if (applauseTimeout) clearTimeout(applauseTimeout);
+      if (applauseAudio) {
+        applauseAudio.pause();
+        applauseAudio.currentTime = 0;
+      }
+    };
   }, [showPopup]);
 
   const handleTimeOut = () => {
