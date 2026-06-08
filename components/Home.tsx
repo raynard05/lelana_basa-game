@@ -168,7 +168,7 @@ export default function Home({ className, style }: HomeProps) {
           `}} />
           <div className="home-confirm-card" onClick={(e) => e.stopPropagation()}>
             <div className="home-confirm-title">
-              Apa awakmu yakin arep metu saka dolanan iki?
+              Apa sampeyan yakin arep metu saka dolanan iki?
             </div>
             <div className="home-confirm-buttons">
               <button className="home-confirm-btn" onClick={handleConfirmYes}>
