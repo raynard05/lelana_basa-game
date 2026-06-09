@@ -436,7 +436,7 @@ export default function Babak2Page3() {
       </div>
 
       {/* Popup modal result cards */}
-      {showPopup && showPopup !== 'pop_streak' && (
+      {showPopup && (
         <div className="babak2-page3-popup-overlay" onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
           <div className="babak2-page3-popup-card">
             <Image
@@ -451,111 +451,6 @@ export default function Babak2Page3() {
               className="babak2-page3-popup-image"
               unoptimized
             />
-          </div>
-        </div>
-      )}
-
-      {showPopup === 'pop_streak' && (
-        <div className="popup-overlay-streak" onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
-          <style dangerouslySetInnerHTML={{
-            __html: `
-            .popup-overlay-streak {
-              position: fixed;
-              inset: 0;
-              background: radial-gradient(circle, rgba(255, 215, 0, 0.45) 0%, rgba(18, 11, 0, 0.92) 100%);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              z-index: 999999;
-              backdrop-filter: blur(8px);
-              -webkit-backdrop-filter: blur(8px);
-              box-shadow: inset 0 0 100px rgba(255, 215, 0, 0.35);
-              animation: goldGlowPulse 3s infinite alternate;
-            }
-
-            @keyframes goldGlowPulse {
-              0% {
-                box-shadow: inset 0 0 80px rgba(255, 215, 0, 0.2);
-              }
-              100% {
-                box-shadow: inset 0 0 140px rgba(255, 215, 0, 0.6);
-              }
-            }
-
-            .streak-card {
-              background: linear-gradient(135deg, rgba(255, 223, 0, 0.2) 0%, rgba(255, 215, 0, 0.08) 100%);
-              border: 4px solid #FFD700;
-              border-radius: 24px;
-              padding: 4vh 4vw;
-              text-align: center;
-              box-shadow: 0 0 40px rgba(255, 215, 0, 0.5), 0 20px 50px rgba(0, 0, 0, 0.9);
-              backdrop-filter: blur(16px);
-              -webkit-backdrop-filter: blur(16px);
-              animation: streakScaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              gap: 16px;
-              max-width: 90vw;
-              width: 400px;
-            }
-
-            @keyframes streakScaleIn {
-              from {
-                opacity: 0;
-                transform: scale(0.8) translateY(20px);
-              }
-              to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-              }
-            }
-
-            .streak-title {
-              color: #FFD700;
-              font-family: 'Outfit', 'Inter', sans-serif;
-              font-size: 2.2rem;
-              font-weight: 900;
-              letter-spacing: 2px;
-              text-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.8);
-              margin: 0;
-              animation: textGlitter 1.5s infinite alternate;
-            }
-
-            .streak-sub {
-              color: #FFF8E1;
-              font-family: 'Outfit', 'Inter', sans-serif;
-              font-size: 1.25rem;
-              font-weight: 700;
-              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-              margin: 0;
-            }
-
-            .streak-bonus {
-              color: #FFD700;
-              font-family: 'Outfit', 'Inter', sans-serif;
-              font-size: 3.5rem;
-              font-weight: 900;
-              text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9);
-              margin: 10px 0;
-            }
-
-            @keyframes textGlitter {
-              0% {
-                filter: brightness(1);
-                transform: scale(1);
-              }
-              100% {
-                filter: brightness(1.25);
-                transform: scale(1.03);
-              }
-            }
-          `}} />
-          <div className="streak-card" onClick={(e) => e.stopPropagation()}>
-            <div className="streak-title">STREAK!</div>
-            <div className="streak-sub">3x Bener Berturut-turut</div>
-            <div className="streak-bonus">+25</div>
-            <div className="streak-sub">Skor Tambahan</div>
           </div>
         </div>
       )}
