@@ -1,4 +1,4 @@
-/* Page 3 CSS - Babak 2 Misi 1 Dialogue & Unggah-Ungguh Page */
+/* Page 3 CSS - Babak 4 Misi 1 Dialogue & Unggah-Ungguh Page */
 
 * {
   margin: 0;
@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.babak2-page3-container {
+.babak4-page3-container {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('/babak2/page_3_assets/background_page3_babak2.webp');
+  background-image: url('/babak4/page_3_assets/bg_babak4.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,7 +25,7 @@
 }
 
 /* Nav & Top Controls */
-.babak2-page3-nav3-btn {
+.babak4-page3-nav3-btn {
   position: absolute;
   z-index: 100;
   width: 15vh;
@@ -45,28 +45,28 @@
   touch-action: manipulation;
 }
 
-.babak2-page3-home3-btn {
+.babak4-page3-home3-btn {
   top: 5vh;
   left: 5vw;
 }
 
-.babak2-page3-music3-btn {
+.babak4-page3-music3-btn {
   top: 5vh;
   right: calc(5vw + 200px + 2vw);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .babak2-page3-nav3-btn:hover {
+  .babak4-page3-nav3-btn:hover {
     transform: scale(1.15);
   }
 }
 
-.babak2-page3-nav3-btn:active {
+.babak4-page3-nav3-btn:active {
   opacity: 0.7;
 }
 
 /* Timer Badge */
-.babak2-page3-container .timer-badge {
+.babak4-page3-container .timer-badge {
   position: absolute;
   top: 5vh;
   left: 50%;
@@ -89,18 +89,15 @@
   user-select: none;
 }
 
-.babak2-page3-container .timer-icon {
+.babak4-page3-container .timer-icon {
   color: #F59E0B;
   flex-shrink: 0;
   width: 20px !important;
   height: 20px !important;
 }
 
-
-
-
 /* Game Status Header Position (Top-Right) */
-.babak2-page3-status-header {
+.babak4-page3-status-header {
   position: absolute;
   top: 5vh;
   right: 5vw;
@@ -108,11 +105,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end !important;
-  /* Force right alignment */
 }
 
 /* Character & Dialog Row */
-.babak2-page3-character-dialog-row {
+.babak4-page3-character-dialog-row {
   position: absolute;
   top: 18vh;
   left: 5vw;
@@ -125,27 +121,27 @@
   margin: 0 auto;
 }
 
-.babak2-page3-character-portrait-container {
+.babak4-page3-character-portrait-container {
   flex-shrink: 0;
   display: flex;
   align-items: flex-end;
 }
 
-.babak2-page3-character-portrait {
+.babak4-page3-character-portrait {
   height: 50vh;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
 }
 
-.babak2-page3-dialog-bubble-wrapper {
+.babak4-page3-dialog-bubble-wrapper {
   flex-grow: 1;
   margin-bottom: 2vh;
   max-width: 56vw;
 }
 
 /* Central Options Card Placement */
-.babak2-page3-options-wrapper {
+.babak4-page3-options-wrapper {
   position: absolute;
   top: 45vh;
   left: 5vw;
@@ -156,7 +152,7 @@
 }
 
 /* Bottom Actions Position */
-.babak2-page3-bottom-actions-row {
+.babak4-page3-bottom-actions-row {
   position: absolute;
   bottom: 4vh;
   left: 5vw;
@@ -167,7 +163,7 @@
   z-index: 40;
 }
 
-.babak2-page3-transcript-feedback {
+.babak4-page3-transcript-feedback {
   position: absolute;
   bottom: 12vh;
   left: 50%;
@@ -183,11 +179,11 @@
   z-index: 35;
   text-align: center;
   max-width: 80vw;
-  animation: babak2-page3-fadeIn 0.3s ease-out;
+  animation: babak4-page3-fadeIn 0.3s ease-out;
 }
 
 /* Premium Popup Modals */
-.babak2-page3-popup-overlay {
+.babak4-page3-popup-overlay {
   position: fixed;
   inset: 0;
   background: rgba(18, 11, 0, 0.85);
@@ -197,20 +193,20 @@
   z-index: 1000;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  animation: babak2-page3-fadeIn 0.3s ease-out;
+  animation: babak4-page3-fadeIn 0.3s ease-out;
 }
 
-.babak2-page3-popup-card {
+.babak4-page3-popup-card {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 90vw;
   width: 60vh;
-  animation: babak2-page3-scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: babak4-page3-scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.babak2-page3-popup-image {
+.babak4-page3-popup-image {
   width: 100%;
   height: auto;
   max-width: 120vh;
@@ -218,20 +214,22 @@
   margin: 0;
 }
 
-@keyframes babak2-page3-fadeIn {
+@keyframes babak4-page3-fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
-@keyframes babak2-page3-scaleIn {
+@keyframes babak4-page3-scaleIn {
   from {
     opacity: 0;
     transform: scale(0.85) translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -240,51 +238,51 @@
 
 /* Tablet / Landscape adjustments */
 @media (max-height: 700px) {
-  .babak2-page3-character-portrait {
+  .babak4-page3-character-portrait {
     height: 32vh;
   }
 
-  .babak2-page3-character-dialog-row {
+  .babak4-page3-character-dialog-row {
     top: 15vh;
     align-items: flex-start;
   }
 
-  .babak2-page3-options-wrapper {
+  .babak4-page3-options-wrapper {
     top: 45vh;
   }
 }
 
 /* Portrait Mobile Layout */
 @media (orientation: portrait) {
-  .babak2-page3-container {
+  .babak4-page3-container {
     overflow-y: auto;
     height: auto;
     min-height: 100vh;
     padding-bottom: 20px;
   }
 
-  .babak2-page3-home3-btn {
+  .babak4-page3-home3-btn {
     top: 3vh;
     left: 4vw;
   }
 
-  .babak2-page3-nav3-btn {
+  .babak4-page3-nav3-btn {
     width: 12vw;
     height: 12vw;
   }
 
-  .babak2-page3-music3-btn {
+  .babak4-page3-music3-btn {
     top: 3vh;
     right: calc(4vw + 150px + 3vw);
     left: unset;
   }
 
-  .babak2-page3-status-header {
+  .babak4-page3-status-header {
     top: 3vh;
     right: 4vw;
   }
 
-  .babak2-page3-character-dialog-row {
+  .babak4-page3-character-dialog-row {
     position: relative;
     top: 12vh;
     margin-bottom: 2vh;
@@ -293,22 +291,22 @@
     gap: 12px;
   }
 
-  .babak2-page3-dialog-bubble-wrapper {
+  .babak4-page3-dialog-bubble-wrapper {
     max-width: 100%;
     width: 100%;
   }
 
-  .babak2-page3-character-portrait {
+  .babak4-page3-character-portrait {
     height: 20vh;
   }
 
-  .babak2-page3-options-wrapper {
+  .babak4-page3-options-wrapper {
     position: relative;
     top: 0;
     margin-bottom: 2vh;
   }
 
-  .babak2-page3-bottom-actions-row {
+  .babak4-page3-bottom-actions-row {
     position: relative;
     bottom: 0;
     flex-direction: column;
@@ -316,7 +314,7 @@
     margin-top: 2vh;
   }
 
-  .babak2-page3-transcript-feedback {
+  .babak4-page3-transcript-feedback {
     position: relative;
     bottom: 0;
     left: 0;
@@ -327,7 +325,7 @@
 
 /* Small heights in landscape (e.g. mobile landscape & short desktop) using responsive ratio */
 @media (max-height: 720px) and (orientation: landscape) {
-  .babak2-page3-home3-btn {
+  .babak4-page3-home3-btn {
     top: 5vh;
     left: 5vw;
     width: 15vh;
@@ -338,7 +336,7 @@
     max-height: 80px;
   }
 
-  .babak2-page3-music3-btn {
+  .babak4-page3-music3-btn {
     top: 5vh;
     right: calc(5vw + 150px + 2vw);
     left: unset;
@@ -350,54 +348,57 @@
     max-height: 80px;
   }
 
-  .babak2-page3-container .timer-badge {
+  .babak4-page3-container .timer-badge {
     top: 5vh;
     padding: 6px 20px;
     font-size: 16px;
   }
 
-  .babak2-page3-container .timer-icon {
+  .babak4-page3-container .timer-icon {
     width: 20px !important;
     height: 20px !important;
   }
 
-  .babak2-page3-status-header {
+  .babak4-page3-status-header {
     top: 5vh;
     right: 5vw;
   }
 
-  .babak2-page3-character-dialog-row {
-    gap: 8vw;
+  .babak4-page3-character-dialog-row {
+    gap: 1.8vw;
+
   }
 
-  .babak2-page3-character-portrait {
-    height: 55vh;
-    transform: translateY(-10%)  translateX(15%);
+  .babak4-page3-dialog-bubble-wrapper {
+    transform: translateY(-20%);
   }
-  
+
+  .babak4-page3-character-portrait {
+    height: 38vh;
+    transform: translate(-10%, -20%);
+  }
 
 
   /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
   @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
-    .babak2-page3-dialog-bubble-wrapper {
+    .babak4-page3-dialog-bubble-wrapper {
       max-width: 40vw;
       margin-bottom: 0;
-      transform: translate(-5%, 40%);
+      transform: translate(-18%, 20%);
     }
 
-    .babak2-page3-character-dialog-row {
+    .babak4-page3-character-dialog-row {
       top: 15vh;
-      gap: 8vh;
+      gap: 1.3vh;
       align-items: flex-start;
     }
 
-    .babak2-page3-character-portrait {
-      height: 55vh;
-      transform: none;
-      transform: translateY(-10%) translateX(10%);
+    .babak4-page3-character-portrait {
+      height: 42vh;
+      transform: translate(-10%, -25%);
     }
 
-    .babak2-page3-bottom-actions-row button {
+    .babak4-page3-bottom-actions-row button {
       width: 260px !important;
       height: 70px !important;
       max-width: none !important;
@@ -405,7 +406,7 @@
     }
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop */
-    .babak2-page3-dialog-bubble-wrapper .dialog-bubble-container {
+    .babak4-page3-dialog-bubble-wrapper .dialog-bubble-container {
       padding: 2.2vh 3.3vh !important;
       border-width: 0.4vh !important;
       border-radius: 2.2vh !important;
@@ -413,51 +414,51 @@
       box-shadow: 0 0.8vh 2.2vh rgba(0, 0, 0, 0.15) !important;
     }
 
-    .babak2-page3-dialog-bubble-wrapper .dialog-actor {
+    .babak4-page3-dialog-bubble-wrapper .dialog-actor {
       font-size: 2.5vh !important;
       margin-bottom: 0.8vh !important;
     }
 
-    .babak2-page3-dialog-bubble-wrapper .dialog-text {
+    .babak4-page3-dialog-bubble-wrapper .dialog-text {
       font-size: 2.2vh !important;
       line-height: 1.4 !important;
     }
 
-    .babak2-page3-dialog-bubble-wrapper .dialog-bubble-tail {
+    .babak4-page3-dialog-bubble-wrapper .dialog-bubble-tail {
       width: 3vh !important;
       height: 3.3vh !important;
     }
 
-    .babak2-page3-dialog-bubble-wrapper .dialog-bubble-container.left .dialog-bubble-tail {
+    .babak4-page3-dialog-bubble-wrapper .dialog-bubble-container.left .dialog-bubble-tail {
       left: -2.7vh !important;
     }
 
-    .babak2-page3-dialog-bubble-wrapper .dialog-bubble-container.right .dialog-bubble-tail {
+    .babak4-page3-dialog-bubble-wrapper .dialog-bubble-container.right .dialog-bubble-tail {
       right: -2.7vh !important;
     }
   }
 
   @media (max-width: 960px) {
-    .babak2-page3-character-dialog-row {
+    .babak4-page3-character-dialog-row {
       align-items: flex-end;
     }
 
-    .babak2-page3-dialog-bubble-wrapper {
-      transform: translate(-12%, -120%);
-      max-width: 50vw;
+    .babak4-page3-dialog-bubble-wrapper {
+      transform: translate(-18%, -40%);
+      max-width: 45vw;
     }
   }
 
-  .babak2-page3-options-wrapper {
-    top: 48vh;
+  .babak4-page3-options-wrapper {
+    top: 42vh;
   }
 
-  .babak2-page3-bottom-actions-row {
+  .babak4-page3-bottom-actions-row {
     bottom: 2vh;
   }
 
   @media (max-width: 960px) {
-    .babak2-page3-bottom-actions-row button {
+    .babak4-page3-bottom-actions-row button {
       width: 17.5vw !important;
       height: 10.7vh !important;
       max-width: 160px;
@@ -465,7 +466,7 @@
     }
   }
 
-  .babak2-page3-transcript-feedback {
+  .babak4-page3-transcript-feedback {
     bottom: 15vh;
     padding: 1vh 1.3vw;
     font-size: 2.9vh;
