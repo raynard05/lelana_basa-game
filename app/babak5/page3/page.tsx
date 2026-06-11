@@ -422,7 +422,7 @@ export default function Babak5Page3() {
       </div>
 
       {showPopup && (
-        <div className="babak5-page3-popup-overlay" onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
+        <div className={`babak5-page3-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
           <div className={`babak5-page3-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
             <Image
               src={

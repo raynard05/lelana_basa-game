@@ -75,7 +75,7 @@ export default function Babak5Page4() {
     if (showPopup && ['pop_25', 'pop_50', 'pop_75', 'pop_100'].includes(showPopup)) {
       const audio = new Audio('/main/MP3_soundeffect/correct_soundeffect.wav');
       audio.play().catch((err) => console.log('Correct sound playback failed:', err));
-      
+
       if (showPopup === 'pop_100') {
         confetti({
           particleCount: 150,
@@ -181,31 +181,31 @@ export default function Babak5Page4() {
 
     const words = text.split(/\s+/).map(normalizeWord).filter(Boolean);
 
-    const targetWords =  [
-  "yen",
-  "pancen",
-  "kuwi",
-  "sing",
-  "kangmas",
-  "surontanu",
-  "kersakake",
-  "aku",
-  "bakal",
-  "ngladeni",
-  "panantangmu",
-  "ayo",
-  "se",
-  "ndang",
-  "age",
-  "wis",
-  "iya",
-  "ya",
-  "yo",
-  "iyo",
-  "gas",
-  "mas",
-  "Sampeyan"
-];
+    const targetWords = [
+      "yen",
+      "pancen",
+      "kuwi",
+      "sing",
+      "kangmas",
+      "surontanu",
+      "kersakake",
+      "aku",
+      "bakal",
+      "ngladeni",
+      "panantangmu",
+      "ayo",
+      "se",
+      "ndang",
+      "age",
+      "wis",
+      "iya",
+      "ya",
+      "yo",
+      "iyo",
+      "gas",
+      "mas",
+      "Sampeyan"
+    ];
     const uniqueMatched = Array.from(new Set(words.filter(word => targetWords.includes(word))));
     const matchedCount = uniqueMatched.length;
 
@@ -237,21 +237,21 @@ export default function Babak5Page4() {
       if (earnedPoints === 100) {
         const currentStreak = parseInt(localStorage.getItem('game_streak') || '0', 10) + 1;
         localStorage.setItem('game_streak', currentStreak.toString());
-        
+
         if (currentStreak === 3) {
           const newScore = score + earnedPoints + 25;
           setScore(newScore);
           localStorage.setItem('game_score', newScore.toString());
           localStorage.setItem('game_streak', '0');
           setHasStreakPending(true);
-          
+
           setTimeout(() => {
             setShowPopup('pop_100');
-            
+
             proceedTimeoutRef.current = setTimeout(() => {
               setHasStreakPending(false);
               setShowPopup('pop_streak');
-              
+
               proceedTimeoutRef.current = setTimeout(() => {
                 handleProceed();
               }, 4000);
@@ -266,7 +266,7 @@ export default function Babak5Page4() {
       const newScore = score + earnedPoints;
       setScore(newScore);
       localStorage.setItem('game_score', newScore.toString());
-      
+
       setTimeout(() => {
         setShowPopup(`pop_${earnedPoints}` as any);
 
@@ -301,7 +301,7 @@ export default function Babak5Page4() {
     if (proceedTimeoutRef.current) {
       clearTimeout(proceedTimeoutRef.current);
     }
-    
+
     if (showPopup === 'pop_cobalagi') {
       setAttempts(2);
       setIsLocked(false);
@@ -310,7 +310,7 @@ export default function Babak5Page4() {
     } else if (showPopup === 'pop_100' && hasStreakPending) {
       setHasStreakPending(false);
       setShowPopup('pop_streak');
-      
+
       proceedTimeoutRef.current = setTimeout(() => {
         handleProceed();
       }, 4000);
@@ -412,7 +412,7 @@ export default function Babak5Page4() {
       </div>
 
       {showPopup && (
-        <div className="babak5-page4-popup-overlay" onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
+        <div className={`babak5-page4-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
           <div className={`babak5-page4-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
             <Image
               src={
