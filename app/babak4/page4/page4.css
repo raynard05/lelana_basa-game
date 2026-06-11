@@ -412,8 +412,8 @@
   }
 
   .babak4-page4-container .babak4-page4-character-portrait {
-    height: 120vh;
-    transform: translate(30%, 2%);
+    height: 130vh;
+    transform: translate(20%,-5%);
   }
 
   .babak4-page4-container .babak4-page4-character2-absolute-container {
@@ -426,7 +426,7 @@
   }
 
   .babak4-page4-container .babak4-page4-character2-portrait {
-    height: 90vh;
+    height: 95vh;
     transform: translate(-50%, 20%);
   }
 
@@ -505,7 +505,7 @@
       width: 38vw !important;
       max-width: 38vw !important;
       margin-bottom: 0 !important;
-      transform: translate(1vw, 10vh) !important;
+      transform: translate(-1vw, 10vh) !important;
     }
 
     /* Dialogue bubble responsive ratio overrides for mobile landscape */
