@@ -216,7 +216,7 @@ export default function Babak5Page3() {
     setIsLocked(true);
     setSelectedOption(id);
 
-    const correct = id === 'A';
+    const correct = id === 'B';
     setIsAnswerCorrect(correct);
 
     if (correct && typeof window !== 'undefined') {

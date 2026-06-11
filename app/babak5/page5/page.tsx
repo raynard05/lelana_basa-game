@@ -181,7 +181,30 @@ export default function Babak5Page5() {
 
     const words = text.split(/\s+/).map(normalizeWord).filter(Boolean);
 
-    const targetWords = ['aku', 'iya', 'bakal', 'lunga', 'saiki', 'tak', 'nyingkrih', 'ngalih', "iyo", "yo", "wes" ,"wis", "ya"];
+    const targetWords = [
+  "mangga",
+  "monggo",
+  "dipunwiwiti",
+  "aku",
+  "ora",
+  "bakal",
+  "mlayu",
+  "saka",
+  "soko",
+  "kene",
+  "aja",
+  "kakehan",
+  "kakean",
+  "omong",
+  "wis",
+  "ndang",
+  "ayo",
+  "iya",
+  "majua",
+  "kene",
+  "diwiwiti",
+  "ya"
+];
     const uniqueMatched = Array.from(new Set(words.filter(word => targetWords.includes(word))));
     const matchedCount = uniqueMatched.length;
 

@@ -170,7 +170,7 @@ export default function Babak5Page1() {
     setIsLocked(true);
     setSelectedOption(optionId);
 
-    const correct = optionId === 'sapantaran';
+    const correct = optionId === 'luwih_tuwa';
     setIsAnswerCorrect(correct);
 
     if (correct && typeof window !== 'undefined') {
