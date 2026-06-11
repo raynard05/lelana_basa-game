@@ -281,6 +281,12 @@ export default function Babak4Page4() {
       setTimeout(() => {
         if (attempts === 1) {
           setShowPopup('pop_cobalagi');
+          proceedTimeoutRef.current = setTimeout(() => {
+            setAttempts(2);
+            setIsLocked(false);
+            setShowPopup(null);
+            setIsAnswerCorrect(null);
+          }, 2500);
         } else {
           setShowPopup('pop_salah');
           proceedTimeoutRef.current = setTimeout(() => {

@@ -273,6 +273,13 @@ export default function Babak2Page3() {
       setTimeout(() => {
         if (attempts === 1) {
           setShowPopup('pop_cobalagi');
+          proceedTimeoutRef.current = setTimeout(() => {
+            setAttempts(2);
+            setIsLocked(false);
+            setSelectedOption(null);
+            setIsAnswerCorrect(null);
+            setShowPopup(null);
+          }, 2500);
         } else {
           setShowPopup('pop_salah');
           proceedTimeoutRef.current = setTimeout(() => {
