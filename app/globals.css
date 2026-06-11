@@ -40,7 +40,12 @@ body {
 .babak2-page4-popup-card,
 .babak4-popup-card,
 .babak4-page3-popup-card,
-.babak4-page4-popup-card {
+.babak4-page4-popup-card,
+.babak4-page5-popup-card,
+.babak5-popup-card,
+.babak5-page3-popup-card,
+.babak5-page4-popup-card,
+.babak5-page5-popup-card {
   animation: popupZoomCamera 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
 }
 
