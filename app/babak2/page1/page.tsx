@@ -352,8 +352,8 @@ export default function Babak2Page() {
 
       {/* Delayed Popup Modals */}
       {showPopup && (
-        <div className="babak2-popup-overlay" onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
-          <div className="babak2-popup-card">
+        <div className={`babak2-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
+          <div className={`babak2-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
             <Image
               src={
                 showPopup === 'timeout'

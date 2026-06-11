@@ -405,8 +405,8 @@ export default function Babak2Page4() {
 
       {/* Popup modal result cards */}
       {showPopup && (
-        <div className="babak2-page4-popup-overlay" onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
-          <div className="babak2-page4-popup-card">
+        <div className={`babak2-page4-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
+          <div className={`babak2-page4-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
             <Image
               src={
                 showPopup === 'timeout'
