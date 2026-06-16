@@ -39,7 +39,8 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 700px; /* Increased to allow wider logo than the form */
+  max-width: 700px;
+  /* Increased to allow wider logo than the form */
   height: auto;
   max-height: 96vh;
   max-height: 96dvh;
@@ -65,7 +66,8 @@
 /* Logo styling */
 .logo-container {
   width: 100%;
-  max-width: 628px; /* Wide logo on desktop */
+  max-width: 628px;
+  /* Wide logo on desktop */
   margin-bottom: 28px;
   flex-shrink: 0;
   display: flex;
@@ -83,7 +85,8 @@
 /* Card */
 .login-form-container {
   width: 100%;
-  max-width: 380px; /* Keep form container compact and neat */
+  max-width: 380px;
+  /* Keep form container compact and neat */
   background: rgba(43, 29, 23, 0.35);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -104,7 +107,8 @@
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 14px; /* Tighter gap for register page since it has more fields */
+  gap: 14px;
+  /* Tighter gap for register page since it has more fields */
 }
 
 .input-group {
@@ -137,8 +141,8 @@
 
 /* Override autofill styling for Google Chrome to keep the brown gradient theme */
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 100px #4E3429 inset !important;
   -webkit-text-fill-color: #FFF8E1 !important;
@@ -179,7 +183,7 @@ input:-webkit-autofill:active {
   gap: 6px;
   cursor: pointer;
   color: #FFF8E1;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .checkbox-label {
@@ -189,7 +193,7 @@ input:-webkit-autofill:active {
 
 .forgot-password {
   color: #FFF8E1;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s;
@@ -208,13 +212,13 @@ input:-webkit-autofill:active {
 
 .register-text {
   color: #FFF8E1;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: 400;
 }
 
 .register-link-text {
   color: #D4A574;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   text-decoration: none;
   font-weight: 700;
   transition: all 0.25s ease;
@@ -253,6 +257,7 @@ input:-webkit-autofill:active {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -264,6 +269,7 @@ input:-webkit-autofill:active {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -271,10 +277,13 @@ input:-webkit-autofill:active {
 }
 
 @keyframes floatLogo {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
     filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
   }
+
   50% {
     transform: translateY(-8px);
     filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
@@ -287,16 +296,18 @@ input:-webkit-autofill:active {
     max-width: 100%;
     padding: 16px;
   }
+
   .login-form-container {
     padding: 24px 16px;
     border-radius: 20px;
   }
+
   .logo-container {
     /* Bleed to edge of screen to make the logo look massive */
-    width: calc(100% + 32px);
+    width: calc(120% + 32px);
     margin-left: -16px;
     margin-right: -16px;
-    max-width: 100vw;
+    max-width: 140vw;
     margin-bottom: 18px;
   }
 }
@@ -346,17 +357,28 @@ input:-webkit-autofill:active {
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-6px); }
-  75% { transform: translateX(6px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-6px);
+  }
+
+  75% {
+    transform: translateX(6px);
+  }
 }
 
 /* Laptop/Desktop responsive split layout */
 @media (min-width: 1024px) {
 
-   .login-container {
+  .login-container {
     background-image: url('/login_assets/login_regis.webp');
   }
+
   .login-content {
     flex-direction: row;
     max-width: 1100px;
@@ -378,4 +400,3 @@ input:-webkit-autofill:active {
     flex: 0 0 380px;
   }
 }
-

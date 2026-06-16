@@ -31,7 +31,7 @@ export default function RegisterPage() {
       // Detect if keyboard is open by checking if viewport height decreased
       const viewportHeight = window.visualViewport?.height || window.innerHeight;
       const windowHeight = window.innerHeight;
-      
+
       if (viewportHeight < windowHeight * 0.75) {
         setIsKeyboardOpen(true);
       } else {
@@ -86,18 +86,18 @@ export default function RegisterPage() {
     e.preventDefault();
     setError(null);
     setSuccessMessage(null);
-    
+
     // Validasi absen harus angka
     if (isNaN(Number(absen)) || absen === '') {
       setError('Nomer absen kudu angka!');
       return;
     }
-    
+
     if (!agreeTerms) {
       setError('Sampeyan kudu setuju karo syarat & ketentuan!');
       return;
     }
-    
+
     setIsLoading(true);
 
     try {
@@ -139,8 +139,8 @@ export default function RegisterPage() {
           <Image
             src="/login_assets/lelana_subtitle.png"
             alt="Lelana Basa"
-            width={628}
-            height={324}
+            width={900}
+            height={900}
             className="logo-image"
             priority
             unoptimized
