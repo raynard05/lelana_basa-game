@@ -117,7 +117,8 @@
   display: flex;
   align-items: flex-start;
   gap: 3vw;
-  z-index: 30; /* Set z-index higher so Jaka and dialogue render above Lelana */
+  z-index: 30;
+  /* Set z-index higher so Jaka and dialogue render above Lelana */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -450,13 +451,13 @@
     }
 
     .page4-container .character-portrait {
-      height: 85vh;
-      transform: translate(-18%, 10%) !important;
+      height: 83vh;
+      transform: translate(-18%, 13%) !important;
     }
 
     .page4-container .character2-portrait {
-      height: 90vh;
-      transform: translate(10%, 5%) !important;
+      height: 82vh;
+      transform: translate(20%, 1%) !important;
     }
 
     .bottom-actions-row button {
