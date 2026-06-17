@@ -192,7 +192,7 @@ export default function Babak1Page4() {
     const words = text.split(/\s+/).map(normalizeWord).filter(Boolean);
 
     // Allowed target words (supporting both 'amerga' and 'amarga' spelling)
-    const targetWords = ['aku', 'luput', 'apa', 'marang', 'kowe', "opo", "salahku", "nyapo", "gak", "gelem", "dadi", "kancaku", "iyo", "wis", "salah", 'iya', 'Ora', "kancoku", "yo"];
+    const targetWords = ['aku', 'luput', 'apa', 'marang', 'kowe', "opo", "salahku", "nyapo","ogak", "gak", "gelem", "dadi", "kancaku", "iyo", "wis", "salah", 'iya', 'Ora', "kancoku", "yo"];
     // Check count of target words spoken
     const uniqueMatched = Array.from(new Set(words.filter(word => targetWords.includes(word))));
     const matchedCount = uniqueMatched.length;
