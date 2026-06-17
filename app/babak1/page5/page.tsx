@@ -76,7 +76,7 @@ export default function Babak1Page5() {
     if (showPopup && ['pop_25', 'pop_50', 'pop_75', 'pop_100'].includes(showPopup)) {
       const audio = new Audio('/main/MP3_soundeffect/correct_soundeffect.wav');
       audio.play().catch((err) => console.log('Correct sound playback failed:', err));
-      
+
       // Trigger confetti
       if (showPopup === 'pop_100') {
         confetti({
@@ -190,7 +190,7 @@ export default function Babak1Page5() {
     const words = text.split(/\s+/).map(normalizeWord).filter(Boolean);
 
     // Allowed target words (supporting both 'amerga' and 'amarga' spelling)
-    const targetWords = ['aku', 'iya', 'bakal', 'lunga', 'saiki', 'tak', 'nyingkrih', 'ngalih', "iyo", "yo", "wes" ,"wis", "ya"];
+    const targetWords = ['aku', 'iya', 'bakal', 'lunga', 'saiki', 'tak', 'nyingkrih', 'ngalih', "iyo", "yo", "wes", "wis", "ya"];
 
     // Check count of target words spoken
     const uniqueMatched = Array.from(new Set(words.filter(word => targetWords.includes(word))));
@@ -224,21 +224,21 @@ export default function Babak1Page5() {
       if (earnedPoints === 100) {
         const currentStreak = parseInt(localStorage.getItem('game_streak') || '0', 10) + 1;
         localStorage.setItem('game_streak', currentStreak.toString());
-        
+
         if (currentStreak === 3) {
           const newScore = score + earnedPoints + 25;
           setScore(newScore);
           localStorage.setItem('game_score', newScore.toString());
           localStorage.setItem('game_streak', '0');
           setHasStreakPending(true);
-          
+
           setTimeout(() => {
             setShowPopup('pop_100');
-            
+
             proceedTimeoutRef.current = setTimeout(() => {
               setHasStreakPending(false);
               setShowPopup('pop_streak');
-              
+
               proceedTimeoutRef.current = setTimeout(() => {
                 handleProceed();
               }, 4000);
@@ -253,7 +253,7 @@ export default function Babak1Page5() {
       const newScore = score + earnedPoints;
       setScore(newScore);
       localStorage.setItem('game_score', newScore.toString());
-      
+
       setTimeout(() => {
         setShowPopup(`pop_${earnedPoints}` as any);
 
@@ -289,7 +289,7 @@ export default function Babak1Page5() {
     if (proceedTimeoutRef.current) {
       clearTimeout(proceedTimeoutRef.current);
     }
-    
+
     if (showPopup === 'pop_cobalagi') {
       setAttempts(2);
       setIsLocked(false);
@@ -298,7 +298,7 @@ export default function Babak1Page5() {
     } else if (showPopup === 'pop_100' && hasStreakPending) {
       setHasStreakPending(false);
       setShowPopup('pop_streak');
-      
+
       proceedTimeoutRef.current = setTimeout(() => {
         handleProceed();
       }, 4000);
@@ -397,7 +397,7 @@ export default function Babak1Page5() {
       <div className="bottom-actions-row">
         {/* Listen Button for Jaka Slewah's spoken dialogue */}
         <ListenButton
-          audioUrl="/audio/MP3 BABAK 1/soundpage5.mp3"
+          audioUrl="/audio/MP3BABAK1/dialog_textpage5.mp3"
           disabled={isLocked}
           style={{ width: '260px', height: '70px' }}
         />

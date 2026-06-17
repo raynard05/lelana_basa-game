@@ -20,22 +20,22 @@ const optionsData: OptionData[] = [
   {
     id: 'A',
     text: 'Apa merga aku ora nduwe bapak, banjur awakmu ora gelem kancanan karo aku?',
-    audioUrl: '/audio/MP3 BABAK 1/3. Ngoko Lugu babak 1.mp3',
+    audioUrl: '/audio/MP3BABAK1/ngokolugu.m4a',
   },
   {
     id: 'B',
     text: 'Apa amarga kula ora nduwe bapak, banjur panjenengan ora gelem kancanan karo aku?',
-    audioUrl: '/audio/MP3 BABAK 1/4. Ngoko Alus babak 1.mp3',
+    audioUrl: '/audio/MP3BABAK1/ngokoalus.m4a',
   },
   {
     id: 'C',
     text: 'Menapa amergi kula mboten gadhah bapak, banjur sampeyan mboten purun kancanan kalih kula?',
-    audioUrl: '/audio/MP3 BABAK 1/5. krama lugu babak 1.mp3',
+    audioUrl: '/audio/MP3BABAK1/kramalugu.m4a',
   },
   {
     id: 'D',
     text: 'Menapa amergi kula mboten gadhah rama, lajeng panjenengan mboten purun kancanan kalih kula?',
-    audioUrl: '/audio/MP3 BABAK 1/6. krama alus babak 1.mp3',
+    audioUrl: '/audio/MP3BABAK1/kramaalus.m4a',
   },
 ];
 
@@ -437,7 +437,7 @@ export default function Babak1Page3() {
         />
         {/* Listen Button for Jaka Slewah's spoken dialogue */}
         <ListenButton
-          audioUrl="/audio/MP3 BABAK 1/2. Jaka slewah 1.mp3"
+          audioUrl="/audio/MP3BABAK1/dialog_textpage3.mp3"
           disabled={isLocked}
           style={{ width: '260px', height: '70px' }}
         />

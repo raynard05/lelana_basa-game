@@ -64,7 +64,7 @@ export default function MainPage() {
       {/* Bottom Narration Audio Player Container */}
       <div className="mainpage-audio-container">
         <Sinopsis
-          music_assets="/audio/MP3 BABAK 1/1. narasi babak 1 .mp3"
+          music_assets="/audio/MP3BABAK1/sinopsis.mp3"
           backgroundColor="#4E3F27"
           borderColor="#8E7B58"
           textColor="#EAD3A8"
