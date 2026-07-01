@@ -342,7 +342,7 @@ export default function Babak5Page5() {
 
             <div className="babak5-page5-status-header">
                 <GameStatusHeader
-                    babak={5}
+                    babak={7}
                     misi={3}
                     score={score}
                 />
