@@ -315,7 +315,7 @@ export default function Babak5Page1() {
             <div className="babak5-options-container">
               {options.map((opt) => {
                 const isSelected = selectedOption === opt.id;
-                let btnClass = "babak5-option-btn";
+                let btnClass = `babak5-option-btn babak5-opt-${opt.id}`;
 
                 if (isSelected) {
                   if (isAnswerCorrect) {

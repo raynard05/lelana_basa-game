@@ -201,25 +201,23 @@
 }
 
 .babak7-options-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.8vh;
+    display: grid;
+    grid-template-columns: repeat(2, 18vh);
+    justify-content: center;
+    gap: 3vh 4vh;
     width: 100%;
-    max-width: 42vh;
-    min-width: 240px;
-    align-items: center;
 }
 
 /* Option Buttons styling */
 .babak7-option-btn {
     width: 100%;
-    height: 5vh;
-    min-height: 35px;
+    height: 6vh;
+    min-height: 40px;
     background: linear-gradient(180deg, #F0B863 0%, #D49033 100%);
     border: 2.5px solid #5A3500;
     border-radius: 12px;
     color: #261100;
-    font-size: 2.3vh;
+    font-size: 2.2vh;
     font-weight: 800;
     display: flex;
     align-items: center;
@@ -228,6 +226,20 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.1s ease, filter 0.2s ease;
     touch-action: manipulation;
+}
+
+.babak7-opt-luwih_tuwa {
+    grid-column: 1;
+}
+
+.babak7-opt-sapantaran {
+    grid-column: 2;
+}
+
+.babak7-opt-luwih_enom {
+    grid-column: span 2;
+    width: 30vh !important;
+    justify-self: center;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -424,6 +436,29 @@
         width: 100%;
     }
 
+    .babak7-options-container {
+        grid-template-columns: 1fr;
+        max-width: 42vh;
+        gap: 2.2vh;
+    }
+
+    .babak7-option-btn {
+        width: 100% !important;
+    }
+
+    .babak7-opt-luwih_tuwa {
+        grid-column: span 1;
+    }
+
+    .babak7-opt-sapantaran {
+        grid-column: span 1;
+    }
+
+    .babak7-opt-luwih_enom {
+        grid-column: span 1;
+        width: 100% !important;
+    }
+
     .babak7-bottom-banner {
         width: 90vw;
         height: auto;
@@ -457,9 +492,12 @@
         margin-top: 5%;
     }
 
-    /* Option Buttons styling */
+    .babak7-options-container {
+        grid-template-columns: repeat(2, 18vh);
+    }
+
     .babak7-option-btn {
-        width: 120%;
+        width: 100%;
         height: 10vh;
         min-height: 35px;
         background: linear-gradient(180deg, #F0B863 0%, #D49033 100%);
@@ -475,5 +513,57 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: transform 0.1s ease, filter 0.2s ease;
         touch-action: manipulation;
+    }
+
+    .babak7-opt-luwih_tuwa {
+        grid-column: 1;
+        width: 37vh !important;
+        position: relative;
+        left: -17vw;
+        top: -2vw;
+    }
+
+    .babak7-opt-sapantaran {
+        grid-column: 2;
+        width: 37vh !important;
+        position: relative;
+        left: -4vw;
+        top: -2vw;
+    }
+
+    .babak7-opt-luwih_enom {
+        grid-column: span 2;
+        width: 37vh !important;
+        justify-self: center;
+        position: relative;
+        left: -4vw;
+        top: -1vw;
+    }
+}
+
+@media (max-width: 990px) {
+    .babak7-opt-luwih_tuwa {
+        grid-column: 1;
+        width: 37vh !important;
+        position: relative;
+        left: -17vw;
+        top: -1vw;
+    }
+
+    .babak7-opt-sapantaran {
+        grid-column: 2;
+        width: 37vh !important;
+        position: relative;
+        left: -4vw;
+        top: -1vw;
+    }
+
+    .babak7-opt-luwih_enom {
+        grid-column: span 2;
+        width: 37vh !important;
+        justify-self: center;
+        position: relative;
+        left: -4vw;
+        top: 1vw;
     }
 }

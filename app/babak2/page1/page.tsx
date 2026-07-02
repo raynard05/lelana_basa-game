@@ -322,7 +322,7 @@ export default function Babak2Page() {
             <div className="babak2-options-container">
               {options.map((opt) => {
                 const isSelected = selectedOption === opt.id;
-                let btnClass = "babak2-option-btn";
+                let btnClass = `babak2-option-btn babak2-opt-${opt.id}`;
 
                 if (isSelected) {
                   if (isAnswerCorrect) {
