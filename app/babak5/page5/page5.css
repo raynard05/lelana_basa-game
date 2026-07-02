@@ -381,7 +381,7 @@
 
   .babak5-page5-music5-btn {
     top: 5vh;
-    right: calc(5vw + 200px + 2vw);
+    right: calc(5vw + 150px + 2vw);
     left: unset;
     width: 15vh;
     height: 15vh;
@@ -412,8 +412,8 @@
   }
 
   .babak5-page5-container .babak5-page5-character-portrait {
-    height: 120vh;
-    transform: translate(5%, -7%);
+    height: 105vh;
+    transform: translate(2%, -2%);
   }
 
   .babak5-page5-container .babak5-page5-character2-absolute-container {
@@ -426,8 +426,8 @@
   }
 
   .babak5-page5-container .babak5-page5-character2-portrait {
-    height: 95vh;
-    transform: translate(-40%, 18%);
+    height: 93vh;
+    transform: translate(-40%, 20%);
   }
 
   /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
@@ -503,9 +503,9 @@
 
     .babak5-page5-dialog-bubble-wrapper-page5 {
       width: 38vw !important;
-      max-width: 38vw !important;
+      max-width: 33vw !important;
       margin-bottom: 0 !important;
-      transform: translate(-10vw, 7vh) !important;
+      transform: translate(-11vw, 7vh) !important;
     }
 
     /* Dialogue bubble responsive ratio overrides for mobile landscape */
@@ -567,7 +567,7 @@
 
   .babak5-page5-container .babak5-page5-character-portrait {
     height: 82vh !important;
-    transform: translate(-1%, 5%) !important;
+    transform: translate(-2%, 5%) !important;
   }
 
   .babak5-page5-container .babak5-page5-character2-portrait {

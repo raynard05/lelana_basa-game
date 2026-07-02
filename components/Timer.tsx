@@ -28,33 +28,72 @@ export default function Timer({
     if (typeof window === 'undefined') return;
 
     const expirationKey = `${storageKey}_expiration`;
-    let expirationTime: number;
+    const pauseKey = `${storageKey}_paused_time`;
 
     const savedExpiration = localStorage.getItem(expirationKey);
+    const savedPauseTime = localStorage.getItem(pauseKey);
+
+    let expirationTime: number;
+    let pauseTime = savedPauseTime ? parseInt(savedPauseTime, 10) : null;
+    if (pauseTime && isNaN(pauseTime)) {
+      pauseTime = null;
+    }
+
     if (savedExpiration !== null) {
-      expirationTime = parseInt(savedExpiration, 10);
+      const parsed = parseInt(savedExpiration, 10);
+      let remaining = 0;
+      if (!isNaN(parsed)) {
+        const referenceTime = pauseTime !== null ? pauseTime : Date.now();
+        remaining = Math.max(0, Math.ceil((parsed - referenceTime) / 1000));
+      }
+
+      if (isNaN(parsed) || remaining <= 0) {
+        // Stale or expired timer from a previous session, start fresh
+        expirationTime = Date.now() + initialTime * 1000;
+        localStorage.setItem(expirationKey, expirationTime.toString());
+        localStorage.removeItem(pauseKey);
+        pauseTime = null;
+      } else {
+        expirationTime = parsed;
+      }
     } else {
       expirationTime = Date.now() + initialTime * 1000;
       localStorage.setItem(expirationKey, expirationTime.toString());
+      localStorage.removeItem(pauseKey);
+      pauseTime = null;
+    }
+
+    if (isLocked) {
+      if (pauseTime === null) {
+        pauseTime = Date.now();
+        localStorage.setItem(pauseKey, pauseTime.toString());
+      }
+      const remaining = Math.max(0, Math.ceil((expirationTime - pauseTime) / 1000));
+      setTimeLeft(remaining);
+      return;
+    }
+
+    // If we were paused and are now resuming
+    if (pauseTime !== null) {
+      const pauseDuration = Date.now() - pauseTime;
+      expirationTime += pauseDuration;
+      localStorage.setItem(expirationKey, expirationTime.toString());
+      localStorage.removeItem(pauseKey);
     }
 
     const calculateRemaining = () => {
       return Math.max(0, Math.ceil((expirationTime - Date.now()) / 1000));
     };
 
-    // Set initial remaining time
     const initialRemaining = calculateRemaining();
     setTimeLeft(initialRemaining);
 
     if (initialRemaining === 0) {
       localStorage.removeItem(expirationKey);
+      localStorage.removeItem(pauseKey);
       if (onTimeOutRef.current) {
         onTimeOutRef.current();
       }
-      return;
-    }
-
-    if (isLocked) {
       return;
     }
 
@@ -65,6 +104,7 @@ export default function Timer({
       if (remaining === 0) {
         clearInterval(interval);
         localStorage.removeItem(expirationKey);
+        localStorage.removeItem(pauseKey);
         if (onTimeOutRef.current) {
           onTimeOutRef.current();
         }

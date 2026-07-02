@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-.babak5-page5-container {
+.babak7-page5-container {
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -25,7 +25,7 @@
 }
 
 /* Nav & Top Controls */
-.babak5-page5-nav5-btn {
+.babak7-page5-nav5-btn {
     position: absolute;
     z-index: 100;
     width: 15vh;
@@ -45,28 +45,28 @@
     touch-action: manipulation;
 }
 
-.babak5-page5-home5-btn {
+.babak7-page5-home5-btn {
     top: 5vh;
     left: 5vw;
 }
 
-.babak5-page5-music5-btn {
+.babak7-page5-music5-btn {
     top: 5vh;
     right: calc(5vw + 200px + 2vw);
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .babak5-page5-nav5-btn:hover {
+    .babak7-page5-nav5-btn:hover {
         transform: scale(1.15);
     }
 }
 
-.babak5-page5-nav5-btn:active {
+.babak7-page5-nav5-btn:active {
     opacity: 0.7;
 }
 
 /* Timer Badge */
-.babak5-page5-container .timer-badge {
+.babak7-page5-container .timer-badge {
     position: absolute;
     top: 5vh;
     left: 50%;
@@ -89,7 +89,7 @@
     user-select: none;
 }
 
-.babak5-page5-container .timer-icon {
+.babak7-page5-container .timer-icon {
     color: #F59E0B;
     flex-shrink: 0;
     width: 20px !important;
@@ -97,7 +97,7 @@
 }
 
 /* Game Status Header Position (Top-Right) */
-.babak5-page5-status-header {
+.babak7-page5-status-header {
     position: absolute;
     top: 5vh;
     right: 5vw;
@@ -108,7 +108,7 @@
 }
 
 /* Character & Dialog Row */
-.babak5-page5-container .babak5-page5-character-dialog-row {
+.babak7-page5-container .babak7-page5-character-dialog-row {
     position: absolute;
     top: 18vh;
     left: 5vw;
@@ -121,32 +121,32 @@
     margin: 0 auto;
 }
 
-.babak5-page5-container .babak5-page5-character-portrait-container {
+.babak7-page5-container .babak7-page5-character-portrait-container {
     flex-shrink: 0;
     display: flex;
     align-items: flex-end;
 }
 
-.babak5-page5-container .babak5-page5-character-portrait {
+.babak7-page5-container .babak7-page5-character-portrait {
     height: 50vh;
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
 }
 
-.babak5-page5-container .babak5-page5-dialog-bubble-wrapper {
+.babak7-page5-container .babak7-page5-dialog-bubble-wrapper {
     flex-grow: 1;
     margin-bottom: 2vh;
     max-width: 48vw;
 }
 
-.babak5-page5-container .babak5-page5-dialog-bubble-wrapper-page5 {
+.babak7-page5-container .babak7-page5-dialog-bubble-wrapper-page5 {
     flex-grow: 1;
     margin-bottom: 2vh;
     max-width: 48vw;
 }
 
-.babak5-page5-container .babak5-page5-character2-absolute-container {
+.babak7-page5-container .babak7-page5-character2-absolute-container {
     position: absolute;
     bottom: 0;
     right: 5vw;
@@ -156,7 +156,7 @@
     align-items: flex-end;
 }
 
-.babak5-page5-container .babak5-page5-character2-portrait {
+.babak7-page5-container .babak7-page5-character2-portrait {
     height: 60vh;
     width: auto;
     object-fit: contain;
@@ -164,7 +164,7 @@
 }
 
 /* Central Options Card Placement */
-.babak5-page5-options-wrapper {
+.babak7-page5-options-wrapper {
     position: absolute;
     top: 45vh;
     left: 5vw;
@@ -175,7 +175,7 @@
 }
 
 /* Bottom Actions Position */
-.babak5-page5-bottom-actions-row {
+.babak7-page5-bottom-actions-row {
     position: absolute;
     bottom: 4vh;
     left: 5vw;
@@ -186,7 +186,7 @@
     z-index: 40;
 }
 
-.babak5-page5-transcript-feedback {
+.babak7-page5-transcript-feedback {
     position: absolute;
     bottom: 12vh;
     left: 50%;
@@ -202,11 +202,11 @@
     z-index: 35;
     text-align: center;
     max-width: 80vw;
-    animation: babak5-page5-fadeIn 0.3s ease-out;
+    animation: babak7-page5-fadeIn 0.3s ease-out;
 }
 
 /* Premium Popup Modals */
-.babak5-page5-popup-overlay {
+.babak7-page5-popup-overlay {
     position: fixed;
     inset: 0;
     background: rgba(18, 11, 0, 0.85);
@@ -216,20 +216,20 @@
     z-index: 1000;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    animation: babak5-page5-fadeIn 0.3s ease-out;
+    animation: babak7-page5-fadeIn 0.3s ease-out;
 }
 
-.babak5-page5-popup-card {
+.babak7-page5-popup-card {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 90vw;
     width: 60vh;
-    animation: babak5-page5-scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: babak7-page5-scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.babak5-page5-popup-image {
+.babak7-page5-popup-image {
     width: 100%;
     height: auto;
     max-width: 120vh;
@@ -237,7 +237,7 @@
     margin: 0;
 }
 
-@keyframes babak5-page5-fadeIn {
+@keyframes babak7-page5-fadeIn {
     from {
         opacity: 0;
     }
@@ -247,7 +247,7 @@
     }
 }
 
-@keyframes babak5-page5-scaleIn {
+@keyframes babak7-page5-scaleIn {
     from {
         opacity: 0;
         transform: scale(0.85) translateY(10px);
@@ -261,55 +261,55 @@
 
 /* Tablet / Landscape adjustments */
 @media (max-height: 700px) {
-    .babak5-page5-container .babak5-page5-character-portrait {
+    .babak7-page5-container .babak7-page5-character-portrait {
         height: 32vh;
     }
 
-    .babak5-page5-container .babak5-page5-character2-portrait {
+    .babak7-page5-container .babak7-page5-character2-portrait {
         height: 32vh;
     }
 
-    .babak5-page5-container .babak5-page5-character-dialog-row {
+    .babak7-page5-container .babak7-page5-character-dialog-row {
         top: 15vh;
         align-items: flex-start;
     }
 
-    .babak5-page5-options-wrapper {
+    .babak7-page5-options-wrapper {
         top: 45vh;
     }
 }
 
 /* Portrait Mobile Layout */
 @media (orientation: portrait) {
-    .babak5-page5-container {
+    .babak7-page5-container {
         overflow-y: auto;
         height: auto;
         min-height: 100vh;
         padding-bottom: 20px;
     }
 
-    .babak5-page5-home5-btn {
+    .babak7-page5-home5-btn {
         top: 3vh;
         left: 4vw;
     }
 
-    .babak5-page5-nav5-btn {
+    .babak7-page5-nav5-btn {
         width: 12vw;
         height: 12vw;
     }
 
-    .babak5-page5-music5-btn {
+    .babak7-page5-music5-btn {
         top: 3vh;
         right: calc(4vw + 150px + 3vw);
         left: unset;
     }
 
-    .babak5-page5-status-header {
+    .babak7-page5-status-header {
         top: 3vh;
         right: 4vw;
     }
 
-    .babak5-page5-container .babak5-page5-character-dialog-row {
+    .babak7-page5-container .babak7-page5-character-dialog-row {
         position: relative;
         top: 12vh;
         margin-bottom: 2vh;
@@ -318,16 +318,16 @@
         gap: 12px;
     }
 
-    .babak5-page5-container .babak5-page5-dialog-bubble-wrapper {
+    .babak7-page5-container .babak7-page5-dialog-bubble-wrapper {
         max-width: 100%;
         width: 100%;
     }
 
-    .babak5-page5-container .babak5-page5-character-portrait {
+    .babak7-page5-container .babak7-page5-character-portrait {
         height: 20vh;
     }
 
-    .babak5-page5-container .babak5-page5-character2-absolute-container {
+    .babak7-page5-container .babak7-page5-character2-absolute-container {
         position: relative;
         bottom: unset;
         right: unset;
@@ -337,18 +337,18 @@
         margin-top: 2vh;
     }
 
-    .babak5-page5-container .babak5-page5-character2-portrait {
+    .babak7-page5-container .babak7-page5-character2-portrait {
         height: 20vh;
         width: auto;
     }
 
-    .babak5-page5-options-wrapper {
+    .babak7-page5-options-wrapper {
         position: relative;
         top: 0;
         margin-bottom: 2vh;
     }
 
-    .babak5-page5-bottom-actions-row {
+    .babak7-page5-bottom-actions-row {
         position: relative;
         bottom: 0;
         flex-direction: column;
@@ -356,7 +356,7 @@
         margin-top: 2vh;
     }
 
-    .babak5-page5-transcript-feedback {
+    .babak7-page5-transcript-feedback {
         position: relative;
         bottom: 0;
         left: 0;
@@ -369,7 +369,7 @@
 @media (max-height: 720px) and (orientation: landscape) {
 
 
-    .babak5-page5-home5-btn {
+    .babak7-page5-home5-btn {
         top: 5vh;
         left: 5vw;
         width: 15vh;
@@ -380,9 +380,9 @@
         max-height: 80px;
     }
 
-    .babak5-page5-music5-btn {
+    .babak7-page5-music5-btn {
         top: 5vh;
-        right: calc(5vw + 200px + 2vw);
+        right: calc(5vw + 150px + 2vw);
         left: unset;
         width: 15vh;
         height: 15vh;
@@ -392,23 +392,23 @@
         max-height: 80px;
     }
 
-    .babak5-page5-container .timer-badge {
+    .babak7-page5-container .timer-badge {
         top: 5vh;
         padding: 6px 20px;
         font-size: 16px;
     }
 
-    .babak5-page5-container .timer-icon {
+    .babak7-page5-container .timer-icon {
         width: 20px !important;
         height: 20px !important;
     }
 
-    .babak5-page5-status-header {
+    .babak7-page5-status-header {
         top: 5vh;
         right: 5vw;
     }
 
-    .babak5-page5-container .babak5-page5-character-dialog-row {
+    .babak7-page5-container .babak7-page5-character-dialog-row {
         gap: 0vw;
         max-width: 75vw !important;
 
@@ -416,12 +416,12 @@
 
 
 
-    .babak5-page5-container .babak5-page5-character-portrait {
+    .babak7-page5-container .babak7-page5-character-portrait {
         height: 95vh;
         transform: translate(-29%, -2%);
     }
 
-    .babak5-page5-container .babak5-page5-character2-absolute-container {
+    .babak7-page5-container .babak7-page5-character2-absolute-container {
         position: absolute;
         bottom: 0;
         right: 5vw;
@@ -430,38 +430,38 @@
         align-items: flex-end;
     }
 
-    .babak5-page5-container .babak5-page5-character2-portrait {
+    .babak7-page5-container .babak7-page5-character2-portrait {
         height: 85vh;
         transform: translate(-40%, 12%);
     }
 
     /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
     @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
-        .babak5-page5-dialog-bubble-wrapper-page5 {
+        .babak7-page5-dialog-bubble-wrapper-page5 {
             width: 28vw !important;
             max-width: 28vw !important;
             margin-bottom: 0 !important;
             transform: translate(-18vw, 15vh) !important;
         }
 
-        .babak5-page5-container .babak5-page5-character-dialog-row {
+        .babak7-page5-container .babak7-page5-character-dialog-row {
             top: 8vh;
             gap: 0vw !important;
             ;
             align-items: flex-start;
         }
 
-        .babak5-page5-container .babak5-page5-character-portrait {
+        .babak7-page5-container .babak7-page5-character-portrait {
             height: 98vh;
             transform: translate(-18%, 1%) !important;
         }
 
-        .babak5-page5-container .babak5-page5-character2-portrait {
+        .babak7-page5-container .babak7-page5-character2-portrait {
             height: 89vh;
             transform: translate(-15%, 15%) !important;
         }
 
-        .babak5-page5-bottom-actions-row button {
+        .babak7-page5-bottom-actions-row button {
             width: 260px !important;
             height: 70px !important;
             max-width: none !important;
@@ -469,7 +469,7 @@
         }
 
         /* Dialogue bubble responsive ratio overrides for laptop/desktop */
-        .babak5-page5-dialog-bubble-container {
+        .babak7-page5-dialog-bubble-container {
             padding: 2vh 3vh !important;
             border-width: 0.4vh !important;
             border-radius: 2vh !important;
@@ -477,37 +477,37 @@
             box-shadow: 0 0.8vh 2.2vh rgba(0, 0, 0, 0.15) !important;
         }
 
-        .babak5-page5-dialog-bubble-container .dialog-actor {
+        .babak7-page5-dialog-bubble-container .dialog-actor {
             font-size: 2.5vh !important;
             margin-bottom: 0.8vh !important;
         }
 
-        .babak5-page5-dialog-bubble-container .dialog-text {
+        .babak7-page5-dialog-bubble-container .dialog-text {
             font-size: 2.2vh !important;
             line-height: 1.4 !important;
         }
 
-        .babak5-page5-dialog-bubble-container .dialog-bubble-tail {
+        .babak7-page5-dialog-bubble-container .dialog-bubble-tail {
             width: 3vh !important;
             height: 3.3vh !important;
         }
 
-        .babak5-page5-dialog-bubble-container.left .dialog-bubble-tail {
+        .babak7-page5-dialog-bubble-container.left .dialog-bubble-tail {
             left: -2.7vh !important;
         }
 
-        .babak5-page5-dialog-bubble-container.right .dialog-bubble-tail {
+        .babak7-page5-dialog-bubble-container.right .dialog-bubble-tail {
             right: -2.7vh !important;
         }
     }
 
     @media (max-width: 960px) {
-        .babak5-page5-container .babak5-page5-character-dialog-row {
+        .babak7-page5-container .babak7-page5-character-dialog-row {
             align-items: flex-start;
             top: 12vh;
         }
 
-        .babak5-page5-dialog-bubble-wrapper-page5 {
+        .babak7-page5-dialog-bubble-wrapper-page5 {
             width: 38vw !important;
             max-width: 38vw !important;
             margin-bottom: 0 !important;
@@ -515,40 +515,40 @@
         }
 
         /* Dialogue bubble responsive ratio overrides for mobile landscape */
-        .babak5-page5-dialog-bubble-container {
+        .babak7-page5-dialog-bubble-container {
             padding: 2.2vh 3vh !important;
             border-width: 0.5vh !important;
             border-radius: 2.5vh !important;
             box-shadow: 0 0.8vh 2vh rgba(0, 0, 0, 0.2) !important;
         }
 
-        .babak5-page5-dialog-bubble-container .dialog-actor {
+        .babak7-page5-dialog-bubble-container .dialog-actor {
             font-size: 3vh !important;
             margin-bottom: 0.5vh !important;
         }
 
-        .babak5-page5-dialog-bubble-container .dialog-text {
+        .babak7-page5-dialog-bubble-container .dialog-text {
             font-size: 2.5vh !important;
             line-height: 1.35 !important;
         }
 
-        .babak5-page5-dialog-bubble-container .dialog-bubble-tail {
+        .babak7-page5-dialog-bubble-container .dialog-bubble-tail {
             width: 3.5vh !important;
             height: 4vh !important;
             left: -3vh !important;
         }
     }
 
-    .babak5-page5-options-wrapper {
+    .babak7-page5-options-wrapper {
         top: 42vh;
     }
 
-    .babak5-page5-bottom-actions-row {
+    .babak7-page5-bottom-actions-row {
         bottom: 2vh;
     }
 
     @media (max-width: 960px) {
-        .babak5-page5-bottom-actions-row button {
+        .babak7-page5-bottom-actions-row button {
             width: 17.5vw !important;
             height: 10.7vh !important;
             max-width: 160px;
@@ -556,7 +556,7 @@
         }
     }
 
-    .babak5-page5-transcript-feedback {
+    .babak7-page5-transcript-feedback {
         bottom: 15vh;
         padding: 1vh 1.3vw;
         font-size: 2.9vh;
@@ -565,30 +565,30 @@
 
 /* Fullscreen laptop / desktop (height > 720px) adjustment */
 @media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
-    .babak5-page5-container .babak5-page5-character-dialog-row {
+    .babak7-page5-container .babak7-page5-character-dialog-row {
         top: 8vh;
         gap: -1vw;
         align-items: flex-start;
     }
 
-    .babak5-page5-container .babak5-page5-character-portrait {
+    .babak7-page5-container .babak7-page5-character-portrait {
         height: 82vh !important;
         transform: translate(-1%, 5%) !important;
     }
 
-    .babak5-page5-container .babak5-page5-character2-portrait {
+    .babak7-page5-container .babak7-page5-character2-portrait {
         height: 80vh !important;
         transform: translate(-10%, 5%) !important;
     }
 
-    .babak5-page5-dialog-bubble-wrapper-page5 {
+    .babak7-page5-dialog-bubble-wrapper-page5 {
         width: 38vw !important;
         max-width: 38vw !important;
         margin-bottom: 0 !important;
         transform: translate(-6vw, 12vh) !important;
     }
 
-    .babak5-page5-bottom-actions-row button {
+    .babak7-page5-bottom-actions-row button {
         width: 260px !important;
         height: 70px !important;
         max-width: none !important;
@@ -596,7 +596,7 @@
     }
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop fullscreen */
-    .babak5-page5-dialog-bubble-container {
+    .babak7-page5-dialog-bubble-container {
         padding: 2vh 3vh !important;
         border-width: 0.4vh !important;
         border-radius: 2vh !important;
@@ -604,26 +604,26 @@
         box-shadow: 0 0.8vh 2.2vh rgba(0, 0, 0, 0.15) !important;
     }
 
-    .babak5-page5-dialog-bubble-container .dialog-actor {
+    .babak7-page5-dialog-bubble-container .dialog-actor {
         font-size: 2.5vh !important;
         margin-bottom: 0.8vh !important;
     }
 
-    .babak5-page5-dialog-bubble-container .dialog-text {
+    .babak7-page5-dialog-bubble-container .dialog-text {
         font-size: 2.2vh !important;
         line-height: 1.4 !important;
     }
 
-    .babak5-page5-dialog-bubble-container .dialog-bubble-tail {
+    .babak7-page5-dialog-bubble-container .dialog-bubble-tail {
         width: 3vh !important;
         height: 3.3vh !important;
     }
 
-    .babak5-page5-dialog-bubble-container.left .dialog-bubble-tail {
+    .babak7-page5-dialog-bubble-container.left .dialog-bubble-tail {
         left: -2.7vh !important;
     }
 
-    .babak5-page5-dialog-bubble-container.right .dialog-bubble-tail {
+    .babak7-page5-dialog-bubble-container.right .dialog-bubble-tail {
         right: -2.7vh !important;
     }
 }

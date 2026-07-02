@@ -386,7 +386,7 @@ export default function Babak5Page3() {
         <div className="babak5-page3-dialog-bubble-wrapper">
           <DialogBubble
             actorName="Surontanu"
-            dialogueText="He, Kebo Kicak! Aku ora trima yen awakmu dadi cantrik sing paling sekti kang kerep  dialembana dening Ki Ageng Sapayana!"
+            dialogueText="He, Kebo Kicak! Aku ora trima yen awakmu dadi cantrik sing paling sekti!"
             speakerPosition="left"
           />
         </div>

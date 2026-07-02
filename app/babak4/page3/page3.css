@@ -375,7 +375,7 @@
 
   .babak4-page3-character-portrait {
     height: 38vh;
-    transform: translate(-10%, -20%);
+    transform: translate(-12%, -20%);
   }
 
 
@@ -444,8 +444,8 @@
     }
 
     .babak4-page3-dialog-bubble-wrapper {
-      transform: translate(-18%, -40%);
-      max-width: 45vw;
+      transform: translate(-24%, -40%);
+      max-width: 46vw;
     }
   }
 

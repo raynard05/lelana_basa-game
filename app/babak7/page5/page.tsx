@@ -15,7 +15,7 @@ import confetti from 'canvas-confetti';
 
 import './page5.css';
 
-export default function Babak5Page5() {
+export default function babak7Page5() {
     const [currentUser, setCurrentUser] = useState<any>(null);
     const [isValidating, setIsValidating] = useState(true);
     const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
@@ -312,15 +312,15 @@ export default function Babak5Page5() {
 
     const handleProceed = () => {
         if (typeof window !== 'undefined') {
-            localStorage.removeItem('babak5_page5_timer_expiration');
-            localStorage.removeItem('babak5_page5_timer_paused_time');
+            localStorage.removeItem('babak7_page5_timer_expiration');
+            localStorage.removeItem('babak7_page5_timer_paused_time');
         }
         router.push('/menu');
     };
 
     if (isValidating) {
         return (
-            <div className="babak5-page5-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="babak7-page5-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div style={{ color: '#FFF8E1', fontSize: '20px', fontWeight: 'bold', textShadow: '0 2px 4px rgba(0,0,0,0.5)', fontFamily: 'sans-serif' }}>
                     Loading...
                 </div>
@@ -329,18 +329,18 @@ export default function Babak5Page5() {
     }
 
     return (
-        <div className="babak5-page5-container">
-            <Home className="babak5-page5-nav5-btn babak5-page5-home5-btn" />
-            <Music className="babak5-page5-nav5-btn babak5-page5-music5-btn" />
+        <div className="babak7-page5-container">
+            <Home className="babak7-page5-nav5-btn babak7-page5-home5-btn" />
+            <Music className="babak7-page5-nav5-btn babak7-page5-music5-btn" />
 
             <Timer
                 initialTime={6300}
                 isLocked={isLocked || !!showPopup}
                 onTimeOut={handleTimeOut}
-                storageKey="babak5_page5_timer"
+                storageKey="babak7_page5_timer"
             />
 
-            <div className="babak5-page5-status-header">
+            <div className="babak7-page5-status-header">
                 <GameStatusHeader
                     babak={7}
                     misi={3}
@@ -348,47 +348,47 @@ export default function Babak5Page5() {
                 />
             </div>
 
-            <div className="babak5-page5-character-dialog-row">
-                <div className="babak5-page5-character-portrait-container">
+            <div className="babak7-page5-character-dialog-row">
+                <div className="babak7-page5-character-portrait-container">
                     <Image
                         src="/babak7/page5a.webp"
                         alt="Jaka Slewah"
                         width={500}
                         height={500}
-                        className="babak5-page5-character-portrait"
+                        className="babak7-page5-character-portrait"
                         priority
                         unoptimized
                     />
                 </div>
-                <div className="babak5-page5-dialog-bubble-wrapper babak5-page5-dialog-bubble-wrapper-page5">
+                <div className="babak7-page5-dialog-bubble-wrapper babak7-page5-dialog-bubble-wrapper-page5">
                     <DialogBubble
                         actorName="Prajurit"
                         dialogueText="Halah, rasah ngapusi! Wis ndang ngaliha, tinimbang taksuwunake paukuman!"
                         speakerPosition="left"
-                        className="babak5-page5-dialog-bubble-container"
+                        className="babak7-page5-dialog-bubble-container"
                     />
                 </div>
             </div>
 
-            <div className="babak5-page5-character2-absolute-container">
+            <div className="babak7-page5-character2-absolute-container">
                 <Image
                     src="/babak7/page5b.webp"
                     alt="Lelana"
                     width={500}
                     height={500}
-                    className="babak5-page5-character2-portrait"
+                    className="babak7-page5-character2-portrait"
                     priority
                     unoptimized
                 />
             </div>
 
             {transcriptFeedback && (
-                <div className="babak5-page5-transcript-feedback">
+                <div className="babak7-page5-transcript-feedback">
                     Swara sampeyan: "{transcriptFeedback}"
                 </div>
             )}
 
-            <div className="babak5-page5-bottom-actions-row">
+            <div className="babak7-page5-bottom-actions-row">
                 <ListenButton
                     audioUrl="/audio/MP3 BABAK 1/soundpage5.mp3"
                     disabled={isLocked}
@@ -403,8 +403,8 @@ export default function Babak5Page5() {
             </div>
 
             {showPopup && (
-                <div className={`babak5-page5-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
-                    <div className={`babak5-page5-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
+                <div className={`babak7-page5-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
+                    <div className={`babak7-page5-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
                         <Image
                             src={
                                 showPopup === 'timeout'
@@ -414,7 +414,7 @@ export default function Babak5Page5() {
                             alt={showPopup}
                             width={320}
                             height={240}
-                            className="babak5-page5-popup-image"
+                            className="babak7-page5-popup-image"
                             unoptimized
                         />
                     </div>

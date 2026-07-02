@@ -411,7 +411,7 @@
 
   .babak2-page4-container .babak2-page4-character-portrait {
     height: 100vh;
-    transform: translate(20%, 3%);
+    transform: translate(12%, 3%);
   }
 
   .babak2-page4-container .babak2-page4-character2-absolute-container {
@@ -425,7 +425,7 @@
 
   .babak2-page4-container .babak2-page4-character2-portrait {
     height: 80vh;
-    transform: translate(-20%, 5%);
+    transform: translate(-10%, 5%);
   }
 
   /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
@@ -503,7 +503,7 @@
       width: 38vw !important;
       max-width: 38vw !important;
       margin-bottom: 0 !important;
-      transform: translate(-10vw, 10vh) !important;
+      transform: translate(-14vw, 10vh) !important;
     }
 
     /* Dialogue bubble responsive ratio overrides for mobile landscape */
