@@ -323,7 +323,7 @@ export default function Babak5Page5() {
       localStorage.removeItem('babak5_page5_timer_expiration');
       localStorage.removeItem('babak5_page5_timer_paused_time');
     }
-    router.push('/menu');
+    router.push('/babak6/page1_narration');
   };
 
   if (isValidating) {
