@@ -565,5 +565,10 @@
         position: relative;
         left: -4vw;
         top: 1vw;
+        
     }
+
+     .babak7-option-btn {
+        font-size: 2.5vh;
+     }
 }
