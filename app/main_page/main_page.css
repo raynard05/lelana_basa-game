@@ -1,4 +1,20 @@
 /* stylesheet for Main Page Intro Narration */
+.mainpage-sinopsis-title {
+  position: absolute;
+  top: -4.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32vh;
+  max-width: 260px;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+}
+
+.mainpage-sinopsis-title img {
+  width: 100%;
+  height: auto;
+}
 
 .mainpage-container {
   position: relative;
@@ -46,7 +62,7 @@
 
 .mainpage-container .mainpage-music-btn {
   top: 5vh;
-  right: calc(5vw + 50px + 2vw);
+  right: calc(5vw + 70px + 2vw);
   /* Music button next to Skip button */
 }
 
@@ -70,11 +86,11 @@
 .mainpage-card-frame {
   margin-top: 7%;
   position: relative;
-  background-image: url('/main_page_assets/main_page_layout.webp');
+  background-image: url('/main_page_assets/empty_frame.webp');
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  width: 80vw;
-  height: 75vh;
+  width: 85vw;
+  height: 80vh;
   max-width: 1100px;
   max-height: 500px;
   display: flex;
@@ -82,14 +98,71 @@
   justify-content: flex-start;
 }
 
-/* Audio Player Container */
-.mainpage-audio-container {
-  width: 78vw;
-  max-width: 800px;
+/* Narration text overlay & word-by-word animation styles */
+.mainpage-text-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  transform: translateY(-20%);
-  z-index: 10;
+  text-align: center;
+  padding: 4% 10% 2% 10%;
+  color: #FFF8E1;
+  font-size: 2.5vh;
+  font-weight: 700;
+  line-height: 1.62;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.95), -1px -1px 3px rgba(0, 0, 0, 0.95), 1px -1px 3px rgba(0, 0, 0, 0.95), -1px 1px 3px rgba(0, 0, 0, 0.95);
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  user-select: none;
+  z-index: 5;
+}
+
+.mainpage-narration-paragraph {
+  margin-bottom: 2vh;
+  width: 100%;
+  max-width: 92%;
+}
+
+.mainpage-narration-word {
+  display: inline-block;
+  margin-right: 0.5vw;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.mainpage-narration-word.mainpage-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mainpage-sugeng-makarya-banner {
+  background-color: #EAD3A8;
+  border: 1.5px solid #8E7B58;
+  border-radius: 25px;
+  color: #4E3F27;
+  font-size: 2.5vh;
+  font-weight: 800;
+  padding: 0.8vh 4vh;
+  margin-top: 2vh;
+  display: inline-block;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-shadow: none;
+  animation: mainpage-fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes mainpage-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Mobile responsive modifications */
@@ -112,5 +185,11 @@
   .mainpage-skip-btn {
     top: 3vh;
     right: 4vw;
+  }
+}
+
+@media (max-width:990px) {
+  .mainpage-container .mainpage-music-btn {
+    right: calc(5vw + 50px + 2vw);
   }
 }

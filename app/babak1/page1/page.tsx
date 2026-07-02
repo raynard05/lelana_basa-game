@@ -294,7 +294,7 @@ export default function Babak1Page() {
   return (
     <div className="babak1-container">
       {/* Top Controls */}
-      <Home className="nav-btn home-btn" />
+      <Home className="babak1-nav-btn babak1-home-btn" />
 
       <Timer
         initialTime={3600}
@@ -304,37 +304,37 @@ export default function Babak1Page() {
       />
 
       {/* Skip button replaced by Music Component */}
-      <Music className="nav-btn music-btn" />
+      <Music className="babak1-nav-btn babak1-music-btn" />
       {/* Main Analysis Card */}
-      <div className="card-frame">
-        <div className="card-content-layout">
+      <div className="babak1-card-frame">
+        <div className="babak1-card-content-layout">
 
           {/* Left Column: Portrait & metadata */}
-          <div className="column-left">
+          <div className="babak1-column-left">
 
             <Image
               src="/babak1/pages_1_assets/aktor_npc.png"
               alt="Jaka Slewah"
               width={100}
               height={100}
-              className="avatar-image-el"
+              className="babak1-avatar-image-el"
               priority
               unoptimized
             />
           </div>
 
           {/* Right Column: Title & choices */}
-          <div className="column-right">
-           <div className="options-container">
+          <div className="babak1-column-right">
+           <div className="babak1-options-container">
               {options.map((opt) => {
                 const isSelected = selectedOption === opt.id;
-                let btnClass = `option-btn opt-${opt.id}`;
+                let btnClass = `babak1-option-btn babak1-opt-${opt.id}`;
 
                 if (isSelected) {
                   if (isAnswerCorrect) {
-                    btnClass += " correct-option";
+                    btnClass += " babak1-correct-option";
                   } else if (isAnswerCorrect === false) {
-                    btnClass += " incorrect-option";
+                    btnClass += " babak1-incorrect-option";
                   }
                 }
 
@@ -357,16 +357,16 @@ export default function Babak1Page() {
       </div>
 
       {/* Bottom Subtitle / Instruction Banner */}
-      <div className="bottom-banner">
-        <div className="banner-content-layout">
+      <div className="babak1-bottom-banner">
+        <div className="babak1-banner-content-layout">
 
         </div>
       </div>
 
       {/* Delayed Popup Modals */}
       {showPopup && (
-        <div className={`popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
-          <div className={`popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
+        <div className={`babak1-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
+          <div className={`babak1-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
             <Image
               src={
                 showPopup === 'timeout'
@@ -376,7 +376,7 @@ export default function Babak1Page() {
               alt={showPopup}
               width={320}
               height={240}
-              className="popup-image"
+              className="babak1-popup-image"
               unoptimized
             />
           </div>

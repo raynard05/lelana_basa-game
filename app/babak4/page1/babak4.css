@@ -82,7 +82,7 @@
   color: #FFF8E1;
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
-  font-size: vh;
+  font-size: clamp(14px, 2.5vh, 20px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -92,8 +92,8 @@
 .babak4-container .timer-icon {
   color: #F59E0B;
   flex-shrink: 0;
-  width: 6vh !important;
-  height: 6vh !important;
+  width: clamp(18px, 3vh, 24px) !important;
+  height: clamp(18px, 3vh, 24px) !important;
 }
 
 /* Main Analysis Card */

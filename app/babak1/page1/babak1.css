@@ -25,7 +25,7 @@
 }
 
 /* Nav Controls */
-.nav-btn {
+.babak1-nav-btn {
   position: absolute;
   z-index: 100;
   width: 15vh;
@@ -45,25 +45,23 @@
   touch-action: manipulation;
 }
 
-.home-btn {
+.babak1-home-btn {
   top: 5vh;
   left: 5vw;
 }
 
-.babak1-container .music-btn {
+.babak1-container .babak1-music-btn {
   top: 5vh;
   right: 5vw;
 }
 
-
-
 @media (hover: hover) and (pointer: fine) {
-  .nav-btn:hover {
+  .babak1-nav-btn:hover {
     transform: scale(1.15);
   }
 }
 
-.nav-btn:active {
+.babak1-nav-btn:active {
   opacity: 0.7;
 }
 
@@ -84,24 +82,22 @@
   color: #FFF8E1;
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
-  font-size: vh;
+  font-size: clamp(14px, 2.5vh, 20px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   user-select: none;
-
-
 }
 
 .timer-icon {
   color: #F59E0B;
   flex-shrink: 0;
-  width: 6vh !important;
-  height: 6vh !important;
+  width: clamp(18px, 3vh, 24px) !important;
+  height: clamp(18px, 3vh, 24px) !important;
 }
 
 /* Main Analysis Card */
-.card-frame {
+.babak1-card-frame {
   position: relative;
   width: 165vh;
   max-width: 200vw;
@@ -119,7 +115,7 @@
   transform: translateY(-2vh);
 }
 
-.card-content-layout {
+.babak1-card-content-layout {
   width: 100%;
   height: 100%;
   display: flex;
@@ -128,7 +124,7 @@
 }
 
 /* Left Column: Portrait and details */
-.column-left {
+.babak1-column-left {
   flex: 1.2;
   display: flex;
   flex-direction: column;
@@ -139,7 +135,7 @@
   transform: translateX(-10%);
 }
 
-.avatar-border {
+.babak1-avatar-border {
   width: 24vh;
   height: 24vh;
   border-radius: 50%;
@@ -153,7 +149,7 @@
   justify-content: center;
 }
 
-.avatar-image-el {
+.babak1-avatar-image-el {
   margin-top: 5%;
   width: 100%;
   height: 100%;
@@ -161,7 +157,7 @@
   object-fit: cover;
 }
 
-.char-title {
+.babak1-char-title {
   font-size: 2.6vh;
   font-weight: 800;
   color: #2D1500;
@@ -169,21 +165,21 @@
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
-.char-relation {
+.babak1-char-relation {
   font-size: 2vh;
   font-weight: 600;
   color: #5D4037;
   line-height: 1.2;
 }
 
-.char-age-tag {
+.babak1-char-age-tag {
   font-size: 1.8vh;
   font-weight: 500;
   color: #795548;
   margin-top: 0.2vh;
 }
 
-.column-right {
+.babak1-column-right {
   flex: 1.2;
   display: flex;
   flex-direction: column;
@@ -194,7 +190,7 @@
   margin-top: 10%;
 }
 
-.analysis-header {
+.babak1-analysis-header {
   font-size: 3vh;
   font-weight: 900;
   color: #2D1500;
@@ -204,7 +200,7 @@
   letter-spacing: 1px;
 }
 
-.options-container {
+.babak1-options-container {
   display: grid;
   grid-template-columns: repeat(2, 18vh);
   justify-content: center;
@@ -213,7 +209,7 @@
 }
 
 /* Option Buttons styling */
-.option-btn {
+.babak1-option-btn {
   width: 100%;
   height: 6vh;
   min-height: 40px;
@@ -232,37 +228,37 @@
   touch-action: manipulation;
 }
 
-.opt-luwih_tuwa {
+.babak1-opt-luwih_tuwa {
   grid-column: 1;
 }
 
-.opt-sapantaran {
+.babak1-opt-sapantaran {
   grid-column: 2;
 }
 
-.opt-luwih_enom {
+.babak1-opt-luwih_enom {
   grid-column: span 2;
   width: 30vh !important;
   justify-self: center;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .option-btn:hover {
+  .babak1-option-btn:hover {
     filter: brightness(1.08);
   }
 }
 
-.option-btn:active {
+.babak1-option-btn:active {
   transform: scale(0.97);
 }
 
-.option-btn:disabled {
+.babak1-option-btn:disabled {
   cursor: not-allowed;
   opacity: 0.9;
 }
 
 /* Correct Answer state */
-.option-btn.correct-option {
+.babak1-option-btn.babak1-correct-option {
   background: linear-gradient(180deg, #4ADE80 0%, #16A34A 100%) !important;
   border-color: #064E3B !important;
   color: #F0FDF4 !important;
@@ -270,16 +266,16 @@
 }
 
 /* Incorrect Answer state */
-.option-btn.incorrect-option {
+.babak1-option-btn.babak1-incorrect-option {
   background: linear-gradient(180deg, #F87171 0%, #DC2626 100%) !important;
   border-color: #7F1D1D !important;
   color: #FEF2F2 !important;
   box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
-  animation: btnShake 0.4s ease-in-out;
+  animation: babak1-btnShake 0.4s ease-in-out;
 }
 
 /* Bottom Instruction Banner */
-.bottom-banner {
+.babak1-bottom-banner {
   position: absolute;
   bottom: 4vh;
   width: 160vh;
@@ -295,10 +291,9 @@
   padding: 0 4vw;
   z-index: 50;
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
-
 }
 
-.banner-content-layout {
+.babak1-banner-content-layout {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -310,14 +305,13 @@
   text-align: center;
 }
 
-.banner-icon {
+.babak1-banner-icon {
   color: #F59E0B;
   flex-shrink: 0;
 }
 
-/* Proceed Button Overlay when user solves the puzzle */
 /* Premium Popup Modal Styles */
-.popup-overlay {
+.babak1-popup-overlay {
   position: fixed;
   inset: 0;
   background: rgba(18, 11, 0, 0.85);
@@ -327,20 +321,20 @@
   z-index: 1000;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  animation: fadeIn 0.3s ease-out;
+  animation: babak1-fadeIn 0.3s ease-out;
 }
 
-.popup-card {
+.babak1-popup-card {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 90vw;
   width: 60vh;
-  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: babak1-scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.popup-image {
+.babak1-popup-image {
   width: 100%;
   height: auto;
   max-width: 120vh;
@@ -348,35 +342,43 @@
   margin: 0;
 }
 
-
-
 /* Animations */
-@keyframes btnShake {
-
+@keyframes babak1-btnShake {
   0%,
   100% {
     transform: translateX(0);
   }
-
   25% {
     transform: translateX(-6px);
   }
-
   75% {
     transform: translateX(6px);
   }
 }
 
+@keyframes babak1-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes babak1-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
 
 @keyframes pulseSuccess {
   0% {
     box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.5);
   }
-
   70% {
     box-shadow: 0 0 0 10px rgba(22, 163, 74, 0);
   }
-
   100% {
     box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
   }
@@ -384,97 +386,94 @@
 
 /* Portrait Safety Fallback */
 @media (orientation: portrait) {
-  .card-frame {
+  .babak1-card-frame {
     width: 90vw;
     height: auto;
     aspect-ratio: auto;
     padding: 8vw 6vw;
   }
 
-  .card-content-layout {
+  .babak1-card-content-layout {
     flex-direction: column;
     gap: 4vw;
   }
 
-  .column-left {
+  .babak1-column-left {
     padding-right: 0;
     margin-bottom: 2vh;
   }
 
-  .avatar-border {
+  .babak1-avatar-border {
     width: 20vh;
     height: 20vh;
   }
 
-  .column-right {
+  .babak1-column-right {
     padding-left: 0;
     width: 100%;
   }
 
-  .options-container {
+  .babak1-options-container {
     grid-template-columns: 1fr;
     max-width: 42vh;
     gap: 2.2vh;
   }
 
-  .option-btn {
+  .babak1-option-btn {
     width: 100% !important;
   }
 
-  .opt-luwih_tuwa {
+  .babak1-opt-luwih_tuwa {
     grid-column: span 1;
   }
 
-  .opt-sapantaran {
+  .babak1-opt-sapantaran {
     grid-column: span 1;
   }
 
-  .opt-luwih_enom {
+  .babak1-opt-luwih_enom {
     grid-column: span 1;
     width: 100% !important;
   }
 
-  .bottom-banner {
+  .babak1-bottom-banner {
     width: 90vw;
     height: auto;
     padding: 3vw;
     bottom: 3vh;
   }
 
-  .banner-content-layout {
+  .babak1-banner-content-layout {
     font-size: 1.8vh;
   }
 
-  .nav-btn {
+  .babak1-nav-btn {
     width: 12vw;
     height: 12vw;
   }
 
-  .home-btn {
+  .babak1-home-btn {
     top: 3vh;
     left: 4vw;
   }
 
-  .babak1-container .music-btn {
+  .babak1-container .babak1-music-btn {
     top: 3vh;
     right: 4vw;
   }
-
 }
 
 /* Desktop & Laptop responsiveness overrides */
 @media (min-width: 1025px) and (orientation: landscape) {
-  .column-right {
+  .babak1-column-right {
     margin-top: 5%;
-
   }
 
-
-  .options-container {
+  .babak1-options-container {
     grid-template-columns: repeat(2, 18vh);
   }
 
-  .option-btn {
+  .babak1-option-btn {
     width: 100%;
     height: 10vh;
     min-height: 35px;
@@ -493,7 +492,7 @@
     touch-action: manipulation;
   }
 
-  .opt-luwih_tuwa {
+  .babak1-opt-luwih_tuwa {
     grid-column: 1;
     width: 37vh !important;
     position: relative;
@@ -501,7 +500,7 @@
     top: -2vw;
   }
 
-  .opt-sapantaran {
+  .babak1-opt-sapantaran {
     grid-column: 2;
     width: 37vh !important;
     position: relative;
@@ -509,7 +508,7 @@
     top: -2vw;
   }
 
-  .opt-luwih_enom {
+  .babak1-opt-luwih_enom {
     grid-column: span 2;
     width: 37vh !important;
     justify-self: center;
@@ -520,8 +519,7 @@
 }
 
 @media (max-width: 990px) {
-
-  .opt-luwih_tuwa {
+  .babak1-opt-luwih_tuwa {
     grid-column: 1;
     width: 37vh !important;
     position: relative;
@@ -529,7 +527,7 @@
     top: -2vw;
   }
 
-  .opt-sapantaran {
+  .babak1-opt-sapantaran {
     grid-column: 2;
     width: 37vh !important;
     position: relative;
@@ -537,7 +535,7 @@
     top: -2vw;
   }
 
-  .opt-luwih_enom {
+  .babak1-opt-luwih_enom {
     grid-column: span 2;
     width: 37vh !important;
     justify-self: center;
@@ -546,9 +544,7 @@
     top: -1vw;
   }
 
-  .option-btn {
+  .babak1-option-btn {
     font-size: 2.5vh;
   }
-
-
 }

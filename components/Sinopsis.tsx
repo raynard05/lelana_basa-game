@@ -12,6 +12,10 @@ interface SinopsisProps {
   progressColor?: string;
   trackColor?: string;
   thumbColor?: string;
+  onTimeUpdate?: (time: number) => void;
+  onDurationChange?: (duration: number) => void;
+  onPlayStateChange?: (isPlaying: boolean) => void;
+  autoPlay?: boolean;
 }
 
 export default function Sinopsis({
@@ -23,6 +27,10 @@ export default function Sinopsis({
   progressColor = '#f3d393',
   trackColor = '#59513e',
   thumbColor = '#f3d393',
+  onTimeUpdate,
+  onDurationChange,
+  onPlayStateChange,
+  autoPlay = false,
 }: SinopsisProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -34,35 +42,64 @@ export default function Sinopsis({
     const audio = audioRef.current;
     if (!audio) return;
 
-    const onTimeUpdate = () => {
+    const handleTimeUpdate = () => {
       setCurrentTime(audio.currentTime);
+      if (onTimeUpdate) onTimeUpdate(audio.currentTime);
     };
 
-    const onLoadedMetadata = () => {
-      setDuration(audio.duration || 0);
+    const handleLoadedMetadata = () => {
+      const dur = audio.duration || 0;
+      setDuration(dur);
+      if (onDurationChange) onDurationChange(dur);
     };
 
-    const onEnded = () => {
+    const handleEnded = () => {
       setIsPlaying(false);
       setCurrentTime(0);
       window.dispatchEvent(new Event('resumeBackgroundMusic'));
+      if (onTimeUpdate) onTimeUpdate(0);
     };
 
-    audio.addEventListener('timeupdate', onTimeUpdate);
-    audio.addEventListener('loadedmetadata', onLoadedMetadata);
-    audio.addEventListener('ended', onEnded);
+    audio.addEventListener('timeupdate', handleTimeUpdate);
+    audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+    audio.addEventListener('ended', handleEnded);
 
     // Sync duration immediately if already loaded
     if (audio.readyState >= 1) {
-      setDuration(audio.duration || 0);
+      const dur = audio.duration || 0;
+      setDuration(dur);
+      if (onDurationChange) onDurationChange(dur);
     }
 
     return () => {
-      audio.removeEventListener('timeupdate', onTimeUpdate);
-      audio.removeEventListener('loadedmetadata', onLoadedMetadata);
-      audio.removeEventListener('ended', onEnded);
+      audio.removeEventListener('timeupdate', handleTimeUpdate);
+      audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      audio.removeEventListener('ended', handleEnded);
     };
-  }, [music_assets]);
+  }, [music_assets, onTimeUpdate, onDurationChange]);
+
+  // Autoplay support
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !autoPlay) return;
+
+    const startPlay = () => {
+      window.dispatchEvent(new Event('pauseBackgroundMusic'));
+      audio.play().then(() => {
+        setIsPlaying(true);
+        if (onPlayStateChange) onPlayStateChange(true);
+      }).catch((err) => {
+        console.warn('Autoplay failed:', err);
+      });
+    };
+
+    // If audio is ready, play immediately; otherwise wait for metadata
+    if (audio.readyState >= 1) {
+      startPlay();
+    } else {
+      audio.addEventListener('loadedmetadata', startPlay, { once: true });
+    }
+  }, [music_assets, autoPlay, onPlayStateChange]);
 
   // If the component is unmounted while playing, resume background music
   useEffect(() => {
@@ -81,10 +118,12 @@ export default function Sinopsis({
       audio.pause();
       setIsPlaying(false);
       window.dispatchEvent(new Event('resumeBackgroundMusic'));
+      if (onPlayStateChange) onPlayStateChange(false);
     } else {
       window.dispatchEvent(new Event('pauseBackgroundMusic'));
       audio.play().then(() => {
         setIsPlaying(true);
+        if (onPlayStateChange) onPlayStateChange(true);
       }).catch((err) => {
         console.warn('Playback failed:', err);
       });
@@ -98,6 +137,7 @@ export default function Sinopsis({
     const newTime = parseFloat(e.target.value);
     audio.currentTime = newTime;
     setCurrentTime(newTime);
+    if (onTimeUpdate) onTimeUpdate(newTime);
   };
 
   const formatTime = (seconds: number) => {
