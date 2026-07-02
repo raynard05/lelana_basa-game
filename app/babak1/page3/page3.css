@@ -381,7 +381,7 @@
   /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
   @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
     .dialog-bubble-wrapper {
-      max-width: 62vw;
+      max-width: 35vw;
       margin-bottom: 0;
       transform: translate(-10%, 40%);
     }

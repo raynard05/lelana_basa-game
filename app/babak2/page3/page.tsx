@@ -24,7 +24,7 @@ const optionsData: OptionData[] = [
   },
   {
     id: 'B',
-    text: 'Ora isa, Bu, ati kula lara banget.',
+    text: "Ora isa, Bu. Manah kula lara banget.",
     audioUrl: '/audio/MP3 BABAK 1/4. Ngoko Alus babak 1.mp3',
   },
   {
@@ -100,7 +100,7 @@ export default function Babak2Page3() {
     if (showPopup && ['pop_25', 'pop_50', 'pop_75', 'pop_100'].includes(showPopup)) {
       const audio = new Audio('/main/MP3_soundeffect/correct_soundeffect.wav');
       audio.play().catch((err) => console.log('Correct sound playback failed:', err));
-      
+
       // Trigger confetti
       if (showPopup === 'pop_100') {
         confetti({
@@ -225,25 +225,25 @@ export default function Babak2Page3() {
 
     if (correct && typeof window !== 'undefined') {
       const earned = attempts === 1 ? 100 : 75;
-      
+
       if (earned === 100) {
         const currentStreak = parseInt(localStorage.getItem('game_streak') || '0', 10) + 1;
         localStorage.setItem('game_streak', currentStreak.toString());
-        
+
         if (currentStreak === 3) {
           const newScore = score + earned + 25;
           setScore(newScore);
           localStorage.setItem('game_score', newScore.toString());
           localStorage.setItem('game_streak', '0');
           setHasStreakPending(true);
-          
+
           setTimeout(() => {
             setShowPopup('pop_100');
-            
+
             proceedTimeoutRef.current = setTimeout(() => {
               setHasStreakPending(false);
               setShowPopup('pop_streak');
-              
+
               proceedTimeoutRef.current = setTimeout(() => {
                 handleProceed();
               }, 4000);
@@ -321,7 +321,7 @@ export default function Babak2Page3() {
     if (proceedTimeoutRef.current) {
       clearTimeout(proceedTimeoutRef.current);
     }
-    
+
     if (showPopup === 'pop_cobalagi') {
       setAttempts(2);
       setIsLocked(false);
@@ -331,7 +331,7 @@ export default function Babak2Page3() {
     } else if (showPopup === 'pop_100' && hasStreakPending) {
       setHasStreakPending(false);
       setShowPopup('pop_streak');
-      
+
       proceedTimeoutRef.current = setTimeout(() => {
         handleProceed();
       }, 4000);
@@ -399,7 +399,7 @@ export default function Babak2Page3() {
         <div className="babak2-page3-dialog-bubble-wrapper">
           <DialogBubble
             actorName="Wandan Wanguri"
-            dialogueText="Wis, aja nangis ae, Le. Mengko dadi rasan-rasane tangga. Lungguha dhisik, Ibu bakal crita."
+            dialogueText='Wis, aja nangis wae, mengko dadi rerasane tangga-tangga. Lungguha dhisik, Ibu bakal crita.'
             speakerPosition="left"
           />
         </div>

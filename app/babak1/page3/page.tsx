@@ -19,22 +19,22 @@ import './page3.css';
 const optionsData: OptionData[] = [
   {
     id: 'A',
-    text: 'Apa merga aku ora nduwe bapak, banjur awakmu ora gelem kancanan karo aku?',
+    text: "Apa merga aku ora nduwe bapak, banjur awakmu ora gelem kekancan karo aku?",
     audioUrl: '/audio/MP3BABAK1/ngokolugu.m4a',
   },
   {
     id: 'B',
-    text: 'Apa amarga kula ora nduwe bapak, banjur panjenengan ora gelem kancanan karo aku?',
+    text:"Apa amarga kula ora nduwe bapak, banjur panjenengan ora gelem kekancan karo aku?",
     audioUrl: '/audio/MP3BABAK1/ngokoalus.m4a',
   },
   {
     id: 'C',
-    text: 'Menapa amergi kula mboten gadhah bapak, banjur sampeyan mboten purun kancanan kalih kula?',
+    text: "Menapa amargi kula mboten gadhah bapak, banjur sampeyan mboten purun kekancan kalih kula?",
     audioUrl: '/audio/MP3BABAK1/kramalugu.m4a',
   },
   {
     id: 'D',
-    text: 'Menapa amergi kula mboten gadhah rama, lajeng panjenengan mboten purun kancanan kalih kula?',
+    text: 'Menapa amargi kula mboten gadhah Rama, lajeng panjenengan mboten kersa kekancan kalih kula?' , 
     audioUrl: '/audio/MP3BABAK1/kramaalus.m4a',
   },
 ];

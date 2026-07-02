@@ -75,7 +75,7 @@ export default function Babak5Page5() {
     if (showPopup && ['pop_25', 'pop_50', 'pop_75', 'pop_100'].includes(showPopup)) {
       const audio = new Audio('/main/MP3_soundeffect/correct_soundeffect.wav');
       audio.play().catch((err) => console.log('Correct sound playback failed:', err));
-      
+
       if (showPopup === 'pop_100') {
         confetti({
           particleCount: 150,
@@ -182,29 +182,29 @@ export default function Babak5Page5() {
     const words = text.split(/\s+/).map(normalizeWord).filter(Boolean);
 
     const targetWords = [
-  "mangga",
-  "monggo",
-  "dipunwiwiti",
-  "aku",
-  "ora",
-  "bakal",
-  "mlayu",
-  "saka",
-  "soko",
-  "kene",
-  "aja",
-  "kakehan",
-  "kakean",
-  "omong",
-  "wis",
-  "ndang",
-  "ayo",
-  "iya",
-  "majua",
-  "kene",
-  "diwiwiti",
-  "ya"
-];
+      "mangga",
+      "monggo",
+      "dipunwiwiti",
+      "aku",
+      "ora",
+      "bakal",
+      "mlayu",
+      "saka",
+      "soko",
+      "kene",
+      "aja",
+      "kakehan",
+      "kakean",
+      "omong",
+      "wis",
+      "ndang",
+      "ayo",
+      "iya",
+      "majua",
+      "kene",
+      "diwiwiti",
+      "ya"
+    ];
     const uniqueMatched = Array.from(new Set(words.filter(word => targetWords.includes(word))));
     const matchedCount = uniqueMatched.length;
 
@@ -236,21 +236,21 @@ export default function Babak5Page5() {
       if (earnedPoints === 100) {
         const currentStreak = parseInt(localStorage.getItem('game_streak') || '0', 10) + 1;
         localStorage.setItem('game_streak', currentStreak.toString());
-        
+
         if (currentStreak === 3) {
           const newScore = score + earnedPoints + 25;
           setScore(newScore);
           localStorage.setItem('game_score', newScore.toString());
           localStorage.setItem('game_streak', '0');
           setHasStreakPending(true);
-          
+
           setTimeout(() => {
             setShowPopup('pop_100');
-            
+
             proceedTimeoutRef.current = setTimeout(() => {
               setHasStreakPending(false);
               setShowPopup('pop_streak');
-              
+
               proceedTimeoutRef.current = setTimeout(() => {
                 handleProceed();
               }, 4000);
@@ -265,7 +265,7 @@ export default function Babak5Page5() {
       const newScore = score + earnedPoints;
       setScore(newScore);
       localStorage.setItem('game_score', newScore.toString());
-      
+
       setTimeout(() => {
         setShowPopup(`pop_${earnedPoints}` as any);
 
@@ -300,7 +300,7 @@ export default function Babak5Page5() {
     if (proceedTimeoutRef.current) {
       clearTimeout(proceedTimeoutRef.current);
     }
-    
+
     if (showPopup === 'pop_cobalagi') {
       setAttempts(2);
       setIsLocked(false);
@@ -309,7 +309,7 @@ export default function Babak5Page5() {
     } else if (showPopup === 'pop_100' && hasStreakPending) {
       setHasStreakPending(false);
       setShowPopup('pop_streak');
-      
+
       proceedTimeoutRef.current = setTimeout(() => {
         handleProceed();
       }, 4000);
@@ -371,7 +371,7 @@ export default function Babak5Page5() {
         <div className="babak5-page5-dialog-bubble-wrapper babak5-page5-dialog-bubble-wrapper-page5">
           <DialogBubble
             actorName="Jaka Slewah"
-            dialogueText="Wis, ndang ngaliha, golekana dhisik sapa bapakmu!"
+            dialogueText="Ya! Dina iki kowe bakal kalah ing tanganku!"
             speakerPosition="left"
             className="babak5-page5-dialog-bubble-container"
           />

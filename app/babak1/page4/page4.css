@@ -438,8 +438,8 @@
   /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
   @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
     .dialog-bubble-wrapper-page4 {
-      width: 38vw !important;
-      max-width: 38vw !important;
+      width: 32vw !important;
+      max-width: 32vw !important;
       margin-bottom: 0 !important;
       transform: translate(-10vw, 10vh) !important;
     }
@@ -508,7 +508,7 @@
 
     .dialog-bubble-wrapper-page4 {
       width: 38vw !important;
-      max-width: 38vw !important;
+      max-width: 32vw !important;
       margin-bottom: 0 !important;
       transform: translate(-10vw, 10vh) !important;
     }

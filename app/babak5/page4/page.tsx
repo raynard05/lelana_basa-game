@@ -204,7 +204,7 @@ export default function Babak5Page4() {
       "iyo",
       "gas",
       "mas",
-      "Sampeyan"
+      "sampeyan"
     ];
     const uniqueMatched = Array.from(new Set(words.filter(word => targetWords.includes(word))));
     const matchedCount = uniqueMatched.length;
@@ -372,7 +372,7 @@ export default function Babak5Page4() {
         <div className="babak5-page4-dialog-bubble-wrapper babak5-page4-dialog-bubble-wrapper-page4">
           <DialogBubble
             actorName="Surontanu"
-            dialogueText="Rasah kakehan alesan! Ayo gelut ae kanggo mbuktekake sapa sing paling sekti!"
+            dialogueText="Rasah kakehan omong! Ayo perang tandhing wae kanggo mbuktekake sapa sing paling sekti!"
             speakerPosition="left"
             className="babak5-page4-dialog-bubble-container-page4"
           />

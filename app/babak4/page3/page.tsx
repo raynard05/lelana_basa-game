@@ -24,7 +24,7 @@ const optionsData: OptionData[] = [
   },
   {
     id: 'B',
-    text: 'Kenalna, nami kula Jaka Tulus. Sowanku nyuwun meguru ing kene, Pak.',
+    text: "Kenalna, nami kula Jaka Tulus. Sowanku meguru ing kene, Pak." ,
     audioUrl: '/audio/MP3 BABAK 1/4. Ngoko Alus babak 1.mp3',
   },
   {
@@ -34,7 +34,7 @@ const optionsData: OptionData[] = [
   },
   {
     id: 'D',
-    text: 'Dipuntepangaken, nami kula Jaka Tulus. Sowan kula menika badhe nyuwun meguru wonten mriki, Pak.',
+    text: "Tepangaken, nami kula Jaka Tulus. Sowanku badhe meguru neng kene, Pak.",
     audioUrl: '/audio/MP3 BABAK 1/6. krama alus babak 1.mp3',
   },
 ];
@@ -399,7 +399,7 @@ export default function Babak4Page3() {
         <div className="babak4-page3-dialog-bubble-wrapper">
           <DialogBubble
             actorName="Ki Ageng Sapayana"
-            dialogueText="Kene mampir dhisik, Le. Saka ngendi asal-usulmu lan apa karepmu teka ing Paguron Sumoyono iki?"
+            dialogueText="Kene mampir dhisik, Le. Saka ngendi papan panggonanmu lan apa karepmu teka ing Paguron Sumoyono iki?"
             speakerPosition="left"
           />
         </div>

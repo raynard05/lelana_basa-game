@@ -366,7 +366,7 @@ export default function Babak1Page5() {
         <div className="dialog-bubble-wrapper dialog-bubble-wrapper-page5">
           <DialogBubble
             actorName="Jaka Slewah"
-            dialogueText="Wis, ndang ngaliha, golekana dhisik sapa bapakmu!"
+            dialogueText="Wis, ndang ngaliha, Aku ora sudi nduwe kanca sing ora nduwe Bapak"
             speakerPosition="left"
             className="dialog-bubble-container-page5"
           />

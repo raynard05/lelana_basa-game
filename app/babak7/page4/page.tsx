@@ -370,7 +370,7 @@ export default function babak7Page4() {
                 <div className="babak7-page4-dialog-bubble-wrapper babak7-page4-dialog-bubble-wrapper-page4">
                     <DialogBubble
                         actorName="Prajurit"
-                        dialogueText="Ana urusan apa? Bocah kaya awakmu ora pantes nemoni wong kraton!"
+                        dialogueText= "Ana urusan apa? Bocah kaya awakmu kuwi ora pantes nemoni wong kraton!"
                         speakerPosition="left"
                         className="babak7-page4-dialog-bubble-container-page4"
                     />

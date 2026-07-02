@@ -442,8 +442,9 @@
     }
 
     .babak5-page3-dialog-bubble-wrapper {
-      transform: translate(10%, -140%);
-      max-width: 45vw;
+      transform: translate(3%, -138%);
+      max-width: 50vw;
+
     }
   }
 

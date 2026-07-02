@@ -19,7 +19,7 @@ import './page3.css';
 const optionsData: OptionData[] = [
   {
     id: 'A',
-    text: 'Aja kaya ngunu. Aku mrene arep ngangsu kawruh, dudu pamer kasekten.',
+    text: "Aja kaya ngono. Aku mrene arep ngangsu kawruh, dudu pamer kasekten.",
     audioUrl: '/audio/MP3 BABAK 1/3. Ngoko Lugu babak 1.mp3',
   },
   {
@@ -386,7 +386,7 @@ export default function Babak5Page3() {
         <div className="babak5-page3-dialog-bubble-wrapper">
           <DialogBubble
             actorName="Surontanu"
-            dialogueText="He, Kebo Kicak! Aku ora trima yen kowe dadi cantrik sing paling sekti lan dialembana Guru!"
+            dialogueText="He, Kebo Kicak! Aku ora trima yen awakmu dadi cantrik sing paling sekti kang kerep  dialembana dening Ki Ageng Sapayana!"
             speakerPosition="left"
           />
         </div>
