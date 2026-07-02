@@ -44,7 +44,7 @@
 
 .babak7-page2-container .babak7-page2-music-btn {
     top: 5vh;
-    right: calc(5vw + 50px + 2vw);
+    right: calc(5vw + 70px + 2vw);
     /* Music button next to Skip button */
 }
 
@@ -111,4 +111,15 @@
         top: 3vh;
         right: 4vw;
     }
+}
+
+
+@media (max-width: 990px) {
+
+    .babak7-page2-container .babak7-page2-music-btn {
+
+        right: calc(5vw + 50px + 2vw);
+        /* Music button next to Skip button */
+    }
+
 }
