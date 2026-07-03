@@ -291,7 +291,7 @@ export default function Babak2Page() {
       <Home className="babak2-nav-btn babak2-home-btn" />
 
       <Timer
-        initialTime={3600}
+        initialTime={60}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
         storageKey="babak2_page1_timer"

@@ -7,9 +7,9 @@ import Home from '@/components/Home';
 import Music from '@/components/Music';
 import Skip from '@/components/Skip';
 import Sinopsis from '@/components/Sinopsis';
-import './babak8.css';
+import './page2.css';
 
-export default function babak8Page1Narration() {
+export default function babak9Page2Narration() {
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [isValidating, setIsValidating] = useState(true);
   const router = useRouter();
@@ -34,12 +34,12 @@ export default function babak8Page1Narration() {
   }, [router]);
 
   const handleSkip = () => {
-    router.push('/babak9/page1');
+    router.push('/babak9/page3');
   };
 
   if (isValidating) {
     return (
-      <div className="babak8-page1-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div className="babak9-page2-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ color: '#FFF8E1', fontSize: '20px', fontWeight: 'bold', textShadow: '0 2px 4px rgba(0,0,0,0.5)', fontFamily: 'sans-serif' }}>
           Loading...
         </div>
@@ -48,21 +48,19 @@ export default function babak8Page1Narration() {
   }
 
   return (
-    <div className="babak8-page1-container">
+    <div className="babak9-page2-container">
       {/* Top Controls */}
-      <Home className="babak8-page1-nav-btn babak8-page1-home-btn" />
-      <Music className="babak8-page1-nav-btn babak8-page1-music-btn" />
-      <Skip onClick={handleSkip} className="babak8-page1-nav-btn babak8-page1-skip-btn" />
+      <Home className="babak9-page2-nav-btn babak9-page2-home-btn" />
+      <Music className="babak9-page2-nav-btn babak9-page2-music-btn" />
+      <Skip onClick={handleSkip} className="babak9-page2-nav-btn babak9-page2-skip-btn" />
 
       {/* Main Content Card Scroll Layout */}
-      <div className="babak8-page1-card-frame">
-        <div className="babak8-page1-text-container">
-
-        </div>
+      <div className="babak9-page2-card-frame">
+        <div className="babak9-page2-text-container"></div>
       </div>
 
       {/* Bottom Narration Audio Player Container */}
-      <div className="babak8-page1-audio-container">
+      <div className="babak9-page2-audio-container">
         <Sinopsis music_assets="/audio/MP3 BABAK 1/1. narasi babak 1 .mp3" />
       </div>
     </div>
