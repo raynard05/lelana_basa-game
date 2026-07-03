@@ -5,26 +5,67 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser } from '@/app/actions/auth';
 import Home from '@/components/Home';
-import Music from '@/components/Music';
 import Timer from '@/components/Timer';
+import GameStatusHeader from '@/components/GameStatusHeader';
+import DialogBubble from '@/components/DialogBubble';
+import UnggahUngguhOptions, { OptionData } from '@/components/UnggahUngguhOptions';
+import RecordButton from '@/components/RecordButton';
+import ListenButton from '@/components/ListenButton';
+import Music from '@/components/Music';
 import confetti from 'canvas-confetti';
 
-import './page1.css';
+import './page7.css';
 
-export default function babak7Page1() {
+const optionsData: OptionData[] = [
+    {
+        id: 'A',
+        text: "Sepurane, Raden Patih. Aku wis ngerti yen awakmu iku bapakku.",
+        audioUrl: '/audio/MP3BABAK1/ngokolugu.m4a',
+    },
+    {
+        id: 'B',
+        text: "Njaluk ngapura, Raden Patih. Kula sampun mangertos yen panjenengan menika bapakku.",
+        audioUrl: '/audio/MP3BABAK1/ngokoalus.m4a',
+    },
+    {
+        id: 'C',
+        text: "Nyuwun pangapunten, Raden Patih. Kula sampun ngertos bilih sampeyan menika bapak kula.",
+        audioUrl: '/audio/MP3BABAK1/kramalugu.m4a',
+    },
+    {
+        id: 'D',
+        text: "Nyuwun pangapunten, Raden Patih. Kula sampun mangertosi bilih panjenengan menika Rama kula.",
+        audioUrl: '/audio/MP3BABAK1/kramaalus.m4a',
+    },
+];
+
+export default function babak7Page7() {
     const [currentUser, setCurrentUser] = useState<any>(null);
     const [isValidating, setIsValidating] = useState(true);
-    const [selectedOption, setSelectedOption] = useState<string | null>(null);
+    const [selectedOption, setSelectedOption] = useState<'A' | 'B' | 'C' | 'D' | null>(null);
     const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
     const [isLocked, setIsLocked] = useState(false);
+    const [score, setScore] = useState(0);
     const [showPopup, setShowPopup] = useState<'pop_25' | 'pop_50' | 'pop_75' | 'pop_100' | 'pop_cobalagi' | 'pop_salah' | 'pop_streak' | 'timeout' | null>(null);
     const [attempts, setAttempts] = useState(1);
     const [hasStreakPending, setHasStreakPending] = useState(false);
-    const proceedTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const [transcriptFeedback, setTranscriptFeedback] = useState<string | null>(null);
 
+    const proceedTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const feedbackTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const router = useRouter();
 
-    // 1. Session check on mount
+    // Load score from localStorage on mount
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const savedScore = localStorage.getItem('game_score');
+            if (savedScore !== null) {
+                setScore(parseInt(savedScore, 10));
+            }
+        }
+    }, []);
+
+    // 1. Session verification check on mount
     useEffect(() => {
         const checkAuth = async () => {
             try {
@@ -36,19 +77,18 @@ export default function babak7Page1() {
                     setIsValidating(false);
                 }
             } catch (err) {
-                console.error('Auth check error:', err);
+                console.error('Auth verification check error:', err);
                 router.push('/');
             }
         };
         checkAuth();
     }, [router]);
 
-    // Cleanup timeout on unmount
+    // Clean up timers on unmount
     useEffect(() => {
         return () => {
-            if (proceedTimeoutRef.current) {
-                clearTimeout(proceedTimeoutRef.current);
-            }
+            if (proceedTimeoutRef.current) clearTimeout(proceedTimeoutRef.current);
+            if (feedbackTimeoutRef.current) clearTimeout(feedbackTimeoutRef.current);
         };
     }, []);
 
@@ -136,25 +176,6 @@ export default function babak7Page1() {
         };
     }, [showPopup]);
 
-    // Clear all timer keys from previous sessions to prevent sudden timeout bugs on mount
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const timerKeys = [
-                'babak7_page1_timer_expiration',
-                'babak7_page1_timer_paused_time',
-                'babak7_page2_timer_expiration',
-                'babak7_page2_timer_paused_time',
-                'babak7_page3_timer_expiration',
-                'babak7_page3_timer_paused_time',
-                'babak7_page4_timer_expiration',
-                'babak7_page4_timer_paused_time',
-                'babak7_page5_timer_expiration',
-                'babak7_page5_timer_paused_time'
-            ];
-            timerKeys.forEach(key => localStorage.removeItem(key));
-        }
-    }, []);
-
     const handleTimeOut = () => {
         if (isLocked || showPopup) return;
         setIsLocked(true);
@@ -165,24 +186,50 @@ export default function babak7Page1() {
         }, 2000);
     };
 
-    const handleOptionClick = (optionId: string) => {
+    const calculateSimilarity = (str1: string, str2: string): number => {
+        const clean = (s: string) => s.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").trim();
+        const s1 = clean(str1);
+        const s2 = clean(str2);
+        if (s1 === s2) return 1.0;
+        if (s1.length === 0 || s2.length === 0) return 0.0;
+
+        const dp = Array(s2.length + 1).fill(null).map(() => Array(s1.length + 1).fill(null));
+        for (let i = 0; i <= s1.length; i++) dp[0][i] = i;
+        for (let j = 0; j <= s2.length; j++) dp[j][0] = j;
+        for (let j = 1; j <= s2.length; j++) {
+            for (let i = 1; i <= s1.length; i++) {
+                const cost = s1[i - 1] === s2[j - 1] ? 0 : 1;
+                dp[j][i] = Math.min(
+                    dp[j][i - 1] + 1,
+                    dp[j - 1][i] + 1,
+                    dp[j - 1][i - 1] + cost
+                );
+            }
+        }
+        const distance = dp[s2.length][s1.length];
+        const maxLength = Math.max(s1.length, s2.length);
+        return (maxLength - distance) / maxLength;
+    };
+
+    const handleOptionSelect = (id: 'A' | 'B' | 'C' | 'D') => {
         if (isLocked) return;
         setIsLocked(true);
-        setSelectedOption(optionId);
+        setSelectedOption(id);
 
-        const correct = optionId === 'luwih_tuwa';
+        const correct = id === 'D';
         setIsAnswerCorrect(correct);
 
         if (correct && typeof window !== 'undefined') {
             const earned = attempts === 1 ? 100 : 75;
-            const currentScore = parseInt(localStorage.getItem('game_score') || '0', 10);
 
             if (earned === 100) {
                 const currentStreak = parseInt(localStorage.getItem('game_streak') || '0', 10) + 1;
                 localStorage.setItem('game_streak', currentStreak.toString());
 
                 if (currentStreak === 3) {
-                    localStorage.setItem('game_score', (currentScore + earned + 25).toString());
+                    const newScore = score + earned + 25;
+                    setScore(newScore);
+                    localStorage.setItem('game_score', newScore.toString());
                     localStorage.setItem('game_streak', '0');
                     setHasStreakPending(true);
 
@@ -204,7 +251,9 @@ export default function babak7Page1() {
                 localStorage.setItem('game_streak', '0');
             }
 
-            localStorage.setItem('game_score', (currentScore + earned).toString());
+            const newScore = score + earned;
+            setScore(newScore);
+            localStorage.setItem('game_score', newScore.toString());
 
             setTimeout(() => {
                 setShowPopup(`pop_${earned}` as any);
@@ -237,6 +286,30 @@ export default function babak7Page1() {
         }
     };
 
+    const handleTranscript = (text: string) => {
+        setTranscriptFeedback(text);
+
+        if (feedbackTimeoutRef.current) clearTimeout(feedbackTimeoutRef.current);
+        feedbackTimeoutRef.current = setTimeout(() => {
+            setTranscriptFeedback(null);
+        }, 5000);
+
+        let bestOptionId: 'A' | 'B' | 'C' | 'D' | null = null;
+        let highestSimilarity = 0;
+
+        optionsData.forEach(opt => {
+            const sim = calculateSimilarity(text, opt.text);
+            if (sim > highestSimilarity) {
+                highestSimilarity = sim;
+                bestOptionId = opt.id;
+            }
+        });
+
+        if (highestSimilarity >= 0.8 && bestOptionId) {
+            handleOptionSelect(bestOptionId);
+        }
+    };
+
     const handleOverlayClick = () => {
         if (proceedTimeoutRef.current) {
             clearTimeout(proceedTimeoutRef.current);
@@ -262,15 +335,15 @@ export default function babak7Page1() {
 
     const handleProceed = () => {
         if (typeof window !== 'undefined') {
-            localStorage.removeItem('babak7_page1_timer_expiration');
-            localStorage.removeItem('babak7_page1_timer_paused_time');
+            localStorage.removeItem('babak7_page7_timer_expiration');
+            localStorage.removeItem('babak7_page7_timer_paused_time');
         }
-        router.push('/babak7/page2_narration');
+        router.push('/babak7/page8');
     };
 
     if (isValidating) {
         return (
-            <div className="babak7-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="babak7-page7-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div style={{ color: '#FFF8E1', fontSize: '20px', fontWeight: 'bold', textShadow: '0 2px 4px rgba(0,0,0,0.5)', fontFamily: 'sans-serif' }}>
                     Loading...
                 </div>
@@ -278,77 +351,79 @@ export default function babak7Page1() {
         );
     }
 
-    const options = [
-        { id: 'luwih_tuwa', label: 'Luwih tuwa' },
-        { id: 'sapantaran', label: 'Sapantaran' },
-        { id: 'luwih_enom', label: 'Luwih enom' }
-    ];
-
     return (
-        <div className="babak7-container">
-            <Home className="babak7-nav-btn babak7-home-btn" />
+        <div className="babak7-page7-container">
+            <Home className="babak7-page7-nav7-btn babak7-page7-home7-btn" />
+            <Music className="babak7-page7-nav7-btn babak7-page7-music7-btn" />
 
             <Timer
                 initialTime={3600}
                 isLocked={isLocked || !!showPopup}
                 onTimeOut={handleTimeOut}
-                storageKey="babak7_page1_timer"
+                storageKey="babak7_page7_timer"
             />
 
-            <Music className="babak7-nav-btn babak7-music-btn" />
+            <div className="babak7-page7-status-header">
+                <GameStatusHeader
+                    babak={7}
+                    misi={4}
+                    score={score}
+                />
+            </div>
 
-            <div className="babak7-card-frame">
-                <div className="babak7-card-content-layout">
-                    <div className="babak7-column-left">
-                        <Image
-                            src="/babak7/page1.webp"
-                            alt="Jaka Slewah"
-                            width={100}
-                            height={100}
-                            className="babak7-avatar-image-el"
-                            priority
-                            unoptimized
-                        />
-                    </div>
-
-                    <div className="babak7-column-right">
-                        <div className="babak7-options-container">
-                            {options.map((opt) => {
-                                const isSelected = selectedOption === opt.id;
-                                let btnClass = `babak7-option-btn babak7-opt-${opt.id}`;
-
-                                if (isSelected) {
-                                    if (isAnswerCorrect) {
-                                        btnClass += " babak7-correct-option";
-                                    } else if (isAnswerCorrect === false) {
-                                        btnClass += " babak7-incorrect-option";
-                                    }
-                                }
-
-                                return (
-                                    <button
-                                        key={opt.id}
-                                        onClick={() => handleOptionClick(opt.id)}
-                                        className={btnClass}
-                                        disabled={isLocked}
-                                        type="button"
-                                    >
-                                        {opt.label}
-                                    </button>
-                                );
-                            })}
-                        </div>
-                    </div>
+            <div className="babak7-page7-character-dialog-row">
+                <div className="babak7-page7-character-portrait-container">
+                    <Image
+                        src="/babak7/new/page7.webp"
+                        alt="Patih Pangulang Jagad"
+                        width={500}
+                        height={500}
+                        className="babak7-page7-character-portrait"
+                        priority
+                        unoptimized
+                    />
+                </div>
+                <div className="babak7-page7-dialog-bubble-wrapper">
+                    <DialogBubble
+                        actorName="Patih Pangulang Jagad"
+                        dialogueText="Mandheg dhisik! Sapa awakmu, kok wani gawe geger ing kene?"
+                        speakerPosition="left"
+                    />
                 </div>
             </div>
 
-            <div className="babak7-bottom-banner">
-                <div className="babak7-banner-content-layout"></div>
+            <div className="babak7-page7-options-wrapper">
+                <UnggahUngguhOptions
+                    options={optionsData}
+                    selectedId={selectedOption}
+                    onSelect={handleOptionSelect}
+                    disabled={isLocked}
+                />
+            </div>
+
+            {transcriptFeedback && (
+                <div className="babak7-page7-transcript-feedback">
+                    Swara sampeyan: "{transcriptFeedback}"
+                </div>
+            )}
+
+            <div className="babak7-page7-bottom-actions-row">
+                <RecordButton
+                    onTranscript={handleTranscript}
+                    lang="jv-ID"
+                    disabled={isLocked}
+                    style={{ width: '260px', height: '70px' }}
+                />
+                <ListenButton
+                    audioUrl="/audio/MP3BABAK1/dialog_textpage3.mp3"
+                    disabled={isLocked}
+                    style={{ width: '260px', height: '70px' }}
+                />
             </div>
 
             {showPopup && (
-                <div className={`babak7-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
-                    <div className={`babak7-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
+                <div className={`babak7-page7-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
+                    <div className={`babak7-page7-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
                         <Image
                             src={
                                 showPopup === 'timeout'
@@ -358,7 +433,7 @@ export default function babak7Page1() {
                             alt={showPopup}
                             width={320}
                             height={240}
-                            className="babak7-popup-image"
+                            className="babak7-page7-popup-image"
                             unoptimized
                         />
                     </div>

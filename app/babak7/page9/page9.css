@@ -1,0 +1,626 @@
+/* Page 4 CSS - Babak 5 Dialogue Page */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.babak7-page9-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/babak7/bg_babak7.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #120b00;
+    touch-action: manipulation;
+    font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+/* Nav & Top Controls */
+.babak7-page9-nav4-btn {
+    position: absolute;
+    z-index: 100;
+    width: 15vh;
+    height: 15vh;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 80px;
+    max-height: 80px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    touch-action: manipulation;
+}
+
+.babak7-page9-home4-btn {
+    top: 5vh;
+    left: 5vw;
+}
+
+.babak7-page9-music4-btn {
+    top: 5vh;
+    right: calc(5vw + 200px + 2vw);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .babak7-page9-nav4-btn:hover {
+        transform: scale(1.15);
+    }
+}
+
+.babak7-page9-nav4-btn:active {
+    opacity: 0.7;
+}
+
+/* Timer Badge */
+.babak7-page9-container .timer-badge {
+    position: absolute;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: rgba(78, 52, 41, 0.95);
+    border: 2px solid #D4A574;
+    border-radius: 24px;
+    padding: 6px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #FFF8E1;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    user-select: none;
+}
+
+.babak7-page9-container .timer-icon {
+    color: #F59E0B;
+    flex-shrink: 0;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* Game Status Header Position (Top-Right) */
+.babak7-page9-status-header {
+    position: absolute;
+    top: 5vh;
+    right: 5vw;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end !important;
+}
+
+/* Character & Dialog Row */
+.babak7-page9-container .babak7-page9-character-dialog-row {
+    position: absolute;
+    top: 18vh;
+    left: 5vw;
+    right: 5vw;
+    display: flex;
+    align-items: flex-start;
+    gap: 3vw;
+    z-index: 30;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.babak7-page9-container .babak7-page9-character-portrait-container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+.babak7-page9-container .babak7-page9-character-portrait {
+    height: 50vh;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+}
+
+.babak7-page9-container .babak7-page9-dialog-bubble-wrapper {
+    flex-grow: 1;
+    margin-bottom: 2vh;
+    max-width: 48vw;
+}
+
+.babak7-page9-container .babak7-page9-dialog-bubble-wrapper-page9 {
+    flex-grow: 1;
+    margin-bottom: 2vh;
+    max-width: 48vw;
+}
+
+.babak7-page9-container .babak7-page9-character2-absolute-container {
+    position: absolute;
+    bottom: 0;
+    right: 5vw;
+    z-index: 20;
+    pointer-events: none;
+    display: flex;
+    align-items: flex-end;
+}
+
+.babak7-page9-container .babak7-page9-character2-portrait {
+    height: 60vh;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+}
+
+/* Central Options Card Placement */
+.babak7-page9-options-wrapper {
+    position: absolute;
+    top: 45vh;
+    left: 5vw;
+    right: 5vw;
+    z-index: 30;
+    display: flex;
+    justify-content: center;
+}
+
+/* Bottom Actions Position */
+.babak7-page9-bottom-actions-row {
+    position: absolute;
+    bottom: 4vh;
+    left: 5vw;
+    right: 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 40;
+}
+
+.babak7-page9-transcript-feedback {
+    position: absolute;
+    bottom: 12vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(90, 53, 0, 0.85);
+    border: 1.5px solid #d4a574;
+    border-radius: 12px;
+    padding: 8px 20px;
+    color: #fff8e1;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 35;
+    text-align: center;
+    max-width: 80vw;
+    animation: babak7-page9-fadeIn 0.3s ease-out;
+}
+
+/* Premium Popup Modals */
+.babak7-page9-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(18, 11, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: babak7-page9-fadeIn 0.3s ease-out;
+}
+
+.babak7-page9-popup-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90vw;
+    width: 60vh;
+    animation: babak7-page9-scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.babak7-page9-popup-image {
+    width: 100%;
+    height: auto;
+    max-width: 120vh;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+    margin: 0;
+}
+
+@keyframes babak7-page9-fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes babak7-page9-scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Tablet / Landscape adjustments */
+@media (max-height: 700px) {
+    .babak7-page9-container .babak7-page9-character-portrait {
+        height: 32vh;
+    }
+
+    .babak7-page9-container .babak7-page9-character2-portrait {
+        height: 32vh;
+    }
+
+    .babak7-page9-container .babak7-page9-character-dialog-row {
+        top: 15vh;
+        align-items: flex-start;
+    }
+
+    .babak7-page9-options-wrapper {
+        top: 45vh;
+    }
+}
+
+/* Portrait Mobile Layout */
+@media (orientation: portrait) {
+    .babak7-page9-container {
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 20px;
+    }
+
+    .babak7-page9-home4-btn {
+        top: 3vh;
+        left: 4vw;
+    }
+
+    .babak7-page9-nav4-btn {
+        width: 12vw;
+        height: 12vw;
+    }
+
+    .babak7-page9-music4-btn {
+        top: 3vh;
+        right: calc(4vw + 150px + 3vw);
+        left: unset;
+    }
+
+    .babak7-page9-status-header {
+        top: 3vh;
+        right: 4vw;
+    }
+
+    .babak7-page9-container .babak7-page9-character-dialog-row {
+        position: relative;
+        top: 12vh;
+        margin-bottom: 2vh;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .babak7-page9-container .babak7-page9-dialog-bubble-wrapper {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .babak7-page9-container .babak7-page9-character-portrait {
+        height: 20vh;
+    }
+
+    .babak7-page9-container .babak7-page9-character2-absolute-container {
+        position: relative;
+        bottom: unset;
+        right: unset;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+        margin-top: 2vh;
+    }
+
+    .babak7-page9-container .babak7-page9-character2-portrait {
+        height: 20vh;
+        width: auto;
+    }
+
+    .babak7-page9-options-wrapper {
+        position: relative;
+        top: 0;
+        margin-bottom: 2vh;
+    }
+
+    .babak7-page9-bottom-actions-row {
+        position: relative;
+        bottom: 0;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 2vh;
+    }
+
+    .babak7-page9-transcript-feedback {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        transform: none;
+        margin: 2vh auto;
+    }
+}
+
+/* Small heights in landscape (e.g. mobile landscape & short desktop) using responsive ratio */
+@media (max-height: 720px) and (orientation: landscape) {
+
+    .babak7-page9-home4-btn {
+        top: 5vh;
+        left: 5vw;
+        width: 15vh;
+        height: 15vh;
+        min-width: 50px;
+        min-height: 50px;
+        max-width: 80px;
+        max-height: 80px;
+    }
+
+    .babak7-page9-music4-btn {
+        top: 5vh;
+        right: calc(5vw + 150px + 2vw);
+        left: unset;
+        width: 15vh;
+        height: 15vh;
+        min-width: 50px;
+        min-height: 50px;
+        max-width: 80px;
+        max-height: 80px;
+    }
+
+    .babak7-page9-container .timer-badge {
+        top: 5vh;
+        padding: 6px 20px;
+        font-size: 16px;
+    }
+
+    .babak7-page9-container .timer-icon {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .babak7-page9-status-header {
+        top: 5vh;
+        right: 5vw;
+    }
+
+    .babak7-page9-container .babak7-page9-character-dialog-row {
+        gap: 8vw;
+        max-width: 75vw !important;
+        width: 75vw;
+    }
+
+    .babak7-page9-container .babak7-page9-character-portrait {
+        height: 95vh;
+        transform: translate(-20%, 5%);
+    }
+
+    .babak7-page9-container .babak7-page9-character2-absolute-container {
+        position: absolute;
+        bottom: 0;
+        right: 5vw;
+        z-index: 20;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .babak7-page9-container .babak7-page9-character2-portrait {
+        height: 80vh;
+        transform: translate(-20%, 11%);
+    }
+
+    /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
+    @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
+        .babak7-page9-dialog-bubble-wrapper-page9 {
+            width: 38vw !important;
+            max-width: 38vw !important;
+            margin-bottom: 0 !important;
+            transform: translate(-20vw, 15vh) !important;
+        }
+
+        .babak7-page9-container .babak7-page9-character-dialog-row {
+            top: 8vh;
+            gap: 10vw;
+
+            align-items: flex-start;
+        }
+
+        .babak7-page9-container .babak7-page9-character-portrait {
+            height: 98vh;
+            transform: translate(-24%, 5%) !important;
+        }
+
+        .babak7-page9-container .babak7-page9-character2-portrait {
+            height: 74vh;
+            transform: translate(-12%, 6%) !important;
+        }
+
+        .babak7-page9-bottom-actions-row button {
+            width: 260px !important;
+            height: 70px !important;
+            max-width: none !important;
+            max-height: none !important;
+        }
+
+        /* Dialogue bubble responsive ratio overrides for laptop/desktop */
+        .babak7-page9-dialog-bubble-container-page9 {
+            padding: 2vh 3vh !important;
+            border-width: 0.4vh !important;
+            border-radius: 2vh !important;
+            min-height: auto !important;
+            box-shadow: 0 0.8vh 2.2vh rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .babak7-page9-dialog-bubble-container-page9 .dialog-actor {
+            font-size: 2.5vh !important;
+            margin-bottom: 0.8vh !important;
+        }
+
+        .babak7-page9-dialog-bubble-container-page9 .dialog-text {
+            font-size: 2.2vh !important;
+            line-height: 1.4 !important;
+        }
+
+        .babak7-page9-dialog-bubble-container-page9 .dialog-bubble-tail {
+            width: 3vh !important;
+            height: 3.3vh !important;
+        }
+
+        .babak7-page9-dialog-bubble-container-page9.left .dialog-bubble-tail {
+            left: -2.7vh !important;
+        }
+
+        .babak7-page9-dialog-bubble-container-page9.right .dialog-bubble-tail {
+            right: -2.7vh !important;
+        }
+    }
+
+    @media (max-width: 960px) {
+        .babak7-page9-container .babak7-page9-character-dialog-row {
+            align-items: flex-start;
+            top: 12vh;
+        }
+
+        .babak7-page9-dialog-bubble-wrapper-page9 {
+            width: 38vw !important;
+            max-width: 38vw !important;
+            margin-bottom: 0 !important;
+            transform: translate(-18vw, 10vh) !important;
+        }
+
+        /* Dialogue bubble responsive ratio overrides for mobile landscape */
+        .babak7-page9-dialog-bubble-container-page9 {
+            padding: 2.2vh 3vh !important;
+            border-width: 0.5vh !important;
+            border-radius: 2.5vh !important;
+            box-shadow: 0 0.8vh 2vh rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .babak7-page9-dialog-bubble-container-page9 .dialog-actor {
+            font-size: 3vh !important;
+            margin-bottom: 0.5vh !important;
+        }
+
+        .babak7-page9-dialog-bubble-container-page9 .dialog-text {
+            font-size: 2.5vh !important;
+            line-height: 1.35 !important;
+        }
+
+        .babak7-page9-dialog-bubble-container-page9 .dialog-bubble-tail {
+            width: 3.5vh !important;
+            height: 4vh !important;
+            left: -3vh !important;
+        }
+    }
+
+    .babak7-page9-options-wrapper {
+        top: 42vh;
+    }
+
+    .babak7-page9-bottom-actions-row {
+        bottom: 2vh;
+    }
+
+    @media (max-width: 960px) {
+        .babak7-page9-bottom-actions-row button {
+            width: 17.5vw !important;
+            height: 10.7vh !important;
+            max-width: 160px;
+            max-height: 44px;
+        }
+    }
+
+    .babak7-page9-transcript-feedback {
+        bottom: 15vh;
+        padding: 1vh 1.3vw;
+        font-size: 2.9vh;
+    }
+}
+
+/* Fullscreen laptop / desktop (height > 720px) adjustment */
+@media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
+    .babak7-page9-container .babak7-page9-character-dialog-row {
+        top: 8vh;
+        gap: -1vw;
+        align-items: flex-start;
+    }
+
+    .babak7-page9-container .babak7-page9-character-portrait {
+        height: 82vh !important;
+        transform: translate(-1%, 5%) !important;
+    }
+
+    .babak7-page9-container .babak7-page9-character2-portrait {
+        height: 80vh !important;
+        transform: translate(-10%, 5%) !important;
+    }
+
+    .babak7-page9-dialog-bubble-wrapper-page9 {
+        width: 38vw !important;
+        max-width: 38vw !important;
+        margin-bottom: 0 !important;
+        transform: translate(-6vw, 12vh) !important;
+    }
+
+    .babak7-page9-bottom-actions-row button {
+        width: 260px !important;
+        height: 70px !important;
+        max-width: none !important;
+        max-height: none !important;
+    }
+
+    /* Dialogue bubble responsive ratio overrides for laptop/desktop fullscreen */
+    .babak7-page9-dialog-bubble-container-page9 {
+        padding: 2vh 3vh !important;
+        border-width: 0.4vh !important;
+        border-radius: 2vh !important;
+        min-height: auto !important;
+        box-shadow: 0 0.8vh 2.2vh rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .babak7-page9-dialog-bubble-container-page9 .dialog-actor {
+        font-size: 2.5vh !important;
+        margin-bottom: 0.8vh !important;
+    }
+
+    .babak7-page9-dialog-bubble-container-page9 .dialog-text {
+        font-size: 2.2vh !important;
+        line-height: 1.4 !important;
+    }
+
+    .babak7-page9-dialog-bubble-container-page9 .dialog-bubble-tail {
+        width: 3vh !important;
+        height: 3.3vh !important;
+    }
+
+    .babak7-page9-dialog-bubble-container-page9.left .dialog-bubble-tail {
+        left: -2.7vh !important;
+    }
+
+    .babak7-page9-dialog-bubble-container-page9.right .dialog-bubble-tail {
+        right: -2.7vh !important;
+    }
+}

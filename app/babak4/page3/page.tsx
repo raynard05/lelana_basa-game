@@ -24,7 +24,7 @@ const optionsData: OptionData[] = [
   },
   {
     id: 'B',
-    text: "Kenalna, nami kula Jaka Tulus. Sowanku meguru ing kene, Pak." ,
+    text: "Kenalna, nami kula Jaka Tulus. Sowanku meguru ing kene, Pak.",
     audioUrl: '/audio/MP3 BABAK 1/4. Ngoko Alus babak 1.mp3',
   },
   {
@@ -34,7 +34,7 @@ const optionsData: OptionData[] = [
   },
   {
     id: 'D',
-    text: "Tepangaken, nami kula Jaka Tulus. Sowanku badhe meguru neng kene, Pak.",
+    text: "Tepangaken, nami kula Jaka Tulus. Sowan kula menika badhe meguru wonten mriki, Pak.",
     audioUrl: '/audio/MP3 BABAK 1/6. krama alus babak 1.mp3',
   },
 ];

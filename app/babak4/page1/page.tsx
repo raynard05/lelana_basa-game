@@ -303,7 +303,7 @@ export default function Babak4Page() {
           {/* Left Column: Portrait & metadata */}
           <div className="babak4-column-left">
             <Image
-              src="/babak4/page_1_assets/character.png"
+              src="/babak4/page_1_assets/kiageng2.png"
               alt="Karakter"
               width={100}
               height={100}

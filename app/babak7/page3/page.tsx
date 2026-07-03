@@ -29,7 +29,7 @@ const optionsData: OptionData[] = [
     },
     {
         id: 'C',
-        text: "Nyuwun pangapunten. Sowan kula menika amargi wonten kabetahan wigati.",
+        text: "Nyuwun pangapunten. Sowanku amargi wonten kabetahan wigati.",
         audioUrl: '/audio/MP3 BABAK 1/5. krama lugu babak 1.mp3',
     },
     {

@@ -9,9 +9,9 @@ import Music from '@/components/Music';
 import Timer from '@/components/Timer';
 import confetti from 'canvas-confetti';
 
-import './page1.css';
+import './page6.css';
 
-export default function babak7Page1() {
+export default function babak7Page6() {
     const [currentUser, setCurrentUser] = useState<any>(null);
     const [isValidating, setIsValidating] = useState(true);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -149,7 +149,9 @@ export default function babak7Page1() {
                 'babak7_page4_timer_expiration',
                 'babak7_page4_timer_paused_time',
                 'babak7_page5_timer_expiration',
-                'babak7_page5_timer_paused_time'
+                'babak7_page5_timer_paused_time',
+                'babak7_page6_timer_expiration',
+                'babak7_page6_timer_paused_time'
             ];
             timerKeys.forEach(key => localStorage.removeItem(key));
         }
@@ -262,15 +264,15 @@ export default function babak7Page1() {
 
     const handleProceed = () => {
         if (typeof window !== 'undefined') {
-            localStorage.removeItem('babak7_page1_timer_expiration');
-            localStorage.removeItem('babak7_page1_timer_paused_time');
+            localStorage.removeItem('babak7_page6_timer_expiration');
+            localStorage.removeItem('babak7_page6_timer_paused_time');
         }
-        router.push('/babak7/page2_narration');
+        router.push('/babak7/page7');
     };
 
     if (isValidating) {
         return (
-            <div className="babak7-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="babak7-page6-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div style={{ color: '#FFF8E1', fontSize: '20px', fontWeight: 'bold', textShadow: '0 2px 4px rgba(0,0,0,0.5)', fontFamily: 'sans-serif' }}>
                     Loading...
                 </div>
@@ -285,43 +287,43 @@ export default function babak7Page1() {
     ];
 
     return (
-        <div className="babak7-container">
-            <Home className="babak7-nav-btn babak7-home-btn" />
+        <div className="babak7-page6-container">
+            <Home className="babak7-page6-nav-btn babak7-page6-home-btn" />
 
             <Timer
                 initialTime={3600}
                 isLocked={isLocked || !!showPopup}
                 onTimeOut={handleTimeOut}
-                storageKey="babak7_page1_timer"
+                storageKey="babak7_page6_timer"
             />
 
-            <Music className="babak7-nav-btn babak7-music-btn" />
+            <Music className="babak7-page6-nav-btn babak7-page6-music-btn" />
 
-            <div className="babak7-card-frame">
-                <div className="babak7-card-content-layout">
-                    <div className="babak7-column-left">
+            <div className="babak7-page6-card-frame">
+                <div className="babak7-page6-card-content-layout">
+                    <div className="babak7-page6-column-left">
                         <Image
-                            src="/babak7/page1.webp"
-                            alt="Jaka Slewah"
+                            src="/babak7/new/page6.webp"
+                            alt="Patih Pangulang Jagad"
                             width={100}
                             height={100}
-                            className="babak7-avatar-image-el"
+                            className="babak7-page6-avatar-image-el"
                             priority
                             unoptimized
                         />
                     </div>
 
-                    <div className="babak7-column-right">
-                        <div className="babak7-options-container">
+                    <div className="babak7-page6-column-right">
+                        <div className="babak7-page6-options-container">
                             {options.map((opt) => {
                                 const isSelected = selectedOption === opt.id;
-                                let btnClass = `babak7-option-btn babak7-opt-${opt.id}`;
+                                let btnClass = `babak7-page6-option-btn babak7-page6-opt-${opt.id}`;
 
                                 if (isSelected) {
                                     if (isAnswerCorrect) {
-                                        btnClass += " babak7-correct-option";
+                                        btnClass += " babak7-page6-correct-option";
                                     } else if (isAnswerCorrect === false) {
-                                        btnClass += " babak7-incorrect-option";
+                                        btnClass += " babak7-page6-incorrect-option";
                                     }
                                 }
 
@@ -342,13 +344,13 @@ export default function babak7Page1() {
                 </div>
             </div>
 
-            <div className="babak7-bottom-banner">
-                <div className="babak7-banner-content-layout"></div>
+            <div className="babak7-page6-bottom-banner">
+                <div className="babak7-page6-banner-content-layout"></div>
             </div>
 
             {showPopup && (
-                <div className={`babak7-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
-                    <div className={`babak7-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
+                <div className={`babak7-page6-popup-overlay ${showPopup === 'pop_streak' ? 'babak7-page6-streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
+                    <div className={`babak7-page6-popup-card ${showPopup === 'pop_streak' ? 'babak7-page6-streak-popup-card' : ''}`}>
                         <Image
                             src={
                                 showPopup === 'timeout'
@@ -358,7 +360,7 @@ export default function babak7Page1() {
                             alt={showPopup}
                             width={320}
                             height={240}
-                            className="babak7-popup-image"
+                            className="babak7-page6-popup-image"
                             unoptimized
                         />
                     </div>

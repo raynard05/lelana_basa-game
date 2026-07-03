@@ -5,26 +5,42 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser } from '@/app/actions/auth';
 import Home from '@/components/Home';
-import Music from '@/components/Music';
 import Timer from '@/components/Timer';
+import GameStatusHeader from '@/components/GameStatusHeader';
+import DialogBubble from '@/components/DialogBubble';
+import RecordButton from '@/components/RecordButton';
+import ListenButton from '@/components/ListenButton';
+import Music from '@/components/Music';
 import confetti from 'canvas-confetti';
 
-import './page1.css';
+import './page9.css';
 
-export default function babak7Page1() {
+export default function babak7page9() {
     const [currentUser, setCurrentUser] = useState<any>(null);
     const [isValidating, setIsValidating] = useState(true);
-    const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
     const [isLocked, setIsLocked] = useState(false);
+    const [score, setScore] = useState(0);
     const [showPopup, setShowPopup] = useState<'pop_25' | 'pop_50' | 'pop_75' | 'pop_100' | 'pop_cobalagi' | 'pop_salah' | 'pop_streak' | 'timeout' | null>(null);
     const [attempts, setAttempts] = useState(1);
     const [hasStreakPending, setHasStreakPending] = useState(false);
-    const proceedTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const [transcriptFeedback, setTranscriptFeedback] = useState<string | null>(null);
 
+    const proceedTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const feedbackTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const router = useRouter();
 
-    // 1. Session check on mount
+    // Load score from localStorage on mount
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const savedScore = localStorage.getItem('game_score');
+            if (savedScore !== null) {
+                setScore(parseInt(savedScore, 10));
+            }
+        }
+    }, []);
+
+    // 1. Session verification check on mount
     useEffect(() => {
         const checkAuth = async () => {
             try {
@@ -36,19 +52,18 @@ export default function babak7Page1() {
                     setIsValidating(false);
                 }
             } catch (err) {
-                console.error('Auth check error:', err);
+                console.error('Auth verification check error:', err);
                 router.push('/');
             }
         };
         checkAuth();
     }, [router]);
 
-    // Cleanup timeout on unmount
+    // Clean up timers on unmount
     useEffect(() => {
         return () => {
-            if (proceedTimeoutRef.current) {
-                clearTimeout(proceedTimeoutRef.current);
-            }
+            if (proceedTimeoutRef.current) clearTimeout(proceedTimeoutRef.current);
+            if (feedbackTimeoutRef.current) clearTimeout(feedbackTimeoutRef.current);
         };
     }, []);
 
@@ -136,25 +151,6 @@ export default function babak7Page1() {
         };
     }, [showPopup]);
 
-    // Clear all timer keys from previous sessions to prevent sudden timeout bugs on mount
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const timerKeys = [
-                'babak7_page1_timer_expiration',
-                'babak7_page1_timer_paused_time',
-                'babak7_page2_timer_expiration',
-                'babak7_page2_timer_paused_time',
-                'babak7_page3_timer_expiration',
-                'babak7_page3_timer_paused_time',
-                'babak7_page4_timer_expiration',
-                'babak7_page4_timer_paused_time',
-                'babak7_page5_timer_expiration',
-                'babak7_page5_timer_paused_time'
-            ];
-            timerKeys.forEach(key => localStorage.removeItem(key));
-        }
-    }, []);
-
     const handleTimeOut = () => {
         if (isLocked || showPopup) return;
         setIsLocked(true);
@@ -165,24 +161,97 @@ export default function babak7Page1() {
         }, 2000);
     };
 
-    const handleOptionClick = (optionId: string) => {
+    const handleTranscript = (text: string) => {
         if (isLocked) return;
-        setIsLocked(true);
-        setSelectedOption(optionId);
+        setTranscriptFeedback(text);
 
-        const correct = optionId === 'luwih_tuwa';
+        if (feedbackTimeoutRef.current) clearTimeout(feedbackTimeoutRef.current);
+        feedbackTimeoutRef.current = setTimeout(() => {
+            setTranscriptFeedback(null);
+        }, 5000);
+
+        const normalizeWord = (w: string) => {
+            return w
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "")
+                .trim();
+        };
+
+        const words = text.split(/\s+/).map(normalizeWord).filter(Boolean);
+
+        const targetWords = [
+            "sendika",
+            "dhawuh",
+            "rama",
+            "kula",
+            "badhe",
+            "nindakaken",
+            "titah",
+            "panjenengan",
+            "kagem",
+            "kangge",
+            "mbuktekaken",
+            "bilih",
+            "saestu",
+            "putra",
+            "nggih",
+            "inggih",
+            "tindak",
+            "bakal",
+            "bidhal",
+            "dhateng",
+            "kali",
+            "brantas",
+            "mrika",
+            "ten",
+            "pak",
+            "njenengan",
+            "kulo",
+            "yuga",
+            "yoga",
+            "nggeh",
+            "inggeh",
+            "enggeh",
+            "teng"
+        ]
+        const uniqueMatched = Array.from(new Set(words.filter(word => targetWords.includes(word))));
+        const matchedCount = uniqueMatched.length;
+
+        setIsLocked(true);
+
+        let earnedPoints = 0;
+        if (attempts === 1) {
+            if (matchedCount === 1) {
+                earnedPoints = 50;
+            } else if (matchedCount === 2) {
+                earnedPoints = 75;
+            } else if (matchedCount > 2) {
+                earnedPoints = 100;
+            }
+        } else {
+            if (matchedCount === 1) {
+                earnedPoints = 25;
+            } else if (matchedCount === 2) {
+                earnedPoints = 50;
+            } else if (matchedCount > 2) {
+                earnedPoints = 75;
+            }
+        }
+
+        const correct = earnedPoints > 0;
         setIsAnswerCorrect(correct);
 
         if (correct && typeof window !== 'undefined') {
-            const earned = attempts === 1 ? 100 : 75;
-            const currentScore = parseInt(localStorage.getItem('game_score') || '0', 10);
-
-            if (earned === 100) {
+            if (earnedPoints === 100) {
                 const currentStreak = parseInt(localStorage.getItem('game_streak') || '0', 10) + 1;
                 localStorage.setItem('game_streak', currentStreak.toString());
 
                 if (currentStreak === 3) {
-                    localStorage.setItem('game_score', (currentScore + earned + 25).toString());
+                    const newScore = score + earnedPoints + 25;
+                    setScore(newScore);
+                    localStorage.setItem('game_score', newScore.toString());
                     localStorage.setItem('game_streak', '0');
                     setHasStreakPending(true);
 
@@ -204,10 +273,12 @@ export default function babak7Page1() {
                 localStorage.setItem('game_streak', '0');
             }
 
-            localStorage.setItem('game_score', (currentScore + earned).toString());
+            const newScore = score + earnedPoints;
+            setScore(newScore);
+            localStorage.setItem('game_score', newScore.toString());
 
             setTimeout(() => {
-                setShowPopup(`pop_${earned}` as any);
+                setShowPopup(`pop_${earnedPoints}` as any);
 
                 proceedTimeoutRef.current = setTimeout(() => {
                     handleProceed();
@@ -223,9 +294,8 @@ export default function babak7Page1() {
                     proceedTimeoutRef.current = setTimeout(() => {
                         setAttempts(2);
                         setIsLocked(false);
-                        setSelectedOption(null);
-                        setIsAnswerCorrect(null);
                         setShowPopup(null);
+                        setIsAnswerCorrect(null);
                     }, 2500);
                 } else {
                     setShowPopup('pop_salah');
@@ -245,9 +315,8 @@ export default function babak7Page1() {
         if (showPopup === 'pop_cobalagi') {
             setAttempts(2);
             setIsLocked(false);
-            setSelectedOption(null);
-            setIsAnswerCorrect(null);
             setShowPopup(null);
+            setIsAnswerCorrect(null);
         } else if (showPopup === 'pop_100' && hasStreakPending) {
             setHasStreakPending(false);
             setShowPopup('pop_streak');
@@ -262,15 +331,15 @@ export default function babak7Page1() {
 
     const handleProceed = () => {
         if (typeof window !== 'undefined') {
-            localStorage.removeItem('babak7_page1_timer_expiration');
-            localStorage.removeItem('babak7_page1_timer_paused_time');
+            localStorage.removeItem('babak7_page9_timer_expiration');
+            localStorage.removeItem('babak7_page9_timer_paused_time');
         }
-        router.push('/babak7/page2_narration');
+        router.push('/babak7/page5');
     };
 
     if (isValidating) {
         return (
-            <div className="babak7-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="babak7-page9-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div style={{ color: '#FFF8E1', fontSize: '20px', fontWeight: 'bold', textShadow: '0 2px 4px rgba(0,0,0,0.5)', fontFamily: 'sans-serif' }}>
                     Loading...
                 </div>
@@ -278,77 +347,83 @@ export default function babak7Page1() {
         );
     }
 
-    const options = [
-        { id: 'luwih_tuwa', label: 'Luwih tuwa' },
-        { id: 'sapantaran', label: 'Sapantaran' },
-        { id: 'luwih_enom', label: 'Luwih enom' }
-    ];
-
     return (
-        <div className="babak7-container">
-            <Home className="babak7-nav-btn babak7-home-btn" />
+        <div className="babak7-page9-container">
+            <Home className="babak7-page9-nav4-btn babak7-page9-home4-btn" />
+            <Music className="babak7-page9-nav4-btn babak7-page9-music4-btn" />
 
             <Timer
-                initialTime={3600}
+                initialTime={6300}
                 isLocked={isLocked || !!showPopup}
                 onTimeOut={handleTimeOut}
-                storageKey="babak7_page1_timer"
+                storageKey="babak7_page9_timer"
             />
 
-            <Music className="babak7-nav-btn babak7-music-btn" />
+            <div className="babak7-page9-status-header">
+                <GameStatusHeader
+                    babak={7}
+                    misi={6}
+                    score={score}
+                />
+            </div>
 
-            <div className="babak7-card-frame">
-                <div className="babak7-card-content-layout">
-                    <div className="babak7-column-left">
-                        <Image
-                            src="/babak7/page1.webp"
-                            alt="Jaka Slewah"
-                            width={100}
-                            height={100}
-                            className="babak7-avatar-image-el"
-                            priority
-                            unoptimized
-                        />
-                    </div>
-
-                    <div className="babak7-column-right">
-                        <div className="babak7-options-container">
-                            {options.map((opt) => {
-                                const isSelected = selectedOption === opt.id;
-                                let btnClass = `babak7-option-btn babak7-opt-${opt.id}`;
-
-                                if (isSelected) {
-                                    if (isAnswerCorrect) {
-                                        btnClass += " babak7-correct-option";
-                                    } else if (isAnswerCorrect === false) {
-                                        btnClass += " babak7-incorrect-option";
-                                    }
-                                }
-
-                                return (
-                                    <button
-                                        key={opt.id}
-                                        onClick={() => handleOptionClick(opt.id)}
-                                        className={btnClass}
-                                        disabled={isLocked}
-                                        type="button"
-                                    >
-                                        {opt.label}
-                                    </button>
-                                );
-                            })}
-                        </div>
-                    </div>
+            <div className="babak7-page9-character-dialog-row">
+                <div className="babak7-page9-character-portrait-container">
+                    <Image
+                        src="/babak7/new/page9a.webp"
+                        alt="Jaka Slewah"
+                        width={500}
+                        height={500}
+                        className="babak7-page9-character-portrait"
+                        priority
+                        unoptimized
+                    />
+                </div>
+                <div className="babak7-page9-dialog-bubble-wrapper babak7-page9-dialog-bubble-wrapper-page9">
+                    <DialogBubble
+                        actorName="Patih Pangulang Jagad"
+                        dialogueText="Yen pancen awakmu anakku, buktekna! Lungaa menyang Kali Brantas, kalahna Bajul Ijo lan gawanen mulih Watu Ireng!"
+                        speakerPosition="left"
+                        className="babak7-page9-dialog-bubble-container-page9"
+                    />
                 </div>
             </div>
 
-            <div className="babak7-bottom-banner">
-                <div className="babak7-banner-content-layout"></div>
+            <div className="babak7-page9-character2-absolute-container">
+                <Image
+                    src="/babak7/new/page9b.webp"
+                    alt="Lelana"
+                    width={500}
+                    height={500}
+                    className="babak7-page9-character2-portrait"
+                    priority
+                    unoptimized
+                />
+            </div>
+
+            {transcriptFeedback && (
+                <div className="babak7-page9-transcript-feedback">
+                    Swara sampeyan: "{transcriptFeedback}"
+                </div>
+            )}
+
+            <div className="babak7-page9-bottom-actions-row">
+                <ListenButton
+                    audioUrl="/audio/MP3 BABAK 1/soundpage9.mp3"
+                    disabled={isLocked}
+                    style={{ width: '260px', height: '70px' }}
+                />
+                <RecordButton
+                    onTranscript={handleTranscript}
+                    lang="jv-ID"
+                    disabled={isLocked}
+                    style={{ width: '260px', height: '70px' }}
+                />
             </div>
 
             {showPopup && (
-                <div className={`babak7-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
-                    <div className={`babak7-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
+                <div className={`babak7-page9-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
+                    <div className={`babak7-page9-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
                         <Image
                             src={
                                 showPopup === 'timeout'
@@ -358,7 +433,7 @@ export default function babak7Page1() {
                             alt={showPopup}
                             width={320}
                             height={240}
-                            className="babak7-popup-image"
+                            className="babak7-page9-popup-image"
                             unoptimized
                         />
                     </div>
