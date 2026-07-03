@@ -385,7 +385,7 @@ export default function babak9Page3() {
                 </div>
                 <div className="babak9-page3-dialog-bubble-wrapper">
                     <DialogBubble
-                        actorName="Patih Pangulang Jagad:"
+                        actorName="Patih Pangulang Jagad"
                         dialogueText="Anakku Jaka Tulus, aku saiki percaya lan ngakoni yen awakmu pancen anakku dhewe."
                         speakerPosition="left"
                     />
