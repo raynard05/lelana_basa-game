@@ -365,7 +365,7 @@ export default function babak9Page3() {
 
             <div className="babak9-page3-status-header">
                 <GameStatusHeader
-                    babak={7}
+                    babak={9}
                     misi={1}
                     score={score}
                 />
