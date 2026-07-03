@@ -325,7 +325,7 @@ export default function babak7page8() {
             localStorage.removeItem('babak7_page8_timer_expiration');
             localStorage.removeItem('babak7_page8_timer_paused_time');
         }
-        router.push('/babak7/page5');
+        router.push('/babak7/page9');
     };
 
     if (isValidating) {
