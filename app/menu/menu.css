@@ -30,7 +30,6 @@
   z-index: 100;
   width: max(45px, 8vh);
   height: max(45px, 8vh);
-  transform: scale(1.25);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -219,13 +218,6 @@
     width: 60vw;
   }
 
-  .info-btn,
-  .sound-btn,
-  .logout-btn {
-    width: 15vw;
-    height: 15vw;
-  }
-
   .info-btn {
     top: 3vh;
     left: 4vw;
@@ -245,7 +237,7 @@
 @media (hover: hover) and (pointer: fine) {
   .info-btn:hover, .logout-btn:hover {
     filter: brightness(1.1);
-    transform: scale(1.25);
+    transform: scale(1.15);
   }
 }
 
