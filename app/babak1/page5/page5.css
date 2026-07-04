@@ -135,7 +135,7 @@
 /* Central Options Card Placement */
 .options-wrapper-page5 {
   position: absolute;
-  top: 45vh;
+  top: 55vh;
   left: 5vw;
   right: 5vw;
   z-index: 30;
@@ -244,7 +244,7 @@
   }
 
   .options-wrapper-page5 {
-    top: 45vh;
+    top: 55vh;
   }
 }
 
@@ -514,7 +514,7 @@
   }
 
   .options-wrapper-page5 {
-    top: 42vh;
+    top: 52vh;
   }
 
   .bottom-actions-row {
@@ -534,7 +534,7 @@
 @media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
   .music5-btn {
     top: 5vh;
-    right: calc(5vw + 195px);
+    right: calc(8vw + 195px);
     left: unset;
     width: 15vh;
     height: 15vh;

@@ -52,7 +52,7 @@
 
 .music3-btn {
   top: 5vh;
-  right: calc(5vw + 150px);
+  right: calc(8vw + 195px);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -111,7 +111,7 @@
 /* Central Options Card Placement */
 .options-wrapper-page3 {
   position: absolute;
-  top: 45vh;
+  top: 55vh;
   left: 5vw;
   right: 5vw;
   z-index: 30;
@@ -216,7 +216,7 @@
   }
 
   .options-wrapper-page3 {
-    top: 45vh;
+    top: 55vh;
   }
 }
 
@@ -310,7 +310,7 @@
 
   .music3-btn {
     top: 5vh;
-    right: calc(5vw + 175px);
+    right: calc(8vw + 195px);
     left: unset;
     width: 15vh;
     height: 15vh;
@@ -390,7 +390,7 @@
 
     .music3-btn {
       top: 5vh;
-      right: calc(5vw + 175px);
+      right: calc(8vw + 195px);
       left: unset;
       width: 15vh;
       height: 15vh;
@@ -411,22 +411,22 @@
       transform: translate(-10%, -88%);
       max-width: 42vw;
     }
-        
-  .music3-btn {
-    top: 5vh;
-    right: calc(5vw + 175px);
-    left: unset;
-    width: 15vh;
-    height: 15vh;
-    min-width: 50px;
-    min-height: 50px;
-    max-width: 80px;
-    max-height: 80px;
-  }
+
+    .music3-btn {
+      top: 5vh;
+      right: calc(8vw + 175px);
+      left: unset;
+      width: 15vh;
+      height: 15vh;
+      min-width: 50px;
+      min-height: 50px;
+      max-width: 80px;
+      max-height: 80px;
+    }
   }
 
   .options-wrapper-page3 {
-    top: 42vh;
+    top: 52vh;
   }
 
   .bottom-actions-row {
@@ -447,7 +447,7 @@
 
   .music3-btn {
     top: 5vh;
-    right: calc(5vw + 195px);
+    right: calc(8vw + 195px);
     left: unset;
     width: 15vh;
     height: 15vh;
@@ -516,7 +516,7 @@
 
   .music3-btn {
     top: 5vh;
-    right: calc(5vw + 195px);
+    right: calc(8vw + 195px);
     left: unset;
     width: 15vh;
     height: 15vh;
@@ -581,7 +581,7 @@
   /* Central Options Card Placement */
   .options-wrapper-page3 {
     position: absolute;
-    top: 45vh;
+    top: 55vh;
     left: 5vw;
     right: 5vw;
     z-index: 30;
@@ -595,7 +595,7 @@
 
   .music3-btn {
     top: 5vh;
-    right: calc(5vw + 195px);
+    right: calc(8vw + 195px);
     left: unset;
     width: 15vh;
     height: 15vh;

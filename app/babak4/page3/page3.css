@@ -52,7 +52,7 @@
 
 .babak4-page3-music3-btn {
   top: 5vh;
-  right: calc(5vw + 150px);
+  right: calc(8vw + 195px);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -112,7 +112,7 @@
 /* Central Options Card Placement */
 .babak4-page3-options-wrapper {
   position: absolute;
-  top: 45vh;
+  top: 55vh;
   left: 5vw;
   right: 5vw;
   z-index: 30;
@@ -217,7 +217,7 @@
   }
 
   .babak4-page3-options-wrapper {
-    top: 45vh;
+    top: 55vh;
   }
 }
 
@@ -307,7 +307,7 @@
 
   .babak4-page3-music3-btn {
     top: 5vh;
-    right: calc(5vw + 150px);
+    right: calc(8vw + 195px);
     left: unset;
     width: 15vh;
     height: 15vh;
@@ -403,7 +403,7 @@
   }
 
   .babak4-page3-options-wrapper {
-    top: 42vh;
+    top: 52vh;
   }
 
   .babak4-page3-bottom-actions-row {
@@ -533,7 +533,7 @@
   /* Central Options Card Placement */
   .babak4-page3-options-wrapper {
     position: absolute;
-    top: 45vh;
+    top: 55vh;
     left: 5vw;
     right: 5vw;
     z-index: 30;

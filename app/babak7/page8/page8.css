@@ -134,7 +134,7 @@
 /* Central Options Card Placement */
 .babak7-page8-options-wrapper {
     position: absolute;
-    top: 45vh;
+    top: 55vh;
     left: 5vw;
     right: 5vw;
     z-index: 30;
@@ -243,7 +243,7 @@
     }
 
     .babak7-page8-options-wrapper {
-        top: 45vh;
+        top: 55vh;
     }
 }
 
@@ -488,7 +488,7 @@
     }
 
     .babak7-page8-options-wrapper {
-        top: 42vh;
+        top: 52vh;
     }
 
     .babak7-page8-bottom-actions-row {

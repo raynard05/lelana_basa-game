@@ -536,7 +536,7 @@
 @media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
   .music4-btn {
     top: 5vh;
-    right: calc(5vw + 195px);
+    right: calc(8vw + 195px);
     left: unset;
     width: 15vh;
     height: 15vh;
