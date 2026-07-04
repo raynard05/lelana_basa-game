@@ -52,7 +52,7 @@
 
 .babak5-page4-music4-btn {
   top: 5vh;
-  right: calc(5vw + 200px + 2vw);
+  right: calc(5vw + 150px);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -269,7 +269,7 @@
 
   .babak5-page4-music4-btn {
     top: 3vh;
-    right: calc(4vw + 150px + 3vw);
+    left: calc(5vw + 14vw + 2vw);
     left: unset;
   }
 
@@ -350,7 +350,7 @@
 
   .babak5-page4-music4-btn {
     top: 5vh;
-    right: calc(5vw + 150px + 2vw);
+    right: calc(5vw + 150px);
     left: unset;
     width: 15vh;
     height: 15vh;

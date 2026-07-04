@@ -52,7 +52,7 @@
 
 .music3-btn {
   top: 5vh;
-  right: calc(5vw + 200px + 2vw);
+  right: calc(5vw + 150px);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -61,9 +61,7 @@
   }
 }
 
-.nav-btn:active {
-  opacity: 0.7;
-}
+
 
 /* Game Status Header Position (Top-Right) */
 .status-header-page3 {
@@ -243,7 +241,7 @@
 
   .music3-btn {
     top: 3vh;
-    right: calc(4vw + 150px + 3vw);
+    left: calc(5vw + 14vw + 2vw);
     left: unset;
   }
 
@@ -312,7 +310,7 @@
 
   .music3-btn {
     top: 5vh;
-    right: calc(5vw + 150px + 2vw);
+    right: calc(5vw + 175px);
     left: unset;
     width: 15vh;
     height: 15vh;
@@ -356,7 +354,7 @@
       transform: translate(-1vh, -12vh);
     }
 
-    
+
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop */
     .dialog-bubble-wrapper .dialog-bubble-container {
@@ -389,6 +387,19 @@
     .dialog-bubble-wrapper .dialog-bubble-container.right .dialog-bubble-tail {
       right: -2.7vh !important;
     }
+
+    .music3-btn {
+      top: 5vh;
+      right: calc(5vw + 175px);
+      left: unset;
+      width: 15vh;
+      height: 15vh;
+      min-width: 50px;
+      min-height: 50px;
+      max-width: 80px;
+      max-height: 80px;
+    }
+
   }
 
   @media (max-width: 960px) {
@@ -400,6 +411,18 @@
       transform: translate(-10%, -88%);
       max-width: 42vw;
     }
+        
+  .music3-btn {
+    top: 5vh;
+    right: calc(5vw + 175px);
+    left: unset;
+    width: 15vh;
+    height: 15vh;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 80px;
+    max-height: 80px;
+  }
   }
 
   .options-wrapper-page3 {
@@ -410,9 +433,7 @@
     bottom: 2vh;
   }
 
-  @media (max-width: 960px) {
-    
-  }
+  @media (max-width: 960px) {}
 
   .transcript-feedback {
     bottom: 15vh;
@@ -423,6 +444,19 @@
 
 /* Responsive Zoom for laptops */
 @media (max-width: 1440px) and (min-height: 700px) {
+
+  .music3-btn {
+    top: 5vh;
+    right: calc(5vw + 195px);
+    left: unset;
+    width: 15vh;
+    height: 15vh;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 80px;
+    max-height: 80px;
+  }
+
   .dialog-bubble-wrapper {
     max-width: 30vw;
     margin-bottom: 0;
@@ -441,10 +475,11 @@
     transform: translateY(-5vw);
   }
 
-  
+
 
   /* Dialogue bubble responsive ratio overrides for laptop/desktop */
   .dialog-bubble-wrapper .dialog-bubble-container {
+
     padding: 2.2vh 3.3vh !important;
     border-width: 0.4vh !important;
     border-radius: 2.2vh !important;
@@ -478,6 +513,19 @@
 }
 
 @media (max-width: 1280px) and (min-height: 700px) {
+
+  .music3-btn {
+    top: 5vh;
+    right: calc(5vw + 195px);
+    left: unset;
+    width: 15vh;
+    height: 15vh;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 80px;
+    max-height: 80px;
+  }
+
   .dialog-bubble-wrapper {
     max-width: 32vw;
     margin-bottom: 0;
@@ -496,7 +544,7 @@
     transform: translate(-2vw, -7vw);
   }
 
-  
+
 
   /* Dialogue bubble responsive ratio overrides for laptop/desktop */
   .dialog-bubble-wrapper .dialog-bubble-container {
@@ -544,6 +592,19 @@
 }
 
 @media (max-width: 1024px) and (min-height: 700px) {
+
+  .music3-btn {
+    top: 5vh;
+    right: calc(5vw + 195px);
+    left: unset;
+    width: 15vh;
+    height: 15vh;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 80px;
+    max-height: 80px;
+  }
+
   .dialog-bubble-wrapper {
     max-width: 42vw;
     margin-bottom: 0;
@@ -562,7 +623,7 @@
     transform: translate(-7vw, -10vw);
   }
 
-  
+
 
   /* Dialogue bubble responsive ratio overrides for laptop/desktop */
   .dialog-bubble-wrapper .dialog-bubble-container {

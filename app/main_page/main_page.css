@@ -62,7 +62,7 @@
 
 .mainpage-container .mainpage-music-btn {
   top: 5vh;
-  right: calc(5vw + 45px + 2vw);
+  right: calc(5vw + clamp(50px, 12vh, 80px) + 10px);
   /* Music button next to Skip button */
 }
 
@@ -78,9 +78,7 @@
   }
 }
 
-.mainpage-nav-btn:active {
-  opacity: 0.7;
-}
+
 
 /* Main Card Frame */
 .mainpage-card-frame {
@@ -179,7 +177,7 @@
 
   .mainpage-container .mainpage-music-btn {
     top: 3vh;
-    right: calc(4vw + 12vw + 3vw);
+    left: calc(5vw + 14vw + 2vw);
   }
 
   .mainpage-skip-btn {
@@ -190,7 +188,7 @@
 
 @media (max-width:990px) {
   .mainpage-container .mainpage-music-btn {
-    right: calc(5vw + 45px + 2vw);
+    right: calc(5vw + clamp(50px, 12vh, 80px) + 10px);
   }
 }
 
@@ -199,7 +197,7 @@
 @media (max-width: 1440px) and (min-height:800px) {
   .mainpage-container .mainpage-music-btn {
     top: 5vh;
-    right: calc(5vw + 45px + 2vw);
+    right: calc(5vw + clamp(50px, 12vh, 80px) + 10px);
     /* Music button next to Skip button */
   }
   .mainpage-card-frame{
@@ -211,7 +209,7 @@
 @media (max-width: 1200px) and (min-height:800px) {
   .mainpage-container .mainpage-music-btn {
     top: 5vh;
-    right: calc(5vw + 45px + 2vw);
+    right: calc(5vw + clamp(50px, 12vh, 80px) + 10px);
     /* Music button next to Skip button */
   }
     .mainpage-card-frame{
@@ -223,7 +221,7 @@
 @media (max-width: 1080px) and (min-height:800px) {
   .mainpage-container .mainpage-music-btn {
     top: 5vh;
-    right: calc(5vw + 45px + 2vw);
+    right: calc(5vw + clamp(50px, 12vh, 80px) + 10px);
     /* Music button next to Skip button */
   }
     .mainpage-card-frame{

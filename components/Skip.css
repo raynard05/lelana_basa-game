@@ -1,3 +1,4 @@
+
 .skip-btn-wrapper {
   position: absolute;
   z-index: 100;
@@ -6,92 +7,40 @@
   cursor: pointer;
   padding: 0;
   outline: none;
-  width: max(45px, 8vh);
-  height: max(45px, 8vh);
+  width: 12vh;
+  height: 12vh;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 80px;
+  max-height: 80px;
   border-radius: 50%;
-
-  transition: transform 0.2s ease, filter 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  touch-action: manipulation;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .skip-btn-wrapper:hover {
     filter: brightness(1.1);
-    transform: scale(1.25);
+    transform: scale(1.15);
   }
 }
 
 .skip-btn-wrapper:active {
   opacity: 0.7;
-  transform: scale(1.7);
+  transform: scale(0.95);
 }
-
-.skip-btn-wrapper {
-  transform: scale(1.25);
-}
-
-
-
-
-
-
 
 /* Mobile adjustments */
-@media (max-width: 768px), (max-height: 500px) {
+@media (orientation: portrait) {
   .skip-btn-wrapper {
-    transform: scale(0.9);
-  }
-  .skip-btn-wrapper:hover {
-    transform: scale(0.95);
-  }
-}
-
-/* Progressive zoom out scaling */
-@media (min-width: 1500px) and (min-height: 700px) {
-  .skip-btn-wrapper {
-    transform: scale(1);
-  }
-
-  .skip-btn-wrapper:hover {
-    transform: scale(1);
-  }
-}
-
-@media (min-width: 1700px) and (min-height: 700px) {
-  .skip-btn-wrapper {
-    transform: scale(1.1);
-  }
-
-  .skip-btn-wrapper:hover {
-    transform: scale(1.15);
-  }
-}
-
-@media (min-width: 1950px) and (min-height: 700px) {
-  .skip-btn-wrapper {
-    transform: scale(1.45);
-  }
-
-  .skip-btn-wrapper:hover {
-    transform: scale(1.5);
-  }
-}
-
-@media (min-width: 2200px) and (min-height: 700px) {
-  .skip-btn-wrapper {
-    transform: scale(1.6);
-  }
-
-  .skip-btn-wrapper:hover {
-    transform: scale(1.65);
-  }
-}
-
-@media (min-width: 2500px) and (min-height: 700px) {
-  .skip-btn-wrapper {
-    transform: scale(1.8);
-  }
-
-  .skip-btn-wrapper:hover {
-    transform: scale(1.85);
+    width: 14vw;
+    height: 14vw;
+    min-width: unset;
+    min-height: unset;
+    max-width: unset;
+    max-height: unset;
   }
 }

@@ -17,25 +17,7 @@
 }
 
 /* Nav Controls */
-.nav-btn {
-  position: absolute;
-  z-index: 100;
-  width: 15vh;
-  height: 15vh;
-  min-width: 50px;
-  min-height: 50px;
-  max-width: 80px;
-  max-height: 80px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  touch-action: manipulation;
-}
+
 
 .home-btn {
   top: 5vh;
@@ -44,7 +26,7 @@
 
 .babak2-container .music-btn {
   top: 5vh;
-  right: calc(5vw + max(45px, 8vh) + 2vw);
+  right: calc(5vw + clamp(50px, 12vh, 80px) + 10px);
   /* Music button next to Skip button */
 }
 
@@ -60,9 +42,7 @@
   }
 }
 
-.nav-btn:active {
-  opacity: 0.7;
-}
+
 
 /* Main Card Frame */
 .card-frame-page2 {
@@ -96,14 +76,7 @@
 
 /* Mobile responsive modifications */
 @media (orientation: portrait) {
-  .nav-btn {
-    width: 12vw !important;
-    height: 12vw !important;
-    min-width: unset !important;
-    min-height: unset !important;
-    max-width: unset !important;
-    max-height: unset !important;
-  }
+  
 
   .nav-btn {
     width: 12vw;
@@ -117,7 +90,7 @@
 
   .babak2-container .music-btn {
     top: 3vh;
-    right: calc(4vw + 12vw + 3vw) !important;
+    right: calc(4vw + 14vw + 2vw) !important;
   }
 
   .skip-btn {
@@ -131,7 +104,7 @@
 
   .babak2-container .music-btn {
 
-    right: calc(5vw + max(45px, 8vh) + 2vw);
+    right: calc(5vw + clamp(50px, 12vh, 80px) + 10px);
     /* Music button next to Skip button */
   }
 

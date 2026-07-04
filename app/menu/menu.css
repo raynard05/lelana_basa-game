@@ -28,17 +28,23 @@
 .logout-btn {
   position: absolute;
   z-index: 100;
-  width: max(45px, 8vh);
-  height: max(45px, 8vh);
   background: transparent;
   border: none;
   cursor: pointer;
+  padding: 0;
+  outline: none;
+  width: 12vh;
+  height: 12vh;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 80px;
+  max-height: 80px;
   border-radius: 50%;
-  touch-action: manipulation;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  touch-action: manipulation;
 }
 
 .info-btn {
@@ -248,9 +254,28 @@
 
 /* Mobile adjustments */
 @media (max-width: 768px), (max-height: 500px) {
-  .info-btn, .logout-btn {
-    transform: scale(0.9);
-  }
+  .info-btn,
+.logout-btn {
+  position: absolute;
+  z-index: 100;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  width: 12vh;
+  height: 12vh;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  touch-action: manipulation;
+}
   .info-btn:hover, .logout-btn:hover {
     transform: scale(0.95);
   }
@@ -258,9 +283,28 @@
 
 /* Progressive zoom out scaling */
 @media (min-width: 1500px) and (min-height: 700px) {
-  .info-btn, .logout-btn {
-    transform: scale(1);
-  }
+  .info-btn,
+.logout-btn {
+  position: absolute;
+  z-index: 100;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  width: 12vh;
+  height: 12vh;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  touch-action: manipulation;
+}
 
   .info-btn:hover, .logout-btn:hover {
     transform: scale(1);
@@ -268,9 +312,28 @@
 }
 
 @media (min-width: 1700px) and (min-height: 700px) {
-  .info-btn, .logout-btn {
-    transform: scale(1.1);
-  }
+  .info-btn,
+.logout-btn {
+  position: absolute;
+  z-index: 100;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  width: 12vh;
+  height: 12vh;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  touch-action: manipulation;
+}
 
   .info-btn:hover, .logout-btn:hover {
     transform: scale(1.15);
@@ -278,9 +341,28 @@
 }
 
 @media (min-width: 1950px) and (min-height: 700px) {
-  .info-btn, .logout-btn {
-    transform: scale(1.45);
-  }
+  .info-btn,
+.logout-btn {
+  position: absolute;
+  z-index: 100;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  width: 12vh;
+  height: 12vh;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  touch-action: manipulation;
+}
 
   .info-btn:hover, .logout-btn:hover {
     transform: scale(1.5);
@@ -288,9 +370,28 @@
 }
 
 @media (min-width: 2200px) and (min-height: 700px) {
-  .info-btn, .logout-btn {
-    transform: scale(1.6);
-  }
+  .info-btn,
+.logout-btn {
+  position: absolute;
+  z-index: 100;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  width: 12vh;
+  height: 12vh;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  touch-action: manipulation;
+}
 
   .info-btn:hover, .logout-btn:hover {
     transform: scale(1.65);
@@ -298,9 +399,28 @@
 }
 
 @media (min-width: 2500px) and (min-height: 700px) {
-  .info-btn, .logout-btn {
-    transform: scale(1.8);
-  }
+  .info-btn,
+.logout-btn {
+  position: absolute;
+  z-index: 100;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  width: 12vh;
+  height: 12vh;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  touch-action: manipulation;
+}
 
   .info-btn:hover, .logout-btn:hover {
     transform: scale(1.85);

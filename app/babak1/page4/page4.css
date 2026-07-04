@@ -52,7 +52,7 @@
 
 .music4-btn {
   top: 5vh;
-  right: calc(5vw + 200px + 2vw);
+  right: calc(5vw + 150px);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -61,9 +61,7 @@
   }
 }
 
-.nav-btn:active {
-  opacity: 0.7;
-}
+
 
 /* Game Status Header Position (Top-Right) */
 .status-header-page4 {
@@ -271,7 +269,7 @@
 
   .music4-btn {
     top: 3vh;
-    right: calc(4vw + 150px + 3vw);
+    left: calc(5vw + 14vw + 2vw);
     left: unset;
   }
 
@@ -355,7 +353,7 @@
 
   .music4-btn {
     top: 5vh;
-    right: calc(5vw + 150px + 2vw);
+    right: calc(5vw + 175px);
     left: unset;
     width: 15vh;
     height: 15vh;
@@ -418,7 +416,7 @@
       transform: translate(20%, 1%) !important;
     }
 
-    
+
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop */
     .dialog-bubble-container-page4 {
@@ -451,9 +449,34 @@
     .dialog-bubble-container-page4.right .dialog-bubble-tail {
       right: -2.7vh !important;
     }
+
+    .music4-btn {
+      top: 5vh;
+      right: calc(5vw + 195px);
+      left: unset;
+      width: 15vh;
+      height: 15vh;
+      min-width: 50px;
+      min-height: 50px;
+      max-width: 80px;
+      max-height: 80px;
+    }
+
   }
 
   @media (max-width: 960px) {
+    .music4-btn {
+      top: 5vh;
+      right: calc(5vw + 175px);
+      left: unset;
+      width: 15vh;
+      height: 15vh;
+      min-width: 50px;
+      min-height: 50px;
+      max-width: 80px;
+      max-height: 80px;
+    }
+
     .page4-container .character-dialog-row {
       align-items: flex-start;
       top: 12vh;
@@ -499,20 +522,30 @@
     bottom: 2vh;
   }
 
-  @media (max-width: 960px) {
-    
-  }
+  @media (max-width: 960px) {}
 
   .transcript-feedback {
     bottom: 15vh;
     padding: 1vh 1.3vw;
     font-size: 2.9vh;
   }
-  
+
 }
 
 /* Fullscreen laptop / desktop (height > 720px) adjustment */
 @media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
+  .music4-btn {
+    top: 5vh;
+    right: calc(5vw + 195px);
+    left: unset;
+    width: 15vh;
+    height: 15vh;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 80px;
+    max-height: 80px;
+  }
+
   .page4-container .character-dialog-row {
     top: 8vh;
     gap: -1vw;
@@ -536,7 +569,7 @@
     transform: translate(-15vw, 15vh) !important;
   }
 
-  
+
 
   /* Dialogue bubble responsive ratio overrides for laptop/desktop fullscreen */
   .dialog-bubble-container-page4 {
