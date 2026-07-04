@@ -335,7 +335,7 @@ export default function Babak1Page5() {
 
       {/* Top Center Timer */}
       <Timer
-        initialTime={60}
+        initialTime={3600}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
         storageKey="babak1_page5_timer"
@@ -399,14 +399,12 @@ export default function Babak1Page5() {
         <ListenButton
           audioUrl="/audio/MP3BABAK1/dialog_textpage5.mp3"
           disabled={isLocked}
-          style={{ width: '260px', height: '70px' }}
         />
         {/* Record Button for STT practice */}
         <RecordButton
           onTranscript={handleTranscript}
           lang="jv-ID"
           disabled={isLocked}
-          style={{ width: '260px', height: '70px' }}
         />
       </div>
 

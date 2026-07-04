@@ -25,16 +25,12 @@
 
 /* Individual Top Buttons with explicit high z-index and touch-action */
 .info-btn,
-.sound-btn,
 .logout-btn {
   position: absolute;
   z-index: 100;
-  width: 15vh;
-  height: 15vh;
-  min-width: 50px;
-  min-height: 50px;
-  max-width: 80px;
-  max-height: 80px;
+  width: max(45px, 8vh);
+  height: max(45px, 8vh);
+  transform: scale(1.25);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -243,5 +239,78 @@
   .logout-btn {
     bottom: 3vh;
     right: 4vw;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .info-btn:hover, .logout-btn:hover {
+    filter: brightness(1.1);
+    transform: scale(1.25);
+  }
+}
+
+.info-btn:active, .logout-btn:active {
+  opacity: 0.7;
+  transform: scale(1.7);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px), (max-height: 500px) {
+  .info-btn, .logout-btn {
+    transform: scale(0.9);
+  }
+  .info-btn:hover, .logout-btn:hover {
+    transform: scale(0.95);
+  }
+}
+
+/* Progressive zoom out scaling */
+@media (min-width: 1500px) and (min-height: 700px) {
+  .info-btn, .logout-btn {
+    transform: scale(1);
+  }
+
+  .info-btn:hover, .logout-btn:hover {
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 1700px) and (min-height: 700px) {
+  .info-btn, .logout-btn {
+    transform: scale(1.1);
+  }
+
+  .info-btn:hover, .logout-btn:hover {
+    transform: scale(1.15);
+  }
+}
+
+@media (min-width: 1950px) and (min-height: 700px) {
+  .info-btn, .logout-btn {
+    transform: scale(1.45);
+  }
+
+  .info-btn:hover, .logout-btn:hover {
+    transform: scale(1.5);
+  }
+}
+
+@media (min-width: 2200px) and (min-height: 700px) {
+  .info-btn, .logout-btn {
+    transform: scale(1.6);
+  }
+
+  .info-btn:hover, .logout-btn:hover {
+    transform: scale(1.65);
+  }
+}
+
+@media (min-width: 2500px) and (min-height: 700px) {
+  .info-btn, .logout-btn {
+    transform: scale(1.8);
+  }
+
+  .info-btn:hover, .logout-btn:hover {
+    transform: scale(1.85);
   }
 }

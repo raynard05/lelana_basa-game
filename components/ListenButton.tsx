@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import './ListenButton.css';
 
 interface ListenButtonProps {
   audioUrl: string;
@@ -116,8 +117,7 @@ export default function ListenButton({
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '80px',
-        height: '80px',
+        
         ...style,
       }}
       aria-label={isPlaying ? 'Pause audio' : 'Listen to audio'}
@@ -166,8 +166,8 @@ export default function ListenButton({
       <Image
         src="/main/rungokna_button.png"
         alt="Rungokna"
-        width={80}
-        height={80}
+        width={260}
+        height={70}
         className="listen-btn-img"
         priority
         unoptimized
@@ -175,3 +175,4 @@ export default function ListenButton({
     </button>
   );
 }
+

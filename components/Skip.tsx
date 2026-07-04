@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import './Skip.css';
 
 interface SkipProps {
   onClick: () => void;
@@ -13,16 +14,8 @@ export default function Skip({ onClick, className, style }: SkipProps) {
     <button
       onClick={onClick}
       type="button"
-      className={className}
-      style={{
-        background: 'transparent',
-        border: 'none',
-        cursor: 'pointer',
-        padding: 0,
-        outline: 'none',
-        ...(!className && !style?.position ? { position: 'relative' } : {}),
-        ...style
-      }}
+      className={`skip-btn-wrapper ${className || ''}`.trim()}
+      style={style}
       aria-label="Skip to Next"
     >
       <Image

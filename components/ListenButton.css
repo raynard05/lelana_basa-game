@@ -1,0 +1,79 @@
+.listen-btn-wrapper {
+  position: relative;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35vh;
+  height: 9.5vh;
+  max-width: 320px;
+  max-height: 85px;
+  min-width: 150px;
+  min-height: 40px;
+  transition: transform 0.2s ease;
+}
+
+.listen-btn-wrapper.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.listen-btn-wrapper:hover:not(.disabled) {
+  transform: scale(1.08);
+}
+
+.listen-btn-wrapper:active:not(.disabled) {
+  transform: scale(0.95);
+}
+
+.listen-btn-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: filter 0.2s ease;
+}
+
+/* Pulsing golden glow when playing */
+.listen-btn-wrapper.playing .listen-btn-img {
+  filter: brightness(1.1) drop-shadow(0 0 10px rgba(212, 165, 116, 0.8));
+  animation: playingPulse 2s ease-in-out infinite;
+}
+
+@keyframes playingPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+
+
+
+
+/* Progressive zoom out scaling */
+@media (min-width: 1500px) and (min-height: 700px) {
+  .listen-btn-wrapper { transform: scale(1.15); }
+  .listen-btn-wrapper:hover { transform: scale(1.2); }
+}
+@media (min-width: 1700px) and (min-height: 700px) {
+  .listen-btn-wrapper { transform: scale(1.3); }
+  .listen-btn-wrapper:hover { transform: scale(1.35); }
+}
+@media (min-width: 1950px) and (min-height: 700px) {
+  .listen-btn-wrapper { transform: scale(1.45); }
+  .listen-btn-wrapper:hover { transform: scale(1.5); }
+}
+@media (min-width: 2200px) and (min-height: 700px) {
+  .listen-btn-wrapper { transform: scale(1.6); }
+  .listen-btn-wrapper:hover { transform: scale(1.65); }
+}
+@media (min-width: 2500px) and (min-height: 700px) {
+  .listen-btn-wrapper { transform: scale(1.8); }
+  .listen-btn-wrapper:hover { transform: scale(1.85); }
+}

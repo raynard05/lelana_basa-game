@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import './Home.css';
 
 interface HomeProps {
   className?: string;
@@ -35,16 +36,8 @@ export default function Home({ className, style }: HomeProps) {
       <button
         onClick={handleHomeClick}
         type="button"
-        className={className}
-        style={{
-          background: 'transparent',
-          border: 'none',
-          cursor: 'pointer',
-          padding: 0,
-          outline: 'none',
-          ...(!className && !style?.position ? { position: 'relative' } : {}),
-          ...style
-        }}
+        className={`home-btn-wrapper ${className}`}
+        style={style}
         aria-label="Go to Menu"
       >
         <Image

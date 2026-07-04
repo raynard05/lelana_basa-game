@@ -25,25 +25,7 @@
 }
 
 /* Nav Controls */
-.babak7-nav-btn {
-    position: absolute;
-    z-index: 100;
-    width: 15vh;
-    height: 15vh;
-    min-width: 50px;
-    min-height: 50px;
-    max-width: 80px;
-    max-height: 80px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    touch-action: manipulation;
-}
+
 
 .babak7-home-btn {
     top: 5vh;
@@ -55,46 +37,8 @@
     right: 5vw;
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .babak7-nav-btn:hover {
-        transform: scale(1.15);
-    }
-}
 
-.babak7-nav-btn:active {
-    opacity: 0.7;
-}
 
-/* Timer Badge */
-.babak7-container .timer-badge {
-    position: absolute;
-    top: 5vh;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    background: rgba(78, 52, 41, 0.9);
-    border: 2px solid #D4A574;
-    border-radius: 24px;
-    padding: 8px 30px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    color: #FFF8E1;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: clamp(14px, 2.5vh, 20px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    user-select: none;
-}
-
-.babak7-container .timer-icon {
-    color: #F59E0B;
-    flex-shrink: 0;
-    width: clamp(18px, 3vh, 24px) !important;
-    height: clamp(18px, 3vh, 24px) !important;
-}
 
 /* Main Analysis Card */
 .babak7-card-frame {
@@ -470,10 +414,7 @@
         font-size: 1.8vh;
     }
 
-    .babak7-nav-btn {
-        width: 12vw;
-        height: 12vw;
-    }
+    
 
     .babak7-home-btn {
         top: 3vh;
@@ -571,4 +512,16 @@
      .babak7-option-btn {
         font-size: 2.5vh;
      }
+}
+/* Responsive Zoom for laptops */
+@media (max-width: 1440px) {
+  
+}
+
+@media (max-width: 1280px) {
+  
+}
+
+@media (max-width: 1024px) {
+  
 }

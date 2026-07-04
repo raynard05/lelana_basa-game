@@ -412,12 +412,10 @@ export default function babak9Page3() {
                     onTranscript={handleTranscript}
                     lang="jv-ID"
                     disabled={isLocked}
-                    style={{ width: '260px', height: '70px' }}
                 />
                 <ListenButton
                     audioUrl="/audio/MP3 BABAK 1/2. Jaka slewah 1.mp3"
                     disabled={isLocked}
-                    style={{ width: '260px', height: '70px' }}
                 />
             </div>
 

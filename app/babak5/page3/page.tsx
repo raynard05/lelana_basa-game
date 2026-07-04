@@ -357,7 +357,7 @@ export default function Babak5Page3() {
       <Music className="babak5-page3-nav3-btn babak5-page3-music3-btn" />
 
       <Timer
-        initialTime={60}
+        initialTime={3600}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
         storageKey="babak5_page3_timer"
@@ -398,6 +398,7 @@ export default function Babak5Page3() {
           selectedId={selectedOption}
           onSelect={handleOptionSelect}
           disabled={isLocked}
+          isCorrect={isAnswerCorrect}
         />
       </div>
 
@@ -412,12 +413,10 @@ export default function Babak5Page3() {
           onTranscript={handleTranscript}
           lang="jv-ID"
           disabled={isLocked}
-          style={{ width: '260px', height: '70px' }}
         />
         <ListenButton
           audioUrl="/audio/MP3 BABAK 1/2. Jaka slewah 1.mp3"
           disabled={isLocked}
-          style={{ width: '260px', height: '70px' }}
         />
       </div>
 

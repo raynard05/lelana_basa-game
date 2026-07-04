@@ -287,7 +287,7 @@ export default function Babak4Page() {
       <Home className="babak4-nav-btn babak4-home-btn" />
 
       <Timer
-        initialTime={60}
+        initialTime={3600}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
         storageKey="babak4_page1_timer"

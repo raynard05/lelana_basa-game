@@ -357,7 +357,7 @@ export default function babak7Page7() {
             <Music className="babak7-page7-nav7-btn babak7-page7-music7-btn" />
 
             <Timer
-                initialTime={60}
+                initialTime={3600}
                 isLocked={isLocked || !!showPopup}
                 onTimeOut={handleTimeOut}
                 storageKey="babak7_page7_timer"
@@ -394,10 +394,11 @@ export default function babak7Page7() {
 
             <div className="babak7-page7-options-wrapper">
                 <UnggahUngguhOptions
-                    options={optionsData}
-                    selectedId={selectedOption}
-                    onSelect={handleOptionSelect}
-                    disabled={isLocked}
+          options={optionsData}
+          selectedId={selectedOption}
+          onSelect={handleOptionSelect}
+          disabled={isLocked}
+          isCorrect={isAnswerCorrect}
                 />
             </div>
 
@@ -412,12 +413,10 @@ export default function babak7Page7() {
                     onTranscript={handleTranscript}
                     lang="jv-ID"
                     disabled={isLocked}
-                    style={{ width: '260px', height: '70px' }}
                 />
                 <ListenButton
                     audioUrl="/audio/MP3BABAK1/dialog_textpage3.mp3"
                     disabled={isLocked}
-                    style={{ width: '260px', height: '70px' }}
                 />
             </div>
 

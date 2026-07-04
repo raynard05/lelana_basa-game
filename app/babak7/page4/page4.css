@@ -64,38 +64,6 @@
 .babak7-page4-nav4-btn:active {
     opacity: 0.7;
 }
-
-/* Timer Badge */
-.babak7-page4-container .timer-badge {
-    position: absolute;
-    top: 5vh;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    background: rgba(78, 52, 41, 0.95);
-    border: 2px solid #D4A574;
-    border-radius: 24px;
-    padding: 6px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #FFF8E1;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    user-select: none;
-}
-
-.babak7-page4-container .timer-icon {
-    color: #F59E0B;
-    flex-shrink: 0;
-    width: 20px !important;
-    height: 20px !important;
-}
-
 /* Game Status Header Position (Top-Right) */
 .babak7-page4-status-header {
     position: absolute;
@@ -390,18 +358,6 @@
         max-width: 80px;
         max-height: 80px;
     }
-
-    .babak7-page4-container .timer-badge {
-        top: 5vh;
-        padding: 6px 20px;
-        font-size: 16px;
-    }
-
-    .babak7-page4-container .timer-icon {
-        width: 20px !important;
-        height: 20px !important;
-    }
-
     .babak7-page4-status-header {
         top: 5vh;
         right: 5vw;
@@ -458,12 +414,7 @@
             transform: translate(-12%, 6%) !important;
         }
 
-        .babak7-page4-bottom-actions-row button {
-            width: 260px !important;
-            height: 70px !important;
-            max-width: none !important;
-            max-height: none !important;
-        }
+        
 
         /* Dialogue bubble responsive ratio overrides for laptop/desktop */
         .babak7-page4-dialog-bubble-container-page4 {
@@ -545,12 +496,7 @@
     }
 
     @media (max-width: 960px) {
-        .babak7-page4-bottom-actions-row button {
-            width: 17.5vw !important;
-            height: 10.7vh !important;
-            max-width: 160px;
-            max-height: 44px;
-        }
+        
     }
 
     .babak7-page4-transcript-feedback {
@@ -585,12 +531,7 @@
         transform: translate(-6vw, 12vh) !important;
     }
 
-    .babak7-page4-bottom-actions-row button {
-        width: 260px !important;
-        height: 70px !important;
-        max-width: none !important;
-        max-height: none !important;
-    }
+    
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop fullscreen */
     .babak7-page4-dialog-bubble-container-page4 {
@@ -623,4 +564,16 @@
     .babak7-page4-dialog-bubble-container-page4.right .dialog-bubble-tail {
         right: -2.7vh !important;
     }
+}
+/* Responsive Zoom for laptops */
+@media (max-width: 1440px) {
+  
+}
+
+@media (max-width: 1280px) {
+  
+}
+
+@media (max-width: 1024px) {
+  
 }

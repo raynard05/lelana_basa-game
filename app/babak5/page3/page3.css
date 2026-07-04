@@ -65,37 +65,6 @@
   opacity: 0.7;
 }
 
-/* Timer Badge */
-.babak5-page3-container .timer-badge {
-  position: absolute;
-  top: 5vh;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-  background: rgba(78, 52, 41, 0.95);
-  border: 2px solid #D4A574;
-  border-radius: 24px;
-  padding: 6px 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #FFF8E1;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  user-select: none;
-}
-
-.babak5-page3-container .timer-icon {
-  color: #F59E0B;
-  flex-shrink: 0;
-  width: 20px !important;
-  height: 20px !important;
-}
-
 /* Game Status Header Position (Top-Right) */
 .babak5-page3-status-header {
   position: absolute;
@@ -348,17 +317,6 @@
     max-height: 80px;
   }
 
-  .babak5-page3-container .timer-badge {
-    top: 5vh;
-    padding: 6px 20px;
-    font-size: 16px;
-  }
-
-  .babak5-page3-container .timer-icon {
-    width: 20px !important;
-    height: 20px !important;
-  }
-
   .babak5-page3-status-header {
     top: 5vh;
     right: 5vw;
@@ -377,31 +335,27 @@
     transform: translate(15%, -20%);
   }
 
-  /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
+/* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
   @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
     .babak5-page3-dialog-bubble-wrapper {
-      max-width: 40vw;
+      max-width: 32vw;
       margin-bottom: 0;
-      transform: translate(12%, 20%);
+      transform: translate(-5vw, 3vw);
     }
 
     .babak5-page3-character-dialog-row {
       top: 15vh;
-      gap: 1.3vh;
+      gap: 1.8vh;
       align-items: flex-start;
     }
 
     .babak5-page3-character-portrait {
-      height: 60vh;
-      transform: translate(20%, -20%);
+      height: 72vh;
+      transform: none;
+      transform: translate(-5vh, -10vh);
     }
 
-    .babak5-page3-bottom-actions-row button {
-      width: 260px !important;
-      height: 70px !important;
-      max-width: none !important;
-      max-height: none !important;
-    }
+    
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop */
     .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container {
@@ -442,9 +396,8 @@
     }
 
     .babak5-page3-dialog-bubble-wrapper {
-      transform: translate(5%, -140%);
+      transform: translate(-10%, -88%);
       max-width: 42vw;
-   
     }
   }
 
@@ -457,12 +410,7 @@
   }
 
   @media (max-width: 960px) {
-    .babak5-page3-bottom-actions-row button {
-      width: 17.5vw !important;
-      height: 10.7vh !important;
-      max-width: 160px;
-      max-height: 44px;
-    }
+    
   }
 
   .babak5-page3-transcript-feedback {
@@ -472,38 +420,33 @@
   }
 }
 
-/* Fullscreen laptop / desktop (height > 720px) adjustment */
-@media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
+/* Responsive Zoom for laptops */
+@media (max-width: 1440px) and (min-height: 700px) {
+  .babak5-page3-dialog-bubble-wrapper {
+    max-width: 30vw;
+    margin-bottom: 0;
+    transform: translate(-5vw, 3vw);
+  }
+
   .babak5-page3-character-dialog-row {
-    top: 8vh;
-    gap: -1vw;
+    top: 15vh;
+    gap: 1.8vh;
     align-items: flex-start;
   }
 
   .babak5-page3-character-portrait {
-    height: 82vh !important;
-    transform: translate(-1%, 5%) !important;
+    height: 55vh;
+    transform: none;
+    transform: translateY(-5vw);
   }
 
-  .babak5-dialog-bubble-wrapper-page5 {
-    width: 38vw !important;
-    max-width: 38vw !important;
-    margin-bottom: 0 !important;
-    transform: translate(-6vw, 12vh) !important;
-  }
+  
 
-  .babak5-page3-bottom-actions-row button {
-    width: 260px !important;
-    height: 70px !important;
-    max-width: none !important;
-    max-height: none !important;
-  }
-
-  /* Dialogue bubble responsive ratio overrides for laptop/desktop fullscreen */
+  /* Dialogue bubble responsive ratio overrides for laptop/desktop */
   .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container {
-    padding: 2vh 3vh !important;
+    padding: 2.2vh 3.3vh !important;
     border-width: 0.4vh !important;
-    border-radius: 2vh !important;
+    border-radius: 2.2vh !important;
     min-height: auto !important;
     box-shadow: 0 0.8vh 2.2vh rgba(0, 0, 0, 0.15) !important;
   }
@@ -518,7 +461,7 @@
     line-height: 1.4 !important;
   }
 
-  .bab5-page3-dialog-bubble-wrapper .dialog-bubble-tail {
+  .babak5-page3-dialog-bubble-wrapper .dialog-bubble-tail {
     width: 3vh !important;
     height: 3.3vh !important;
   }
@@ -530,4 +473,126 @@
   .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container.right .dialog-bubble-tail {
     right: -2.7vh !important;
   }
+
+}
+
+@media (max-width: 1280px) and (min-height: 700px) {
+  .babak5-page3-dialog-bubble-wrapper {
+    max-width: 30vw;
+    margin-bottom: 0;
+    transform: translate(-2vw, 3vw);
+  }
+
+  .babak5-page3-character-dialog-row {
+    top: 15vh;
+    gap: 1.8vh;
+    align-items: flex-start;
+  }
+
+  .babak5-page3-character-portrait {
+    height: 65vh;
+    transform: none;
+    transform: translateY(-10%);
+  }
+
+  
+
+  /* Dialogue bubble responsive ratio overrides for laptop/desktop */
+  .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container {
+    padding: 2.2vh 3.3vh !important;
+    border-width: 0.4vh !important;
+    border-radius: 2.2vh !important;
+    min-height: auto !important;
+    box-shadow: 0 0.8vh 2.2vh rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .babak5-page3-dialog-bubble-wrapper .dialog-actor {
+    font-size: 2.5vh !important;
+    margin-bottom: 0.8vh !important;
+  }
+
+  .babak5-page3-dialog-bubble-wrapper .dialog-text {
+    font-size: 2.2vh !important;
+    line-height: 1.4 !important;
+  }
+
+  .babak5-page3-dialog-bubble-wrapper .dialog-bubble-tail {
+    width: 3vh !important;
+    height: 3.3vh !important;
+  }
+
+  .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container.left .dialog-bubble-tail {
+    left: -2.7vh !important;
+  }
+
+  .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container.right .dialog-bubble-tail {
+    right: -2.7vh !important;
+  }
+
+  /* Central Options Card Placement */
+  .babak5-page3-options-wrapper {
+    position: absolute;
+    top: 45vh;
+    left: 5vw;
+    right: 5vw;
+    z-index: 30;
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 1024px) and (min-height: 700px) {
+  .babak5-page3-dialog-bubble-wrapper {
+    max-width: 42vw;
+    margin-bottom: 0;
+    transform: translate(-20vh, -3vh);
+  }
+
+  .babak5-page3-character-dialog-row {
+    top: 15vh;
+    gap: 1.8vh;
+    align-items: flex-start;
+  }
+
+  .babak5-page3-character-portrait {
+    height: 65vh;
+    transform: none;
+    transform: translateY(-10%);
+  }
+
+  
+
+  /* Dialogue bubble responsive ratio overrides for laptop/desktop */
+  .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container {
+    padding: 2.2vh 3.3vh !important;
+    border-width: 0.4vh !important;
+    border-radius: 2.2vh !important;
+    min-height: auto !important;
+    box-shadow: 0 0.8vh 2.2vh rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .babak5-page3-dialog-bubble-wrapper .dialog-actor {
+    font-size: 2.5vh !important;
+    margin-bottom: 0.8vh !important;
+  }
+
+  .babak5-page3-dialog-bubble-wrapper .dialog-text {
+    font-size: 2.2vh !important;
+    line-height: 1.4 !important;
+  }
+
+  .babak5-page3-dialog-bubble-wrapper .dialog-bubble-tail {
+    width: 3vh !important;
+    height: 3.3vh !important;
+  }
+
+  .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container.left .dialog-bubble-tail {
+    left: -2.7vh !important;
+  }
+
+  .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container.right .dialog-bubble-tail {
+    right: -2.7vh !important;
+  }
+
 }

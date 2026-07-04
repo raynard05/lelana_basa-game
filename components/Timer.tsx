@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Clock } from 'lucide-react';
+import './Timer.css';
 
 interface TimerProps {
   initialTime?: number;

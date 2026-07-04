@@ -24,7 +24,7 @@ const optionsData: OptionData[] = [
   },
   {
     id: 'B',
-    text:"Apa amarga kula ora nduwe bapak, banjur panjenengan ora gelem kekancan karo aku?",
+    text: "Apa amarga kula ora nduwe bapak, banjur panjenengan ora gelem kekancan karo aku?",
     audioUrl: '/audio/MP3BABAK1/ngokoalus.m4a',
   },
   {
@@ -34,7 +34,7 @@ const optionsData: OptionData[] = [
   },
   {
     id: 'D',
-    text: 'Menapa amargi kula mboten gadhah Rama, lajeng panjenengan mboten kersa kekancan kalih kula?' , 
+    text: 'Menapa amargi kula mboten gadhah Rama, lajeng panjenengan mboten kersa kekancan kalih kula?',
     audioUrl: '/audio/MP3BABAK1/kramaalus.m4a',
   },
 ];
@@ -370,7 +370,7 @@ export default function Babak1Page3() {
 
       {/* Top Center Timer */}
       <Timer
-        initialTime={60}
+        initialTime={3600}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
         storageKey="babak1_page3_timer"
@@ -415,6 +415,7 @@ export default function Babak1Page3() {
           selectedId={selectedOption}
           onSelect={handleOptionSelect}
           disabled={isLocked}
+          isCorrect={isAnswerCorrect}
         />
 
       </div>
@@ -433,13 +434,11 @@ export default function Babak1Page3() {
           onTranscript={handleTranscript}
           lang="jv-ID"
           disabled={isLocked}
-          style={{ width: '260px', height: '70px' }}
         />
         {/* Listen Button for Jaka Slewah's spoken dialogue */}
         <ListenButton
           audioUrl="/audio/MP3BABAK1/dialog_textpage3.mp3"
           disabled={isLocked}
-          style={{ width: '260px', height: '70px' }}
         />
       </div>
 

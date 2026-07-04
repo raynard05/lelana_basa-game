@@ -368,7 +368,7 @@ export default function Babak4Page3() {
 
       {/* Top Center Timer */}
       <Timer
-        initialTime={60}
+        initialTime={3600}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
         storageKey="babak4_page3_timer"
@@ -412,6 +412,7 @@ export default function Babak4Page3() {
           selectedId={selectedOption}
           onSelect={handleOptionSelect}
           disabled={isLocked}
+          isCorrect={isAnswerCorrect}
         />
       </div>
 
@@ -429,13 +430,11 @@ export default function Babak4Page3() {
           onTranscript={handleTranscript}
           lang="jv-ID"
           disabled={isLocked}
-          style={{ width: '260px', height: '70px' }}
         />
         {/* Listen Button for dialogue */}
         <ListenButton
           audioUrl="/audio/MP3 BABAK 1/2. Jaka slewah 1.mp3"
           disabled={isLocked}
-          style={{ width: '260px', height: '70px' }}
         />
       </div>
 

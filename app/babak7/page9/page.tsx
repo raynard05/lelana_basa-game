@@ -353,7 +353,7 @@ export default function babak7page9() {
             <Music className="babak7-page9-nav4-btn babak7-page9-music4-btn" />
 
             <Timer
-                initialTime={60}
+                initialTime={3600}
                 isLocked={isLocked || !!showPopup}
                 onTimeOut={handleTimeOut}
                 storageKey="babak7_page9_timer"
@@ -411,13 +411,11 @@ export default function babak7page9() {
                 <ListenButton
                     audioUrl="/audio/MP3 BABAK 1/soundpage9.mp3"
                     disabled={isLocked}
-                    style={{ width: '260px', height: '70px' }}
                 />
                 <RecordButton
                     onTranscript={handleTranscript}
                     lang="jv-ID"
                     disabled={isLocked}
-                    style={{ width: '260px', height: '70px' }}
                 />
             </div>
 

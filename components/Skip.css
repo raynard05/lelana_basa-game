@@ -1,0 +1,97 @@
+.skip-btn-wrapper {
+  position: absolute;
+  z-index: 100;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  width: max(45px, 8vh);
+  height: max(45px, 8vh);
+  border-radius: 50%;
+
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .skip-btn-wrapper:hover {
+    filter: brightness(1.1);
+    transform: scale(1.25);
+  }
+}
+
+.skip-btn-wrapper:active {
+  opacity: 0.7;
+  transform: scale(1.7);
+}
+
+.skip-btn-wrapper {
+  transform: scale(1.25);
+}
+
+
+
+
+
+
+
+/* Mobile adjustments */
+@media (max-width: 768px), (max-height: 500px) {
+  .skip-btn-wrapper {
+    transform: scale(0.9);
+  }
+  .skip-btn-wrapper:hover {
+    transform: scale(0.95);
+  }
+}
+
+/* Progressive zoom out scaling */
+@media (min-width: 1500px) and (min-height: 700px) {
+  .skip-btn-wrapper {
+    transform: scale(1);
+  }
+
+  .skip-btn-wrapper:hover {
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 1700px) and (min-height: 700px) {
+  .skip-btn-wrapper {
+    transform: scale(1.1);
+  }
+
+  .skip-btn-wrapper:hover {
+    transform: scale(1.15);
+  }
+}
+
+@media (min-width: 1950px) and (min-height: 700px) {
+  .skip-btn-wrapper {
+    transform: scale(1.45);
+  }
+
+  .skip-btn-wrapper:hover {
+    transform: scale(1.5);
+  }
+}
+
+@media (min-width: 2200px) and (min-height: 700px) {
+  .skip-btn-wrapper {
+    transform: scale(1.6);
+  }
+
+  .skip-btn-wrapper:hover {
+    transform: scale(1.65);
+  }
+}
+
+@media (min-width: 2500px) and (min-height: 700px) {
+  .skip-btn-wrapper {
+    transform: scale(1.8);
+  }
+
+  .skip-btn-wrapper:hover {
+    transform: scale(1.85);
+  }
+}

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import './Music.css';
 
 interface MusicProps {
   className?: string;
@@ -115,16 +116,8 @@ export default function Music({ className, style }: MusicProps) {
     <button
       onClick={toggleSound}
       type="button"
-      className={className}
-      style={{
-        background: 'transparent',
-        border: 'none',
-        cursor: 'pointer',
-        padding: 0,
-        outline: 'none',
-        ...(!className && !style?.position ? { position: 'relative' } : {}),
-        ...style
-      }}
+      className={`music-btn-wrapper ${className}`}
+      style={style}
       aria-label="Toggle Sound"
     >
       <Image

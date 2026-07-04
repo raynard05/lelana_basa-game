@@ -1,0 +1,80 @@
+.timer-badge {
+  position: absolute;
+  top: 6vh;
+  left: 50%;
+  transform: translateX(-50%) scale(1.1);
+  z-index: 100;
+  background: rgba(78, 52, 41, 0.95);
+  border: clamp(3px, 0.4vh, 6px) solid #D4A574;
+  border-radius: clamp(30px, 4vh, 50px);
+  padding: clamp(8px, 1.2vh, 16px) clamp(16px, 2.5vw, 40px);
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1vw, 20px);
+  color: #FFF8E1;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: clamp(20px, 3.5vh, 40px);
+  box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  user-select: none;
+}
+
+.timer-icon {
+  color: #F59E0B;
+  flex-shrink: 0;
+  width: clamp(24px, 3.5vh, 48px) !important;
+  height: clamp(24px, 3.5vh, 48px) !important;
+}
+
+
+/* Landscape Mobile / Layar Pendek */
+@media (max-height: 450px) and (min-height:400px) and (orientation: landscape) {
+  .timer-badge {
+    transform: translateX(-50%) scale(1.1);
+    border-width: 2px;
+    padding: 6px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+  }
+
+  .timer-icon {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+@media (max-height: 400px) and (min-height:360px) and (orientation: landscape) {
+  .timer-badge {
+    transform: translateX(-50%) scale(0.8);
+    border-width: 2px;
+    padding: 6px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+  }
+
+  .timer-icon {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+/* Membesar ketika zoom out di desktop (lebar viewport bertambah drastis) */
+@media (min-width: 2000px) and (min-height: 721px) {
+  .timer-badge {
+    transform: translateX(-50%) scale(1.6);
+  }
+}
+
+@media (min-width: 2300px) and (min-height: 721px) {
+  .timer-badge {
+    transform: translateX(-50%) scale(1.8);
+  }
+}
+
+@media (min-width: 2600px) and (min-height: 721px) {
+  .timer-badge {
+    transform: translateX(-50%) scale(2.0);
+  }
+}

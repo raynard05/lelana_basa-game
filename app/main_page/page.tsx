@@ -126,9 +126,9 @@ export default function MainPage() {
       <audio ref={audioRef} src={audioSrc} style={{ display: 'none' }} />
 
       {/* Top Controls */}
-      <Home className="mainpage-nav-btn mainpage-home-btn" />
-      <Music className="mainpage-nav-btn mainpage-music-btn" />
-      <Skip onClick={handleSkip} className="mainpage-nav-btn mainpage-skip-btn" />
+      <Home className="mainpage-home-btn" />
+      <Music className="mainpage-music-btn" />
+      <Skip onClick={handleSkip} className="mainpage-skip-btn" />
 
       {/* Main Content Card Scroll Layout */}
       <div className="mainpage-card-frame">

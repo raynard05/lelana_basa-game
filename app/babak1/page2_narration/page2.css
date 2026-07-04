@@ -44,7 +44,7 @@
 
 .babak2-container .music-btn {
   top: 5vh;
-  right: calc(5vw + 70px + 2vw);
+  right: calc(5vw + 50px + 2vw);
   /* Music button next to Skip button */
 }
 
@@ -108,7 +108,7 @@
 
   .babak2-container .music-btn {
     top: 3vh;
-    right: calc(4vw + 12vw + 3vw);
+    right: calc(4vw + 5vw + 3vw);
   }
 
   .skip-btn {
@@ -118,7 +118,6 @@
 
 }
 
-
 @media (max-width: 990px) {
 
   .babak2-container .music-btn {
@@ -127,4 +126,17 @@
     /* Music button next to Skip button */
   }
 
+}
+
+/* Responsive Zoom for laptops */
+@media (max-width: 1440px) {
+  
+}
+
+@media (max-width: 1280px) {
+  
+}
+
+@media (max-width: 1024px) {
+  
 }
