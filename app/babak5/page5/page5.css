@@ -336,7 +336,7 @@
 
 /* Small heights in landscape (e.g. mobile landscape & short desktop) using responsive ratio */
 @media (max-height: 720px) and (orientation: landscape) {
-  
+
   .babak5-page5-home5-btn {
     top: 5vh;
     left: 5vw;
@@ -406,7 +406,7 @@
       width: 30vw !important;
       max-width: 30vw !important;
       margin-bottom: 0 !important;
-      transform: translate(-26vw, 15vh) !important;
+      transform: translate(-15vw, 15vh) !important;
     }
 
     .babak5-page5-container .babak5-page5-character-dialog-row {
@@ -429,7 +429,7 @@
       top: 2vw;
     }
 
-    
+
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop */
     .babak5-page5-dialog-bubble-container {
@@ -510,9 +510,7 @@
     bottom: 2vh;
   }
 
-  @media (max-width: 960px) {
-    
-  }
+  @media (max-width: 960px) {}
 
   .babak5-page5-transcript-feedback {
     bottom: 15vh;
@@ -559,10 +557,10 @@
     width: 38vw !important;
     max-width: 38vw !important;
     margin-bottom: 0 !important;
-    transform: translate(-25vw, 16vh) !important;
+    transform: translate(-20vw, 10vw) !important;
   }
 
-  
+
 
   /* Dialogue bubble responsive ratio overrides for laptop/desktop fullscreen */
   .babak5-page5-dialog-bubble-container {
@@ -598,14 +596,8 @@
 }
 
 /* Responsive Zoom for laptops */
-@media (max-width: 1440px) {
-  
-}
+@media (max-width: 1440px) {}
 
-@media (max-width: 1280px) {
-  
-}
+@media (max-width: 1280px) {}
 
-@media (max-width: 1024px) {
-  
-}
+@media (max-width: 1024px) {}
