@@ -369,7 +369,7 @@
   }
 
   .page4-container .character-dialog-row {
-    gap: -1vw;
+    gap: 0vw;
   }
 
   .page4-container .character-portrait {
@@ -397,7 +397,7 @@
       width: 28vw !important;
       max-width: 28vw !important;
       margin-bottom: 0 !important;
-      transform: translate(-7vw, 15vh) !important;
+      transform: translate(-7vw, 21vh) !important;
     }
 
     .page4-container .character-dialog-row {
