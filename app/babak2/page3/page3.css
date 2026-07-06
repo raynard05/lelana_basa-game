@@ -296,6 +296,12 @@
 /* Small heights in landscape (e.g. mobile landscape & short desktop) using responsive ratio */
 @media (max-height: 720px) and (orientation: landscape) {
 
+  .babak2-page3-music3-btn {
+    top: 5vh;
+    right: calc(5vw + 175px);
+  }
+
+
 
   /* Central Options Card Placement */
   .babak2-page3-options-wrapper {
@@ -402,6 +408,12 @@
   }
 
   @media (max-width: 960px) {
+    .babak2-page3-music3-btn {
+      top: 5vh;
+      right: calc(5vw + 175px);
+    }
+
+
     .babak2-page3-character-dialog-row {
       align-items: flex-end;
     }

@@ -112,7 +112,7 @@
 /* Central Options Card Placement */
 .babak4-page3-options-wrapper {
   position: absolute;
-  top: 55vh;
+  top: 45vh;
   left: 5vw;
   right: 5vw;
   z-index: 30;
@@ -217,7 +217,7 @@
   }
 
   .babak4-page3-options-wrapper {
-    top: 55vh;
+    top: 50vh;
   }
 }
 
@@ -307,7 +307,7 @@
 
   .babak4-page3-music3-btn {
     top: 5vh;
-    right: calc(8vw + 195px);
+    right: calc(5vw + 175px);
     left: unset;
     width: 15vh;
     height: 15vh;
@@ -333,30 +333,35 @@
 
   .babak4-page3-character-portrait {
     height: 38vh;
-    transform: translate(-12%, -20%);
+    transform: translate(-13%, -15%);
   }
 
-/* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
+  /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
   @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
+    .babak4-page3-music3-btn {
+      top: 5vh;
+      right: calc(8vw + 195px);
+    }
+
+
     .babak4-page3-dialog-bubble-wrapper {
       max-width: 32vw;
       margin-bottom: 0;
-      transform: translate(-5vw, 3vw);
+      transform: translate(-10vw, 3vw);
     }
 
     .babak4-page3-character-dialog-row {
       top: 15vh;
-      gap: 1.8vh;
       align-items: flex-start;
     }
 
     .babak4-page3-character-portrait {
-      height: 72vh;
+      height: 50vh;
       transform: none;
-      transform: translate(-5vh, -10vh);
+      transform: translate(-7vh, -12vh);
     }
 
-    
+
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop */
     .babak4-page3-dialog-bubble-wrapper .dialog-bubble-container {
@@ -397,22 +402,20 @@
     }
 
     .babak4-page3-dialog-bubble-wrapper {
-      transform: translate(-10%, -88%);
-      max-width: 42vw;
+      transform: translate(-7vw, -3vw);
+      max-width:40vw;
     }
   }
 
   .babak4-page3-options-wrapper {
-    top: 52vh;
+    top: 44vh;
   }
 
   .babak4-page3-bottom-actions-row {
     bottom: 2vh;
   }
 
-  @media (max-width: 960px) {
-    
-  }
+  @media (max-width: 960px) {}
 
   .babak4-page3-transcript-feedback {
     bottom: 15vh;
@@ -423,10 +426,15 @@
 
 /* Responsive Zoom for laptops */
 @media (max-width: 1440px) and (min-height: 700px) {
+  .babak4-page3-music3-btn {
+    top: 5vh;
+    right: calc(8vw + 195px);
+  }
+
   .babak4-page3-dialog-bubble-wrapper {
     max-width: 30vw;
     margin-bottom: 0;
-    transform: translate(-5vw, 3vw);
+    transform: translate(-10vw, 3vw);
   }
 
   .babak4-page3-character-dialog-row {
@@ -436,12 +444,12 @@
   }
 
   .babak4-page3-character-portrait {
-    height: 55vh;
+    height: 50vh;
     transform: none;
-    transform: translateY(-5vw);
+    transform: translate(-5vw, -10vh);
   }
 
-  
+
 
   /* Dialogue bubble responsive ratio overrides for laptop/desktop */
   .babak4-page3-dialog-bubble-wrapper .dialog-bubble-container {
@@ -481,7 +489,7 @@
   .babak4-page3-dialog-bubble-wrapper {
     max-width: 30vw;
     margin-bottom: 0;
-    transform: translate(-2vw, 3vw);
+    transform: translate(-10vw, 3vw);
   }
 
   .babak4-page3-character-dialog-row {
@@ -491,12 +499,12 @@
   }
 
   .babak4-page3-character-portrait {
-    height: 65vh;
+    height: 50vh;
     transform: none;
-    transform: translateY(-10%);
+    transform: translate(-5vw, -10vh);
   }
 
-  
+
 
   /* Dialogue bubble responsive ratio overrides for laptop/desktop */
   .babak4-page3-dialog-bubble-wrapper .dialog-bubble-container {
@@ -533,7 +541,7 @@
   /* Central Options Card Placement */
   .babak4-page3-options-wrapper {
     position: absolute;
-    top: 55vh;
+    top: 45vh;
     left: 5vw;
     right: 5vw;
     z-index: 30;
@@ -541,13 +549,25 @@
     justify-content: center;
   }
 
+  .babak4-page3-music3-btn {
+    top: 5vh;
+    right: calc(8vw + 195px);
+  }
+
+
+
 }
 
 @media (max-width: 1024px) and (min-height: 700px) {
+  .babak4-page3-music3-btn {
+    top: 5vh;
+    right: calc(8vw + 195px);
+  }
+
   .babak4-page3-dialog-bubble-wrapper {
     max-width: 42vw;
     margin-bottom: 0;
-    transform: translate(-20vh, -3vh);
+    transform: translate(-10vh, -3vh);
   }
 
   .babak4-page3-character-dialog-row {
@@ -557,12 +577,12 @@
   }
 
   .babak4-page3-character-portrait {
-    height: 65vh;
+    height: 50vh;
     transform: none;
-    transform: translateY(-10%);
+    transform: translate(-5vw, -10vh);
   }
 
-  
+
 
   /* Dialogue bubble responsive ratio overrides for laptop/desktop */
   .babak4-page3-dialog-bubble-wrapper .dialog-bubble-container {

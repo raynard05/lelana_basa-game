@@ -112,7 +112,7 @@
 /* Central Options Card Placement */
 .babak5-page3-options-wrapper {
   position: absolute;
-  top: 55vh;
+  top: 45vh;
   left: 5vw;
   right: 5vw;
   z-index: 30;
@@ -307,7 +307,7 @@
 
   .babak5-page3-music3-btn {
     top: 5vh;
-    right: calc(8vw + 195px);
+    right: calc(5vw + 175px);
     left: unset;
     width: 15vh;
     height: 15vh;
@@ -335,12 +335,12 @@
     transform: translate(15%, -20%);
   }
 
-/* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
+  /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
   @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
     .babak5-page3-dialog-bubble-wrapper {
       max-width: 32vw;
       margin-bottom: 0;
-      transform: translate(-5vw, 3vw);
+      transform: translate(3vw, 3vw);
     }
 
     .babak5-page3-character-dialog-row {
@@ -352,10 +352,10 @@
     .babak5-page3-character-portrait {
       height: 72vh;
       transform: none;
-      transform: translate(-5vh, -10vh);
+      transform: translate(3.5vh, -10vh);
     }
 
-    
+
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop */
     .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container {
@@ -396,22 +396,20 @@
     }
 
     .babak5-page3-dialog-bubble-wrapper {
-      transform: translate(-10%, -88%);
+      transform: translate(3vw, -14.8vw);
       max-width: 42vw;
     }
   }
 
   .babak5-page3-options-wrapper {
-    top: 52vh;
+    top: 43vh;
   }
 
   .babak5-page3-bottom-actions-row {
     bottom: 2vh;
   }
 
-  @media (max-width: 960px) {
-    
-  }
+  @media (max-width: 960px) {}
 
   .babak5-page3-transcript-feedback {
     bottom: 15vh;
@@ -425,7 +423,7 @@
   .babak5-page3-dialog-bubble-wrapper {
     max-width: 30vw;
     margin-bottom: 0;
-    transform: translate(-5vw, 3vw);
+    transform: translate(3vw, 3vw);
   }
 
   .babak5-page3-character-dialog-row {
@@ -437,10 +435,10 @@
   .babak5-page3-character-portrait {
     height: 55vh;
     transform: none;
-    transform: translateY(-5vw);
+    transform: translate(3.5vh, -10vh);
   }
 
-  
+
 
   /* Dialogue bubble responsive ratio overrides for laptop/desktop */
   .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container {
@@ -480,7 +478,7 @@
   .babak5-page3-dialog-bubble-wrapper {
     max-width: 30vw;
     margin-bottom: 0;
-    transform: translate(-2vw, 3vw);
+    transform: translate(3vw, 3vw);
   }
 
   .babak5-page3-character-dialog-row {
@@ -492,10 +490,10 @@
   .babak5-page3-character-portrait {
     height: 65vh;
     transform: none;
-    transform: translateY(-10%);
+    transform: translate(3.5vh, -10vh);
   }
 
-  
+
 
   /* Dialogue bubble responsive ratio overrides for laptop/desktop */
   .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container {
@@ -532,7 +530,7 @@
   /* Central Options Card Placement */
   .babak5-page3-options-wrapper {
     position: absolute;
-    top: 55vh;
+    top: 45vh;
     left: 5vw;
     right: 5vw;
     z-index: 30;
@@ -546,7 +544,7 @@
   .babak5-page3-dialog-bubble-wrapper {
     max-width: 42vw;
     margin-bottom: 0;
-    transform: translate(-20vh, -3vh);
+    transform: translate(3vw, 3vw);
   }
 
   .babak5-page3-character-dialog-row {
@@ -558,10 +556,10 @@
   .babak5-page3-character-portrait {
     height: 65vh;
     transform: none;
-    transform: translateY(-10%);
+    transform: translate(3.5vh, -10vh);
   }
 
-  
+
 
   /* Dialogue bubble responsive ratio overrides for laptop/desktop */
   .babak5-page3-dialog-bubble-wrapper .dialog-bubble-container {

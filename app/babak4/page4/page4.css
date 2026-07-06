@@ -336,7 +336,7 @@
 
 /* Small heights in landscape (e.g. mobile landscape & short desktop) using responsive ratio */
 @media (max-height: 720px) and (orientation: landscape) {
-  
+
   .babak4-page4-home4-btn {
     top: 5vh;
     left: 5vw;
@@ -350,7 +350,7 @@
 
   .babak4-page4-music4-btn {
     top: 5vh;
-    right: calc(5vw + 150px);
+    right: calc(5vw + 175px);
     left: unset;
     width: 15vh;
     height: 15vh;
@@ -365,13 +365,10 @@
     right: 5vw;
   }
 
-  .babak4-page4-container .babak4-page4-character-dialog-row {
-    gap: -1vw;
-  }
 
   .babak4-page4-container .babak4-page4-character-portrait {
     height: 130vh;
-    transform: translate(20%,-5%);
+    transform: translate(3.8vw, -3vw);
   }
 
   .babak4-page4-container .babak4-page4-character2-absolute-container {
@@ -394,26 +391,30 @@
       width: 38vw !important;
       max-width: 38vw !important;
       margin-bottom: 0 !important;
-      transform: translate(-4vw, 10vh) !important;
+      transform: translate(-4vw, 12vh) !important;
     }
 
     .babak4-page4-container .babak4-page4-character-dialog-row {
       top: 8vh;
-      gap: -1vw;
+
       align-items: flex-start;
     }
 
     .babak4-page4-container .babak4-page4-character-portrait {
-      height: 110vh;
-      transform: translate(10%, -1%) !important;
+      height: 115vh;
+      position: relative;
+      left: -2vw;
+      top: 3vw;
     }
 
     .babak4-page4-container .babak4-page4-character2-portrait {
       height: 105vh;
-      transform: translate(-30%, 20%) !important;
+      position: relative;
+      right: -3vw;
+      top: 1.5vw;
     }
 
-    
+
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop */
     .babak4-page4-dialog-bubble-container-page4 {
@@ -446,9 +447,34 @@
     .babak4-page4-dialog-bubble-container-page4.right .dialog-bubble-tail {
       right: -2.7vh !important;
     }
+
+    .babak4-page4-music4-btn {
+      top: 5vh;
+      right: calc(8vw + 195px);
+      left: unset;
+      width: 15vh;
+      height: 15vh;
+      min-width: 50px;
+      min-height: 50px;
+      max-width: 80px;
+      max-height: 80px;
+    }
+
   }
 
   @media (max-width: 960px) {
+    .babak4-page4-music4-btn {
+      top: 5vh;
+      right: calc(5vw + 175px);
+      left: unset;
+      width: 15vh;
+      height: 15vh;
+      min-width: 50px;
+      min-height: 50px;
+      max-width: 80px;
+      max-height: 80px;
+    }
+
     .babak4-page4-container .babak4-page4-character-dialog-row {
       align-items: flex-start;
       top: 12vh;
@@ -458,7 +484,7 @@
       width: 38vw !important;
       max-width: 38vw !important;
       margin-bottom: 0 !important;
-      transform: translate(-1vw, 10vh) !important;
+      transform: translate(-3vw, 10vh) !important;
     }
 
     /* Dialogue bubble responsive ratio overrides for mobile landscape */
@@ -494,9 +520,7 @@
     bottom: 2vh;
   }
 
-  @media (max-width: 960px) {
-    
-  }
+  @media (max-width: 960px) {}
 
   .babak4-page4-transcript-feedback {
     bottom: 15vh;
@@ -507,20 +531,36 @@
 
 /* Fullscreen laptop / desktop (height > 720px) adjustment */
 @media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
+  .babak4-page4-music4-btn {
+    top: 5vh;
+    right: calc(8vw + 195px);
+    left: unset;
+    width: 15vh;
+    height: 15vh;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 80px;
+    max-height: 80px;
+  }
+
   .babak4-page4-container .babak4-page4-character-dialog-row {
     top: 8vh;
-    gap: -1vw;
+
     align-items: flex-start;
   }
 
   .babak4-page4-container .babak4-page4-character-portrait {
-    height: 82vh !important;
-    transform: translate(-1%, 5%) !important;
+    height: 115vh !important;
+    position: relative !important;
+    left: -3vw !important;
+    top: 2vw;
   }
 
   .babak4-page4-container .babak4-page4-character2-portrait {
-    height: 80vh !important;
-    transform: translate(-10%, 5%) !important;
+    height: 85vh !important;
+    position: relative !important;
+    right: 5vw !important;
+    top: 7vw;
   }
 
   .babak4-page4-dialog-bubble-wrapper-page4 {
@@ -530,7 +570,7 @@
     transform: translate(-6vw, 12vh) !important;
   }
 
-  
+
 
   /* Dialogue bubble responsive ratio overrides for laptop/desktop fullscreen */
   .babak4-page4-dialog-bubble-container-page4 {
@@ -566,14 +606,8 @@
 }
 
 /* Responsive Zoom for laptops */
-@media (max-width: 1440px) {
-  
-}
+@media (max-width: 1440px) {}
 
-@media (max-width: 1280px) {
-  
-}
+@media (max-width: 1280px) {}
 
-@media (max-width: 1024px) {
-  
-}
+@media (max-width: 1024px) {}

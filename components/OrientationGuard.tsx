@@ -35,7 +35,7 @@ export default function OrientationGuard() {
           left: 0;
           width: 100vw;
           height: 100vh;
-          background: rgba(18, 11, 0, 0.95);
+          background: rgba(18, 11, 0, 1);
           z-index: 99999;
           align-items: center;
           justify-content: center;

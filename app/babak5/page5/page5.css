@@ -390,11 +390,23 @@
 
   /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
   @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
+    .babak5-page5-music5-btn {
+      top: 5vh;
+      right: calc(8vw + 195px);
+      left: unset;
+      width: 15vh;
+      height: 15vh;
+      min-width: 50px;
+      min-height: 50px;
+      max-width: 80px;
+      max-height: 80px;
+    }
+
     .babak5-page5-dialog-bubble-wrapper-page5 {
       width: 30vw !important;
       max-width: 30vw !important;
       margin-bottom: 0 !important;
-      transform: translate(-10vw, 15vh) !important;
+      transform: translate(-26vw, 15vh) !important;
     }
 
     .babak5-page5-container .babak5-page5-character-dialog-row {
@@ -404,13 +416,17 @@
     }
 
     .babak5-page5-container .babak5-page5-character-portrait {
-      height: 105vh;
-      transform: translate(5%, 5%) !important;
+      height: 115vh;
+      position: relative;
+      left: -2vw;
+      top: 1vw;
     }
 
     .babak5-page5-container .babak5-page5-character2-portrait {
-      height: 100vh;
-      transform: translate(-15%, 20%) !important;
+      height: 105vh;
+      position: relative;
+      left: 5vw;
+      top: 2vw;
     }
 
     
@@ -507,27 +523,43 @@
 
 /* Fullscreen laptop / desktop (height > 720px) adjustment */
 @media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
+  .babak5-page5-music5-btn {
+    top: 5vh;
+    right: calc(8vw + 195px);
+    left: unset;
+    width: 15vh;
+    height: 15vh;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 80px;
+    max-height: 80px;
+  }
+
   .babak5-page5-container .babak5-page5-character-dialog-row {
     top: 8vh;
-    gap: -1vw;
+    gap: 0;
     align-items: flex-start;
   }
 
   .babak5-page5-container .babak5-page5-character-portrait {
-    height: 82vh !important;
-    transform: translate(-2%, 5%) !important;
+    height: 115vh !important;
+    position: relative !important;
+    left: -5vw !important;
+    top: 4vw !important;
   }
 
   .babak5-page5-container .babak5-page5-character2-portrait {
-    height: 80vh !important;
-    transform: translate(-10%, 5%) !important;
+    height: 90vh !important;
+    position: relative !important;
+    right: 5vw !important;
+    top: 8vw !important;
   }
 
   .babak5-page5-dialog-bubble-wrapper-page5 {
     width: 38vw !important;
     max-width: 38vw !important;
     margin-bottom: 0 !important;
-    transform: translate(-6vw, 12vh) !important;
+    transform: translate(-25vw, 16vh) !important;
   }
 
   
