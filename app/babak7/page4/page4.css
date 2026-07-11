@@ -52,7 +52,7 @@
 
 .babak7-page4-music4-btn {
     top: 5vh;
-    right: calc(5vw + 150px);
+    right: calc(5vw + 175px);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -64,6 +64,7 @@
 .babak7-page4-nav4-btn:active {
     opacity: 0.7;
 }
+
 /* Game Status Header Position (Top-Right) */
 .babak7-page4-status-header {
     position: absolute;
@@ -349,7 +350,7 @@
 
     .babak7-page4-music4-btn {
         top: 5vh;
-        right: calc(5vw + 150px);
+        right: calc(5vw + 175px);
         left: unset;
         width: 15vh;
         height: 15vh;
@@ -358,6 +359,7 @@
         max-width: 80px;
         max-height: 80px;
     }
+
     .babak7-page4-status-header {
         top: 5vh;
         right: 5vw;
@@ -390,31 +392,49 @@
 
     /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
     @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
+        .babak7-page4-music4-btn {
+            top: 5vh;
+            right: calc(8vw + 195px);
+            left: unset;
+            width: 15vh;
+            height: 15vh;
+            min-width: 50px;
+            min-height: 50px;
+            max-width: 80px;
+            max-height: 80px;
+        }
+
         .babak7-page4-dialog-bubble-wrapper-page4 {
-            width: 40vw !important;
-            max-width: 40vw !important;
+            width: 32vw !important;
+            max-width: 32vw !important;
             margin-bottom: 0 !important;
-            transform: translate(-24vw, 15vh) !important;
+            position: relative !important;
+            right: 16vw !important;
+            top: 15vh !important;
         }
 
         .babak7-page4-container .babak7-page4-character-dialog-row {
             top: 8vh;
-            gap: 10vw;
+            gap: 0vw;
 
             align-items: flex-start;
         }
 
         .babak7-page4-container .babak7-page4-character-portrait {
             height: 98vh;
-            transform: translate(-24%, 5%) !important;
+            position: relative !important;
+            right: 3vw !important;
+            top: 3vw !important;
         }
 
         .babak7-page4-container .babak7-page4-character2-portrait {
             height: 74vh;
-            transform: translate(-12%, 6%) !important;
+            position: relative !important;
+            right: 1vw !important;
+            top: -2vw !important;
         }
 
-        
+
 
         /* Dialogue bubble responsive ratio overrides for laptop/desktop */
         .babak7-page4-dialog-bubble-container-page4 {
@@ -495,9 +515,7 @@
         bottom: 2vh;
     }
 
-    @media (max-width: 960px) {
-        
-    }
+    @media (max-width: 960px) {}
 
     .babak7-page4-transcript-feedback {
         bottom: 15vh;
@@ -508,30 +526,50 @@
 
 /* Fullscreen laptop / desktop (height > 720px) adjustment */
 @media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
+    .babak7-page4-music4-btn {
+        top: 5vh;
+        right: calc(8vw + 195px);
+        left: unset;
+        width: 15vh;
+        height: 15vh;
+        min-width: 50px;
+        min-height: 50px;
+        max-width: 80px;
+        max-height: 80px;
+    }
+
     .babak7-page4-container .babak7-page4-character-dialog-row {
         top: 8vh;
-        gap: -1vw;
+        right: 6vw;
         align-items: flex-start;
+
     }
 
     .babak7-page4-container .babak7-page4-character-portrait {
-        height: 82vh !important;
-        transform: translate(-1%, 5%) !important;
+        height: 86vh !important;
+        position: relative !important;
+        right: 7vw !important;
+        top: 5vw !important;
     }
 
     .babak7-page4-container .babak7-page4-character2-portrait {
-        height: 80vh !important;
-        transform: translate(-10%, 5%) !important;
+        height: 75vh !important;
+        position: relative !important;
+        right: 4vw !important;
+        top: 3vw !important;
     }
 
     .babak7-page4-dialog-bubble-wrapper-page4 {
         width: 38vw !important;
         max-width: 38vw !important;
         margin-bottom: 0 !important;
-        transform: translate(-6vw, 12vh) !important;
+        position: relative !important;
+        right: 15vw !important;
+        top: 12vh !important;
+        gap: 0vw;
     }
 
-    
+
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop fullscreen */
     .babak7-page4-dialog-bubble-container-page4 {
@@ -565,15 +603,10 @@
         right: -2.7vh !important;
     }
 }
+
 /* Responsive Zoom for laptops */
-@media (max-width: 1440px) {
-  
-}
+@media (max-width: 1440px) {}
 
-@media (max-width: 1280px) {
-  
-}
+@media (max-width: 1280px) {}
 
-@media (max-width: 1024px) {
-  
-}
+@media (max-width: 1024px) {}

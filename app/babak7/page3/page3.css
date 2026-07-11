@@ -303,11 +303,12 @@
     min-height: 50px;
     max-width: 80px;
     max-height: 80px;
+
   }
 
   .babak7-page3-music3-btn {
     top: 5vh;
-    right: calc(8vw + 195px);
+    right: calc(5vw + 175px);
     left: unset;
     width: 15vh;
     height: 15vh;
@@ -326,13 +327,11 @@
     gap: 1.8vw;
   }
 
-  .babak7-page3-dialog-bubble-wrapper {
-    transform: translateY(-20%);
-  }
+
 
   .babak7-page3-character-portrait {
     height: 60vh;
-    transform: translate(20%, -20%);
+    transform: translate(25%, -20%);
   }
 
   /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
@@ -340,7 +339,7 @@
     .babak7-page3-dialog-bubble-wrapper {
       max-width: 32vw;
       margin-bottom: 0;
-      transform: translate(-5vw, 3vw);
+      transform: translate(3vw, 3vw);
     }
 
     .babak7-page3-character-dialog-row {
@@ -352,7 +351,7 @@
     .babak7-page3-character-portrait {
       height: 72vh;
       transform: none;
-      transform: translate(-5vh, -10vh);
+      transform: translate(9vh, -14vh);
     }
 
 
@@ -409,7 +408,11 @@
     bottom: 2vh;
   }
 
-  @media (max-width: 960px) {}
+  @media (max-width: 960px) {
+    .babak7-page3-dialog-bubble-wrapper {
+      transform: translate(3vw, -15vw);
+    }
+  }
 
   .babak7-page3-transcript-feedback {
     bottom: 15vh;
@@ -421,9 +424,9 @@
 /* Responsive Zoom for laptops */
 @media (max-width: 1440px) and (min-height: 700px) {
   .babak7-page3-dialog-bubble-wrapper {
-    max-width: 30vw;
+    max-width: 32vw;
     margin-bottom: 0;
-    transform: translate(-5vw, 3vw);
+    transform: translate(4vw, 5vw);
   }
 
   .babak7-page3-character-dialog-row {
@@ -433,9 +436,9 @@
   }
 
   .babak7-page3-character-portrait {
-    height: 45vh;
+    height: 65vh;
     transform: none;
-    transform: translateY(-5vw);
+    transform: translate(2vw, -7vw);
   }
 
 
@@ -478,7 +481,7 @@
   .babak7-page3-dialog-bubble-wrapper {
     max-width: 30vw;
     margin-bottom: 0;
-    transform: translate(-2vw, 3vw);
+    transform: translate(3vw, 3vw);
   }
 
   .babak7-page3-character-dialog-row {
@@ -490,7 +493,7 @@
   .babak7-page3-character-portrait {
     height: 65vh;
     transform: none;
-    transform: translateY(-10%);
+    transform: translate(3vw, -7vw);
   }
 
 
@@ -544,7 +547,7 @@
   .babak7-page3-dialog-bubble-wrapper {
     max-width: 42vw;
     margin-bottom: 0;
-    transform: translate(-20vh, -3vh);
+    transform: translate(12vh, 3vh);
   }
 
   .babak7-page3-character-dialog-row {
