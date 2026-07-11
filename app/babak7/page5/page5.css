@@ -64,6 +64,7 @@
 .babak7-page5-nav5-btn:active {
     opacity: 0.7;
 }
+
 /* Game Status Header Position (Top-Right) */
 .babak7-page5-status-header {
     position: absolute;
@@ -349,7 +350,7 @@
 
     .babak7-page5-music5-btn {
         top: 5vh;
-        right: calc(5vw + 150px);
+        right: calc(5vw + 175px);
         left: unset;
         width: 15vh;
         height: 15vh;
@@ -358,6 +359,7 @@
         max-width: 80px;
         max-height: 80px;
     }
+
     .babak7-page5-status-header {
         top: 5vh;
         right: 5vw;
@@ -371,7 +373,9 @@
 
     .babak7-page5-container .babak7-page5-character-portrait {
         height: 95vh;
-        transform: translate(-29%, -2%);
+        position: relative;
+        left: -29%;
+        top: -2%;
     }
 
     .babak7-page5-container .babak7-page5-character2-absolute-container {
@@ -385,16 +389,32 @@
 
     .babak7-page5-container .babak7-page5-character2-portrait {
         height: 85vh;
-        transform: translate(-40%, 12%);
+        position: relative;
+        left: -40%;
+        top: 12%;
     }
 
     /* Specific overrides for desktop windowed (no fullscreen) and fullscreen */
     @media (min-width: 769px) and (hover: hover) and (pointer: fine) {
+        .babak7-page5-music5-btn {
+            top: 5vh;
+            right: calc(8vw + 195px);
+            left: unset;
+            width: 15vh;
+            height: 15vh;
+            min-width: 50px;
+            min-height: 50px;
+            max-width: 80px;
+            max-height: 80px;
+        }
+
         .babak7-page5-dialog-bubble-wrapper-page5 {
             width: 28vw !important;
             max-width: 28vw !important;
             margin-bottom: 0 !important;
-            transform: translate(-18vw, 15vh) !important;
+            position: relative !important;
+            left: -18vw !important;
+            top: 15vh !important;
         }
 
         .babak7-page5-container .babak7-page5-character-dialog-row {
@@ -406,15 +426,19 @@
 
         .babak7-page5-container .babak7-page5-character-portrait {
             height: 98vh;
-            transform: translate(-18%, 1%) !important;
+            position: relative !important;
+            left: -9vw !important;
+            top: -1vw !important;
         }
 
         .babak7-page5-container .babak7-page5-character2-portrait {
             height: 89vh;
-            transform: translate(-15%, 15%) !important;
+            position: relative !important;
+            left: -3vw !important;
+            top: 3.5vw !important;
         }
 
-        
+
 
         /* Dialogue bubble responsive ratio overrides for laptop/desktop */
         .babak7-page5-dialog-bubble-container {
@@ -459,7 +483,9 @@
             width: 38vw !important;
             max-width: 38vw !important;
             margin-bottom: 0 !important;
-            transform: translate(-19vw, 9vh) !important;
+            position: relative !important;
+            left: -19vw !important;
+            top: 9vh !important;
         }
 
         /* Dialogue bubble responsive ratio overrides for mobile landscape */
@@ -495,9 +521,7 @@
         bottom: 2vh;
     }
 
-    @media (max-width: 960px) {
-        
-    }
+    @media (max-width: 960px) {}
 
     .babak7-page5-transcript-feedback {
         bottom: 15vh;
@@ -508,30 +532,49 @@
 
 /* Fullscreen laptop / desktop (height > 720px) adjustment */
 @media (min-height: 721px) and (min-width: 769px) and (orientation: landscape) {
+    .babak7-page5-music5-btn {
+        top: 5vh;
+        right: calc(8vw + 195px);
+        left: unset;
+        width: 15vh;
+        height: 15vh;
+        min-width: 50px;
+        min-height: 50px;
+        max-width: 80px;
+        max-height: 80px;
+    }
+
     .babak7-page5-container .babak7-page5-character-dialog-row {
         top: 8vh;
-        gap: -1vw;
+        gap: 0vw;
+
         align-items: flex-start;
     }
 
     .babak7-page5-container .babak7-page5-character-portrait {
-        height: 82vh !important;
-        transform: translate(-1%, 5%) !important;
+        height: 96vh !important;
+        position: relative !important;
+        left: -4vw !important;
+        top: 2vw !important;
     }
 
     .babak7-page5-container .babak7-page5-character2-portrait {
-        height: 80vh !important;
-        transform: translate(-10%, 5%) !important;
+        height: 84vh !important;
+        position: relative !important;
+        left: -4vw !important;
+        top: 2vw !important;
     }
 
     .babak7-page5-dialog-bubble-wrapper-page5 {
-        width: 38vw !important;
-        max-width: 38vw !important;
+        width: 32vw !important;
+        max-width: 32vw !important;
         margin-bottom: 0 !important;
-        transform: translate(-6vw, 12vh) !important;
+        position: relative !important;
+        left: -19vw !important;
+        top: 13.5vh !important;
     }
 
-    
+
 
     /* Dialogue bubble responsive ratio overrides for laptop/desktop fullscreen */
     .babak7-page5-dialog-bubble-container {
@@ -565,15 +608,10 @@
         right: -2.7vh !important;
     }
 }
+
 /* Responsive Zoom for laptops */
-@media (max-width: 1440px) {
-  
-}
+@media (max-width: 1440px) {}
 
-@media (max-width: 1280px) {
-  
-}
+@media (max-width: 1280px) {}
 
-@media (max-width: 1024px) {
-  
-}
+@media (max-width: 1024px) {}

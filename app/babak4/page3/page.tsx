@@ -19,22 +19,22 @@ import './page3.css';
 const optionsData: OptionData[] = [
   {
     id: 'A',
-    text: 'Kenalna jenengku Jaka Tulus. Tekaku arep njaluk meguru ing kene, Pak.',
+    text: 'Kenalna jenengku Jaka Tulus. Tekaku arep njaluk meguru ing kene, Ki.',
     audioUrl: '/audio/MP3 BABAK 1/3. Ngoko Lugu babak 1.mp3',
   },
   {
     id: 'B',
-    text: "Kenalna, nami kula Jaka Tulus. Sowanku meguru ing kene, Pak.",
+    text: "Kenalna, nami kula Jaka Tulus. Sowanku meguru ing kene, Ki.",
     audioUrl: '/audio/MP3 BABAK 1/4. Ngoko Alus babak 1.mp3',
   },
   {
     id: 'C',
-    text: 'Dipuntepangaken, nami kula Jaka Tulus. Sowanku badhe nyuwun meguru ing kene, Pak.',
+    text: 'Dipuntepangaken, nami kula Jaka Tulus. Sowanku badhe nyuwun meguru ing kene, Ki.',
     audioUrl: '/audio/MP3 BABAK 1/5. krama lugu babak 1.mp3',
   },
   {
     id: 'D',
-    text: "Tepangaken, nami kula Jaka Tulus. Sowan kula menika badhe meguru wonten mriki, Pak.",
+    text: "Tepangaken, nami kula Jaka Tulus. Sowan kula menika badhe meguru wonten mriki, Ki.",
     audioUrl: '/audio/MP3 BABAK 1/6. krama alus babak 1.mp3',
   },
 ];

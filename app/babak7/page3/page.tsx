@@ -34,7 +34,7 @@ const optionsData: OptionData[] = [
     },
     {
         id: 'D',
-        text: "Nyuwun pangapunten. Sowan kula menika amergi wonten kabetahan wigati.",
+        text: "Nyuwun pangapunten. Sowan kula menika amergi wonten kabetahan Wigatos.",
         audioUrl: '/audio/MP3 BABAK 1/6. krama alus babak 1.mp3',
     },
 ];
