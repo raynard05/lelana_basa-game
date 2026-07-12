@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="id"
+      lang="jv"
       translate="no"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased notranslate`}
     >
