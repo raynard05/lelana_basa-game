@@ -46,7 +46,7 @@
 .babak2-page2-card-frame {
   margin-top: 7%;
   position: relative;
-  background-image: url('/babak2/page_2_assets/narration_layout2_A1.webp');
+  background-image: url('/babak2/page_2_assets/narration_layout2_A1_fix.webp');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 80vw;
@@ -70,9 +70,9 @@
 
 /* Mobile responsive modifications */
 @media (orientation: portrait) {
-  
 
-  
+
+
 
   .babak2-page2-home-btn {
     top: 3vh;
@@ -101,14 +101,8 @@
 }
 
 /* Responsive Zoom for laptops */
-@media (max-width: 1440px) {
-  
-}
+@media (max-width: 1440px) {}
 
-@media (max-width: 1280px) {
-  
-}
+@media (max-width: 1280px) {}
 
-@media (max-width: 1024px) {
-  
-}
+@media (max-width: 1024px) {}

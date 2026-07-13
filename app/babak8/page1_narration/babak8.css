@@ -46,7 +46,7 @@
 .babak8-page1-card-frame {
     margin-top: 7%;
     position: relative;
-    background-image: url('/babak8/page2.webp');
+    background-image: url('/babak8/page2_fix.webp');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 80vw;
@@ -70,9 +70,9 @@
 
 /* Mobile responsive modifications */
 @media (orientation: portrait) {
-  
 
-    
+
+
 
     .babak8-page1-home-btn {
         top: 3vh;
