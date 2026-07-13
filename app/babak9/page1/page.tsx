@@ -303,7 +303,7 @@ export default function babak9page1() {
                 <div className="babak9-page1-card-content-layout">
                     <div className="babak9-page1-column-left">
                         <Image
-                            src="/babak7/new/page6.webp"
+                                 src="/babak7/new/page6_fix.webp"
                             alt="Patih Pangulang Jagad"
                             width={100}
                             height={100}
