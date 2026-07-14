@@ -28,6 +28,18 @@ export default function MenuPage() {
       }
     };
     checkAuth();
+
+    // Trap the back button so user cannot go back to the game/ranking
+    if (typeof window !== 'undefined') {
+      window.history.pushState(null, '', window.location.href);
+      const handlePopState = () => {
+        window.history.pushState(null, '', window.location.href);
+      };
+      window.addEventListener('popstate', handlePopState);
+      return () => {
+        window.removeEventListener('popstate', handlePopState);
+      };
+    }
   }, [router]);
 
   const handleMenuClick = (menu: string) => {

@@ -70,7 +70,23 @@ export default function RangkingPage() {
   return (
     <div className="rangking-page-container">
       {/* Top Left Controls */}
-      <Home className="rangking-nav-btn rangking-home-btn" />
+      <button
+        onClick={() => router.replace('/menu')}
+        type="button"
+        className="rangking-nav-btn rangking-home-btn"
+        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+        aria-label="Go to Menu"
+      >
+        <Image
+          src="/main/Home.png"
+          alt="Home"
+          fill
+          sizes="80px"
+          style={{ objectFit: 'contain' }}
+          priority
+          unoptimized
+        />
+      </button>
       <Music className="rangking-nav-btn rangking-music-btn" />
 
       {/* Top Right PDF Download Button */}
