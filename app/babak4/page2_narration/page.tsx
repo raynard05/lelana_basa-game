@@ -63,7 +63,7 @@ export default function Babak4Page2Narration() {
 
       {/* Bottom Narration Audio Player Container */}
       <div className="babak4-page2-audio-container">
-        <Sinopsis music_assets="/audio/MP3 BABAK 1/1. narasi babak 1 .mp3" />
+        <Sinopsis music_assets="/audio/babak4/page2.mp3" />
       </div>
     </div>
   );

@@ -63,7 +63,7 @@ export default function Babak1Page2() {
 
       {/* Bottom Narration Audio Player Container */}
       <div className="audio-container-page2">
-        <Sinopsis music_assets="/audio/MP3BABAK1/page2_narration.mp3" />
+        <Sinopsis music_assets="/audio/babak1/page1.mp3" />
       </div>
     </div>
   );

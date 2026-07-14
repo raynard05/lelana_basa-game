@@ -22,7 +22,7 @@ const words1 = gelombang1Text.trim().split(/\s+/);
 const paragraphs2 = gelombang2Paragraphs.map(p => p.trim().split(/\s+/));
 const allWords2 = paragraphs2.flat();
 
-const audioSrc = '/audio/MP3BABAK1/sinopsis.mp3';
+const audioSrc = '/audio/babak1/sinopsis.mp3';
 
 export default function MainPage() {
   const [currentUser, setCurrentUser] = useState<any>(null);
