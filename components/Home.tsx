@@ -46,7 +46,7 @@ export default function Home({ className, style }: HomeProps) {
       localStorage.removeItem('babak1_page1_timer_expiration');
       localStorage.removeItem('babak1_page1_timer_paused_time');
     }
-    router.push('/menu');
+    router.replace('/menu');
   };
 
   const handleConfirmNo = () => {

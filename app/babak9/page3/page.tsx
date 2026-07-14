@@ -338,7 +338,7 @@ export default function babak9Page3() {
             localStorage.removeItem('babak9_page3_timer_expiration');
             localStorage.removeItem('babak9_page3_timer_paused_time');
         }
-        router.push('/rangking');
+        router.replace('/rangking');
     };
 
     if (isValidating) {
