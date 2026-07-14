@@ -398,6 +398,7 @@ export default function babak9Page3() {
                     selectedId={selectedOption}
                     onSelect={handleOptionSelect}
                     disabled={isLocked}
+                    isCorrect={isAnswerCorrect}
                 />
             </div>
 
