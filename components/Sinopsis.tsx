@@ -50,6 +50,7 @@ export default function Sinopsis({
     const handleLoadedMetadata = () => {
       const dur = audio.duration || 0;
       setDuration(dur);
+      audio.volume = 1.0; // Ensure max volume for voiceover
       if (onDurationChange) onDurationChange(dur);
     };
 

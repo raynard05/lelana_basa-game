@@ -78,6 +78,7 @@ export default function UnggahUngguhOptions({
     }
 
     const audio = new Audio(audioUrl);
+    audio.volume = 1.0; // Set voiceover volume to maximum
     audioRef.current = audio;
     setPlayingId(id);
 

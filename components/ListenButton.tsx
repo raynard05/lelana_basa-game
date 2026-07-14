@@ -30,6 +30,7 @@ export default function ListenButton({
     }
 
     const audio = new Audio(audioUrl);
+    audio.volume = 1.0; // Set voiceover volume to maximum
     audioRef.current = audio;
 
     const handleEnded = () => {
@@ -83,21 +84,19 @@ export default function ListenButton({
       // 1. Dispatch global event to pause other playing audios (like background music or other clips)
       window.dispatchEvent(new Event('pauseBackgroundMusic'));
 
-      // 2. Play this audio after a tiny delay to allow other events to clean up
-      setTimeout(() => {
-        if (audioRef.current) {
-          audioRef.current.play()
-            .then(() => {
-              setIsPlaying(true);
-              if (onPlayStateChange) onPlayStateChange(true);
-            })
-            .catch((err) => {
-              console.warn('Audio playback failed:', err);
-              setIsPlaying(false);
-              window.dispatchEvent(new Event('resumeBackgroundMusic'));
-            });
-        }
-      }, 50);
+      // 2. Play this audio immediately to keep the user gesture context
+      if (audioRef.current) {
+        audioRef.current.play()
+          .then(() => {
+            setIsPlaying(true);
+            if (onPlayStateChange) onPlayStateChange(true);
+          })
+          .catch((err) => {
+            console.warn('Audio playback failed:', err);
+            setIsPlaying(false);
+            window.dispatchEvent(new Event('resumeBackgroundMusic'));
+          });
+      }
     }
   };
 

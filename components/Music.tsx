@@ -10,15 +10,17 @@ interface MusicProps {
 }
 
 // Module-level global background music player (persists across Next.js page transitions)
-let globalAudio: HTMLAudioElement | null = null;
-
-function getGlobalAudio() {
+function getGlobalAudio(): HTMLAudioElement | null {
   if (typeof window === 'undefined') return null;
-  if (!globalAudio) {
-    globalAudio = new Audio('/default.mp3');
-    globalAudio.loop = true;
+  
+  // Attach to window to survive Next.js HMR (Hot Module Replacement)
+  if (!(window as any).__lelanaGlobalAudio) {
+    const audio = new Audio('/audio/backsound_game.mp3');
+    audio.loop = true;
+    audio.volume = 0.25;
+    (window as any).__lelanaGlobalAudio = audio;
   }
-  return globalAudio;
+  return (window as any).__lelanaGlobalAudio;
 }
 
 export default function Music({ className, style }: MusicProps) {
@@ -55,17 +57,19 @@ export default function Music({ className, style }: MusicProps) {
       const audio = getGlobalAudio();
       if (audio) {
         if (enabled) {
-          audio.play().catch(() => {});
+          audio.volume = 0.25;
+          audio.play().catch(() => { });
         } else {
           audio.pause();
         }
       }
     };
 
+    // "Duck" the background music instead of pausing it completely
     const handlePauseBgMusic = () => {
       const audio = getGlobalAudio();
       if (audio) {
-        audio.pause();
+        audio.volume = 0.1; // Lower volume drastically so voiceover is clear
       }
     };
 
@@ -75,7 +79,10 @@ export default function Music({ className, style }: MusicProps) {
       if (enabled) {
         const audio = getGlobalAudio();
         if (audio) {
-          audio.play().catch(() => {});
+          audio.volume = 0.25; // Ensure background music stays at 0.25
+          if (audio.paused) {
+            audio.play().catch(() => { });
+          }
         }
       }
     };
@@ -95,11 +102,12 @@ export default function Music({ className, style }: MusicProps) {
     const newSoundState = !isSoundOn;
     setIsSoundOn(newSoundState);
     localStorage.setItem('isSoundOn', String(newSoundState));
-    
+
     // Play or pause the global audio element
     const audio = getGlobalAudio();
     if (audio) {
       if (newSoundState) {
+        audio.volume = 1.0;
         audio.play().catch((err) => {
           console.warn('Playback failed:', err);
         });

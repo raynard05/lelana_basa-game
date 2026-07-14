@@ -74,6 +74,7 @@ export default function MainPage() {
 
     const handleLoadedMetadata = () => {
       setDuration(audio.duration || 0);
+      audio.volume = 1.0; // Ensure max volume
     };
 
     const handleEnded = () => {
