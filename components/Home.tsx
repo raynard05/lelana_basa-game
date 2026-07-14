@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import './Home.css';
@@ -13,6 +13,28 @@ interface HomeProps {
 export default function Home({ className, style }: HomeProps) {
   const [showConfirm, setShowConfirm] = useState(false);
   const router = useRouter();
+
+  // Intercept the browser back button (or Android hardware back button)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Push a dummy state onto the history stack when the component mounts.
+    // This allows us to catch the back button press.
+    window.history.pushState(null, '', window.location.href);
+
+    const handlePopState = (e: PopStateEvent) => {
+      // The user pressed back. Prevent navigation by pushing the state again.
+      window.history.pushState(null, '', window.location.href);
+      // Show the confirmation popup
+      setShowConfirm(true);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
 
   const handleHomeClick = () => {
     setShowConfirm(true);
