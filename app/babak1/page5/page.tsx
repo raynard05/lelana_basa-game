@@ -397,7 +397,7 @@ export default function Babak1Page5() {
       <div className="bottom-actions-row">
         {/* Listen Button for Jaka Slewah's spoken dialogue */}
         <ListenButton
-          audioUrl="/audio/MP3BABAK1/dialog_textpage5.mp3"
+          audioUrl="/audio/babak1/9. Jaka slewah 3.mp3"
           disabled={isLocked}
         />
         {/* Record Button for STT practice */}

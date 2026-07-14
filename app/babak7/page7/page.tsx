@@ -20,22 +20,22 @@ const optionsData: OptionData[] = [
     {
         id: 'A',
         text: "Sepurane, Raden Patih. Aku wis ngerti yen awakmu iku bapakku.",
-        audioUrl: '/audio/MP3BABAK1/ngokolugu.m4a',
+        audioUrl: '/audio/babak7/10. ngoko lugu babak 7b.mp3',
     },
     {
         id: 'B',
         text: "Njaluk ngapura, Raden Patih. Kula sampun mangertos yen panjenengan menika bapakku.",
-        audioUrl: '/audio/MP3BABAK1/ngokoalus.m4a',
+        audioUrl: '/audio/babak7/11. ngoko alus babak 7b.mp3',
     },
     {
         id: 'C',
         text: "Nyuwun pangapunten, Raden Patih. Kula sampun ngertos bilih sampeyan menika bapak kula.",
-        audioUrl: '/audio/MP3BABAK1/kramalugu.m4a',
+        audioUrl: '/audio/babak7/12. krama lugu babak 7b.mp3',
     },
     {
         id: 'D',
         text: "Nyuwun pangapunten, Raden Patih. Kula sampun mangertosi bilih panjenengan menika Rama kula.",
-        audioUrl: '/audio/MP3BABAK1/kramaalus.m4a',
+        audioUrl: '/audio/babak7/13. krama alus babak 7b.mp3',
     },
 ];
 
@@ -415,7 +415,7 @@ export default function babak7Page7() {
                     disabled={isLocked}
                 />
                 <ListenButton
-                    audioUrl="/audio/MP3BABAK1/dialog_textpage3.mp3"
+                    audioUrl="/audio/babak7/9. Patih 1.mp3"
                     disabled={isLocked}
                 />
             </div>

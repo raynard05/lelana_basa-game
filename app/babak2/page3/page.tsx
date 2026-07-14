@@ -20,22 +20,22 @@ const optionsData: OptionData[] = [
   {
     id: 'A',
     text: 'Ora isa, Bu. atiku lara banget.',
-    audioUrl: '/audio/MP3 BABAK 1/3. Ngoko Lugu babak 1.mp3',
+    audioUrl: '/audio/babak2/3. ngoko lugu babak 2.mp3',
   },
   {
     id: 'B',
     text: "Ora isa, Bu. Manah kula lara banget.",
-    audioUrl: '/audio/MP3 BABAK 1/4. Ngoko Alus babak 1.mp3',
+    audioUrl: '/audio/babak2/4. ngoko alus babak 2.mp3',
   },
   {
     id: 'C',
     text: 'Mboten saged, Bu. Manahku lara banget.',
-    audioUrl: '/audio/MP3 BABAK 1/5. krama lugu babak 1.mp3',
+    audioUrl: '/audio/babak2/5. krama lugu babak 2.mp3',
   },
   {
     id: 'D',
     text: 'Mboten saged, Bu. Manah kula sakit sanget.',
-    audioUrl: '/audio/MP3 BABAK 1/6. krama alus babak 1.mp3',
+    audioUrl: '/audio/babak2/6. krama alus babak 2.mp3',
   },
 ];
 
@@ -435,7 +435,7 @@ export default function Babak2Page3() {
         {/* Skip Button (Bacutake) */}
         <ListenButton
 
-          audioUrl="/audio/MP3 BABAK 1/2. Jaka slewah 1.mp3"
+          audioUrl="/audio/babak2/2. wandan wanguri 1.mp3"
 
           disabled={isLocked}
         />

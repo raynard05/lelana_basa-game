@@ -390,7 +390,7 @@ export default function babak7Page5() {
 
             <div className="babak7-page5-bottom-actions-row">
                 <ListenButton
-                    audioUrl="/audio/MP3 BABAK 1/soundpage5.mp3"
+                    audioUrl="/audio/babak7/8. prajurit 3.mp3"
                     disabled={isLocked}
                 />
                 <RecordButton

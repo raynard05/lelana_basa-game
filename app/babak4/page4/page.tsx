@@ -409,7 +409,7 @@ export default function Babak4Page4() {
       <div className="babak4-page4-bottom-actions-row">
         {/* Listen Button for dialogue */}
         <ListenButton
-          audioUrl="/audio/MP3 BABAK 1/soundpage4.mp3"
+          audioUrl="/audio/babak4/7. ki ageng sapayana 2.mp3"
           disabled={isLocked}
         />
         {/* Record Button for STT practice */}

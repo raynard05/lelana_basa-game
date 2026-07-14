@@ -20,22 +20,22 @@ const optionsData: OptionData[] = [
   {
     id: 'A',
     text: "Aja kaya ngono. Aku mrene arep ngangsu kawruh, dudu pamer kasekten.",
-    audioUrl: '/audio/MP3 BABAK 1/3. Ngoko Lugu babak 1.mp3',
+    audioUrl: '/audio/babak5/3. ngoko lugu babak 5.mp3',
   },
   {
     id: 'B',
     text: 'Ampun mekaten. Aku mrene arep ngangsu kawruh, dudu pamer kasekten.',
-    audioUrl: '/audio/MP3 BABAK 1/4. Ngoko Alus babak 1.mp3',
+    audioUrl: '/audio/babak5/4. ngoko alus babak 5.mp3',
   },
   {
     id: 'C',
     text: 'Ampun mekaten. Kula ing kene badhe ngangsu kawruh, sanes pamer kasekten.',
-    audioUrl: '/audio/MP3 BABAK 1/5. krama lugu babak 1.mp3',
+    audioUrl: '/audio/babak5/5. krama lugu babak 5.mp3',
   },
   {
     id: 'D',
     text: 'Ampun mekaten. Kula wonten mriki badhe ngangsu kawruh, sanes pamer kasekten.',
-    audioUrl: '/audio/MP3 BABAK 1/6. krama alus babak 1.mp3',
+    audioUrl: '/audio/babak5/6. krama alus babak 5.mp3',
   },
 ];
 
@@ -415,7 +415,7 @@ export default function Babak5Page3() {
           disabled={isLocked}
         />
         <ListenButton
-          audioUrl="/audio/MP3 BABAK 1/2. Jaka slewah 1.mp3"
+          audioUrl="/audio/babak5/2. SURONTANU 1.mp3"
           disabled={isLocked}
         />
       </div>
