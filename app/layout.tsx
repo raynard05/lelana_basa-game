@@ -27,6 +27,8 @@ export const viewport = {
   viewportFit: 'cover',
 };
 
+import RouteGuard from "@/components/RouteGuard";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,7 +43,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <OrientationGuard />
         <GlobalSoundEffects />
-        {children}
+        <RouteGuard>
+          {children}
+        </RouteGuard>
         <script
           dangerouslySetInnerHTML={{
             __html: `
