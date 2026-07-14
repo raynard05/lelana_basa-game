@@ -88,6 +88,7 @@ export default function Timer({
 
     const initialRemaining = calculateRemaining();
     setTimeLeft(initialRemaining);
+    localStorage.setItem(`${storageKey}_spent`, (initialTime - initialRemaining).toString());
 
     if (initialRemaining === 0) {
       localStorage.removeItem(expirationKey);
@@ -101,6 +102,7 @@ export default function Timer({
     const interval = setInterval(() => {
       const remaining = calculateRemaining();
       setTimeLeft(remaining);
+      localStorage.setItem(`${storageKey}_spent`, (initialTime - remaining).toString());
 
       if (remaining === 0) {
         clearInterval(interval);

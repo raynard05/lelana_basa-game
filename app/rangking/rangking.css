@@ -1,0 +1,281 @@
+.rangking-page-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/perangkingan/Perangkingan_bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+/* Top Navigation Controls */
+.rangking-nav-btn {
+  position: absolute;
+  top: 5vh;
+  width: 8vh;
+  height: 8vh;
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+
+.rangking-nav-btn:hover {
+  transform: scale(1.1);
+}
+
+.rangking-nav-btn:active {
+  transform: scale(0.95);
+}
+
+.rangking-home-btn {
+  left: 4vw;
+}
+
+.rangking-music-btn {
+  left: calc(4vw + 9vh);
+}
+
+/* Top Right PDF Button */
+.rangking-pdf-btn {
+  position: absolute;
+  top: 5vh;
+  right: 4vw;
+  background: linear-gradient(180deg, #F9D9B2 0%, #D4A776 100%);
+  border: 3px solid #6E4B28;
+  border-radius: 20px;
+  padding: 1vh 2vw;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  z-index: 10;
+}
+
+.rangking-pdf-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.rangking-pdf-btn:active {
+  transform: translateY(2px);
+}
+
+.rangking-pdf-icon {
+  width: 3.5vh;
+  height: 3.5vh;
+  position: relative;
+}
+
+.rangking-pdf-text {
+  font-size: 1.8vh;
+  font-weight: 800;
+  color: #4A2E12;
+  text-align: left;
+  line-height: 1.2;
+}
+
+/* Title Banner */
+.rangking-title-container {
+  position: absolute;
+  top: 6vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30vw;
+  height: 10vh;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rangking-title-bg {
+  object-fit: contain;
+}
+
+.rangking-title-text {
+  position: absolute;
+  font-size: 3.5vh;
+  font-weight: 900;
+  color: #6E4522;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  letter-spacing: 2px;
+}
+
+/* Paper Board Container */
+.rangking-board-container {
+  position: absolute;
+  top: 22vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 70vh;
+  background-image: url('/perangkingan/second_layout.webp');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 3vh 4vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+}
+
+/* Table Header */
+.rangking-table-header {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr 1.5fr 1.5fr 1.5fr;
+  background: #E0985A;
+  border: 2px solid #6E4B28;
+  border-radius: 12px;
+  padding: 1.5vh 2vw;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.rangking-table-header div {
+  font-size: 2.2vh;
+  font-weight: 800;
+  color: #3C220E;
+  text-align: center;
+}
+
+/* Table Row */
+.rangking-row {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr 1.5fr 1.5fr 1.5fr;
+  background: #F8E8CD;
+  border: 2px solid #8B5A2B;
+  border-radius: 16px;
+  padding: 1.5vh 2vw;
+  align-items: center;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.rangking-row:hover {
+  transform: scale(1.01);
+}
+
+/* Highlight User's Row */
+.rangking-row-highlight {
+  background: #E0F2D8;
+  /* Greenish background */
+  border-color: #2E7D32;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+}
+
+.rangking-row-highlight .rangking-col-text {
+  color: #1B5E20;
+}
+
+.rangking-row-highlight .rangking-score-badge {
+  background: #C8E6C9;
+  color: #1B5E20;
+  border-color: #1B5E20;
+}
+
+/* Medal & Rank Circle */
+.rangking-medal-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rangking-medal-img {
+  position: relative;
+  width: 5vh;
+  height: 6vh;
+}
+
+.rangking-circle {
+  width: 5vh;
+  height: 5vh;
+  background: #9A7B55;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  font-weight: 800;
+  font-size: 2.2vh;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Text Columns */
+.rangking-col-text {
+  font-size: 2.2vh;
+  font-weight: 700;
+  color: #3C220E;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-left {
+  text-align: left;
+  padding-left: 2vw;
+}
+
+/* Score Badge */
+.rangking-score-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rangking-score-badge {
+  background: #F0B863;
+  padding: 0.8vh 2vw;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 2.2vh;
+  color: #3C220E;
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading & Error */
+.rangking-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/main/bg_semua.webp');
+  background-size: cover;
+  color: #FFF8E1;
+  font-size: 4vh;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Outfit', sans-serif;
+}
+
+/* =========================================
+   Responsive Adjustments
+========================================= */
+
+/* LAPTOP RESPONSIVE */
+@media (min-width: 769px) and (max-width: 1700px) {
+  .rangking-home-btn {
+    left: 4vw;
+  }
+
+  .rangking-music-btn {
+    left: calc(4vw + 9vh);
+  }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width:990px) {
+  .rangking-home-btn {
+    left: 4vw;
+  }
+
+  .rangking-music-btn {
+    left: calc(4vw + 14vh);
+  }
+}
