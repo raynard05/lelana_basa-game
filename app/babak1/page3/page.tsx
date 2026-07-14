@@ -370,7 +370,7 @@ export default function Babak1Page3() {
 
       {/* Top Center Timer */}
       <Timer
-        initialTime={3600}
+        initialTime={60}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
         storageKey="babak1_page3_timer"
