@@ -435,7 +435,7 @@ export default function Babak2Page3() {
         {/* Skip Button (Bacutake) */}
         <ListenButton
 
-          audioUrl="/audio/babak2/2. wandan wanguri 1.mp3"
+          audioUrl="/audio/babak2/page3.mp3"
 
           disabled={isLocked}
         />
