@@ -260,22 +260,32 @@
 
 /* LAPTOP RESPONSIVE */
 @media (min-width: 769px) and (max-width: 1700px) {
+  .rangking-nav-btn {
+    width: 6vw;
+    height: 6vw;
+  }
+
   .rangking-home-btn {
     left: 4vw;
   }
 
   .rangking-music-btn {
-    left: calc(4vw + 9vh);
+    left: calc(4vw + 13vh);
   }
 }
 
 /* MOBILE RESPONSIVE */
 @media (max-width:990px) {
+  .rangking-nav-btn {
+    width: 14vh;
+    height: 14vh;
+  }
+
   .rangking-home-btn {
     left: 4vw;
   }
 
   .rangking-music-btn {
-    left: calc(4vw + 14vh);
+    left: calc(4vw + 13vh);
   }
 }
