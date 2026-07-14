@@ -248,7 +248,7 @@ export default function Babak2Page3() {
                 handleProceed();
               }, 4000);
             }, 4000);
-          }, 1000);
+          }, 1200);
           return;
         }
       } else {
@@ -265,7 +265,7 @@ export default function Babak2Page3() {
         proceedTimeoutRef.current = setTimeout(() => {
           handleProceed();
         }, 4000); // 4 seconds delay for correct popup
-      }, 1000);
+      }, 1200);
     } else {
       if (typeof window !== 'undefined') {
         localStorage.setItem('game_streak', '0');
@@ -286,7 +286,7 @@ export default function Babak2Page3() {
             handleProceed();
           }, 2000); // 2 seconds delay for incorrect popup on 2nd attempt
         }
-      }, 1000);
+      }, 1200);
     }
   };
 
