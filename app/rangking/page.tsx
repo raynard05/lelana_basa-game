@@ -62,7 +62,7 @@ export default function RangkingPage() {
   if (isLoading) {
     return (
       <div className="rangking-loading">
-        Sedang Merekap Nilai & Waktu...
+        Nyiyapake Biji lan Wektu Garapan....
       </div>
     );
   }

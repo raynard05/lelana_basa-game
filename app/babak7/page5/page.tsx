@@ -195,7 +195,16 @@ export default function babak7Page5() {
             "emoh",
             "bakal",
             "kulo",
-            "ben"
+            "ben",
+            "yo",
+            "yawes",
+            "yowes",
+            "lunga",
+            "ya",
+            'lunga',
+            "lungo",
+            "ngalih",
+            "ngaleh"
         ]
         const uniqueMatched = Array.from(new Set(words.filter(word => targetWords.includes(word))));
         const matchedCount = uniqueMatched.length;
@@ -334,7 +343,7 @@ export default function babak7Page5() {
             <Music className="babak7-page5-nav5-btn babak7-page5-music5-btn" />
 
             <Timer
-                initialTime={60}
+                initialTime={120}
                 isLocked={isLocked || !!showPopup}
                 onTimeOut={handleTimeOut}
                 storageKey="babak7_page5_timer"

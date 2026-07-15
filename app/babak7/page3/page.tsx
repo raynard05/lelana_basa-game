@@ -357,7 +357,7 @@ export default function babak7Page3() {
             <Music className="babak7-page3-nav3-btn babak7-page3-music3-btn" />
 
             <Timer
-                initialTime={60}
+                initialTime={120}
                 isLocked={isLocked || !!showPopup}
                 onTimeOut={handleTimeOut}
                 storageKey="babak7_page3_timer"
