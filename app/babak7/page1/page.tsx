@@ -182,7 +182,7 @@ export default function babak7Page1() {
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {
-       const __tmpEarned = typeof earnedPoints !== 'undefined' ? earnedPoints : (attempts === 1 ? 100 : 75);
+       const __tmpEarned = (attempts === 1 ? 100 : 75);
        const __streakStr = localStorage.getItem('game_streak') || '0';
        const __currentStreak = parseInt(__streakStr, 10) + 1;
        const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
