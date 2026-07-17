@@ -1,5 +1,5 @@
 'use client';
-
+import { saveUlasan } from '@/utils/ulasanStorage';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -8,7 +8,6 @@ import Home from '@/components/Home';
 import Music from '@/components/Music';
 import Timer from '@/components/Timer';
 import confetti from 'canvas-confetti';
-
 import './babak2.css';
 
 export default function Babak2Page() {
@@ -21,7 +20,7 @@ export default function Babak2Page() {
   const [attempts, setAttempts] = useState(1);
   const [hasStreakPending, setHasStreakPending] = useState(false);
   const proceedTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
+  const nama_karakter =  "Wandan wanguri"
   const router = useRouter();
 
   // 1. Session check on mount
@@ -60,7 +59,7 @@ export default function Babak2Page() {
     if (showPopup && ['pop_25', 'pop_50', 'pop_75', 'pop_100'].includes(showPopup)) {
       const audio = new Audio('/main/MP3_soundeffect/correct_soundeffect.wav');
       audio.play().catch((err) => console.log('Correct sound playback failed:', err));
-      
+
       // Trigger confetti
       if (showPopup === 'pop_100') {
         confetti({
@@ -174,26 +173,43 @@ export default function Babak2Page() {
     const correct = optionId === 'luwih_tuwa';
     setIsAnswerCorrect(correct);
 
+
+    const questionText = typeof nama_karakter !== 'undefined' ? `Analisis Paraga ${nama_karakter}` : 'Analisis Paraga';
+    const userAns = options.find(o => o.id === optionId)?.label || optionId;
+    const correctAns = correct ? userAns : 'Luwih tuwa / Sapantaran / Luwih enom'; // Fallback
+    
+    let __scoreText = 'skor : 0';
+    if (correct && typeof window !== 'undefined') {
+       const __tmpEarned = typeof earnedPoints !== 'undefined' ? earnedPoints : (attempts === 1 ? 100 : 75);
+       const __streakStr = localStorage.getItem('game_streak') || '0';
+       const __currentStreak = parseInt(__streakStr, 10) + 1;
+       const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
+       __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
+    }
+    saveUlasan(questionText, userAns, correctAns, __scoreText);
+
+
+
     if (correct && typeof window !== 'undefined') {
       const earned = attempts === 1 ? 100 : 75;
       const currentScore = parseInt(localStorage.getItem('game_score') || '0', 10);
-      
+
       if (earned === 100) {
         const currentStreak = parseInt(localStorage.getItem('game_streak') || '0', 10) + 1;
         localStorage.setItem('game_streak', currentStreak.toString());
-        
+
         if (currentStreak === 3) {
           localStorage.setItem('game_score', (currentScore + earned + 25).toString());
           localStorage.setItem('game_streak', '0');
           setHasStreakPending(true);
-          
+
           setTimeout(() => {
             setShowPopup('pop_100');
-            
+
             proceedTimeoutRef.current = setTimeout(() => {
               setHasStreakPending(false);
               setShowPopup('pop_streak');
-              
+
               proceedTimeoutRef.current = setTimeout(() => {
                 handleProceed();
               }, 4000);
@@ -206,7 +222,7 @@ export default function Babak2Page() {
       }
 
       localStorage.setItem('game_score', (currentScore + earned).toString());
-      
+
       setTimeout(() => {
         setShowPopup(`pop_${earned}` as any);
 
@@ -242,7 +258,7 @@ export default function Babak2Page() {
     if (proceedTimeoutRef.current) {
       clearTimeout(proceedTimeoutRef.current);
     }
-    
+
     if (showPopup === 'pop_cobalagi') {
       setAttempts(2);
       setIsLocked(false);
@@ -252,7 +268,7 @@ export default function Babak2Page() {
     } else if (showPopup === 'pop_100' && hasStreakPending) {
       setHasStreakPending(false);
       setShowPopup('pop_streak');
-      
+
       proceedTimeoutRef.current = setTimeout(() => {
         handleProceed();
       }, 4000);

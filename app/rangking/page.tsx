@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { submitScoreAndGetLeaderboard } from '@/app/actions/rank';
+import { getCurrentUser } from '@/app/actions/auth';
 import { FileDown } from 'lucide-react';
+import { generateStudentPDF, UserData, UlasanItem } from '@/utils/pdfGenerator';
 import Home from '@/components/Home';
 import Music from '@/components/Music';
 import './rangking.css';
@@ -13,6 +15,8 @@ export default function RangkingPage() {
   const [leaderboard, setLeaderboard] = useState<any[]>([]);
   const [currentRunId, setCurrentRunId] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isPdfLoading, setIsPdfLoading] = useState(false);
+  const [currentUser, setCurrentUser] = useState<any>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -47,6 +51,13 @@ export default function RangkingPage() {
         console.error("Failed to fetch ranking:", result.error);
         // Fallback UI or redirect
       }
+
+      // Fetch user session for absen and name
+      const user = await getCurrentUser();
+      if (user) {
+        setCurrentUser(user);
+      }
+
       setIsLoading(false);
     }
 
@@ -57,6 +68,40 @@ export default function RangkingPage() {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  };
+
+  const handleDownloadPdf = async () => {
+    if (isPdfLoading) return;
+    setIsPdfLoading(true);
+
+    try {
+      // Current run data
+      const myRun = leaderboard.find(r => r.id === currentRunId);
+
+      const userData: UserData = {
+        nama_lengkap: myRun ? myRun.nama_user : (currentUser?.nama_lengkap || '-'),
+        absen: currentUser?.nomor_absen ? currentUser.nomor_absen.toString() : '-',
+        kelas: currentUser?.kelas || (myRun ? myRun.kelas : '-'),
+        biji: myRun ? myRun.poin.toString() : '-',
+        wektu: myRun ? formatTime(myRun.waktu_penyelesaian) : '-'
+      };
+
+      const savedUlasan = localStorage.getItem('ulasan_materi');
+      const ulasanData: UlasanItem[] = savedUlasan ? JSON.parse(savedUlasan) : [];
+
+      await generateStudentPDF(userData, ulasanData);
+    } catch (err) {
+      console.error('Error generating PDF:', err);
+      alert('Gagal nggawe PDF.');
+    } finally {
+      setIsPdfLoading(false);
+    }
+  };
+
+  const handleGoHome = () => {
+    localStorage.removeItem('ulasan_materi');
+    localStorage.removeItem('game_score');
+    router.replace('/menu');
   };
 
   if (isLoading) {
@@ -71,7 +116,7 @@ export default function RangkingPage() {
     <div className="rangking-page-container">
       {/* Top Left Controls */}
       <button
-        onClick={() => router.replace('/menu')}
+        onClick={handleGoHome}
         type="button"
         className="rangking-nav-btn rangking-home-btn"
         style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
@@ -90,10 +135,12 @@ export default function RangkingPage() {
       <Music className="rangking-nav-btn rangking-music-btn" />
 
       {/* Top Right PDF Download Button */}
-      <div className="rangking-pdf-btn" onClick={() => window.print()}>
+      <div className="rangking-pdf-btn" onClick={handleDownloadPdf} style={{ cursor: isPdfLoading ? 'wait' : 'pointer' }}>
         <FileDown size={36} color="#4A2E12" strokeWidth={2.5} />
         <div className="rangking-pdf-text" style={{ textAlign: 'left', width: '100%' }}>
-          Unduh PDF<br />Ulasan Materi
+          {isPdfLoading ? 'Nyiyapake...' : (
+            <>Unduh PDF<br />Ulasan Materi</>
+          )}
         </div>
       </div>
 

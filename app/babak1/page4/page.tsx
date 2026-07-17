@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser } from '@/app/actions/auth';
+import { saveUlasan } from '@/utils/ulasanStorage';
 import Home from '@/components/Home';
 import Timer from '@/components/Timer';
 import GameStatusHeader from '@/components/GameStatusHeader';
@@ -220,6 +221,20 @@ export default function Babak1Page4() {
 
     const correct = earnedPoints > 0;
     setIsAnswerCorrect(correct);
+
+    const questionText = 'Jaka Slewah: "Halah, rasah omong! Pokoké, aku emoh dadi kancamu!"';
+    const userAns = text;
+    const correctAns = 'Ngoko Lugu / Lisan bener';
+    
+    let __scoreText = 'skor : 0';
+    if (correct && typeof window !== 'undefined') {
+       const __tmpEarned = typeof earnedPoints !== 'undefined' ? earnedPoints : (attempts === 1 ? 100 : 75);
+       const __streakStr = localStorage.getItem('game_streak') || '0';
+       const __currentStreak = parseInt(__streakStr, 10) + 1;
+       const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
+       __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
+    }
+    saveUlasan(questionText, userAns, correctAns, __scoreText);
 
     if (correct && typeof window !== 'undefined') {
       if (earnedPoints === 100) {

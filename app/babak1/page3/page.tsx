@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser } from '@/app/actions/auth';
+import { saveUlasan } from '@/utils/ulasanStorage';
 import Home from '@/components/Home';
 import Timer from '@/components/Timer';
 import GameStatusHeader from '@/components/GameStatusHeader';
@@ -222,6 +223,20 @@ export default function Babak1Page3() {
 
     const correct = id === 'A'; // Ngoko Lugu is correct since Jaka Slewah is a peer (childhood friend)
     setIsAnswerCorrect(correct);
+
+    const questionText = 'Jaka Slewah: "Aja cedhak-cedhak aku! Aku ora sudi kancanan karo awakmu!"';
+    const userAns = optionsData.find(o => o.id === id)?.text || id;
+    const correctAns = optionsData.find(o => o.id === 'A')?.text || 'Ngoko Lugu';
+    
+    let __scoreText = 'skor : 0';
+    if (correct && typeof window !== 'undefined') {
+       const __tmpEarned = typeof earnedPoints !== 'undefined' ? earnedPoints : (attempts === 1 ? 100 : 75);
+       const __streakStr = localStorage.getItem('game_streak') || '0';
+       const __currentStreak = parseInt(__streakStr, 10) + 1;
+       const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
+       __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
+    }
+    saveUlasan(questionText, userAns, correctAns, __scoreText);
 
     if (correct && typeof window !== 'undefined') {
       const earned = attempts === 1 ? 100 : 75;

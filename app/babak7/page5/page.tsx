@@ -1,4 +1,5 @@
 'use client';
+import { saveUlasan } from '@/utils/ulasanStorage';
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
@@ -232,6 +233,23 @@ export default function babak7Page5() {
 
         const correct = earnedPoints > 0;
         setIsAnswerCorrect(correct);
+
+    
+    const questionText = 'Prajurit: "Halah, rasah ngapusi! Wis ndang ngaliha, tinimbang taksuwunake paukuman!"';
+    const userAns = text;
+    const correctAns = 'Lisan Bener';
+    
+    let __scoreText = 'skor : 0';
+    if (correct && typeof window !== 'undefined') {
+       const __tmpEarned = typeof earnedPoints !== 'undefined' ? earnedPoints : (attempts === 1 ? 100 : 75);
+       const __streakStr = localStorage.getItem('game_streak') || '0';
+       const __currentStreak = parseInt(__streakStr, 10) + 1;
+       const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
+       __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
+    }
+    saveUlasan(questionText, userAns, correctAns, __scoreText);
+
+
 
         if (correct && typeof window !== 'undefined') {
             if (earnedPoints === 100) {

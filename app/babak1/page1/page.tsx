@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { MapPin, ArrowRight } from 'lucide-react';
 import { getCurrentUser } from '@/app/actions/auth';
+import { saveUlasan } from '@/utils/ulasanStorage';
 import Home from '@/components/Home';
 import Music from '@/components/Music';
 import Timer from '@/components/Timer';
@@ -180,6 +181,25 @@ export default function Babak1Page() {
 
     const correct = optionId === 'sapantaran';
     setIsAnswerCorrect(correct);
+
+    const questionText = 'Analisis paraga Jaka Slewah';
+    const options = [
+      { id: 'luwih_tuwa', label: 'Luwih tuwa' },
+      { id: 'sapantaran', label: 'Sapantaran' },
+      { id: 'luwih_enom', label: 'Luwih enom' }
+    ];
+    const userAns = options.find(o => o.id === optionId)?.label || optionId;
+    const correctAns = options.find(o => o.id === 'sapantaran')?.label || 'Sapantaran';
+    
+    let __scoreText = 'skor : 0';
+    if (correct && typeof window !== 'undefined') {
+       const __tmpEarned = typeof earnedPoints !== 'undefined' ? earnedPoints : (attempts === 1 ? 100 : 75);
+       const __streakStr = localStorage.getItem('game_streak') || '0';
+       const __currentStreak = parseInt(__streakStr, 10) + 1;
+       const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
+       __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
+    }
+    saveUlasan(questionText, userAns, correctAns, __scoreText);
 
     if (correct && typeof window !== 'undefined') {
       const earned = attempts === 1 ? 100 : 75;
