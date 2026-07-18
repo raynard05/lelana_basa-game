@@ -1,0 +1,65 @@
+SISTEM SCORING & PENILAIAN GAME LELANA BASA
+===================================================
+
+Game ini memiliki 3 tipe soal utama dengan sistem penilaian yang mengutamakan ketepatan jawaban pertama (First Try) dan memberikan sistem kompensasi (Coba Lagi) dengan poin yang lebih rendah. Selain itu, terdapat sistem "Streak" (Beruntun) untuk mengapresiasi pemain yang konsisten menjawab sempurna.
+
+---
+
+1. SOAL TIPE 1: PILIHAN GANDA BIASA (Contoh: Analisis Paraga)
+-----------------------------------------------------------------
+Pada tipe ini, pemain cukup menekan salah satu tombol pilihan jawaban yang tersedia (misal: Luwih tuwa, Sapantaran, Luwih enom).
+
+Sistem Poin:
+- Percobaan Pertama (Benar) : 100 Poin
+- Percobaan Kedua (Benar)   : 75 Poin
+- Percobaan Kedua (Salah)   : 0 Poin (Lanjut ke halaman berikutnya)
+
+Mekanisme: 
+Jika pemain salah pada percobaan pertama, akan muncul popup "Coba Lagi". Pemain diberi 1 kali kesempatan lagi untuk menjawab namun nilai maksimalnya turun menjadi 75.
+
+---
+
+2. SOAL TIPE 2: PILIHAN GANDA DENGAN SUARA / SPEECH-TO-TEXT
+-----------------------------------------------------------------
+Pemain melihat 4 opsi jawaban (A, B, C, D) di layar, namun untuk menjawabnya pemain harus MENGUCAPKAN kalimat tersebut menggunakan fitur Speech-to-Text (STT) melalui mikrofon.
+
+Sistem Poin: 
+- Percobaan Pertama (Benar) : 100 Poin
+- Percobaan Kedua (Benar)   : 75 Poin
+- Percobaan Kedua (Salah)   : 0 Poin (Lanjut ke halaman berikutnya)
+
+Mekanisme Validasi STT:
+Sistem menggunakan algoritma "Levenshtein Distance" (kemiripan teks). Suara yang diucapkan pemain diubah menjadi teks (transcript), lalu sistem akan mencocokkan teks tersebut dengan ke-4 opsi jawaban. Jika tingkat kemiripan (similarity) mencapai 80% atau lebih dengan salah satu opsi, maka sistem akan otomatis memilih opsi tersebut.
+
+---
+
+3. SOAL TIPE 3: MURNI SPEECH-TO-TEXT (TANPA PILIHAN DI LAYAR)
+-----------------------------------------------------------------
+Pemain diminta untuk merespon/membalas dialog karakter murni menggunakan suara mereka sendiri tanpa ada panduan opsi jawaban di layar.
+
+Sistem Poin (Berdasarkan jumlah "Kata Kunci" yang berhasil terdeteksi):
+- PERCOBAAN PERTAMA:
+  • Deteksi 1 Kata Kunci  : 50 Poin
+  • Deteksi 2 Kata Kunci  : 75 Poin
+  • Deteksi >2 Kata Kunci : 100 Poin
+
+- PERCOBAAN KEDUA (Jika pada percobaan pertama 0 kata kunci terdeteksi):
+  • Deteksi 1 Kata Kunci  : 25 Poin
+  • Deteksi 2 Kata Kunci  : 50 Poin
+  • Deteksi >2 Kata Kunci : 75 Poin
+
+Mekanisme Validasi STT:
+Sistem memiliki daftar "Target Words" (Kata Kunci yang benar). Suara pemain akan diubah menjadi teks, diubah menjadi huruf kecil (lowercase), dan dihilangkan tanda bacanya. Sistem kemudian menghitung berapa banyak kata kunci unik yang berhasil diucapkan oleh pemain untuk menentukan poin.
+
+---
+
+SISTEM BONUS BERUNTUN (STREAK SYSTEM)
+-----------------------------------------------------------------
+Berlaku untuk semua tipe soal (Tipe 1, 2, maupun 3).
+
+Jika pemain berhasil mendapatkan poin maksimal (100 poin) sebanyak 3 KALI BERTURUT-TURUT, pemain akan mendapatkan BONUS +25 POIN pada soal ke-3 tersebut (sehingga total di soal tersebut menjadi 125 poin).
+
+Syarat & Ketentuan Streak:
+- Streak akan bertambah 1 setiap kali pemain mendapat 100 poin.
+- Jika pemain mendapat poin selain 100 (misal: 75, 50, 25, atau 0), maka hitungan beruntun (Streak) akan langsung HANGUS dan di-reset kembali menjadi 0.
+- Setelah bonus +25 poin diberikan pada streak ke-3, hitungan streak juga akan di-reset kembali ke 0.

@@ -12,9 +12,10 @@ export default function RouteGuard({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // If returning to the main menu or root, the game session is essentially inactive.
     if (pathname === '/menu' || pathname === '/') {
       sessionStorage.setItem('_lbas_ga', 'false');
+      sessionStorage.setItem('_lbas_rtr_st', pathname);
+      isInitialMount.current = false;
       setIsAuthorized(true);
       return;
     }
@@ -22,6 +23,8 @@ export default function RouteGuard({ children }: { children: React.ReactNode }) 
     // Starting the game from main_page activates the session.
     if (pathname === '/main_page') {
       sessionStorage.setItem('_lbas_ga', 'true');
+      sessionStorage.setItem('_lbas_rtr_st', pathname);
+      isInitialMount.current = false;
       setIsAuthorized(true);
       return;
     }
