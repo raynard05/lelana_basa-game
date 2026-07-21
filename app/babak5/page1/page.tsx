@@ -22,7 +22,7 @@ export default function Babak5Page1() {
   const [attempts, setAttempts] = useState(1);
   const [hasStreakPending, setHasStreakPending] = useState(false);
   const proceedTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const nama_karakter =  "Surontanu"
+  const nama_karakter = "Surontanu"
 
   const router = useRouter();
 
@@ -175,18 +175,18 @@ export default function Babak5Page1() {
     const correct = optionId === 'luwih_tuwa';
     setIsAnswerCorrect(correct);
 
-    
+
     const questionText = typeof nama_karakter !== 'undefined' ? `Analisis Paraga ${nama_karakter}` : 'Analisis Paraga';
     const userAns = options.find(o => o.id === optionId)?.label || optionId;
     const correctAns = correct ? userAns : 'Luwih tuwa / Sapantaran / Luwih enom'; // Fallback
-    
+
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {
-       const __tmpEarned = (attempts === 1 ? 100 : 75);
-       const __streakStr = localStorage.getItem('game_streak') || '0';
-       const __currentStreak = parseInt(__streakStr, 10) + 1;
-       const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
-       __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
+      const __tmpEarned = (attempts === 1 ? 100 : 75);
+      const __streakStr = localStorage.getItem('game_streak') || '0';
+      const __currentStreak = parseInt(__streakStr, 10) + 1;
+      const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
+      __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
     }
     saveUlasan(questionText, userAns, correctAns, __scoreText);
 
@@ -308,7 +308,7 @@ export default function Babak5Page1() {
       <Home className="babak5-nav-btn babak5-home-btn" />
 
       <Timer
-        initialTime={120}
+        initialTime={60}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
         storageKey="babak5_page1_timer"

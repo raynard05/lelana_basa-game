@@ -365,7 +365,7 @@ export default function Babak4Page4() {
 
       {/* Top Center Timer */}
       <Timer
-        initialTime={120}
+        initialTime={60}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
         storageKey="babak4_page4_timer"

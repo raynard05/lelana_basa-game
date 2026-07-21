@@ -76,7 +76,7 @@ export default function Babak2Page4() {
     if (showPopup && ['pop_25', 'pop_50', 'pop_75', 'pop_100'].includes(showPopup)) {
       const audio = new Audio('/main/MP3_soundeffect/correct_soundeffect.wav');
       audio.play().catch((err) => console.log('Correct sound playback failed:', err));
-      
+
       // Trigger confetti
       if (showPopup === 'pop_100') {
         confetti({
@@ -190,7 +190,7 @@ export default function Babak2Page4() {
     const words = text.split(/\s+/).map(normalizeWord).filter(Boolean);
 
     // Allowed target words (supporting both 'amerga' and 'amarga' spelling)
-    const targetWords = ['sendika','dhawuh', 'ibu', 'kula', 'badhe', 'mangkat','dhateng','kraton', 'majapahit', 'sapunika', 'kagem', 'nemoni', 'rama', 'patih','inggih', 'budhal', 'pamit', 'nyuwun', 'palilah', 'menyang' , 'kerajaan' , 'sakniki', 'nggih'];
+    const targetWords = ['sendika', 'dhawuh', 'ibu', 'kula', 'badhe', 'mangkat', 'dhateng', 'kraton', 'majapahit', 'sapunika', 'kagem', 'nemoni', 'rama', 'patih', 'inggih', 'budhal', 'pamit', 'nyuwun', 'palilah', 'menyang', 'kerajaan', 'sakniki', 'nggih'];
 
     // Check count of target words spoken
     const uniqueMatched = Array.from(new Set(words.filter(word => targetWords.includes(word))));
@@ -220,18 +220,18 @@ export default function Babak2Page4() {
     const correct = earnedPoints > 0;
     setIsAnswerCorrect(correct);
 
-    
+
     const questionText = 'Wandan Wanguri: "Saiki budhala menyang Kraton Majapahit. Sejatine bapakmu iku priyayi luhur, yaiku Patih Pangulang Jagad."';
     const userAns = text;
     const correctAns = 'Lisan Bener';
-    
+
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {
-       const __tmpEarned = earnedPoints;
-       const __streakStr = localStorage.getItem('game_streak') || '0';
-       const __currentStreak = parseInt(__streakStr, 10) + 1;
-       const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
-       __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
+      const __tmpEarned = earnedPoints;
+      const __streakStr = localStorage.getItem('game_streak') || '0';
+      const __currentStreak = parseInt(__streakStr, 10) + 1;
+      const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
+      __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
     }
     saveUlasan(questionText, userAns, correctAns, __scoreText);
 
@@ -241,21 +241,21 @@ export default function Babak2Page4() {
       if (earnedPoints === 100) {
         const currentStreak = parseInt(localStorage.getItem('game_streak') || '0', 10) + 1;
         localStorage.setItem('game_streak', currentStreak.toString());
-        
+
         if (currentStreak === 3) {
           const newScore = score + earnedPoints + 25;
           setScore(newScore);
           localStorage.setItem('game_score', newScore.toString());
           localStorage.setItem('game_streak', '0');
           setHasStreakPending(true);
-          
+
           setTimeout(() => {
             setShowPopup('pop_100');
-            
+
             proceedTimeoutRef.current = setTimeout(() => {
               setHasStreakPending(false);
               setShowPopup('pop_streak');
-              
+
               proceedTimeoutRef.current = setTimeout(() => {
                 handleProceed();
               }, 4000);
@@ -270,7 +270,7 @@ export default function Babak2Page4() {
       const newScore = score + earnedPoints;
       setScore(newScore);
       localStorage.setItem('game_score', newScore.toString());
-      
+
       setTimeout(() => {
         setShowPopup(`pop_${earnedPoints}` as any);
 
@@ -306,7 +306,7 @@ export default function Babak2Page4() {
     if (proceedTimeoutRef.current) {
       clearTimeout(proceedTimeoutRef.current);
     }
-    
+
     if (showPopup === 'pop_cobalagi') {
       setAttempts(2);
       setIsLocked(false);
@@ -315,7 +315,7 @@ export default function Babak2Page4() {
     } else if (showPopup === 'pop_100' && hasStreakPending) {
       setHasStreakPending(false);
       setShowPopup('pop_streak');
-      
+
       proceedTimeoutRef.current = setTimeout(() => {
         handleProceed();
       }, 4000);
@@ -352,7 +352,7 @@ export default function Babak2Page4() {
 
       {/* Top Center Timer */}
       <Timer
-        initialTime={120}
+        initialTime={60}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
         storageKey="babak2_page4_timer"

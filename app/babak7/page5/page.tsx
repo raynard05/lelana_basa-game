@@ -234,20 +234,20 @@ export default function babak7Page5() {
         const correct = earnedPoints > 0;
         setIsAnswerCorrect(correct);
 
-    
-    const questionText = 'Prajurit: "Halah, rasah ngapusi! Wis ndang ngaliha, tinimbang taksuwunake paukuman!"';
-    const userAns = text;
-    const correctAns = 'Lisan Bener';
-    
-    let __scoreText = 'skor : 0';
-    if (correct && typeof window !== 'undefined') {
-       const __tmpEarned = earnedPoints;
-       const __streakStr = localStorage.getItem('game_streak') || '0';
-       const __currentStreak = parseInt(__streakStr, 10) + 1;
-       const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
-       __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
-    }
-    saveUlasan(questionText, userAns, correctAns, __scoreText);
+
+        const questionText = 'Prajurit: "Halah, rasah ngapusi! Wis ndang ngaliha, tinimbang taksuwunake paukuman!"';
+        const userAns = text;
+        const correctAns = 'Lisan Bener';
+
+        let __scoreText = 'skor : 0';
+        if (correct && typeof window !== 'undefined') {
+            const __tmpEarned = earnedPoints;
+            const __streakStr = localStorage.getItem('game_streak') || '0';
+            const __currentStreak = parseInt(__streakStr, 10) + 1;
+            const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
+            __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
+        }
+        saveUlasan(questionText, userAns, correctAns, __scoreText);
 
 
 
@@ -361,7 +361,7 @@ export default function babak7Page5() {
             <Music className="babak7-page5-nav5-btn babak7-page5-music5-btn" />
 
             <Timer
-                initialTime={120}
+                initialTime={60}
                 isLocked={isLocked || !!showPopup}
                 onTimeOut={handleTimeOut}
                 storageKey="babak7_page5_timer"

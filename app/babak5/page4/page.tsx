@@ -361,7 +361,7 @@ export default function Babak5Page4() {
       <Music className="babak5-page4-nav4-btn babak5-page4-music4-btn" />
 
       <Timer
-        initialTime={120}
+        initialTime={60}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
         storageKey="babak5_page4_timer"

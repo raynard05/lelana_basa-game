@@ -22,7 +22,7 @@ export default function babak7Page1() {
     const [attempts, setAttempts] = useState(1);
     const [hasStreakPending, setHasStreakPending] = useState(false);
     const proceedTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-    const nama_karakter =  "Prajurit"
+    const nama_karakter = "Prajurit"
 
     const router = useRouter();
 
@@ -175,20 +175,20 @@ export default function babak7Page1() {
         const correct = optionId === 'luwih_tuwa';
         setIsAnswerCorrect(correct);
 
-    
-    const questionText = typeof nama_karakter !== 'undefined' ? `Analisis Paraga ${nama_karakter}` : 'Analisis Paraga';
-    const userAns = options.find(o => o.id === optionId)?.label || optionId;
-    const correctAns = correct ? userAns : 'Luwih tuwa / Sapantaran / Luwih enom'; // Fallback
-    
-    let __scoreText = 'skor : 0';
-    if (correct && typeof window !== 'undefined') {
-       const __tmpEarned = (attempts === 1 ? 100 : 75);
-       const __streakStr = localStorage.getItem('game_streak') || '0';
-       const __currentStreak = parseInt(__streakStr, 10) + 1;
-       const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
-       __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
-    }
-    saveUlasan(questionText, userAns, correctAns, __scoreText);
+
+        const questionText = typeof nama_karakter !== 'undefined' ? `Analisis Paraga ${nama_karakter}` : 'Analisis Paraga';
+        const userAns = options.find(o => o.id === optionId)?.label || optionId;
+        const correctAns = correct ? userAns : 'Luwih tuwa / Sapantaran / Luwih enom'; // Fallback
+
+        let __scoreText = 'skor : 0';
+        if (correct && typeof window !== 'undefined') {
+            const __tmpEarned = (attempts === 1 ? 100 : 75);
+            const __streakStr = localStorage.getItem('game_streak') || '0';
+            const __currentStreak = parseInt(__streakStr, 10) + 1;
+            const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
+            __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
+        }
+        saveUlasan(questionText, userAns, correctAns, __scoreText);
 
 
 
@@ -308,7 +308,7 @@ export default function babak7Page1() {
             <Home className="babak7-nav-btn babak7-home-btn" />
 
             <Timer
-                initialTime={120}
+                initialTime={60}
                 isLocked={isLocked || !!showPopup}
                 onTimeOut={handleTimeOut}
                 storageKey="babak7_page1_timer"
