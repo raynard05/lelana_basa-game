@@ -60,8 +60,8 @@ export default function MenuPage() {
     }
   };
 
-  const handleInfo = () => {
-    console.log('Info clicked');
+  const handleProfile = () => {
+    router.push('/profil');
   };
 
   const handleLogout = async () => {
@@ -109,8 +109,8 @@ export default function MenuPage() {
       </div>
 
       {/* Top Controls placed AFTER content to guarantee they are on top in DOM order */}
-      <button className="info-btn" onClick={handleInfo} type="button" aria-label="Information">
-        <Image src="/menu_assets/information.png" alt="Information" fill sizes="80px" className="icon-img" priority />
+      <button className="info-btn" onClick={handleProfile} type="button" aria-label="Information">
+        <Image src="/menu_assets/user.png" alt="Information" fill sizes="80px" className="icon-img" priority />
       </button>
 
       <Music className="sound-btn" />

@@ -148,3 +148,86 @@ export async function getCurrentUser() {
     return null;
   }
 }
+
+export async function updateProfile(userId: number, formData: any) {
+  try {
+    const { namaLengkap, username, kelas, absen } = formData;
+
+    if (!namaLengkap || !username || !kelas || !absen) {
+      return { success: false, error: 'Kabeh kolom kudu diisi!' };
+    }
+
+    // 1. Check if username is already taken by ANOTHER user
+    const { data: existingUser, error: checkError } = await supabase
+      .from('users')
+      .select('id')
+      .eq('username', username.trim().toLowerCase())
+      .neq('id', userId)
+      .maybeSingle();
+
+    if (existingUser) {
+      return { success: false, error: 'Username wis dianggo wong liya!' };
+    }
+
+    // 2. Update user in Supabase
+    const { data: updatedUser, error: updateError } = await supabase
+      .from('users')
+      .update({
+        nama_lengkap: namaLengkap.trim(),
+        username: username.trim().toLowerCase(),
+        kelas: kelas.trim(),
+        nomor_absen: parseInt(absen, 10)
+      })
+      .eq('id', userId)
+      .select('id, nama_lengkap, username, kelas, nomor_absen')
+      .single();
+
+    if (updateError) {
+      console.error('Error updating user:', updateError);
+      return { success: false, error: 'Gagal nganyari profil.' };
+    }
+
+    // 3. Update session cookie
+    const cookieStore = await cookies();
+    cookieStore.set('user_session', JSON.stringify(updatedUser), {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 60 * 60 * 24 * 7, // 1 week
+      path: '/',
+    });
+
+    return { success: true, user: updatedUser };
+  } catch (err: any) {
+    console.error('Update profile exception:', err);
+    return { success: false, error: 'Ana kesalahan sistem.' };
+  }
+}
+
+export async function updatePassword(userId: number, newPassword: string) {
+  try {
+    if (!newPassword || newPassword.length < 3) {
+      return { success: false, error: 'Kata sandi anyar minimal 3 karakter!' };
+    }
+
+    const hashedPassword = hashPassword(newPassword);
+
+    const { error: updateError } = await supabase
+      .from('users')
+      .update({
+        kata_sandi: hashedPassword,
+      })
+      .eq('id', userId);
+
+    if (updateError) {
+      console.error('Error updating password:', updateError);
+      return { success: false, error: 'Gagal nganyari kata sandi.' };
+    }
+
+    return { success: true };
+  } catch (err: any) {
+    console.error('Update password exception:', err);
+    return { success: false, error: 'Ana kesalahan sistem.' };
+  }
+}
+

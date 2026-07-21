@@ -7,7 +7,7 @@ export default function OrientationGuard() {
   const pathname = usePathname();
 
   // Exclude login and register pages from being blocked
-  if (pathname === '/' || pathname === '/register') {
+  if (pathname === '/' || pathname === '/register' || pathname === '/profil') {
     return null;
   }
 

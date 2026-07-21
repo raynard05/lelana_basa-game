@@ -12,7 +12,7 @@ export default function RouteGuard({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    if (pathname === '/menu' || pathname === '/') {
+    if (pathname === '/menu' || pathname === '/' || pathname === '/profil') {
       sessionStorage.setItem('_lbas_ga', 'false');
       sessionStorage.setItem('_lbas_rtr_st', pathname);
       isInitialMount.current = false;
