@@ -82,6 +82,14 @@ export default function RegisterPage() {
     };
   }, []);
 
+  const enterFullscreen = () => {
+    if (typeof document !== 'undefined' && !document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch((err) => {
+        console.warn(`Gagal masuk ke mode fullscreen: ${err.message}`);
+      });
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -131,7 +139,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="login-container">
+    <div className="login-container" onClick={enterFullscreen}>
       {/* Content Overlay */}
       <div className={`login-content ${isKeyboardOpen ? 'keyboard-open' : ''}`}>
         {/* Lelana Basa Logo */}
