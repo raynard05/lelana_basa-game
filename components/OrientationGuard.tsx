@@ -6,8 +6,8 @@ import { RotateCw } from 'lucide-react';
 export default function OrientationGuard() {
   const pathname = usePathname();
 
-  // Exclude login and register pages from being blocked
-  if (pathname === '/' || pathname === '/register' || pathname === '/profil' || pathname === '/caradolanan') {
+  // Exclude specific pages from being blocked
+  if (pathname === '/profil' || pathname === '/caradolanan') {
     return null;
   }
 

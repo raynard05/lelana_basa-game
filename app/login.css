@@ -402,3 +402,41 @@ input:-webkit-autofill:active {
     flex: 0 0 380px;
   }
 }
+
+/* Mobile landscape split layout */
+@media (max-width: 1023px) and (orientation: landscape) {
+  .login-container {
+    background-image: url('/login_assets/login_regis.webp');
+  }
+
+  .login-content {
+    flex-direction: row;
+    max-width: 100%;
+    width: 95%;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+    padding: 10px;
+  }
+
+  .logo-container {
+    flex: 1;
+    max-width: 45%;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .login-form-container {
+    flex: 0 0 50%;
+    max-width: 400px;
+    padding: 16px 20px;
+    border-radius: 16px;
+  }
+
+  .login-form {
+    gap: 10px;
+  }
+}
