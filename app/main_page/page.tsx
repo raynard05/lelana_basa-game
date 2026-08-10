@@ -158,7 +158,7 @@ export default function MainPage() {
                 let globalIndex = 0;
                 const N2 = allWords2.length;
                 return paragraphs2.map((paraWords, paraIdx) => (
-                  <p key={paraIdx} className="mainpage-narration-paragraph">
+                  <p key={paraIdx} className="mainpage-narration-paragraph mainpage-wave2-text">
                     {paraWords.map((word, wordIdx) => {
                       const j = globalIndex++;
                       const t_j = splitTime + (j / N2) * (activeDuration - splitTime);
