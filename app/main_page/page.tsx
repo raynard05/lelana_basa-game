@@ -138,7 +138,7 @@ export default function MainPage() {
         </div>
         <div className="mainpage-text-container">
           {!isWave2 ? (
-            <p className="mainpage-narration-paragraph">
+            <p className="mainpage-narration-paragraph mainpage-wave1-text">
               {words1.map((word, idx) => {
                 const t_i = (idx / words1.length) * splitTime;
                 const isRevealed = currentTime >= t_i;

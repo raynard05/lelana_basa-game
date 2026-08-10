@@ -212,6 +212,12 @@
     font-size: 3.2vh;
   }
 
+  .mainpage-wave1-text {
+    font-size: 4vh;
+    position: relative;
+    top: 6vh;
+  }
+
   .mainpage-wave2-text {
     font-size: 6.5vh !important;
   }
@@ -231,6 +237,13 @@
 
   .mainpage-text-container {
     font-size: 3.4vh;
+
+  }
+
+  .mainpage-wave1-text {
+    font-size: 4vh !important;
+    position: relative;
+    top: 6vh;
   }
 
   .mainpage-wave2-text {
@@ -254,6 +267,12 @@
     font-size: 3.4vh;
   }
 
+  .mainpage-wave1-text {
+    font-size: 4vh !important;
+    position: relative;
+    top: 6vh;
+  }
+
   .mainpage-wave2-text {
     font-size: 6.5vh !important;
   }
@@ -270,6 +289,12 @@
     font-size: 3.5vh;
   }
 
+  .mainpage-wave1-text {
+    font-size: 4vh;
+    position: relative;
+    top: 6vh;
+  }
+
   .mainpage-wave2-text {
 
     font-size: 3.25vh !important;
@@ -284,7 +309,12 @@
 
 @media (max-width:900px) and (max-height:500px) {
   .mainpage-text-container {
-    font-size: 4vh;
+    font-size: 4.3vh;
+  }
+
+  .mainpage-wave1-text {
+    position: relative;
+    top: 6.5vh;
   }
 
   .mainpage-wave2-text {
@@ -293,6 +323,6 @@
 
   .mainpage-sugeng-makarya-banner {
     font-size: 3.3vh;
-    top: 3.5vh;
+    top: 5vh;
   }
 }
