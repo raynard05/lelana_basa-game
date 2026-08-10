@@ -444,15 +444,15 @@ export default function Babak1Page3() {
 
       {/* Bottom Action Row (Record & Listen buttons) */}
       <div className="bottom-actions-row">
-        {/* Record Button for STT practice */}
+{/* Listen Button for Jaka Slewah's spoken dialogue */}
+        <ListenButton
+          audioUrl="/audio/babak1/3. Jaka Slewah 1.mp3"
+          disabled={isLocked}
+        />
+                {/* Record Button for STT practice */}
         <RecordButton
           onTranscript={handleTranscript}
           lang="jv-ID"
-          disabled={isLocked}
-        />
-        {/* Listen Button for Jaka Slewah's spoken dialogue */}
-        <ListenButton
-          audioUrl="/audio/babak1/3. Jaka Slewah 1.mp3"
           disabled={isLocked}
         />
       </div>

@@ -425,15 +425,15 @@ export default function Babak4Page3() {
 
       {/* Bottom Action Row (Record & Listen buttons) */}
       <div className="babak4-page3-bottom-actions-row">
-        {/* Record Button for STT practice */}
+                {/* Listen Button for dialogue */}
+        <ListenButton
+          audioUrl="/audio/babak4/2. ki ageng sapayana 1.mp3"
+          disabled={isLocked}
+        />
+{/* Record Button for STT practice */}
         <RecordButton
           onTranscript={handleTranscript}
           lang="jv-ID"
-          disabled={isLocked}
-        />
-        {/* Listen Button for dialogue */}
-        <ListenButton
-          audioUrl="/audio/babak4/2. ki ageng sapayana 1.mp3"
           disabled={isLocked}
         />
       </div>

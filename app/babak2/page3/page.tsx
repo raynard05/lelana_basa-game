@@ -425,18 +425,18 @@ export default function Babak2Page3() {
 
       {/* Bottom Action Row (Record & Skip buttons) */}
       <div className="babak2-page3-bottom-actions-row">
-        {/* Record Button for STT practice */}
-        <RecordButton
-          onTranscript={handleTranscript}
-          lang="jv-ID"
-          disabled={isLocked}
-        />
-        {/* Listen Button for Jaka Slewah's spoken dialogue */}
         {/* Skip Button (Bacutake) */}
         <ListenButton
 
           audioUrl="/audio/babak2/page3.mp3"
 
+          disabled={isLocked}
+        />
+        {/* Listen Button for Jaka Slewah's spoken dialogue */}
+        {/* Record Button for STT practice */}
+        <RecordButton
+          onTranscript={handleTranscript}
+          lang="jv-ID"
           disabled={isLocked}
         />
       </div>

@@ -427,13 +427,13 @@ export default function babak9Page3() {
             )}
 
             <div className="babak9-page3-bottom-actions-row">
-                <RecordButton
-                    onTranscript={handleTranscript}
-                    lang="jv-ID"
+                                <ListenButton
+                    audioUrl="/audio/babak9/2. Patih 4.mp3"
                     disabled={isLocked}
                 />
-                <ListenButton
-                    audioUrl="/audio/babak9/2. Patih 4.mp3"
+<RecordButton
+                    onTranscript={handleTranscript}
+                    lang="jv-ID"
                     disabled={isLocked}
                 />
             </div>

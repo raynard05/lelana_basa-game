@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
 export default function RouteGuard({ children }: { children: React.ReactNode }) {
+  // Temporarily disabled per user request
+  return <>{children}</>;
+
   const pathname = usePathname();
   const router = useRouter();
   const isInitialMount = useRef(true);
