@@ -260,6 +260,12 @@ export default function Sinopsis({
             width: 85%;
             margin: 0 auto;
           }
+          .sinopsis-text {
+            font-size: 2.7vh;
+          }
+          .sinopsis-timer {
+            font-size: 2.7vh;
+          }
         }
       `}} />
 
