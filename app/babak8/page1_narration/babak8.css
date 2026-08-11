@@ -44,15 +44,15 @@
 
 /* Main Card Frame */
 .babak8-page1-card-frame {
-    margin-top: 7%;
+    margin-top: 4.8%;
     position: relative;
-    background-image: url('/babak8/page2_fix.webp');
+    background-image: url('/frame_babak/8_u.webp');
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    width: 80vw;
-    height: 75vh;
-    max-width: 1100px;
-    max-height: 500px;
+    width: 85vw;
+    height: 80vh;
+    max-width: 171vh;
+    max-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -60,11 +60,13 @@
 
 /* Audio Player Container */
 .babak8-page1-audio-container {
-    width: 78vw;
+  position: absolute;
+  bottom: 2.5vh;
+    width: 85vw;
     max-width: 800px;
     display: flex;
     justify-content: center;
-    transform: translateY(-20%);
+    
     z-index: 10;
 }
 
@@ -98,4 +100,14 @@
         /* Music button next to Skip button */
     }
 
+}
+
+/* Windowed mode override */
+@media (max-height: 679px) {
+  .babak8-page1-card-frame {
+    margin-top: 2.8%;
+  }
+  .babak8-page1-audio-container {
+    bottom: 2.5vh;
+  }
 }

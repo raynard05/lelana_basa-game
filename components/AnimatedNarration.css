@@ -1,0 +1,147 @@
+.animated-narration-wrapper {
+  position: absolute;
+  top: 27%;
+  left: 8%;
+  width: 39%;
+  height: 62%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Ensure it starts below title and flows down */
+  overflow-y: auto;
+  padding-top: 0;
+  padding-right: 0;
+  color: #241700;
+  /* Hide scrollbar for non-webkit */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for webkit */
+.animated-narration-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.animated-narration-title {
+  font-size: 4vh;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5vh;
+  font-family: sans-serif;
+  text-shadow: none;
+}
+
+.animated-narration-paragraph {
+  font-size: 2.7vh;
+  line-height: 1.6;
+  text-align: center;
+  font-weight: 800;
+  font-family: var(--font-heebo), sans-serif;
+  margin: 0;
+  text-shadow: none;
+}
+
+.narration-word {
+  opacity: 0;
+  display: inline-block;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  transform: translateY(4px);
+}
+
+.narration-word.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Zoom for laptops (1440px) */
+@media (max-width: 1440px) and (min-height: 800px) {
+  .animated-narration-paragraph {
+    font-size: 2.8vh !important;
+  }
+
+  .animated-narration-wrapper {
+    top: 26% !important;
+    left: 8%;
+    width: 39%;
+    height: 62%;
+    padding-top: 0;
+  }
+}
+
+/* Responsive Zoom for laptops (1200px) */
+@media (max-width: 1200px) and (min-height: 800px) {
+  .animated-narration-paragraph {
+    font-size: 2.7vh !important;
+  }
+
+  .animated-narration-wrapper {
+    top: 25% !important;
+    left: 8%;
+    width: 39%;
+    height: 62%;
+    padding-top: 0;
+  }
+}
+
+/* Responsive Zoom for laptops (1080px) */
+@media (max-width: 1080px) and (min-height: 800px) {
+  .animated-narration-paragraph {
+    font-size: 2.6vh !important;
+  }
+
+  .animated-narration-wrapper {
+    top: 25% !important;
+    left: 8%;
+    width: 39%;
+    height: 62%;
+  }
+}
+
+/* General laptop/desktop FULLSCREEN (e.g. 150% scale 1080p = 720p height) */
+@media (min-width: 1024px) and (min-height: 680px) {
+  .animated-narration-paragraph {
+    font-size: 3vh;
+  }
+
+  .animated-narration-wrapper {
+    top: 30.5% !important;
+    left: 8%;
+    width: 39%;
+    height: 62%;
+    padding-top: 0;
+  }
+}
+
+/* General laptop/desktop WINDOWED */
+@media (min-width: 1024px) and (max-height: 679px) {
+  .animated-narration-paragraph {
+    font-size: 3.3vh;
+    /* Slightly larger vh in windowed to maintain readable absolute size */
+  }
+
+  .animated-narration-wrapper {
+    top: 30% !important;
+    left: 8%;
+    width: 39%;
+    height: 65%;
+    padding-top: 0;
+  }
+}
+
+
+
+/* Mobile landscape */
+@media (max-width: 900px) and (max-height: 500px) {
+  .animated-narration-wrapper {
+    top: 28.5%;
+    left: 8%;
+    width: 38%;
+    height: 60%;
+    padding-top: 0;
+  }
+
+  .animated-narration-paragraph {
+    font-size: 3.4vh;
+    line-height: 1.5;
+  }
+}

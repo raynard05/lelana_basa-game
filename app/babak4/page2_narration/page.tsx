@@ -7,11 +7,14 @@ import Home from '@/components/Home';
 import Music from '@/components/Music';
 import Skip from '@/components/Skip';
 import Sinopsis from '@/components/Sinopsis';
+import AnimatedNarrationText from '@/components/AnimatedNarrationText';
 import './page2.css';
 
 export default function Babak4Page2Narration() {
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [isValidating, setIsValidating] = useState(true);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const router = useRouter();
 
   // 1. Session verification check on mount
@@ -56,14 +59,12 @@ export default function Babak4Page2Narration() {
 
       {/* Main Content Card Scroll Layout */}
       <div className="babak4-page2-card-frame">
-        <div className="babak4-page2-text-container">
-
-        </div>
+        <AnimatedNarrationText babak={4} currentTime={currentTime} duration={duration} />
       </div>
 
       {/* Bottom Narration Audio Player Container */}
       <div className="babak4-page2-audio-container">
-        <Sinopsis music_assets="/audio/babak4/page2.mp3" />
+        <Sinopsis music_assets="/audio/babak4/page2.mp3"  onTimeUpdate={setCurrentTime} onDurationChange={setDuration} autoPlay={true} />
       </div>
     </div>
   );

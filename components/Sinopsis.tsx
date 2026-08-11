@@ -158,9 +158,9 @@ export default function Sinopsis({
           display: flex;
           align-items: center;
           background: ${backgroundColor};
-          border: 1.5px solid ${borderColor};
-          border-radius: 12px;
-          padding: 10px 24px;
+          border: 0.2vh solid ${borderColor};
+          border-radius: 2vh;
+          padding: 1.2vh 3vw;
           width: 100%;
           box-sizing: border-box;
           font-family: 'Outfit', 'Inter', sans-serif;
@@ -171,7 +171,7 @@ export default function Sinopsis({
         .sinopsis-play-control {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 1.5vh;
           cursor: pointer;
           color: ${textColor};
           transition: opacity 0.2s ease;
@@ -189,7 +189,7 @@ export default function Sinopsis({
         }
 
         .sinopsis-text {
-          font-size: 16px;
+          font-size: 2.2vh;
           font-weight: 700;
           white-space: nowrap;
           color: ${textColor};
@@ -199,15 +199,15 @@ export default function Sinopsis({
           flex: 1;
           display: flex;
           align-items: center;
-          margin: 0 24px;
+          margin: 0 3vw;
         }
 
         .sinopsis-slider {
           appearance: none;
           -webkit-appearance: none;
           width: 100%;
-          height: 6px;
-          border-radius: 3px;
+          height: 1vh;
+          border-radius: 0.5vh;
           outline: none;
           cursor: pointer;
           background: linear-gradient(to right, ${progressColor} ${progressPct}%, ${trackColor} ${progressPct}%);
@@ -217,8 +217,8 @@ export default function Sinopsis({
         .sinopsis-slider::-webkit-slider-thumb {
           appearance: none;
           -webkit-appearance: none;
-          width: 14px;
-          height: 14px;
+          width: 2.2vh;
+          height: 2.2vh;
           border-radius: 50%;
           background: ${thumbColor};
           cursor: pointer;
@@ -231,8 +231,8 @@ export default function Sinopsis({
         }
 
         .sinopsis-slider::-moz-range-thumb {
-          width: 14px;
-          height: 14px;
+          width: 2.2vh;
+          height: 2.2vh;
           border-radius: 50%;
           background: ${thumbColor};
           cursor: pointer;
@@ -247,10 +247,19 @@ export default function Sinopsis({
 
         .sinopsis-timer {
           color: ${textColor};
-          font-size: 15px;
-          font-weight: 600;
+          font-size: 2vh;
+          font-weight: 500;
           white-space: nowrap;
           font-variant-numeric: tabular-nums;
+        }
+        
+        @media (max-width: 900px) {
+          .sinopsis-player-container {
+            transform: scale(0.955);
+            transform-origin: center bottom;
+            width: 85%;
+            margin: 0 auto;
+          }
         }
       `}} />
 
