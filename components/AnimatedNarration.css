@@ -104,7 +104,7 @@
   }
 
   .animated-narration-wrapper {
-    top: 30.5% !important;
+    top: 28% !important;
     left: 8%;
     width: 39%;
     height: 62%;
@@ -131,7 +131,7 @@
 
 
 /* Mobile landscape */
-@media (max-width: 900px) and (max-height: 500px) {
+@media (max-height: 720px) and (orientation: landscape) {
   .animated-narration-wrapper {
     top: 28.5%;
     left: 8%;

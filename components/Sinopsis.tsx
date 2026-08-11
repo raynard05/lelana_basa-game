@@ -189,7 +189,7 @@ export default function Sinopsis({
         }
 
         .sinopsis-text {
-          font-size: 2.2vh;
+          font-size: 2.42vh;
           font-weight: 700;
           white-space: nowrap;
           color: ${textColor};
@@ -247,18 +247,18 @@ export default function Sinopsis({
 
         .sinopsis-timer {
           color: ${textColor};
-          font-size: 2vh;
+          font-size: 2.2vh;
           font-weight: 500;
           white-space: nowrap;
           font-variant-numeric: tabular-nums;
         }
         
-        @media (max-width: 900px) {
+        @media (max-height: 720px) and (orientation: landscape) {
           .sinopsis-player-container {
             transform: scale(0.955);
             transform-origin: center bottom;
             width: 85%;
-            margin: 0 auto;
+            margin: 0 auto 0.7vh auto;
           }
           .sinopsis-text {
             font-size: 2.7vh;

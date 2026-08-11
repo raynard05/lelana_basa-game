@@ -61,7 +61,7 @@
 /* Audio Player Container */
 .babak2-page2-audio-container {
   width: 78vw;
-  max-width: 800px;
+  max-width: 1100px;
   display: flex;
   justify-content: center;
   transform: translateY(-20%);
@@ -110,7 +110,7 @@
 
 
 
-@media (max-width:900px) and (max-height:500px) {
+@media (max-height: 720px) and (orientation: landscape) {
 
   /* Override Animated Narration position specifically for this Babak */
   .animated-narration-wrapper {

@@ -307,7 +307,7 @@
 }
 
 
-@media (max-width:900px) and (max-height:500px) {
+@media (max-height: 720px) and (orientation: landscape) {
   .mainpage-text-container {
     font-size: 4.3vh;
   }
