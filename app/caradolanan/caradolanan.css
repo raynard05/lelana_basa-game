@@ -19,8 +19,8 @@
 .cd-music-btn {
   position: fixed;
   z-index: 100;
-  width: 12vh;
-  height: 12vh;
+  width: 15vh;
+  height: 15vh;
   min-width: 50px;
   min-height: 50px;
   max-width: 80px;
@@ -193,13 +193,44 @@
   }
 }
 @media (orientation: landscape) and (max-height: 500px) {
+  .cd-content {
+    gap: 6vh;
+  }
   .cd-paragraph {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
   .cd-logo-container {
-    max-width: 350px;
+    max-width: 250px;
+    margin-bottom: 2vh;
   }
   .cd-content-wrapper {
-    padding: 6vh 5vw;
+    padding: 8vh 12vw;
+  }
+  .cd-step-title {
+    font-size: 0.9rem;
+    padding: 6px 15px;
+    margin-top: 5vh;
+  }
+  .cd-image-container {
+    max-width: 450px;
+    margin-bottom: 2vh;
+  }
+  .cd-back-btn {
+    font-size: 1rem;
+    padding: 8px 30px;
+  }
+}
+
+/* Responsive adjust for laptops/desktops */
+@media (min-width: 1024px) {
+  .cd-content {
+    gap: 5vh;
+  }
+  .cd-logo-container {
+    margin-bottom: 2vh;
+  }
+  .cd-image-container {
+    margin-bottom: 2vh;
   }
 }

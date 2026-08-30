@@ -1,5 +1,7 @@
 'use client';
 
+
+
 import { usePathname } from 'next/navigation';
 import { RotateCw } from 'lucide-react';
 
@@ -7,7 +9,7 @@ export default function OrientationGuard() {
   const pathname = usePathname();
 
   // Exclude specific pages from being blocked
-  if (pathname === '/profil' || pathname === '/caradolanan') {
+  if ( pathname === '') {
     return null;
   }
 

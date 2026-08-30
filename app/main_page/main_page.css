@@ -326,3 +326,11 @@
     top: 5vh;
   }
 }
+
+/* Responsive for Laptop 1920x1080 with 150% scale (effective ~1280x720) in fullscreen */
+@media (max-width: 1280px) and (max-height: 720px) and (orientation: landscape) {
+  .mainpage-wave2-text {
+    font-size: 3vh !important;
+    line-height: 1.7 !important;
+  }
+}
