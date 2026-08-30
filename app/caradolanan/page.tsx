@@ -13,16 +13,16 @@ export default function CaraDolananPage() {
     <div className="cd-container">
       <Home className="cd-home-btn" />
       <Music className="cd-music-btn" />
-      
+
       <div className="cd-content-wrapper">
         <div className="cd-content">
-          
+
           <div className="cd-logo-container">
-            <Image 
-              src="/caranedolanan/logo.webp" 
-              alt="Carane Dolanan" 
-              width={600} 
-              height={250} 
+            <Image
+              src="/caranedolanan/logo.webp"
+              alt="Carane Dolanan"
+              width={600}
+              height={250}
               className="cd-logo"
               priority
             />
@@ -274,7 +274,7 @@ export default function CaraDolananPage() {
 
           <div className="cd-image-container">
             <Image
-              src="/caranedolanan/dokumen.jpeg"
+              src="/caranedolanan/katakunci2.png"
               alt="Halaman PDF Ulasan Materi"
               width={800}
               height={450}

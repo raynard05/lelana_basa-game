@@ -58,7 +58,7 @@ export default function MenuPage() {
         router.push('/main_page');
         break;
       case 'profil':
-        router.push('/profil');
+        router.push('/profilpengembang');
         break;
     }
   };
