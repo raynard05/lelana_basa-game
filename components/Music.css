@@ -9,10 +9,6 @@
   outline: none;
   width: 12vh;
   height: 12vh;
-  min-width: 50px;
-  min-height: 50px;
-  max-width: 80px;
-  max-height: 80px;
   border-radius: 50%;
   display: flex;
   align-items: center;

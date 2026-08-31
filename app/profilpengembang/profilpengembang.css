@@ -18,12 +18,8 @@
 .pp-music-btn {
   position: fixed;
   z-index: 100;
-  width: 15vh;
-  height: 15vh;
-  min-width: 50px;
-  min-height: 50px;
-  max-width: 80px;
-  max-height: 80px;
+  width: 12vh;
+  height: 12vh;
   background: transparent;
   border: none;
   cursor: pointer;
