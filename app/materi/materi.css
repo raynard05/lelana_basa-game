@@ -17,14 +17,11 @@
 
 .mt-home-btn,
 .mt-music-btn {
-  position: fixed;
+  position: fixed !important;
   z-index: 100;
   width: 15vh;
   height: 15vh;
-  min-width: 50px;
-  min-height: 50px;
-  max-width: 80px;
-  max-height: 80px;
+
   background: transparent;
   border: none;
   cursor: pointer;
@@ -49,6 +46,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+
   .mt-home-btn:hover,
   .mt-music-btn:hover {
     transform: scale(1.15);
@@ -65,15 +63,18 @@
 .mt-container::-webkit-scrollbar {
   width: 10px;
 }
+
 .mt-container::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.1);
 }
+
 .mt-container::-webkit-scrollbar-thumb {
   background-color: #5c4033;
   border-radius: 10px;
   border: 2px solid transparent;
   background-clip: padding-box;
 }
+
 .mt-container::-webkit-scrollbar-thumb:hover {
   background-color: #3e2723;
 }
@@ -97,8 +98,8 @@
 }
 
 .mt-logo-container {
-  width: 100%;
-  max-width: 450px;
+  width: 60vh;
+  max-width: 80vw;
   display: flex;
   justify-content: center;
   margin-bottom: 2vh;
@@ -108,7 +109,7 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
 }
 
 .mt-paragraph {
@@ -133,7 +134,7 @@
   border-radius: 10px;
   font-size: 1.2rem;
   font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
   text-align: center;
   border: 2px solid #3e2723;
   margin-top: 8vh;
@@ -141,8 +142,8 @@
 }
 
 .mt-image-container {
-  width: 100%;
-  max-width: 700px;
+  width: 85vh;
+  max-width: 90vw;
   display: flex;
   justify-content: center;
 }
@@ -164,7 +165,7 @@
   font-weight: bold;
   border-radius: 25px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s, background-color 0.2s;
 }
 
@@ -182,38 +183,47 @@
   .mt-paragraph {
     font-size: 1rem;
   }
+
   .mt-step-title {
     font-size: 1.1rem;
     padding: 8px 20px;
   }
+
   .mt-content-wrapper {
     padding: 4vh 5vw;
   }
 }
+
 @media (orientation: landscape) and (max-height: 500px) {
   .mt-content {
     gap: 6vh;
   }
+
   .mt-paragraph {
     font-size: 0.85rem;
     line-height: 1.4;
   }
+
   .mt-logo-container {
-    max-width: 250px;
+    width: 50vh;
     margin-bottom: 2vh;
   }
+
   .mt-content-wrapper {
     padding: 8vh 12vw;
   }
+
   .mt-step-title {
     font-size: 0.9rem;
     padding: 6px 15px;
     margin-top: 5vh;
   }
+
   .mt-image-container {
-    max-width: 450px;
+    width: 120vh;
     margin-bottom: 2vh;
   }
+
   .mt-back-btn {
     font-size: 1rem;
     padding: 8px 30px;
@@ -225,9 +235,11 @@
   .mt-content {
     gap: 5vh;
   }
+
   .mt-logo-container {
     margin-bottom: 2vh;
   }
+
   .mt-image-container {
     margin-bottom: 2vh;
   }
