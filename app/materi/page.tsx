@@ -100,7 +100,7 @@ export default function MateriPage() {
           <div className="mt-step-title">
             6. Cara Nemtokake Ragam Basa (Panduan Cepet)
           </div>
-          <p className="mt-paragraph" style={{textAlign: 'center'}}>
+          <p className="mt-paragraph" style={{textAlign: 'left'}}>
             Sadurunge micara, siswa bisa takon marang awake dhewe:<br/>
             1. Sapa mitra tuture? (luwih tuwa / sapantaran / luwih enom)<br/>
             2. Kepiye sesambungane? (raket / durung raket / formal)<br/>
