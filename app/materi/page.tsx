@@ -87,10 +87,21 @@ export default function MateriPage() {
             Migunakake tembung krama inggil kanggo pakurmatan paling dhuwur. Digunakake marang wong tuwa, guru, utawa wong sing dihurmati.<br/>
             <strong>Tuladha: "Panjenengan sampun dhahar menapa dereng?" (kabeh tembung migunakake krama inggil)</strong>
           </p>
+          <p className="mt-paragraph" style={{textAlign: 'center', marginBottom: '1vh'}}><strong>Tabel Ringkesan</strong></p>
           <div className="mt-image-container">
             <Image
               src="/materi/tabel_ringkesan.png"
               alt="Tabel Ringkesan Basa Krama"
+              width={800}
+              height={450}
+              className="mt-step-img"
+            />
+          </div>
+          <p className="mt-paragraph" style={{textAlign: 'center', marginBottom: '1vh'}}><strong>Tabel Konteks</strong></p>
+          <div className="mt-image-container">
+            <Image
+              src="/materi/tabel_konteks.png"
+              alt="Tabel Konteks"
               width={800}
               height={450}
               className="mt-step-img"
