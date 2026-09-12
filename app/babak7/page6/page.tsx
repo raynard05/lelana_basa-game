@@ -140,9 +140,6 @@ export default function Babak7Page6Page() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem('game_score', '0');
-      localStorage.setItem('game_streak', '0');
-      
       const timerKeys = [
         'babak7_page6_timer_expiration',
         'babak7_page6_timer_paused_time'

@@ -140,12 +140,9 @@ export default function Babak5Page1Page() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem('game_score', '0');
-      localStorage.setItem('game_streak', '0');
-      
       const timerKeys = [
-        'babak5_page1_timer_expiration',
-        'babak5_page1_timer_paused_time'
+        'babak5_timer_expiration',
+        'babak5_timer_paused_time'
       ];
       timerKeys.forEach(key => localStorage.removeItem(key));
     }

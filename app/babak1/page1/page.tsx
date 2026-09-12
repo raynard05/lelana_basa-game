@@ -143,11 +143,11 @@ export default function Babak1Page1Page() {
       localStorage.setItem('game_score', '0');
       localStorage.setItem('game_streak', '0');
       
-      const timerKeys = [
-        'babak1_page1_timer_expiration',
-        'babak1_page1_timer_paused_time'
-      ];
-      timerKeys.forEach(key => localStorage.removeItem(key));
+      Object.keys(localStorage).forEach(key => {
+        if (key.includes('_timer_')) {
+          localStorage.removeItem(key);
+        }
+      });
     }
   }, []);
 
