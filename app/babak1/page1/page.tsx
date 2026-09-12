@@ -142,6 +142,7 @@ export default function Babak1Page1Page() {
     if (typeof window !== 'undefined') {
       localStorage.setItem('game_score', '0');
       localStorage.setItem('game_streak', '0');
+      localStorage.removeItem('game_ulasan');
       
       Object.keys(localStorage).forEach(key => {
         if (key.includes('_timer_')) {
