@@ -11,7 +11,7 @@ export interface UserData {
 
 export async function generateStudentPDF(userData: UserData, ulasanData: UlasanItem[]) {
   // 1. Fetch the existing PDF template
-  const url = '/document/dokumen-siswa.pdf';
+  const url = '/document/dokumen_siswa_an.pdf';
   const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
 
   // 2. Load a PDFDocument from the existing PDF bytes
@@ -32,7 +32,7 @@ export async function generateStudentPDF(userData: UserData, ulasanData: UlasanI
   // We need to place Name, Absen, Kelas, Biji, Wektu.
 
   const startX = 110; // X coordinate for values (moved left to align with colon)
-  let startY = 680;   // Y coordinate for first value (Jeneng)
+  let startY = 672;   // Y coordinate for first value (Jeneng)
   const lineHeight = 22; // Estimated line height for the template
 
   const fontSize = 12;
@@ -138,7 +138,7 @@ export async function generateStudentPDF(userData: UserData, ulasanData: UlasanI
 
   const link = document.createElement('a');
   link.href = blobUrl;
-  link.download = `Dokumen_Siswa_${userData.nama_lengkap.replace(/\s+/g, '_')}.pdf`;
+  link.download = `dokumen_siswa_an_${userData.nama_lengkap.replace(/\s+/g, '_')}.pdf`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
