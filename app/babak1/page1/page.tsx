@@ -13,7 +13,7 @@ import confetti from 'canvas-confetti';
 
 import './babak1.css';
 
-export default function Babak1Page() {
+export default function Babak1Page1Page() {
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [isValidating, setIsValidating] = useState(true);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -22,11 +22,13 @@ export default function Babak1Page() {
   const [showPopup, setShowPopup] = useState<'pop_25' | 'pop_50' | 'pop_75' | 'pop_100' | 'pop_cobalagi' | 'pop_salah' | 'pop_streak' | 'timeout' | null>(null);
   const [attempts, setAttempts] = useState(1);
   const [hasStreakPending, setHasStreakPending] = useState(false);
+  
+  // NEW STATE FOR 3 STEPS
+  const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
   const proceedTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const router = useRouter();
 
-  // 1. Session check on mount
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -45,7 +47,6 @@ export default function Babak1Page() {
     checkAuth();
   }, [router]);
 
-  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (proceedTimeoutRef.current) {
@@ -54,7 +55,6 @@ export default function Babak1Page() {
     };
   }, []);
 
-  // Play sound effects when popups appear
   useEffect(() => {
     let applauseAudio: HTMLAudioElement | null = null;
     let applauseTimeout: NodeJS.Timeout | null = null;
@@ -63,7 +63,6 @@ export default function Babak1Page() {
       const audio = new Audio('/main/MP3_soundeffect/correct_soundeffect.wav');
       audio.play().catch((err) => console.log('Correct sound playback failed:', err));
       
-      // Trigger confetti
       if (showPopup === 'pop_100') {
         confetti({
           particleCount: 150,
@@ -74,7 +73,6 @@ export default function Babak1Page() {
         });
       }
     } else if (showPopup === 'pop_streak') {
-      // Play applause for streak popup
       applauseAudio = new Audio('/main/MP3_soundeffect/aplause.mp3');
       applauseAudio.play().catch((err) => console.log('Applause sound playback failed:', err));
 
@@ -85,7 +83,6 @@ export default function Babak1Page() {
         }
       }, 4000);
 
-      // Trigger premium gold confetti
       const end = Date.now() + 3000;
       const colors = ['#FFD700', '#FFA500', '#FFF8E1', '#F0B863', '#ECC560'];
       (function frame() {
@@ -132,7 +129,6 @@ export default function Babak1Page() {
       audio.play().catch((err) => console.log('Wrong sound playback failed:', err));
     }
 
-    // Cleanup audio playback on change or unmount
     return () => {
       if (applauseTimeout) clearTimeout(applauseTimeout);
       if (applauseAudio) {
@@ -142,22 +138,14 @@ export default function Babak1Page() {
     };
   }, [showPopup]);
 
-  // Initialize game score to 0 and clear all timers on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('game_score', '0');
       localStorage.setItem('game_streak', '0');
       
-      // Clear all timer keys from previous sessions to prevent sudden timeout bugs
       const timerKeys = [
         'babak1_page1_timer_expiration',
-        'babak1_page1_timer_paused_time',
-        'babak1_page3_timer_expiration',
-        'babak1_page3_timer_paused_time',
-        'babak1_page4_timer_expiration',
-        'babak1_page4_timer_paused_time',
-        'babak1_page5_timer_expiration',
-        'babak1_page5_timer_paused_time'
+        'babak1_page1_timer_paused_time'
       ];
       timerKeys.forEach(key => localStorage.removeItem(key));
     }
@@ -168,10 +156,54 @@ export default function Babak1Page() {
     setIsLocked(true);
     setShowPopup('timeout');
 
-    // Auto-proceed to the next page after 2 seconds
     proceedTimeoutRef.current = setTimeout(() => {
       handleProceed();
     }, 2000);
+  };
+
+  const getStepConfig = () => {
+    switch (currentStep) {
+      case 1:
+        return {
+          bgImage: '/main_frame/relasi.webp',
+          title: 'Relasi Sosial',
+          options: [
+            { id: 'Cedhak', label: 'Cedhak' },
+            { id: 'Sedheng', label: 'Sedheng' },
+            { id: 'Adoh', label: 'Adoh' }
+          ],
+          correctId: 'Cedhak'
+        };
+      case 2:
+        return {
+          bgImage: '/main_frame/pakurmatan.webp',
+          title: 'Tingkat Pakurmatan',
+          options: [
+            { id: 'Dhuwur', label: 'Dhuwur' },
+            { id: 'Sedheng', label: 'Sedheng' },
+            { id: 'Asor', label: 'Asor' }
+          ],
+          correctId: 'Asor'
+        };
+      case 3:
+        return {
+          bgImage: '/main_frame/drajatsosial.webp',
+          title: 'Drajat Sosial',
+          options: [
+            { id: 'Tuwa', label: 'Tuwa' },
+            { id: 'Remaja', label: 'Remaja' },
+            { id: 'Bocah', label: 'Bocah' }
+          ],
+          correctId: 'Bocah'
+        };
+      default:
+        return {
+          bgImage: '/main_frame/relasi.webp',
+          title: '',
+          options: [],
+          correctId: ''
+        };
+    }
   };
 
   const handleOptionClick = (optionId: string) => {
@@ -179,71 +211,35 @@ export default function Babak1Page() {
     setIsLocked(true);
     setSelectedOption(optionId);
 
-    const correct = optionId === 'sapantaran';
+    const stepConfig = getStepConfig();
+    const correct = optionId === stepConfig.correctId;
     setIsAnswerCorrect(correct);
 
-    const questionText = 'Analisis paraga Jaka Slewah';
-    const options = [
-      { id: 'luwih_tuwa', label: 'Luwih tuwa' },
-      { id: 'sapantaran', label: 'Sapantaran' },
-      { id: 'luwih_enom', label: 'Luwih enom' }
-    ];
-    const userAns = options.find(o => o.id === optionId)?.label || optionId;
-    const correctAns = options.find(o => o.id === 'sapantaran')?.label || 'Sapantaran';
+    const questionText = 'Analisis paraga Jaka Slewah - ' + stepConfig.title;
+    const userAns = stepConfig.options.find(o => o.id === optionId)?.label || optionId;
+    const correctAns = stepConfig.options.find(o => o.id === stepConfig.correctId)?.label || stepConfig.correctId;
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {
-       const __tmpEarned = (attempts === 1 ? 100 : 75);
-       const __streakStr = localStorage.getItem('game_streak') || '0';
-       const __currentStreak = parseInt(__streakStr, 10) + 1;
-       const __isStreak = (__tmpEarned === 100) && (__currentStreak === 3);
-       __scoreText = `skor : ${__tmpEarned}+` + (__isStreak ? ` , streak : 25+` : ``);
+       const __tmpEarned = (attempts === 1 ? 50 : 25);
+       __scoreText = "skor : " + __tmpEarned;
     }
     saveUlasan(questionText, userAns, correctAns, __scoreText);
 
     if (correct && typeof window !== 'undefined') {
-      const earned = attempts === 1 ? 100 : 75;
+      const earned = attempts === 1 ? 50 : 25;
       
-      if (earned === 100) {
-        const currentStreak = parseInt(localStorage.getItem('game_streak') || '0', 10) + 1;
-        localStorage.setItem('game_streak', currentStreak.toString());
-        
-        if (currentStreak === 3) {
-          localStorage.setItem('game_score', (earned + 25).toString());
-          localStorage.setItem('game_streak', '0');
-          setHasStreakPending(true);
-          
-          setTimeout(() => {
-            setShowPopup('pop_100');
-            
-            proceedTimeoutRef.current = setTimeout(() => {
-              setHasStreakPending(false);
-              setShowPopup('pop_streak');
-              
-              proceedTimeoutRef.current = setTimeout(() => {
-                handleProceed();
-              }, 4000);
-            }, 4000);
-          }, 1000);
-          return;
-        }
-      } else {
-        localStorage.setItem('game_streak', '0');
-      }
-
-      localStorage.setItem('game_score', earned.toString());
+      const currentScore = parseInt(localStorage.getItem('game_score') || '0', 10);
+      localStorage.setItem('game_score', (currentScore + earned).toString());
       
       setTimeout(() => {
-        setShowPopup(`pop_${earned}` as any);
+        setShowPopup("pop_" + earned as any);
 
         proceedTimeoutRef.current = setTimeout(() => {
-          handleProceed();
+          handleNextStep();
         }, 4000);
       }, 1000);
     } else {
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('game_streak', '0');
-      }
       setTimeout(() => {
         if (attempts === 1) {
           setShowPopup('pop_cobalagi');
@@ -254,13 +250,35 @@ export default function Babak1Page() {
             setIsAnswerCorrect(null);
             setShowPopup(null);
           }, 2500);
+        } else if (attempts === 2) {
+          setShowPopup('pop_salah');
+          proceedTimeoutRef.current = setTimeout(() => {
+            setAttempts(3);
+            setIsLocked(false);
+            setSelectedOption(null);
+            setIsAnswerCorrect(null);
+            setShowPopup(null);
+          }, 2500);
         } else {
           setShowPopup('pop_salah');
           proceedTimeoutRef.current = setTimeout(() => {
-            handleProceed();
-          }, 2000); // 2 seconds delay for incorrect popup on 2nd attempt
+            handleNextStep();
+          }, 2000);
         }
       }, 1000);
+    }
+  };
+
+  const handleNextStep = () => {
+    if (currentStep < 3) {
+      setCurrentStep((prev) => (prev + 1) as 1 | 2 | 3);
+      setAttempts(1);
+      setIsLocked(false);
+      setSelectedOption(null);
+      setIsAnswerCorrect(null);
+      setShowPopup(null);
+    } else {
+      handleProceed();
     }
   };
 
@@ -269,21 +287,25 @@ export default function Babak1Page() {
       clearTimeout(proceedTimeoutRef.current);
     }
     
-    if (showPopup === 'pop_cobalagi') {
-      setAttempts(2);
-      setIsLocked(false);
-      setSelectedOption(null);
-      setIsAnswerCorrect(null);
-      setShowPopup(null);
-    } else if (showPopup === 'pop_100' && hasStreakPending) {
+    if (showPopup === 'pop_100' && hasStreakPending) {
       setHasStreakPending(false);
       setShowPopup('pop_streak');
       
       proceedTimeoutRef.current = setTimeout(() => {
-        handleProceed();
+        handleNextStep();
       }, 4000);
     } else {
-      handleProceed();
+      if (['pop_25', 'pop_50', 'pop_75', 'pop_100'].includes(showPopup as string) || (showPopup === 'pop_salah' && attempts === 3) || showPopup === 'timeout') {
+         handleNextStep();
+      } else {
+        if (showPopup === 'pop_cobalagi' || (showPopup === 'pop_salah' && attempts < 3)) {
+          setAttempts(attempts + 1);
+          setIsLocked(false);
+          setSelectedOption(null);
+          setIsAnswerCorrect(null);
+          setShowPopup(null);
+        }
+      }
     }
   };
 
@@ -305,33 +327,25 @@ export default function Babak1Page() {
     );
   }
 
-  const options = [
-    { id: 'luwih_tuwa', label: 'Luwih tuwa' },
-    { id: 'sapantaran', label: 'Sapantaran' },
-    { id: 'luwih_enom', label: 'Luwih enom' }
-  ];
+  const stepConfig = getStepConfig();
 
   return (
     <div className="babak1-container">
-      {/* Top Controls */}
       <Home className="babak1-nav-btn babak1-home-btn" />
 
       <Timer
-        initialTime={60}
+        initialTime={120}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
         storageKey="babak1_page1_timer"
       />
 
-      {/* Skip button replaced by Music Component */}
       <Music className="babak1-nav-btn babak1-music-btn" />
-      {/* Main Analysis Card */}
-      <div className="babak1-card-frame">
+      
+      <div className="babak1-card-frame" style={{ backgroundImage: "url('" + stepConfig.bgImage + "')" }}>
         <div className="babak1-card-content-layout">
 
-          {/* Left Column: Portrait & metadata */}
           <div className="babak1-column-left">
-
             <Image
               src="/babak1/pages_1_assets/aktor_npc.png"
               alt="Jaka Slewah"
@@ -343,12 +357,11 @@ export default function Babak1Page() {
             />
           </div>
 
-          {/* Right Column: Title & choices */}
           <div className="babak1-column-right">
            <div className="babak1-options-container">
-              {options.map((opt) => {
+              {stepConfig.options.map((opt) => {
                 const isSelected = selectedOption === opt.id;
-                let btnClass = `babak1-option-btn babak1-opt-${opt.id}`;
+                let btnClass = "babak1-option-btn babak1-opt-" + opt.id;
 
                 if (isSelected) {
                   if (isAnswerCorrect) {
@@ -376,22 +389,20 @@ export default function Babak1Page() {
         </div>
       </div>
 
-      {/* Bottom Subtitle / Instruction Banner */}
       <div className="babak1-bottom-banner">
         <div className="babak1-banner-content-layout">
 
         </div>
       </div>
 
-      {/* Delayed Popup Modals */}
       {showPopup && (
-        <div className={`babak1-popup-overlay ${showPopup === 'pop_streak' ? 'streak-popup-overlay' : ''}`} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
-          <div className={`babak1-popup-card ${showPopup === 'pop_streak' ? 'streak-popup-card' : ''}`}>
+        <div className={"babak1-popup-overlay " + (showPopup === 'pop_streak' ? 'streak-popup-overlay' : '')} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
+          <div className={"babak1-popup-card " + (showPopup === 'pop_streak' ? 'streak-popup-card' : '')}>
             <Image
               src={
                 showPopup === 'timeout'
                   ? '/main/pop_up/pop_waktuhabis1.webp'
-                  : `/main/pop_up/${showPopup}.png`
+                  : "/main/pop_up/" + showPopup + ".png"
               }
               alt={showPopup}
               width={320}

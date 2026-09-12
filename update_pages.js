@@ -1,4 +1,73 @@
-'use client';
+const fs = require('fs');
+const path = require('path');
+
+const pagesData = [
+    {
+        dir: 'app/babak1/page1',
+        css: 'babak1.css',
+        nextRoute: '/babak1/page2_narration',
+        npc_name: 'Jaka Slewah',
+        npc_img: '/babak1/pages_1_assets/aktor_npc.png',
+        answers: ['Cedhak', 'Asor', 'Bocah'],
+        css_prefix: 'babak1'
+    },
+    {
+        dir: 'app/babak2/page1',
+        css: 'babak2.css',
+        nextRoute: '/babak2/page2',
+        npc_name: 'Wandan Wanguri',
+        npc_img: '/babak2/pages_1_assets/aktor_npc.png',
+        answers: ['Cedhak', 'Dhuwur', 'Tuwa'],
+        css_prefix: 'babak2'
+    },
+    {
+        dir: 'app/babak4/page1',
+        css: 'babak4.css',
+        nextRoute: '/babak4/page2',
+        npc_name: 'Ki Ageng Sapayana',
+        npc_img: '/babak4/pages_1_assets/aktor_npc.png',
+        answers: ['Adoh', 'Dhuwur', 'Tuwa'],
+        css_prefix: 'babak4'
+    },
+    {
+        dir: 'app/babak5/page1',
+        css: 'babak5.css',
+        nextRoute: '/babak5/page2',
+        npc_name: 'Surontanu',
+        npc_img: '/babak5/pages_1_assets/aktor_npc.png',
+        answers: ['Sedheng', 'Sedheng', 'Remaja'],
+        css_prefix: 'babak5'
+    },
+    {
+        dir: 'app/babak7/page1',
+        css: 'page1.css',
+        nextRoute: '/babak7/page2',
+        npc_name: 'Prajurit',
+        npc_img: '/babak7/pages_1_assets/aktor_npc.png',
+        answers: ['Adoh', 'Sedheng', 'Remaja'],
+        css_prefix: 'babak7-page1'
+    },
+    {
+        dir: 'app/babak7/page6',
+        css: 'page6.css',
+        nextRoute: '/babak7/page7',
+        npc_name: 'Patih Pangulang Jagad',
+        npc_img: '/babak7/pages_6_assets/aktor_npc.png',
+        answers: ['Adoh', 'Dhuwur', 'Tuwa'],
+        css_prefix: 'babak7-page6'
+    },
+    {
+        dir: 'app/babak9/page1',
+        css: 'page1.css',
+        nextRoute: '/babak9/page2',
+        npc_name: 'Patih Pangulang Jagad',
+        npc_img: '/babak9/pages_1_assets/aktor_npc.png',
+        answers: ['Sedheng', 'Dhuwur', 'Tuwa'],
+        css_prefix: 'babak9-page1'
+    }
+];
+
+const pageTemplate = `'use client';
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
@@ -11,9 +80,9 @@ import Music from '@/components/Music';
 import Timer from '@/components/Timer';
 import confetti from 'canvas-confetti';
 
-import './babak2.css';
+import './{css_file}';
 
-export default function Babak2Page1Page() {
+export default function {component_name}() {
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [isValidating, setIsValidating] = useState(true);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -144,8 +213,8 @@ export default function Babak2Page1Page() {
       localStorage.setItem('game_streak', '0');
       
       const timerKeys = [
-        'babak2_page1_timer_expiration',
-        'babak2_page1_timer_paused_time'
+        '{timer_prefix}_timer_expiration',
+        '{timer_prefix}_timer_paused_time'
       ];
       timerKeys.forEach(key => localStorage.removeItem(key));
     }
@@ -172,7 +241,7 @@ export default function Babak2Page1Page() {
             { id: 'Sedheng', label: 'Sedheng' },
             { id: 'Adoh', label: 'Adoh' }
           ],
-          correctId: 'Cedhak'
+          correctId: '{ans1}'
         };
       case 2:
         return {
@@ -183,7 +252,7 @@ export default function Babak2Page1Page() {
             { id: 'Sedheng', label: 'Sedheng' },
             { id: 'Asor', label: 'Asor' }
           ],
-          correctId: 'Dhuwur'
+          correctId: '{ans2}'
         };
       case 3:
         return {
@@ -194,7 +263,7 @@ export default function Babak2Page1Page() {
             { id: 'Remaja', label: 'Remaja' },
             { id: 'Bocah', label: 'Bocah' }
           ],
-          correctId: 'Tuwa'
+          correctId: '{ans3}'
         };
       default:
         return {
@@ -215,7 +284,7 @@ export default function Babak2Page1Page() {
     const correct = optionId === stepConfig.correctId;
     setIsAnswerCorrect(correct);
 
-    const questionText = 'Analisis paraga Wandan Wanguri - ' + stepConfig.title;
+    const questionText = 'Analisis paraga {npc_name} - ' + stepConfig.title;
     const userAns = stepConfig.options.find(o => o.id === optionId)?.label || optionId;
     const correctAns = stepConfig.options.find(o => o.id === stepConfig.correctId)?.label || stepConfig.correctId;
     
@@ -311,15 +380,15 @@ export default function Babak2Page1Page() {
 
   const handleProceed = () => {
     if (typeof window !== 'undefined') {
-      localStorage.removeItem('babak2_page1_timer_expiration');
-      localStorage.removeItem('babak2_page1_timer_paused_time');
+      localStorage.removeItem('{timer_prefix}_timer_expiration');
+      localStorage.removeItem('{timer_prefix}_timer_paused_time');
     }
-    router.push('/babak2/page2_narration');
+    router.push('{next_route}');
   };
 
   if (isValidating) {
     return (
-      <div className="babak2-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div className="{css_prefix}-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ color: '#FFF8E1', fontSize: '20px', fontWeight: 'bold', textShadow: '0 2px 4px rgba(0,0,0,0.5)', fontFamily: 'sans-serif' }}>
           Loading...
         </div>
@@ -330,44 +399,44 @@ export default function Babak2Page1Page() {
   const stepConfig = getStepConfig();
 
   return (
-    <div className="babak2-container">
-      <Home className="babak2-nav-btn babak2-home-btn" />
+    <div className="{css_prefix}-container">
+      <Home className="{css_prefix}-nav-btn {css_prefix}-home-btn" />
 
       <Timer
-        initialTime={120}
+        initialTime={150}
         isLocked={isLocked || !!showPopup}
         onTimeOut={handleTimeOut}
-        storageKey="babak2_page1_timer"
+        storageKey="{timer_prefix}_timer"
       />
 
-      <Music className="babak2-nav-btn babak2-music-btn" />
+      <Music className="{css_prefix}-nav-btn {css_prefix}-music-btn" />
       
-      <div className="babak2-card-frame" style={{ backgroundImage: "url('" + stepConfig.bgImage + "')" }}>
-        <div className="babak2-card-content-layout">
+      <div className="{css_prefix}-card-frame" style={{ backgroundImage: "url('" + stepConfig.bgImage + "')" }}>
+        <div className="{css_prefix}-card-content-layout">
 
-          <div className="babak2-column-left">
+          <div className="{css_prefix}-column-left">
             <Image
-              src="/all_characters/character_babak2.webp"
-              alt="Wandan Wanguri"
+              src="{npc_img}"
+              alt="{npc_name}"
               width={100}
               height={100}
-              className="babak2-avatar-image-el"
+              className="{css_prefix}-avatar-image-el"
               priority
               unoptimized
             />
           </div>
 
-          <div className="babak2-column-right">
-           <div className="babak2-options-container">
+          <div className="{css_prefix}-column-right">
+           <div className="{css_prefix}-options-container">
               {stepConfig.options.map((opt) => {
                 const isSelected = selectedOption === opt.id;
-                let btnClass = "babak2-option-btn babak2-opt-" + opt.id;
+                let btnClass = "{css_prefix}-option-btn {css_prefix}-opt-" + opt.id;
 
                 if (isSelected) {
                   if (isAnswerCorrect) {
-                    btnClass += " babak2-correct-option";
+                    btnClass += " {css_prefix}-correct-option";
                   } else if (isAnswerCorrect === false) {
-                    btnClass += " babak2-incorrect-option";
+                    btnClass += " {css_prefix}-incorrect-option";
                   }
                 }
 
@@ -389,15 +458,15 @@ export default function Babak2Page1Page() {
         </div>
       </div>
 
-      <div className="babak2-bottom-banner">
-        <div className="babak2-banner-content-layout">
+      <div className="{css_prefix}-bottom-banner">
+        <div className="{css_prefix}-banner-content-layout">
 
         </div>
       </div>
 
       {showPopup && (
-        <div className={"babak2-popup-overlay " + (showPopup === 'pop_streak' ? 'streak-popup-overlay' : '')} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
-          <div className={"babak2-popup-card " + (showPopup === 'pop_streak' ? 'streak-popup-card' : '')}>
+        <div className={"{css_prefix}-popup-overlay " + (showPopup === 'pop_streak' ? 'streak-popup-overlay' : '')} onClick={handleOverlayClick} style={{ cursor: 'pointer' }}>
+          <div className={"{css_prefix}-popup-card " + (showPopup === 'pop_streak' ? 'streak-popup-card' : '')}>
             <Image
               src={
                 showPopup === 'timeout'
@@ -407,7 +476,7 @@ export default function Babak2Page1Page() {
               alt={showPopup}
               width={320}
               height={240}
-              className="babak2-popup-image"
+              className="{css_prefix}-popup-image"
               unoptimized
             />
           </div>
@@ -415,4 +484,61 @@ export default function Babak2Page1Page() {
       )}
     </div>
   );
-}
+}`;
+
+pagesData.forEach(p => {
+    const compParts = p.dir.split('/');
+    const compName = compParts.slice(1).map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('') + "Page";
+    
+    const filePath = path.join(p.dir, 'page.tsx');
+    
+    if (fs.existsSync(filePath)) {
+        let content = fs.readFileSync(filePath, 'utf-8');
+        let match = content.match(/router\\.push\\('([^']+)'\\)/);
+        if (match && match[1] !== '/') {
+            p.nextRoute = match[1];
+        }
+        
+        match = content.match(/storageKey="([^"]+)_timer"/);
+        if (match) {
+            p.timer_prefix = match[1];
+        } else {
+            p.timer_prefix = compParts[1] + '_' + compParts[2];
+        }
+    }
+
+    let contentToWrite = pageTemplate
+        .replace(/{css_file}/g, p.css)
+        .replace(/{component_name}/g, compName)
+        .replace(/{timer_prefix}/g, p.timer_prefix)
+        .replace(/{ans1}/g, p.answers[0])
+        .replace(/{ans2}/g, p.answers[1])
+        .replace(/{ans3}/g, p.answers[2])
+        .replace(/{npc_name}/g, p.npc_name)
+        .replace(/{next_route}/g, p.nextRoute)
+        .replace(/{css_prefix}/g, p.css_prefix)
+        .replace(/{npc_img}/g, p.npc_img);
+    
+    fs.writeFileSync(filePath, contentToWrite, 'utf-8');
+    console.log("Updated " + filePath);
+});
+
+const cssReplacements = [
+    { old: /\\.([a-zA-Z0-9_-]+)-opt-luwih_tuwa/g, new: '.$1-opt-Cedhak, .$1-opt-Dhuwur, .$1-opt-Tuwa' },
+    { old: /\\.([a-zA-Z0-9_-]+)-opt-sapantaran/g, new: '.$1-opt-Sedheng, .$1-opt-Remaja' },
+    { old: /\\.([a-zA-Z0-9_-]+)-opt-luwih_enom/g, new: '.$1-opt-Adoh, .$1-opt-Asor, .$1-opt-Bocah' }
+];
+
+pagesData.forEach(p => {
+    const cssPath = path.join(p.dir, p.css);
+    if (fs.existsSync(cssPath)) {
+        let cssContent = fs.readFileSync(cssPath, 'utf-8');
+        
+        cssReplacements.forEach(repl => {
+            cssContent = cssContent.replace(repl.old, repl.new);
+        });
+        
+        fs.writeFileSync(cssPath, cssContent, 'utf-8');
+        console.log("Updated CSS " + cssPath);
+    }
+});

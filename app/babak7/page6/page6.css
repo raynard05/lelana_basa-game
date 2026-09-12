@@ -173,15 +173,15 @@
     touch-action: manipulation;
 }
 
-.babak7-page6-opt-luwih_tuwa {
+.babak7-page6-opt-Cedhak, .babak7-page6-opt-Dhuwur, .babak7-page6-opt-Tuwa {
     grid-column: 1;
 }
 
-.babak7-page6-opt-sapantaran {
+.babak7-page6-opt-Sedheng, .babak7-page6-opt-Remaja {
     grid-column: 2;
 }
 
-.babak7-page6-opt-luwih_enom {
+.babak7-page6-opt-Adoh, .babak7-page6-opt-Asor, .babak7-page6-opt-Bocah {
     grid-column: span 2;
     width: 30vh !important;
     justify-self: center;
@@ -391,15 +391,15 @@
         width: 100% !important;
     }
 
-    .babak7-page6-opt-luwih_tuwa {
+    .babak7-page6-opt-Cedhak, .babak7-page6-opt-Dhuwur, .babak7-page6-opt-Tuwa {
         grid-column: span 1;
     }
 
-    .babak7-page6-opt-sapantaran {
+    .babak7-page6-opt-Sedheng, .babak7-page6-opt-Remaja {
         grid-column: span 1;
     }
 
-    .babak7-page6-opt-luwih_enom {
+    .babak7-page6-opt-Adoh, .babak7-page6-opt-Asor, .babak7-page6-opt-Bocah {
         grid-column: span 1;
         width: 100% !important;
     }
@@ -457,7 +457,7 @@
         touch-action: manipulation;
     }
 
-    .babak7-page6-opt-luwih_tuwa {
+    .babak7-page6-opt-Cedhak, .babak7-page6-opt-Dhuwur, .babak7-page6-opt-Tuwa {
         grid-column: 1;
         width: 37vh !important;
         position: relative;
@@ -465,7 +465,7 @@
         top: -2vw;
     }
 
-    .babak7-page6-opt-sapantaran {
+    .babak7-page6-opt-Sedheng, .babak7-page6-opt-Remaja {
         grid-column: 2;
         width: 37vh !important;
         position: relative;
@@ -473,7 +473,7 @@
         top: -2vw;
     }
 
-    .babak7-page6-opt-luwih_enom {
+    .babak7-page6-opt-Adoh, .babak7-page6-opt-Asor, .babak7-page6-opt-Bocah {
         grid-column: span 2;
         width: 37vh !important;
         justify-self: center;
@@ -484,7 +484,7 @@
 }
 
 @media (max-width: 990px) {
-    .babak7-page6-opt-luwih_tuwa {
+    .babak7-page6-opt-Cedhak, .babak7-page6-opt-Dhuwur, .babak7-page6-opt-Tuwa {
         grid-column: 1;
         width: 37vh !important;
         position: relative;
@@ -492,7 +492,7 @@
         top: -1vw;
     }
 
-    .babak7-page6-opt-sapantaran {
+    .babak7-page6-opt-Sedheng, .babak7-page6-opt-Remaja {
         grid-column: 2;
         width: 37vh !important;
         position: relative;
@@ -500,7 +500,7 @@
         top: -1vw;
     }
 
-    .babak7-page6-opt-luwih_enom {
+    .babak7-page6-opt-Adoh, .babak7-page6-opt-Asor, .babak7-page6-opt-Bocah {
         grid-column: span 2;
         width: 37vh !important;
         justify-self: center;

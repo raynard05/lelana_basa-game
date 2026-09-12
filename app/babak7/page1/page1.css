@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-.babak7-container {
+.babak7-page1-container {
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -27,12 +27,12 @@
 /* Nav Controls */
 
 
-.babak7-home-btn {
+.babak7-page1-home-btn {
     top: 5vh;
     left: 5vw;
 }
 
-.babak7-container .babak7-music-btn {
+.babak7-page1-container .babak7-page1-music-btn {
     top: 5vh;
     right: 5vw;
 }
@@ -41,7 +41,7 @@
 
 
 /* Main Analysis Card */
-.babak7-card-frame {
+.babak7-page1-card-frame {
     position: relative;
     width: 165vh;
     max-width: 200vw;
@@ -59,7 +59,7 @@
     transform: translateY(-2vh);
 }
 
-.babak7-card-content-layout {
+.babak7-page1-card-content-layout {
     width: 100%;
     height: 100%;
     display: flex;
@@ -68,7 +68,7 @@
 }
 
 /* Left Column: Portrait and details */
-.babak7-column-left {
+.babak7-page1-column-left {
     flex: 1.2;
     display: flex;
     flex-direction: column;
@@ -79,7 +79,7 @@
     transform: translateX(-10%);
 }
 
-.babak7-avatar-border {
+.babak7-page1-avatar-border {
     width: 24vh;
     height: 24vh;
     border-radius: 50%;
@@ -93,7 +93,7 @@
     justify-content: center;
 }
 
-.babak7-avatar-image-el {
+.babak7-page1-avatar-image-el {
     margin-top: 5%;
     width: 100%;
     height: 100%;
@@ -101,7 +101,7 @@
     object-fit: cover;
 }
 
-.babak7-char-title {
+.babak7-page1-char-title {
     font-size: 2.6vh;
     font-weight: 800;
     color: #2D1500;
@@ -109,21 +109,21 @@
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
-.babak7-char-relation {
+.babak7-page1-char-relation {
     font-size: 2vh;
     font-weight: 600;
     color: #5D4037;
     line-height: 1.2;
 }
 
-.babak7-char-age-tag {
+.babak7-page1-char-age-tag {
     font-size: 1.8vh;
     font-weight: 500;
     color: #795548;
     margin-top: 0.2vh;
 }
 
-.babak7-column-right {
+.babak7-page1-column-right {
     flex: 1.2;
     display: flex;
     flex-direction: column;
@@ -134,7 +134,7 @@
     margin-top: 1%;
 }
 
-.babak7-analysis-header {
+.babak7-page1-analysis-header {
     font-size: 3vh;
     font-weight: 900;
     color: #2D1500;
@@ -144,7 +144,7 @@
     letter-spacing: 1px;
 }
 
-.babak7-options-container {
+.babak7-page1-options-container {
     display: grid;
     grid-template-columns: repeat(2, 18vh);
     justify-content: center;
@@ -153,7 +153,7 @@
 }
 
 /* Option Buttons styling */
-.babak7-option-btn {
+.babak7-page1-option-btn {
     width: 100%;
     height: 6vh;
     min-height: 40px;
@@ -172,37 +172,37 @@
     touch-action: manipulation;
 }
 
-.babak7-opt-luwih_tuwa {
+.babak7-page1-opt-Cedhak, .babak7-page1-opt-Dhuwur, .babak7-page1-opt-Tuwa {
     grid-column: 1;
 }
 
-.babak7-opt-sapantaran {
+.babak7-page1-opt-Sedheng, .babak7-page1-opt-Remaja {
     grid-column: 2;
 }
 
-.babak7-opt-luwih_enom {
+.babak7-page1-opt-Adoh, .babak7-page1-opt-Asor, .babak7-page1-opt-Bocah {
     grid-column: span 2;
     width: 30vh !important;
     justify-self: center;
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .babak7-option-btn:hover {
+    .babak7-page1-option-btn:hover {
         filter: brightness(1.08);
     }
 }
 
-.babak7-option-btn:active {
+.babak7-page1-option-btn:active {
     transform: scale(0.97);
 }
 
-.babak7-option-btn:disabled {
+.babak7-page1-option-btn:disabled {
     cursor: not-allowed;
     opacity: 0.9;
 }
 
 /* Correct Answer state */
-.babak7-option-btn.babak7-correct-option {
+.babak7-page1-option-btn.babak7-page1-correct-option {
     background: linear-gradient(180deg, #4ADE80 0%, #16A34A 100%) !important;
     border-color: #064E3B !important;
     color: #F0FDF4 !important;
@@ -210,16 +210,16 @@
 }
 
 /* Incorrect Answer state */
-.babak7-option-btn.babak7-incorrect-option {
+.babak7-page1-option-btn.babak7-page1-incorrect-option {
     background: linear-gradient(180deg, #F87171 0%, #DC2626 100%) !important;
     border-color: #7F1D1D !important;
     color: #FEF2F2 !important;
     box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
-    animation: babak7-btnShake 0.4s ease-in-out;
+    animation: babak7-page1-btnShake 0.4s ease-in-out;
 }
 
 /* Bottom Instruction Banner */
-.babak7-bottom-banner {
+.babak7-page1-bottom-banner {
     position: absolute;
     bottom: 4vh;
     width: 160vh;
@@ -237,7 +237,7 @@
     filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
 }
 
-.babak7-banner-content-layout {
+.babak7-page1-banner-content-layout {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -249,13 +249,13 @@
     text-align: center;
 }
 
-.babak7-banner-icon {
+.babak7-page1-banner-icon {
     color: #F59E0B;
     flex-shrink: 0;
 }
 
 /* Premium Popup Modal Styles */
-.babak7-popup-overlay {
+.babak7-page1-popup-overlay {
     position: fixed;
     inset: 0;
     background: rgba(18, 11, 0, 0.85);
@@ -265,20 +265,20 @@
     z-index: 1000;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    animation: babak7-fadeIn 0.3s ease-out;
+    animation: babak7-page1-fadeIn 0.3s ease-out;
 }
 
-.babak7-popup-card {
+.babak7-page1-popup-card {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 90vw;
     width: 60vh;
-    animation: babak7-scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: babak7-page1-scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.babak7-popup-image {
+.babak7-page1-popup-image {
     width: 100%;
     height: auto;
     max-width: 120vh;
@@ -287,7 +287,7 @@
 }
 
 /* Animations */
-@keyframes babak7-btnShake {
+@keyframes babak7-page1-btnShake {
 
     0%,
     100% {
@@ -303,7 +303,7 @@
     }
 }
 
-@keyframes babak7-fadeInUp {
+@keyframes babak7-page1-fadeInUp {
     from {
         opacity: 0;
         transform: translateY(10px);
@@ -315,7 +315,7 @@
     }
 }
 
-@keyframes babak7-pulseSuccess {
+@keyframes babak7-page1-pulseSuccess {
     0% {
         box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.5);
     }
@@ -329,7 +329,7 @@
     }
 }
 
-@keyframes babak7-fadeIn {
+@keyframes babak7-page1-fadeIn {
     from {
         opacity: 0;
     }
@@ -339,7 +339,7 @@
     }
 }
 
-@keyframes babak7-scaleIn {
+@keyframes babak7-page1-scaleIn {
     from {
         opacity: 0;
         transform: scale(0.9);
@@ -353,75 +353,75 @@
 
 /* Portrait Safety Fallback */
 @media (orientation: portrait) {
-    .babak7-card-frame {
+    .babak7-page1-card-frame {
         width: 90vw;
         height: auto;
         aspect-ratio: auto;
         padding: 8vw 6vw;
     }
 
-    .babak7-card-content-layout {
+    .babak7-page1-card-content-layout {
         flex-direction: column;
         gap: 4vw;
     }
 
-    .babak7-column-left {
+    .babak7-page1-column-left {
         padding-right: 0;
         margin-bottom: 2vh;
     }
 
-    .babak7-avatar-border {
+    .babak7-page1-avatar-border {
         width: 20vh;
         height: 20vh;
     }
 
-    .babak7-column-right {
+    .babak7-page1-column-right {
         padding-left: 0;
         width: 100%;
     }
 
-    .babak7-options-container {
+    .babak7-page1-options-container {
         grid-template-columns: 1fr;
         max-width: 42vh;
         gap: 2.2vh;
     }
 
-    .babak7-option-btn {
+    .babak7-page1-option-btn {
         width: 100% !important;
     }
 
-    .babak7-opt-luwih_tuwa {
+    .babak7-page1-opt-Cedhak, .babak7-page1-opt-Dhuwur, .babak7-page1-opt-Tuwa {
         grid-column: span 1;
     }
 
-    .babak7-opt-sapantaran {
+    .babak7-page1-opt-Sedheng, .babak7-page1-opt-Remaja {
         grid-column: span 1;
     }
 
-    .babak7-opt-luwih_enom {
+    .babak7-page1-opt-Adoh, .babak7-page1-opt-Asor, .babak7-page1-opt-Bocah {
         grid-column: span 1;
         width: 100% !important;
     }
 
-    .babak7-bottom-banner {
+    .babak7-page1-bottom-banner {
         width: 90vw;
         height: auto;
         padding: 3vw;
         bottom: 3vh;
     }
 
-    .babak7-banner-content-layout {
+    .babak7-page1-banner-content-layout {
         font-size: 1.8vh;
     }
 
     
 
-    .babak7-home-btn {
+    .babak7-page1-home-btn {
         top: 3vh;
         left: 4vw;
     }
 
-    .babak7-container .babak7-music-btn {
+    .babak7-page1-container .babak7-page1-music-btn {
         top: 3vh;
         right: 4vw;
     }
@@ -429,15 +429,15 @@
 
 /* Desktop & Laptop responsiveness overrides */
 @media (min-width: 1025px) and (orientation: landscape) {
-    .babak7-column-right {
+    .babak7-page1-column-right {
         margin-top: 5%;
     }
 
-    .babak7-options-container {
+    .babak7-page1-options-container {
         grid-template-columns: repeat(2, 18vh);
     }
 
-    .babak7-option-btn {
+    .babak7-page1-option-btn {
         width: 100%;
         height: 10vh;
         min-height: 35px;
@@ -456,7 +456,7 @@
         touch-action: manipulation;
     }
 
-    .babak7-opt-luwih_tuwa {
+    .babak7-page1-opt-Cedhak, .babak7-page1-opt-Dhuwur, .babak7-page1-opt-Tuwa {
         grid-column: 1;
         width: 37vh !important;
         position: relative;
@@ -464,7 +464,7 @@
         top: -2vw;
     }
 
-    .babak7-opt-sapantaran {
+    .babak7-page1-opt-Sedheng, .babak7-page1-opt-Remaja {
         grid-column: 2;
         width: 37vh !important;
         position: relative;
@@ -472,7 +472,7 @@
         top: -2vw;
     }
 
-    .babak7-opt-luwih_enom {
+    .babak7-page1-opt-Adoh, .babak7-page1-opt-Asor, .babak7-page1-opt-Bocah {
         grid-column: span 2;
         width: 37vh !important;
         justify-self: center;
@@ -483,7 +483,7 @@
 }
 
 @media (max-width: 990px) {
-    .babak7-opt-luwih_tuwa {
+    .babak7-page1-opt-Cedhak, .babak7-page1-opt-Dhuwur, .babak7-page1-opt-Tuwa {
         grid-column: 1;
         width: 37vh !important;
         position: relative;
@@ -491,7 +491,7 @@
         top: -1vw;
     }
 
-    .babak7-opt-sapantaran {
+    .babak7-page1-opt-Sedheng, .babak7-page1-opt-Remaja {
         grid-column: 2;
         width: 37vh !important;
         position: relative;
@@ -499,7 +499,7 @@
         top: -1vw;
     }
 
-    .babak7-opt-luwih_enom {
+    .babak7-page1-opt-Adoh, .babak7-page1-opt-Asor, .babak7-page1-opt-Bocah {
         grid-column: span 2;
         width: 37vh !important;
         justify-self: center;
@@ -509,7 +509,7 @@
         
     }
 
-     .babak7-option-btn {
+     .babak7-page1-option-btn {
         font-size: 2.5vh;
      }
 }

@@ -1,0 +1,72 @@
+soal relasi sosial ada opsi jawaban Cedhak, Sedheng , Adoh
+soal tingkat pakurmatan ada opsi jawaban Dhuwur, Sedheng , Asor
+soal Drajat sosial ada opsi jawaban Tuwa, Remaja ,Bocah
+
+
+aturan scoring Model penilaian Misi 1
+
+* Relasi Sosial
+Kesempatan pertama benar 50
+Kesempatan kedua benar 25
+Kesempatan ketiga 0
+
+* Tingkat Pakurmatan 
+Kesempatan pertama benar 50
+Kesempatan kedua benar 25
+Kesempatan ketiga 0
+
+* Drajat Sosial
+Kesempatan pertama benar 50
+Kesempatan kedua benar 25
+Kesempatan ketiga 0
+
+jadikan waktu nya sebelumnya 1 menit menjadi 2 menit 30 detik
+
+alur kerjanya : background-image: url('/babak1/pages_1_assets/layout_analisis.webp'); diganti dengan frame yang ada di  @main_frame relasi sosial dahulu lalu dikeluarkan pop up nya sesuai skor lalu ganti ke tingkat pakurmatan , lalu drajat sosial , kemudian lanjut ke halaman berikutnya 
+
+
+
+
+kunci jawaban @babak1.css
+relasi sosial = Cedhak 
+tingkat pakurmatan = Asor
+Drajat Sosial = Bocah
+
+
+kunci jawaban @babak2.css
+relasi sosial = Cedhak
+tingkat pakurmatan = Dhuwur
+Drajat Sosial = Tuwa
+
+kunci jawaban @babak4.css
+relasi sosial = Adoh
+tingkat pakurmatan = Dhuwur
+Drajat Sosial = Tuwa
+
+kunci jawaban @babak5.css
+relasi sosial = Sedheng 
+tingkat pakurmatan = Sedheng
+Drajat Sosial = Remaja
+
+kunci jawaban @babak7/page1.css
+relasi sosial = Adoh 
+tingkat pakurmatan = Sedheng
+Drajat Sosial = Remaja
+
+kunci jawaban @babak7/page6.css
+relasi sosial = Adoh 
+tingkat pakurmatan = Dhuwur
+Drajat Sosial = Tuwa
+
+kunci jawaban @babak9/page1.css
+relasi sosial = Sedheng
+tingkat pakurmatan = Dhuwur
+Drajat Sosial = Tuwa
+
+
+
+
+
+
+
+

@@ -173,15 +173,15 @@
   touch-action: manipulation;
 }
 
-.babak4-opt-luwih_tuwa {
+.babak4-opt-Cedhak, .babak4-opt-Dhuwur, .babak4-opt-Tuwa {
   grid-column: 1;
 }
 
-.babak4-opt-sapantaran {
+.babak4-opt-Sedheng, .babak4-opt-Remaja {
   grid-column: 2;
 }
 
-.babak4-opt-luwih_enom {
+.babak4-opt-Adoh, .babak4-opt-Asor, .babak4-opt-Bocah {
   grid-column: span 2;
   width: 30vh !important;
   justify-self: center;
@@ -392,15 +392,15 @@
     width: 100% !important;
   }
 
-  .babak4-opt-luwih_tuwa {
+  .babak4-opt-Cedhak, .babak4-opt-Dhuwur, .babak4-opt-Tuwa {
     grid-column: span 1;
   }
 
-  .babak4-opt-sapantaran {
+  .babak4-opt-Sedheng, .babak4-opt-Remaja {
     grid-column: span 1;
   }
 
-  .babak4-opt-luwih_enom {
+  .babak4-opt-Adoh, .babak4-opt-Asor, .babak4-opt-Bocah {
     grid-column: span 1;
     width: 100% !important;
   }
@@ -458,7 +458,7 @@
     touch-action: manipulation;
   }
 
-  .babak4-opt-luwih_tuwa {
+  .babak4-opt-Cedhak, .babak4-opt-Dhuwur, .babak4-opt-Tuwa {
     grid-column: 1;
     width: 37vh !important;
     position: relative;
@@ -466,7 +466,7 @@
     top: -2vw;
   }
 
-  .babak4-opt-sapantaran {
+  .babak4-opt-Sedheng, .babak4-opt-Remaja {
     grid-column: 2;
     width: 37vh !important;
     position: relative;
@@ -474,7 +474,7 @@
     top: -2vw;
   }
 
-  .babak4-opt-luwih_enom {
+  .babak4-opt-Adoh, .babak4-opt-Asor, .babak4-opt-Bocah {
     grid-column: span 2;
     width: 37vh !important;
     justify-self: center;
@@ -485,7 +485,7 @@
 }
 
 @media (max-width: 990px) {
-  .babak4-opt-luwih_tuwa {
+  .babak4-opt-Cedhak, .babak4-opt-Dhuwur, .babak4-opt-Tuwa {
     grid-column: 1;
     width: 37vh !important;
     position: relative;
@@ -493,7 +493,7 @@
     top: -1vw;
   }
 
-  .babak4-opt-sapantaran {
+  .babak4-opt-Sedheng, .babak4-opt-Remaja {
     grid-column: 2;
     width: 37vh !important;
     position: relative;
@@ -501,7 +501,7 @@
     top: -1vw;
   }
 
-  .babak4-opt-luwih_enom {
+  .babak4-opt-Adoh, .babak4-opt-Asor, .babak4-opt-Bocah {
     grid-column: span 2;
     width: 37vh !important;
     justify-self: center;
