@@ -10,14 +10,14 @@ export default function ProfilPengembangPage() {
     <div className="pp-container">
       <Home className="pp-home-btn" />
       <Music className="pp-music-btn" />
-      
+
       <div className="pp-content">
         <div className="pp-title-container">
-          <Image 
-            src="/profilpengembang/profilpengembangtag.png" 
-            alt="Profil Pangembang" 
-            width={600} 
-            height={150} 
+          <Image
+            src="/profilpengembang/profilpengembangtag.png"
+            alt="Profil Pangembang"
+            width={600}
+            height={150}
             className="pp-title-img"
             priority
           />
@@ -32,24 +32,24 @@ export default function ProfilPengembangPage() {
             className="pp-board-bg"
             priority
           />
-          
+
           <div className="pp-board-content">
             <div className="pp-name-container">
-              <Image 
-                src="/profilpengembang/namapengembang.png" 
-                alt="Nama Pengembang" 
-                width={500} 
-                height={150} 
+              <Image
+                src="/profilpengembang/revisi_nama_profil1.png"
+                alt="Nama Pengembang"
+                width={500}
+                height={150}
                 className="pp-name-img"
               />
             </div>
-            
+
             <div className="pp-desc-container">
-              <Image 
-                src="/profilpengembang/deskripsiprofil.png" 
-                alt="Deskripsi Profil" 
-                width={900} 
-                height={400} 
+              <Image
+                src="/profilpengembang/revisi_nama_profil2.png"
+                alt="Deskripsi Profil"
+                width={900}
+                height={400}
                 className="pp-desc-img"
               />
             </div>
