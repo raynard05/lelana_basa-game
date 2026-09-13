@@ -50,7 +50,7 @@ export async function generateStudentPDF(userData: UserData, ulasanData: UlasanI
 
   const questionX = 55;
   const answerX = 75;
-  const ulasanFontSize = 10;
+  const ulasanFontSize = 9;
 
   // Function to wrap text
   const wrapText = (text: string, maxWidth: number, font: any, size: number) => {
@@ -83,19 +83,19 @@ export async function generateStudentPDF(userData: UserData, ulasanData: UlasanI
         font: isBold ? helveticaBold : helveticaFont,
         color: textColor
       });
-      tempY -= 14; // Line spacing
+      tempY -= 12; // Line spacing
     }
     return tempY; // Return the new Y after drawing this block
   };
 
   const checkPageBreak = (requiredSpace: number) => {
-    // If Y goes below 100, we move to the next page
-    if (currentY - requiredSpace < 100) {
+    // If Y goes below 50, we move to the next page
+    if (currentY - requiredSpace < 50) {
       currentPageIndex++;
       if (currentPageIndex < pages.length) {
         currentPage = pages[currentPageIndex];
         // Atur Y di bawah ini agar teks halaman 2 dst. tidak menabrak papan nama "Lelana Basa"
-        currentY = 660; // Ubah angka ini (sebelumnya 730) untuk mengatur batas atas halaman
+        currentY = 680; // Ubah angka ini (sebelumnya 730) untuk mengatur batas atas halaman
       }
     }
   };
@@ -104,7 +104,7 @@ export async function generateStudentPDF(userData: UserData, ulasanData: UlasanI
     const item = ulasanData[i];
 
     // Estimate space needed
-    checkPageBreak(80);
+    checkPageBreak(60);
 
     if (currentPageIndex >= pages.length) break; // Reached end of template
 
@@ -126,7 +126,7 @@ export async function generateStudentPDF(userData: UserData, ulasanData: UlasanI
       currentY = drawWrappedText(item.scoreText, answerX, currentY, 380, helveticaBold);
     }
 
-    currentY -= 15; // Extra spacing between questions
+    currentY -= 10; // Extra spacing between questions
   }
 
   // Serialize the PDFDocument to bytes (a Uint8Array)

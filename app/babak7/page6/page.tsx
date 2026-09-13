@@ -212,7 +212,7 @@ export default function Babak7Page6Page() {
     const correct = optionId === stepConfig.correctId;
     setIsAnswerCorrect(correct);
 
-    const questionText = 'Analisis paraga Patih Pangulang Jagad - ' + stepConfig.title;
+    const questionText = 'Analisis paraga Patih Pangulang Jagad (Babak 7) - ' + stepConfig.title;
     const userAns = stepConfig.options.find(o => o.id === optionId)?.label || optionId;
     const correctAns = stepConfig.options.find(o => o.id === stepConfig.correctId)?.label || stepConfig.correctId;
     
@@ -311,7 +311,7 @@ export default function Babak7Page6Page() {
       localStorage.removeItem('babak7_page6_timer_expiration');
       localStorage.removeItem('babak7_page6_timer_paused_time');
     }
-    router.push('/babak7/page8');
+    router.push('/babak7/page7');
   };
 
   if (isValidating) {

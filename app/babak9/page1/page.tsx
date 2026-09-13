@@ -212,7 +212,7 @@ export default function Babak9Page1Page() {
     const correct = optionId === stepConfig.correctId;
     setIsAnswerCorrect(correct);
 
-    const questionText = 'Analisis paraga Patih Pangulang Jagad - ' + stepConfig.title;
+    const questionText = 'Analisis paraga Patih Pangulang Jagad (Babak 9) - ' + stepConfig.title;
     const userAns = stepConfig.options.find(o => o.id === optionId)?.label || optionId;
     const correctAns = stepConfig.options.find(o => o.id === stepConfig.correctId)?.label || stepConfig.correctId;
     

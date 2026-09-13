@@ -233,7 +233,7 @@ export default function babak7Page4() {
         setIsAnswerCorrect(correct);
 
     
-    const questionText = 'Prajurit: "Dialog Karakter"';
+    const questionText = 'Prajurit: "Ana urusan apa? Bocah kaya awakmu kuwi ora pantes nemoni wong kraton!"';
     const userAns = text;
     const correctAns = 'Lisan Bener';
     
