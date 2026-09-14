@@ -234,3 +234,28 @@
     margin-bottom: 2vh;
   }
 }
+
+.cd-multi-image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 850px;
+}
+
+.cd-multi-image-container .cd-image-container {
+  flex: 1 1 calc(50% - 10px);
+  max-width: 400px;
+  margin-bottom: 0;
+}
+
+.cd-multi-image-container .cd-image-container:last-child:nth-child(odd) {
+  flex: 0 1 400px;
+}
+
+@media (max-width: 768px) {
+  .cd-multi-image-container .cd-image-container {
+    flex: 1 1 100%;
+  }
+}
