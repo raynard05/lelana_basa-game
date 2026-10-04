@@ -274,6 +274,22 @@ export default function ProfilPage() {
               </div>
             </div>
 
+            {/* Backsound Info Section */}
+            <div className="profil-password-section border-t border-gray-100 pt-6 mt-6">
+              <div className="profil-password-container block">
+                <div>
+                  <h3 className="profil-password-title">Informasi Musik Latar (Backsound)</h3>
+                  <div className="profil-password-desc mt-2 space-y-1">
+                    <div className="bg-gray-50 p-4 rounded-md mt-2 text-sm text-gray-700 font-mono">
+                      <p>Track : JINGGA</p>
+                      <p>Music provided by Donkgedank</p>
+                      <p>Watch : <a href="https://youtu.be/SHjhPfaisAU?si=TXcdezyYVFmd1k9n" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://youtu.be/SHjhPfaisAU?si=TXcdezyYVFmd1k9n</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Actions */}
             <div className="profil-actions">
               <button 
