@@ -344,7 +344,7 @@ export default function Babak7Page6Page() {
 
           <div className="babak7-page6-column-left">
             <Image
-              src="/all_characters/character_babak7_page6.webp"
+              src="/revisi/patihpangulangjagad2.png"
               alt="Patih Pangulang Jagad"
               width={100}
               height={100}

@@ -4,7 +4,7 @@
   top: -4.5vh;
   left: 50%;
   transform: translateX(-50%);
-  width: 32vh;
+  width: 48vh;
   max-width: 260px;
   z-index: 20;
   display: flex;
@@ -314,7 +314,7 @@
 
   .mainpage-wave1-text {
     position: relative;
-    top:4.5vh;
+    top: 4.5vh;
   }
 
   .mainpage-wave2-text {

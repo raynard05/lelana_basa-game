@@ -192,7 +192,7 @@ export default function Home() {
 
             {/* Submit Button */}
             <Button type="submit" className="w-full mt-2" disabled={isLoading}>
-              {isLoading ? 'Mriksa...' : 'Wiwiti'}
+              {isLoading ? 'Mriksa...' : 'MLEBU'}
             </Button>
 
             {/* Register Link */}

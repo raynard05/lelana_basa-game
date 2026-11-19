@@ -101,7 +101,7 @@ export default function MenuPage() {
         </div>
 
         <div className="options-container">
-          <Image src="/menu_assets/menu_rev.png" alt="Menu Options" width={300} height={200} className="options-img" priority />
+          <Image src="/revisi/menurev.png" alt="Menu Options" width={300} height={200} className="options-img" priority />
           <div className="options-overlay">
 
             <button onClick={() => handleMenuClick('materi')} className="overlay-btn" aria-label="Materi"></button>

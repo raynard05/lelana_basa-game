@@ -46,7 +46,7 @@ export default function ProfilPengembangPage() {
 
             <div className="pp-desc-container">
               <Image
-                src="/profilpengembang/revisi_nama_profil2.png"
+                src="/revisi/descprofilpengembang.png"
                 alt="Deskripsi Profil"
                 width={900}
                 height={400}

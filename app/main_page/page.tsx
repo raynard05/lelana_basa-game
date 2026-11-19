@@ -15,7 +15,7 @@ const gelombang2Paragraphs = [
   `Rumangsa wis gawe rusak desane, Jaka Tulus nduweni tekad kanggo lelana nggoleki sapa sejatine bapake. Kanthi sangu crita saka ibune yen bapake Jaka Tulus kuwi manggon ana ing Praja Majapahit, dheweke budhal ninggalake ibu lan desane.`,
   `Kira-kira, sasuwene Jaka Tulus lelana bakal nemoni pepalang apa wae ya?`,
   `Banjur apa Jaka Tulus bisa nemokake bapake lan diakoni minangka anake?`,
-  `Supaya bisa mangerteni kepriye pungkasane crita saka Jaka Tulus sing lelana iki, ayo! ngrampungake misi-misi ing dolanan iki!`
+  `Supaya bisa mangerteni kepriye pungkasane crita saka Jaka Tulus sing lelana iki, ayo! Rampungna misi-misi ing dolanan iki!`
 ];
 
 const words1 = gelombang1Text.trim().split(/\s+/);
@@ -134,7 +134,7 @@ export default function MainPage() {
       {/* Main Content Card Scroll Layout */}
       <div className="mainpage-card-frame">
         <div className="mainpage-sinopsis-title">
-          <Image src="/main_page_assets/sinopsis.png" alt="Sinopsis" width={300} height={100} priority unoptimized />
+          <Image src="/revisi/ringkesancrita.png" alt="Ringkesan Crita" width={300} height={100} priority unoptimized />
         </div>
         <div className="mainpage-text-container">
           {!isWave2 ? (

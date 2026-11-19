@@ -267,7 +267,7 @@ export default function RegisterPage() {
 
             {/* Submit Button */}
             <Button type="submit" className="w-full mt-2" disabled={isLoading}>
-              {isLoading ? 'Ngolah...' : 'Wiwit Lelana'}
+              {isLoading ? 'Ngolah...' : 'MLEBU'}
             </Button>
 
             {/* Login Link */}
