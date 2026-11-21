@@ -238,7 +238,7 @@ export default function babak7page8() {
     
     const questionText = 'Patih Pangulang Jagad: "Ngaku dadi anakku? Ora segampang kuwi! Aku ora percaya yen awakmu iku anakku!"';
     const userAns = text;
-    const correctAns = 'Lisan Bener';
+    const correctAns = 'Krama Alus';
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

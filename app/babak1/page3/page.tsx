@@ -226,7 +226,7 @@ export default function Babak1Page3() {
 
     const questionText = 'Jaka Slewah: "Aja cedhak-cedhak aku! Aku ora sudi kancanan karo awakmu!"';
     const userAns = optionsData.find(o => o.id === id)?.text || id;
-    const correctAns = optionsData.find(o => o.id === 'A')?.text || 'Ngoko Lugu';
+    const correctAns = 'Ngoko Lugu';
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

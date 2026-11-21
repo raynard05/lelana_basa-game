@@ -226,7 +226,7 @@ export default function Babak2Page3() {
 
     const questionText = 'Wandan Wanguri: "Wis, aja nangis wae, mengko dadi rerasane tangga-tangga. Lungguha dhisik, Ibu bakal crita."';
     const userAns = optionsData.find(o => o.id === id)?.text || id;
-    const correctAns = optionsData.find(o => o.id === 'D')?.text || 'Krama Alus';
+    const correctAns = 'Krama Alus';
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

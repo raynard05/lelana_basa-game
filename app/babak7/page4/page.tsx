@@ -235,7 +235,7 @@ export default function babak7Page4() {
     
     const questionText = 'Prajurit: "Ana urusan apa? Bocah kaya awakmu kuwi ora pantes nemoni wong kraton!"';
     const userAns = text;
-    const correctAns = 'Lisan Bener';
+    const correctAns = 'Krama Lugu';
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

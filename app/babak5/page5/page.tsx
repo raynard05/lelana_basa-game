@@ -236,7 +236,7 @@ export default function Babak5Page5() {
 
     const questionText = 'Jaka Slewah: "Ya! Dina iki kowe bakal kalah ing tanganku!"';
     const userAns = text;
-    const correctAns = 'Lisan Bener';
+    const correctAns = 'Ngoko Lugu';
 
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

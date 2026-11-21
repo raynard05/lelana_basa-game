@@ -223,7 +223,7 @@ export default function babak7Page7() {
     
     const questionText = 'Patih Pangulang Jagad: "Mandheg dhisik! Sapa awakmu, kok wani gawe geger ing kene?"';
     const userAns = optionsData.find(o => o.id === id)?.text || id;
-    const correctAns = optionsData.find(o => o.id === 'D')?.text || 'Krama Alus';
+    const correctAns = 'Krama Alus';
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

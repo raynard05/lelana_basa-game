@@ -223,7 +223,7 @@ export default function Babak2Page4() {
 
     const questionText = 'Wandan Wanguri: "Saiki budhala menyang Kraton Majapahit. Sejatine bapakmu iku priyayi luhur, yaiku Patih Pangulang Jagad."';
     const userAns = text;
-    const correctAns = 'Lisan Bener';
+    const correctAns = 'Krama Alus';
 
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

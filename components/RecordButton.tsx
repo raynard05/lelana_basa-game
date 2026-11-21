@@ -62,7 +62,12 @@ export default function RecordButton({
         };
 
         rec.onerror = (event: any) => {
-          console.error('Speech recognition error:', event.error);
+          if (event.error === 'no-speech' || event.error === 'aborted') {
+            // Normal browser speech event when silence is detected or aborted; not a critical error
+            setIsRecording(false);
+            return;
+          }
+          console.warn('Speech recognition notice:', event.error);
           setIsRecording(false);
         };
 
@@ -96,8 +101,10 @@ export default function RecordButton({
       try {
         recognitionRef.current.lang = lang;
         recognitionRef.current.start();
-      } catch (err) {
-        console.error('Failed to start speech recognition:', err);
+      } catch (err: any) {
+        if (err?.name !== 'InvalidStateError') {
+          console.warn('Speech recognition notice:', err);
+        }
         setIsRecording(false);
       }
     } else {

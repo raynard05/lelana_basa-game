@@ -223,7 +223,7 @@ export default function Babak5Page3() {
     
     const questionText = 'Surontanu: "He, Kebo Kicak! Aku ora trima yen awakmu dadi cantrik sing paling sekti!"';
     const userAns = optionsData.find(o => o.id === id)?.text || id;
-    const correctAns = correct ? userAns : optionsData.find(o => o.id === 'A')?.text || 'Ngoko Lugu'; // Fallback approximation
+    const correctAns = 'Ngoko Alus';
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

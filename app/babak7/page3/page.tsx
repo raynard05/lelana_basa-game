@@ -223,7 +223,7 @@ export default function babak7Page3() {
     
     const questionText = 'Prajurit: "Mandheg! awakmu ora oleh mlebu regol kraton kene! Balia ae tinimbang dadi perkara!"';
     const userAns = optionsData.find(o => o.id === id)?.text || id;
-    const correctAns = correct ? userAns : optionsData.find(o => o.id === 'A')?.text || 'Ngoko Lugu'; // Fallback approximation
+    const correctAns = 'Krama Lugu';
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

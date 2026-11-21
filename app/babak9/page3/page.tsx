@@ -223,7 +223,7 @@ export default function babak9Page3() {
     
     const questionText = 'Patih Pangulang Jagad: "Anakku Jaka Tulus, aku saiki percaya lan ngakoni yen awakmu pancen anakku dhewe."';
     const userAns = optionsData.find(o => o.id === id)?.text || id;
-    const correctAns = correct ? userAns : optionsData.find(o => o.id === 'A')?.text || 'Ngoko Lugu'; // Fallback approximation
+    const correctAns = 'Krama Alus';
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

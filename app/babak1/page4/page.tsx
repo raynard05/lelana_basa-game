@@ -224,7 +224,7 @@ export default function Babak1Page4() {
 
     const questionText = 'Jaka Slewah: "Halah, rasah omong! Pokoké, aku emoh dadi kancamu!"';
     const userAns = text;
-    const correctAns = 'Ngoko Lugu / Lisan bener';
+    const correctAns = 'Ngoko Lugu';
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

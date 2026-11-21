@@ -247,7 +247,7 @@ export default function babak7page9() {
 
         const questionText = 'Patih Pangulang Jagad: "Yen pancen awakmu anakku, buktekna! Lungaa menyang Kali Brantas, kalahna Bajul Ijo lan gawanen mulih Watu Ireng!"';
         const userAns = text;
-        const correctAns = 'Lisan Bener';
+        const correctAns = 'Krama Alus';
 
         let __scoreText = 'skor : 0';
         if (correct && typeof window !== 'undefined') {

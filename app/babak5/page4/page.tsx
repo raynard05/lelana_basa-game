@@ -237,7 +237,7 @@ export default function Babak5Page4() {
     
     const questionText = 'Surontanu: "Rasah kakehan omong! Ayo perang tandhing wae kanggo mbuktekake sapa sing paling sekti!"';
     const userAns = text;
-    const correctAns = 'Lisan Bener';
+    const correctAns = 'Ngoko Alus';
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

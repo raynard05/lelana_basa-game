@@ -237,7 +237,7 @@ export default function babak7Page5() {
 
         const questionText = 'Prajurit: "Halah, rasah ngapusi! Wis ndang ngaliha, tinimbang taksuwunake paukuman!"';
         const userAns = text;
-        const correctAns = 'Lisan Bener';
+        const correctAns = 'Krama Lugu';
 
         let __scoreText = 'skor : 0';
         if (correct && typeof window !== 'undefined') {

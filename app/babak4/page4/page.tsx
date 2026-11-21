@@ -236,7 +236,7 @@ export default function Babak4Page4() {
     
     const questionText = 'Ki Ageng Sapayana: "Yen kepengin meguru ing kene, apa awakmu wis siyap nampa sekabehe pacoban sing abot?"';
     const userAns = text;
-    const correctAns = 'Lisan Bener';
+    const correctAns = 'Krama Alus';
     
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {

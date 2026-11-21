@@ -100,6 +100,54 @@ export async function generateStudentPDF(userData: UserData, ulasanData: UlasanI
     }
   };
 
+  const getNormalizedKunciJawaban = (question: string, rawKunci: string): string => {
+    if (question.toLowerCase().includes('analisis paraga')) {
+      return rawKunci;
+    }
+
+    const q = question.toLowerCase();
+
+    // Babak 1
+    if (q.includes('aja cedhak-cedhak aku')) return 'Ngoko Lugu';
+    if (q.includes('halah, rasah omong')) return 'Ngoko Lugu';
+    if (q.includes('wis, ndang ngaliha, aku ora sudi')) return 'Ngoko Lugu';
+
+    // Babak 2
+    if (q.includes('aja nangis wae, mengko dadi rerasane')) return 'Krama Alus';
+    if (q.includes('saiki budhala menyang kraton majapahit')) return 'Krama Alus';
+
+    // Babak 4
+    if (q.includes('kene mampir dhisik, le')) return 'Krama Alus';
+    if (q.includes('yen kepengin meguru ing kene')) return 'Krama Alus';
+
+    // Babak 5
+    if (q.includes('he, kebo kicak! aku ora trima')) return 'Ngoko Alus';
+    if (q.includes('rasah kakehan omong! ayo perang tandhing')) return 'Ngoko Alus';
+    if (q.includes('dina iki kowe bakal kalah ing tanganku')) return 'Ngoko Lugu';
+
+    // Babak 7 (Prajurit)
+    if (q.includes('regol kraton kene')) return 'Krama Lugu';
+    if (q.includes('ana urusan apa? bocah kaya awakmu')) return 'Krama Lugu';
+    if (q.includes('tinimbang taksuwunake paukuman')) return 'Krama Lugu';
+
+    // Babak 7 (Patih)
+    if (q.includes('kok wani gawe geger ing kene')) return 'Krama Alus';
+    if (q.includes('ngaku dadi anakku? ora segampang kuwi')) return 'Krama Alus';
+    if (q.includes('kalahna bajul ijo lan gawanen mulih watu ireng')) return 'Krama Alus';
+
+    // Babak 9 (Patih)
+    if (q.includes('anakku dhewe')) return 'Krama Alus';
+
+    // Fallbacks if rawKunci contains ragam
+    const rawLower = (rawKunci || '').toLowerCase();
+    if (rawLower.includes('ngoko alus')) return 'Ngoko Alus';
+    if (rawLower.includes('ngoko lugu')) return 'Ngoko Lugu';
+    if (rawLower.includes('krama alus')) return 'Krama Alus';
+    if (rawLower.includes('krama lugu')) return 'Krama Lugu';
+
+    return rawKunci;
+  };
+
   for (let i = 0; i < ulasanData.length; i++) {
     const item = ulasanData[i];
 
@@ -116,8 +164,9 @@ export async function generateStudentPDF(userData: UserData, ulasanData: UlasanI
     const wText = `Wangsulan: ${item.wangsulan}`;
     currentY = drawWrappedText(wText, answerX, currentY, 380, helveticaFont);
 
-    // Draw Kunci Jawaban
-    const kText = `Kunci jawaban: ${item.kunciJawaban}`;
+    // Draw Kunci Jawaban (Normalized to Ragam Bahasa)
+    const normalizedKunci = getNormalizedKunciJawaban(item.question, item.kunciJawaban);
+    const kText = `Kunci jawaban: ${normalizedKunci}`;
     currentY = drawWrappedText(kText, answerX, currentY, 380, helveticaFont);
 
     // Draw Score

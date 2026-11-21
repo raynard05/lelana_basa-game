@@ -223,7 +223,7 @@ export default function Babak1Page5() {
 
     const questionText = 'Jaka Slewah: "Wis, ndang ngaliha, Aku ora sudi nduwe kanca sing ora nduwe Bapak"';
     const userAns = text;
-    const correctAns = 'Lisan Bener';
+    const correctAns = 'Ngoko Lugu';
 
     let __scoreText = 'skor : 0';
     if (correct && typeof window !== 'undefined') {
