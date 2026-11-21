@@ -1,0 +1,232 @@
+/* page3.css - Slide 3: 2. Basa Ngoko */
+
+.p3-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background-image: url('/revisi/revisipamong/BG.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  user-select: none;
+  font-family: var(--font-heebo), 'Heebo', sans-serif, system-ui;
+}
+
+/* Nav Controls */
+.p3-home-btn,
+.p3-music-btn {
+  position: fixed;
+  z-index: 100;
+  width: 11vh;
+  height: 11vh;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  touch-action: manipulation;
+}
+
+.p3-home-btn {
+  top: 3.5vh;
+  left: 3.5vw;
+}
+
+.p3-music-btn {
+  top: 3.5vh;
+  right: 3.5vw;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  .p3-home-btn:hover,
+  .p3-music-btn:hover {
+    transform: scale(1.12);
+  }
+}
+
+.p3-home-btn:active,
+.p3-music-btn:active {
+  transform: scale(0.95);
+  opacity: 0.75;
+}
+
+/* Stage & Board Container - Samakan seperti page 1 */
+.p3-board-stage {
+  position: relative;
+  width: min(88vw, 150vh);
+  height: calc(min(94vw, 170vh) / 2.292);
+  aspect-ratio: 1756 / 766;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16vh;
+}
+
+/* Outer Wooden Board Frame - Samakan seperti page 1 */
+.p3-board-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url('/revisi/revisipamong/papan.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0.8vh 2vh rgba(0, 0, 0, 0.45));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 4.2% 5.5%;
+}
+
+/* Inside Board Content Box */
+.p3-board-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Slide Container */
+.p3-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  animation: p3SlideFade 0.22s ease-out;
+}
+
+@keyframes p3SlideFade {
+  from {
+    opacity: 0;
+    transform: scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Navigation Arrow Buttons - Samakan seperti page 1 */
+.p3-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  width: 6.8vh;
+  height: 6.8vh;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 0.3vh solid #4a3420;
+  box-shadow: 0 0.5vh 1.2vh rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  color: #3e2815;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  touch-action: manipulation;
+}
+
+.p3-arrow-left {
+  left: -7vh;
+}
+
+.p3-arrow-right {
+  right: -7vh;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .p3-arrow-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    background-color: #fcf9f2;
+    box-shadow: 0 0.7vh 1.5vh rgba(0, 0, 0, 0.45);
+  }
+}
+
+.p3-arrow-btn:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.p3-arrow-icon {
+  width: 3.8vh;
+  height: 3.8vh;
+}
+
+/* Top Badge */
+.p3-top-badge-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  filter: drop-shadow(0 0.6vh 1.2vh rgba(0, 0, 0, 0.45));
+  pointer-events: none;
+  top: -14vh;
+}
+
+.p3-pill-img {
+  height: 12vh;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Slide 3 Specific Content - Font 2vh seperti page 1 */
+.p3-intro-text {
+  width: 96%;
+  font-size: 2.4vh;
+  line-height: 1.42;
+  color: #2c180e;
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0 0 1.2vh 0;
+  margin-bottom: 6vh;
+}
+
+.p3-section-block {
+  width: 96%;
+  margin-bottom: 1.2vh;
+}
+
+.p3-section-heading {
+  font-size: 2.4vh;
+  font-weight: 700;
+  color: #2c180e;
+  margin: 0 0 0.35vh 0;
+  margin-bottom: 2.4vh;
+}
+
+.p3-paragraph {
+  font-size: 2.2vh;
+  line-height: 1.42;
+  color: #2c180e;
+  margin: 0 0 0.45vh 0;
+}
+
+.p3-example-text {
+  margin-top: 0.3vh;
+}

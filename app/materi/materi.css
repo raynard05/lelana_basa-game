@@ -1,27 +1,29 @@
-.mt-container {
+/* pamongpage.css - Scaled and locked using viewport units (vh, vw, %) without px */
+
+.pamong-container {
   position: relative;
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  background-image: url('/caranedolanan/second_layout.webp');
+  background-image: url('/revisi/revisipamong/BG.webp');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  background-color: #f4e8d3;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  overflow-y: auto;
-  overflow-x: hidden;
+  align-items: center;
+  overflow: hidden;
+  user-select: none;
+  font-family: var(--font-heebo), 'Heebo', sans-serif, system-ui;
 }
 
-.mt-home-btn,
-.mt-music-btn {
-  position: fixed !important;
+/* Nav Controls */
+.pamong-home-btn,
+.pamong-music-btn {
+  position: fixed;
   z-index: 100;
-  width: 15vh;
-  height: 15vh;
-
+  width: 11vh;
+  height: 11vh;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -31,216 +33,384 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   touch-action: manipulation;
 }
 
-.mt-home-btn {
-  top: 5vh;
-  left: 5vw;
+.pamong-home-btn {
+  top: 3.5vh;
+  left: 3.5vw;
 }
 
-.mt-music-btn {
-  top: 5vh;
-  right: 5vw;
+.pamong-music-btn {
+  top: 3.5vh;
+  right: 3.5vw;
 }
 
 @media (hover: hover) and (pointer: fine) {
 
-  .mt-home-btn:hover,
-  .mt-music-btn:hover {
-    transform: scale(1.15);
+  .pamong-home-btn:hover,
+  .pamong-music-btn:hover {
+    transform: scale(1.12);
   }
 }
 
-.mt-home-btn:active,
-.mt-music-btn:active {
-  opacity: 0.7;
+.pamong-home-btn:active,
+.pamong-music-btn:active {
   transform: scale(0.95);
+  opacity: 0.75;
 }
 
-/* For Webkit Browsers (Chrome, Safari, Edge) */
-.mt-container::-webkit-scrollbar {
-  width: 10px;
-}
-
-.mt-container::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.mt-container::-webkit-scrollbar-thumb {
-  background-color: #5c4033;
-  border-radius: 10px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-}
-
-.mt-container::-webkit-scrollbar-thumb:hover {
-  background-color: #3e2723;
-}
-
-.mt-content-wrapper {
-  width: 100%;
-  max-width: 900px;
-  min-height: 100%;
-  padding: 5vh 6vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.mt-content {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3vh;
-}
-
-.mt-logo-container {
-  width: 60vh;
-  max-width: 80vw;
+/* Stage & Board Container - Enlarged and shifted downward ~10% */
+.pamong-board-stage {
+  position: relative;
+  width: min(94vw, 170vh);
+  height: calc(min(94vw, 170vh) / 2.292);
+  aspect-ratio: 1756 / 766;
   display: flex;
   justify-content: center;
-  margin-bottom: 2vh;
+  align-items: center;
+  margin-top: 9.5vh;
 }
 
-.mt-logo {
+/* Outer Wooden Board Frame */
+.pamong-board-frame {
+  position: relative;
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
-}
-
-.mt-paragraph {
-  color: #3e2723;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  text-align: justify;
-  font-family: Arial, sans-serif;
-  width: 100%;
-  margin: 0;
-}
-
-.mt-paragraph strong {
-  font-weight: 800;
-  color: #2e1713;
-}
-
-.mt-step-title {
-  background-color: #5c4033;
-  color: #fff;
-  padding: 10px 30px;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-  text-align: center;
-  border: 2px solid #3e2723;
-  margin-top: 8vh;
-  margin-bottom: 2vh;
-}
-
-.mt-image-container {
-  width: 85vh;
-  max-width: 90vw;
+  height: 100%;
+  background-image: url('/revisi/revisipamong/papan.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0.8vh 2vh rgba(0, 0, 0, 0.45));
   display: flex;
   justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 4.2% 5.5%;
 }
 
-.mt-step-img {
+/* Inside Board Content Box */
+.pamong-board-content {
+  position: relative;
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.mt-back-btn {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  background-color: #8b4513;
-  color: white;
-  border: 2px solid #5c4033;
-  padding: 12px 40px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 25px;
+/* Slide Transition */
+.pamong-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: pamongSlideFade 0.22s ease-out;
+  box-sizing: border-box;
+}
+
+@keyframes pamongSlideFade {
+  from {
+    opacity: 0;
+    transform: scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Navigation Arrow Buttons */
+.pamong-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  width: 6.8vh;
+  height: 6.8vh;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 0.3vh solid #4a3420;
+  box-shadow: 0 0.5vh 1.2vh rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s, background-color 0.2s;
+  padding: 0;
+  outline: none;
+  color: #3e2815;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  touch-action: manipulation;
 }
 
-.mt-back-btn:hover {
-  background-color: #a0522d;
-  transform: scale(1.05);
+.pamong-arrow-left {
+  left: -3.4vh;
 }
 
-.mt-back-btn:active {
-  transform: scale(0.95);
+.pamong-arrow-right {
+  right: -3.4vh;
 }
 
-/* Responsive adjust */
-@media (max-width: 768px) {
-  .mt-paragraph {
-    font-size: 1rem;
-  }
-
-  .mt-step-title {
-    font-size: 1.1rem;
-    padding: 8px 20px;
-  }
-
-  .mt-content-wrapper {
-    padding: 4vh 5vw;
+@media (hover: hover) and (pointer: fine) {
+  .pamong-arrow-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    background-color: #fcf9f2;
+    box-shadow: 0 0.7vh 1.5vh rgba(0, 0, 0, 0.45);
   }
 }
 
-@media (orientation: landscape) and (max-height: 500px) {
-  .mt-content {
-    gap: 6vh;
-  }
-
-  .mt-paragraph {
-    font-size: 0.85rem;
-    line-height: 1.4;
-  }
-
-  .mt-logo-container {
-    width: 50vh;
-    margin-bottom: 2vh;
-  }
-
-  .mt-content-wrapper {
-    padding: 8vh 12vw;
-  }
-
-  .mt-step-title {
-    font-size: 0.9rem;
-    padding: 6px 15px;
-    margin-top: 5vh;
-  }
-
-  .mt-image-container {
-    width: 120vh;
-    margin-bottom: 2vh;
-  }
-
-  .mt-back-btn {
-    font-size: 1rem;
-    padding: 8px 30px;
-  }
+.pamong-arrow-btn:active {
+  transform: translateY(-50%) scale(0.92);
 }
 
-/* Responsive adjust for laptops/desktops */
-@media (min-width: 1024px) {
-  .mt-content {
-    gap: 5vh;
-  }
+.pamong-arrow-icon {
+  width: 3.8vh;
+  height: 3.8vh;
+}
 
-  .mt-logo-container {
-    margin-bottom: 2vh;
-  }
+/* Top Badges */
+.pamong-top-badge-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  filter: drop-shadow(0 0.6vh 1.2vh rgba(0, 0, 0, 0.45));
+  pointer-events: none;
+}
 
-  .mt-image-container {
-    margin-bottom: 2vh;
-  }
+/* Geser ke atas ~10% dari -9.2vh menjadi -10.8vh */
+.pamong-badge-cptp-pos {
+  top: -10.8vh;
+}
+
+.pamong-tagcplantp-img {
+  height: 15vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.pamong-badge-materi-pos {
+  top: -12.5vh;
+}
+
+.pamong-tagmateri-img {
+  height: 9.5vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.pamong-badge-pill-pos {
+  top: -3.8vh;
+}
+
+.pamong-pill-img {
+  height: 7.6vh;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Shared Typography (+20% di laptop / fullscreen) */
+.pamong-title-bold {
+  font-size: 2.16vh;
+  font-weight: 700;
+  color: #2c180e;
+  margin: 0 0 0.7vh 0;
+}
+
+.pamong-paragraph {
+  font-size: 1.92vh;
+  line-height: 1.42;
+  color: #2c180e;
+  margin: 0 0 0.5vh 0;
+}
+
+.pamong-text-center {
+  text-align: center;
+}
+
+.pamong-text-justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.pamong-text-block {
+  width: 96%;
+}
+
+.pamong-center-badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vh;
+}
+
+/* Badges di dalam board diperbesar 20% dari 4.2vh menjadi 5.04vh */
+.pamong-inner-badge-img {
+  height: 5.04vh;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0.3vh 0.6vh rgba(0, 0, 0, 0.25));
+}
+
+.pamong-mt-badge {
+  margin-top: 1.6vh;
+}
+
+.pamong-list-item {
+  text-align: left;
+  margin-bottom: 0.5vh;
+}
+
+/* Slide 2 Specifics */
+.pamong-slide-2 {
+  justify-content: center;
+}
+
+.pamong-slide2-text {
+  width: 96%;
+  margin-bottom: 1.6vh;
+}
+
+.pamong-diagram-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Diagram diperbesar 20% dari 25vh menjadi 30vh */
+.pamong-diagram-img {
+  height: 30vh;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Slide 3 & 4 Specifics */
+.pamong-slide-3,
+.pamong-slide-4 {
+  justify-content: center;
+}
+
+.pamong-intro-text {
+  width: 96%;
+  margin-bottom: 1.3vh;
+}
+
+.pamong-section-block {
+  width: 96%;
+  margin-bottom: 1.3vh;
+}
+
+.pamong-section-heading {
+  font-size: 2.05vh;
+  font-weight: 700;
+  color: #2c180e;
+  margin: 0 0 0.35vh 0;
+}
+
+.pamong-example-text {
+  margin-top: 0.3vh;
+}
+
+/* Slide 5 Specifics */
+.pamong-slide-5 {
+  justify-content: center;
+}
+
+.pamong-badge-table-tag {
+  height: 4.56vh;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0.3vh 0.6vh rgba(0, 0, 0, 0.25));
+}
+
+.pamong-table-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tabel diperbesar ~20% */
+.pamong-table-tataran-img {
+  height: 20.5vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.pamong-mt-table-badge {
+  margin-top: 1.5vh;
+}
+
+.pamong-table-ragambasa-img {
+  height: 24.5vh;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Slide 6 Specifics */
+.pamong-slide-6 {
+  justify-content: center;
+}
+
+.pamong-slide6-text {
+  width: 96%;
+}
+
+.pamong-s6-intro {
+  font-size: 1.92vh;
+  margin-bottom: 0.3vh;
+}
+
+.pamong-s6-item {
+  font-size: 1.92vh;
+  margin-bottom: 0.25vh;
+}
+
+.pamong-mt-xs {
+  margin-top: 0.7vh;
+}
+
+.pamong-s6-bold {
+  font-size: 1.98vh;
+  font-weight: 700;
+  margin-top: 0.3vh;
+  margin-bottom: 0.3vh;
+}
+
+.pamong-s6-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4vh 2.5vh;
+  font-size: 1.8vh;
+  margin-bottom: 1vh;
+}
+
+.pamong-s6-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25vh;
+}
+
+.pamong-table-rumus-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pamong-table-rumus-img {
+  height: 15.5vh;
+  width: auto;
+  object-fit: contain;
 }

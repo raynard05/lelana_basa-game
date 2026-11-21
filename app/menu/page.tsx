@@ -49,7 +49,7 @@ export default function MenuPage() {
         router.push('/caradolanan');
         break;
       case 'materi':
-        router.push('/materi');
+        router.push('/materi/page1');
         break;
       case 'sinopsis':
         router.push('/sinopsis');
@@ -103,9 +103,8 @@ export default function MenuPage() {
         <div className="options-container">
           <Image src="/revisi/menurev.png" alt="Menu Options" width={300} height={200} className="options-img" priority />
           <div className="options-overlay">
-
+            <button onClick={() => handleMenuClick('caradolanan')} className="overlay-btn" aria-label="Pandom (Cara Dolanan)"></button>
             <button onClick={() => handleMenuClick('materi')} className="overlay-btn" aria-label="Materi"></button>
-            <button onClick={() => handleMenuClick('caradolanan')} className="overlay-btn" aria-label="Carane Dolanan"></button>
             <button onClick={() => handleMenuClick('wiwiti')} className="overlay-btn" aria-label="Wiwiti"></button>
             <button onClick={() => handleMenuClick('profil')} className="overlay-btn" aria-label="Profil Pangembang"></button>
           </div>

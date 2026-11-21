@@ -1,0 +1,7 @@
+buatkan halaman pamong semua asset ada di D:\lelana basa\lelana_basa-game\public\revisi\revisipamong
+
+buatkan seresponsive mungkin mobile,laptop kecil , laptop besar . dan jika di zoom in dan zoom out komponen aset tidak mengecil atau membesar jadi lock gitu, dan juga jangan menggunakan px ganti vh atau sejenisnya 
+ini adalah  halaman pamong redirect dari menu pilihan paling atas dari /menu 
+
+buat halaman pamong menjadi konsep slide gitu jai ada tombol kiri dan kanan
+buat sesuai dengan screenshot jangan ada tambahan teks lain . 
