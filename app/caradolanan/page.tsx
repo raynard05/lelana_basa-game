@@ -6,7 +6,6 @@ import Music from '@/components/Music';
 import './caradolanan.css';
 
 export default function CaraDolananPage() {
-
   return (
     <div className="cd-container">
       <Home className="cd-home-btn" />
@@ -18,7 +17,7 @@ export default function CaraDolananPage() {
           <div className="cd-logo-container">
             <Image
               src="/caranedolanan/pandom.png"
-              alt="Carane Dolanan"
+              alt="Pandom"
               width={600}
               height={250}
               className="cd-logo"
@@ -27,17 +26,17 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Sadurunge mlebu tautan website Lelana Basa, pangguna disaranake ngganti <strong>setelan layar hapene dadi 30 menit</strong> supaya luwih gampang nalika dolanan Lelana Basa. Pastikna <strong>jaringan internet ing panggonmu lumaku kanthi lancar.</strong>
+            Sadurunge mlebu tautan website Lelana Basa, panganggo disaranake ngganti setelan layar hapene dadi 30 menit supaya luwih gampang nalika dolanan Lelana Basa. Pesthekna jaringan internet ing panggonmu lumaku kanthi lancar.
           </p>
 
           <div className="cd-step-title">
-            1. Kaca Registrasi
+            1. Kaca Wiwitan
           </div>
 
           <div className="cd-image-container">
             <Image
               src="/caranedolanan/register_rev.jpeg"
-              alt="Kaca Registrasi"
+              alt="Kaca Wiwitan"
               width={800}
               height={450}
               className="cd-step-img"
@@ -45,7 +44,7 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Panganggo bisa mbukak website Lelana Basa lumantar pranala sing wis disamektakake. Sawise diakses, sistem bakal nampilake kaca Wiwitan, panganggo bisa ngisi dhata dhiri luwih dhisik. Sawise ngisi, Panganggo bisa milih pandom <strong>“Mlebu”.</strong>
+            Panganggo bisa mbukak website Lelana Basa lumantar pranala sing wis disamektakake. Sawise diakses, sistem bakal nampilake kaca Wiwitan, panganggo bisa ngisi dhata dhiri luwih dhisik. Sawise ngisi, Panganggo bisa milih pandom “Mlebu”.
           </p>
 
           <div className="cd-step-title">
@@ -55,7 +54,7 @@ export default function CaraDolananPage() {
           <div className="cd-image-container">
             <Image
               src="/caranedolanan/login_rev.jpeg"
-              alt="Kaca Registrasi Akun"
+              alt="Kaca Akun"
               width={800}
               height={450}
               className="cd-step-img"
@@ -63,7 +62,7 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-           Yen Panganggo wis duwe akun Lelana Basa, Panganggo bisa ngisi username lan kata sandi ing kaca akun. Sawise iku, Panganggo bisa milih pandom “Mlebu”.
+            Yen Panganggo wis duwe akun Lelana Basa, Panganggo bisa ngisi username lan kata sandi ing kaca akun. Sawise iku, Panganggo bisa milih pandom “Mlebu”.
           </p>
 
           <div className="cd-step-title">
@@ -81,14 +80,14 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Sawise milih pandom &quot;<strong>Mlebu</strong>&quot; ing kaca akun, Panganggo bakal diarahake menyang menu utama medhia pasinaon iki. Ing kaca menu utama, ana sawetara pilihan, yaiku:<br />
-            <strong>1. Pandom</strong> kanggo mbukak kaca pandhuan panganggone medhia Lelana Basa.<br />
-            <strong>2. Materi</strong> kanggo mbukak materi undha usuk basa Jawa.<br />
-            <strong>3. Wiwit Dolanan</strong> kanggo mbukak menu inti saka medhia pasinaon Lelana Basa.<br />
-            <strong>4. Profil Pangembang</strong> kanggo mbukak informasi pangembang media pasinaon Lelana Basa.<br />
-            <strong>5.</strong> Fitur pandom &quot;<strong>Wong</strong>&quot; ing bagean pojok kiwa dhuwur kanggo ngerteni informasi akun panganggo.<br />
-            <strong>6.</strong> Fitur pandom &quot;<strong>Speaker</strong>&quot; ing bagean pojok tengen dhuwur kanggo nguripi utawa mateni backsound.<br />
-            <strong>7.</strong> Fitur pandom &quot;<strong>Logout</strong>&quot; ing bagean pojok tengen ngisor kanggo metu saka menu utama Lelana Basa.
+            Sawise milih pandom “Mlebu “ ing kaca akun, Panganggo bakal diarahake menyang menu utama medhia pasinaon iki. Ing kaca menu utama, ana sawetara pilihan, yaiku:<br />
+            1. Pandom kanggo mbukak kaca pandhuan panganggone medhia Lelana Basa.<br />
+            2. Materi kanggo mbukak materi undha usuk basa Jawa.<br />
+            3. Wiwit Dolanan kanggo mbukak menu inti saka medhia pasinaon Lelana Basa.<br />
+            4. Profil Pangembang kanggo mbukak informasi pangembang media pasinaon Lelana Basa.<br />
+            5. Fitur pandom &quot;Wong&quot; ing bagean pojok kiwa dhuwur kanggo ngerteni informasi akun panganggo.<br />
+            6. Fitur pandom“Speaker” ing bagean pojok tengen dhuwur kanggo nguripi utawa mateni backsound.<br />
+            7. Fitur pandom “Logout” ing bagean pojok tengen ngisor kanggo metu saka menu utama Lelana Basa.
           </p>
 
           <div className="cd-step-title">
@@ -98,7 +97,7 @@ export default function CaraDolananPage() {
           <div className="cd-image-container">
             <Image
               src="/caranedolanan/sinopsis_rev.jpeg"
-              alt="Kaca Sinopsis"
+              alt="Kaca Ringkesan Crita"
               width={800}
               height={450}
               className="cd-step-img"
@@ -106,14 +105,14 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Ing kaca Ringkesan Crita, pangguna bakal diwenehi sinopsis lelakone Jaka Tulus. Ing kaca sinopsis uga ana sawetara fitur, yaiku:<br />
-            1. Fitur tombol "<strong>Omah</strong>" ing bagean kiwa dhuwur kanggo bali menyang kaca utama game Lelana Basa.<br />
-            2. Fitur tombol "<strong>Speaker</strong>" kanggo nguripake utawa mateni backsound.<br />
-            3. Fitur tombol "<strong>Next</strong>" kanggo nerusake menyang kaca sabanjure.
+            Ing kaca ringkesan crita, panganggo bakal disuguhi ringkesan crita lelakone Jaka Tulus. Ing kaca iki uga ana sawetara fitur, yaiku:<br />
+            1. Fitur pandom “Omah” ing bagean kiwa dhuwur kanggo bali menyang kaca utama Lelana Basa.<br />
+            2. Fitur pandom “Speaker” kanggo nguripi utawa mateni backsound.<br />
+            3. Fitur pandom “Next” kanggo nerusake menyang kaca sabanjure.
           </p>
 
           <div className="cd-step-title">
-            5. Kaca Analisis Paraga ing Menu Wiwiti
+            5. Kaca Analisis Paraga ing Menu Wiwit Dolanan
           </div>
 
           <div className="cd-multi-image-container">
@@ -147,16 +146,16 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Ing kaca analisis paraga, pangguna bakal prentah kanggo <strong>nganalisis kalungguhan paraga, wiwit saka relasi sosiale, tingkat pakurmatan lan drajat sosiale slaras marang paraga kang wis sumawis</strong> ing kaca kasebut minangka misi kapisan ing game Lelana Basa. Dene aturane game iki, yaiku:<br />
-            1. Pangguna bakal diwenehi <strong>wektu 2 menit</strong> kanggo ngrampungake misi kasebut.<br />
-            2. Pangguna bakal diwenehi <strong>2 kesempatan mangsuli.</strong><br />
-            3. Yen ing kesempatan kapisan pangguna bisa njawab kanthi bener, sistem bakal ngarahake menyang kaca misi sabanjure. Lan <strong>entuk skor 50</strong><br />
-            4. Yen ing kesempatan kapisan pangguna njawab kanthi salah, sistem bakal menehi kesempatan kapindho marang pangguna. Lan <strong>entuk skor 25</strong><br />
-            5. Yen ing kesempatan kapindho pangguna njawab kanthi salah, sistem bakal ngarahake menyang kaca misi sabanjure <strong>kanthi skor 0</strong>.
+            Ing kaca analisis paraga, panganggo bakal diprentah kanggo nganalisis kalungguhan paraga, wiwit saka relasi sosiale, tingkat pakurmatan lan drajat sosiale slaras marang paraga kang wis cumawis ing kaca kasebut minangka misi kapisan ing Lelana Basa, yaiku:<br />
+            1. Panganggo bakal diwenehi wektu 2 menit kanggo ngrampungake misi kasebut.<br />
+            2. Panganggo bakal diwenehi 2 kalonggaran kanggo mangsuli.<br />
+            3. Yen ing kalonggaran kapisan panganggo bisa mangsuli kanthi bener, sistem bakal ngarahake menyang kaca misi sabanjure kanthi skor 50.<br />
+            4. Yen ing kalonggaran kapisan panganggo mangsuli kanthi salah, sistem bakal menehi kalonggaran kapindho marang panganggo kanthi skor 25.<br />
+            5. Yen ing kalonggaran kapindho panganggo mangsuli kanthi salah, sistem bakal ngarahake menyang kaca misi sabanjure kanthi skor 0.
           </p>
 
           <div className="cd-step-title">
-            6. Kaca Narasi ing Menu Wiwiti
+            6. Kaca Narasi ing Menu Wiwit Dolanan
           </div>
 
           <div className="cd-image-container">
@@ -170,11 +169,11 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Ing kaca narasi, pangguna bisa ngrungokake narasi babak kasebut kanggo mangerteni alur critane. Sabanjure pangguna bisa ngeklik tombol "<strong>Next</strong>" kanggo mlebu kaca misi sabanjure.
+            Ing kaca narasi, panganggo bisa ngrungokake narasi babak kasebut kanggo mangerteni alur crita. Sabanjure panganggo bisa milih pandom “Next” kanggo mlebu kaca misi sabanjure.
           </p>
 
           <div className="cd-step-title">
-            7. Kaca Soal Tekstual ing Menu Wiwiti
+            7. Kaca Soal Tekstual ing Menu Wiwit Dolanan
           </div>
 
           <div className="cd-image-container">
@@ -188,21 +187,21 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Ing kaca soal tekstual, pangguna bakal diwenehi maneka pilihan fitur, yaiku :<br />
-            1. Ing bagean kiwa dhuwur ana <strong>katerangan babak, misi, lan skor sing wis diolehake.</strong><br />
-            2. Ing misi iki, pangguna diwenehi <strong>wektu 2 menit</strong> kanggo ngrampungake misi.<br />
-            3. Pangguna didhawuhi kanggo ngeklik tombol "<strong>Rungokna</strong>" kanggo ngrungokake dialog paraga utama ing kaca kasebut.<br />
-            4. Pangguna didhawuhi ngeklik tombol "<strong>Speaker</strong>" ing saben pilihan jawaban (<strong>ngoko lugu, ngoko alus, krama lugu, krama alus</strong>) kanggo ngrungokake tata cara pangucap sing bener.<br />
-            5. Pangguna didhawuhi mencet tombol "<strong>Rekam Swaramu</strong>" kanggo njawab pitakonan saka paraga utama miturut pilihan jawaban sing wis disediakake.<br />
-            6. Ing misi iki, pangguna bakal diwenehi <strong>2 kesempatan kanggo njawab.</strong><br />
-            7. Yen ing kesempatan kapisan pangguna bisa njawab kanthi bener, bakal <strong>entuk skor 100</strong> lan diarahake menyang misi sabanjure.<br />
-            8. Yen ing kesempatan kapisan pangguna njawab kanthi salah, <strong>bakal diwenehi kesempatan kapindho.</strong><br />
-            9. Yen ing kesempatan kapindho pangguna njawab kanthi bener, bakal <strong>entuk skor 75</strong> lan diarahake menyang misi sabanjure.<br />
-            10. Yen ing kesempatan kapindho pangguna njawab kanthi salah, bakal <strong>entuk skor 0</strong> lan diarahake menyang misi sabanjure.
+            Ing kaca soal tekstual, panganggo bakal disuguhi maneka fitur, yaiku :<br />
+            1. Ing bagean kiwa dhuwur ana katrangan babak, misi, lan skor sing wis diolehake.<br />
+            2. Ing misi iki, panganggo diwenehi wektu 2 menit kanggo ngrampungake misi.<br />
+            3. Panganggo diprentah kanggo milih pandom “Rungokna” kanggo ngrungokake dhialog paraga utama ing kaca kasebut.<br />
+            4. Panganggo diprentah milih pandom “Speaker” ing saben pilihan jawaban (ngoko lugu, ngoko alus, krama lugu, krama alus) kanggo ngrungokake tata cara pangucap sing bener.<br />
+            5. Panganggo diprentah milih pandom “Rekam Swaramu” kanggo mangsuli pitakonan saka paraga utama miturut pilihan wangsulan sing wis dicawisake.<br />
+            6. Ing misi iki, panganggo bakal diwenehi 2 kalonggaran kanggo mangsuli.<br />
+            7. Yen ing kalonggaran kapisan panganggo bisa mangsuli kanthi bener, bakal entuk skor 100.<br />
+            8. Yen ing kalonggaran kapisan panganggo mangsuli kanthi salah, bakal diwenehi kalonggaran kapindho.<br />
+            9. Yen ing kalonggaran kapindho panganggo mangsuli kanthi bener, bakal entuk skor 75.<br />
+            10. Yen ing kalonggaran kapindho panganggo mangsuli kanthi salah, bakal entuk skor 0.
           </p>
 
           <div className="cd-step-title">
-            8. Kaca Soal Kontekstual ing Menu Wiwiti
+            8. Kaca Soal Kontekstual ing Menu Wiwit Dolanan
           </div>
 
           <div className="cd-image-container">
@@ -216,29 +215,29 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Ing kaca soal kontekstual, pangguna bakal diwenehi maneka pilihan fitur, yaiku :<br />
-            1. Ing bagean kiwa dhuwur ana <strong>katerangan babak, misi, lan skor sing wis diolehake.</strong><br />
-            2. Ing misi iki, pangguna diwenehi <strong>wektu 1 menit</strong> kanggo ngrampungake misi.<br />
-            3. Pangguna didhawuhi ngeklik tombol "<strong>Rungokna</strong>" kanggo ngrungokake dialog paraga utama ing kaca kasebut.<br />
-            4. Pangguna didhawuhi mencet tombol "<strong>Rekam Swaramu</strong>" kanggo njawab pitakonan saka tokoh utama <strong>miturut ragam basa Jawa sing cocog karo status mitra tuture.</strong><br />
-            5. Ing misi iki, pangguna bakal diwenehi <strong>2 kesempatan kanggo njawab.</strong><br />
-            6. Yen ing kesempatan kapisan pangguna bisa njawab <strong>siji tembung bener</strong> bakal <strong>entuk skor 50</strong> lan diarahake menyang misi sabanjure.<br />
-            7. Yen ing kesempatan kapisan pangguna bisa njawab <strong>rong tembung bener</strong> bakal <strong>entuk skor 75</strong> lan diarahake menyang misi sabanjure.<br />
-            8. Yen ing kesempatan kapisan pangguna bisa njawab <strong>luwih saka rong tembung bener</strong> bakal <strong>entuk skor 100</strong> lan diarahake menyang misi sabanjure.<br />
-            9. Yen ing kesempatan kapisan pangguna njawab kanthi salah, <strong>bakal diwenehi kesempatan kapindho.</strong><br />
-            10. Yen ing kesempatan kapindho pangguna njawab <strong>siji tembung bener</strong>, bakal <strong>entuk skor 25</strong> lan diarahake menyang misi sabanjure.<br />
-            11. Yen ing kesempatan kapindho pangguna njawab <strong>rong tembung bener</strong>, bakal <strong>entuk skor 50</strong> lan diarahake menyang misi sabanjure.<br />
-            12. Yen ing kesempatan kapindho pangguna njawab <strong>luwih saka rong tembung bener</strong>, bakal <strong>entuk skor 75</strong> lan diarahake menyang misi sabanjure.
+            Ing kaca soal kontekstual, panganggo bakal disuguhi maneka fitur, yaiku :<br />
+            1. Ing bagean kiwa dhuwur ana katrangan babak, misi, lan skor sing wis diolehake.<br />
+            2. Ing misi iki, panganggo diwenehi wektu 1 menit kanggo ngrampungake misi.<br />
+            3. Panganggo diprentah milih pandom “Rungokna” kanggo ngrungokake dhialog paraga utama ing kaca kasebut.<br />
+            4. Panganggo diprentah milih pandom “Rekam Swaramu” kanggo mangsuli pitakonan saka tokoh utama miturut ragam basa Jawa sing cocog karo status mitra tuture.<br />
+            5. Ing misi iki, panganggo bakal diwenehi 2 kalonggaran kanggo mangsuli.<br />
+            6. Yen ing kalonggaran kapisan panganggo bisa mangsuli siji tembung bener bakal entuk skor 50.<br />
+            7. Yen ing kalonggaran kapisan panganggo bisa mangsuli rong tembung bener bakal entuk skor 75.<br />
+            8. Yen ing kalonggaran kapisan panganggo bisa mangsuli luwih saka rong tembung bener bakal entuk skor 100.<br />
+            9. Yen ing kalonggaran kapisan panganggo mangsuli kanthi salah, bakal diwenehi kalonggaran kapindho.<br />
+            10. Yen ing kalonggaran kapindho panganggo mangsuli siji tembung bener, bakal entuk skor 25.<br />
+            11. Yen ing kalonggaran kapindho panganggo mangsuli rong tembung bener, bakal entuk skor 50.<br />
+            12. Yen ing kalonggaran kapindho panganggo mangsuli luwih saka rong tembung bener, bakal entuk skor 75.
           </p>
 
           <div className="cd-step-title">
-            9. Kaca Reward ing Menu Wiwiti
+            9. Kaca bebungah ing Menu Wiwit Dolanan
           </div>
 
           <div className="cd-image-container">
             <Image
               src="/caranedolanan/streak.webp"
-              alt="Kaca Reward"
+              alt="Kaca Bebungah"
               width={800}
               height={450}
               className="cd-step-img"
@@ -246,11 +245,11 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Ing kaca reward, pangguna bakal <strong>entuk reward yen bisa njawab bener kanthi poin 100 kaping 3 kanthi runtut.</strong> Mula bakal entuk reward arupa <strong>tambahan skor 25 poin.</strong>
+            Ing kaca bebungah, panganggo bakal entuk bebungah arupa tambahan skor 25 poin, yen bisa mangsuli bener kanthi poin 100 ping 3 kanthi runtut.
           </p>
 
           <div className="cd-step-title">
-            10. Kaca Perangkingan ing Menu Wiwiti
+            10. Kaca Perangkingan ing Menu Wiwit Dolanan
           </div>
 
           <div className="cd-image-container">
@@ -264,9 +263,9 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            1. Ing kaca Perangkingan, pangguna bakal diwenehi sawetara katerangan wiwit saka <strong>posisi rangking, jeneng lengkap, kelas, jumlah skor sing diolehake, lan wektu sing wis dirampungake nalika nggarap kabeh misi.</strong><br />
-            2. Pangguna bakal didhawuhi ngeklik tombol "<strong>Unduh PDF Ulasan Materi</strong>" minangka <strong>rangkuman evaluasi garapan saka website Lelana Basa.</strong><br />
-            3. Pangguna didhawuhi ngeklik tombol "<strong>Home</strong>" kanggo bali menyang kaca utama.
+            1. Ing kaca Perangkingan, panganggo bakal diwenehi sawetara katrangan wiwit saka posisi rangking, jeneng jangkep, kelas, jumlah skor sing diolehake, lan wektu sing wis dirampungake nalika nggarap kabeh misi.<br />
+            2. Panganggo diprentah kanggo milih pandom “Unduh PDF Ulasan Materi” minangka rangkuman evaluasi garapan saka website Lelana Basa.<br />
+            3. Panganggo diprentah milih pandom “Home” kanggo bali menyang kaca utama.
           </p>
         </div>
       </div>
