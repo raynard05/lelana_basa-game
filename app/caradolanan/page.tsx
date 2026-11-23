@@ -1,13 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import Home from '@/components/Home';
 import Music from '@/components/Music';
 import './caradolanan.css';
 
 export default function CaraDolananPage() {
-  const router = useRouter();
 
   return (
     <div className="cd-container">
@@ -19,7 +17,7 @@ export default function CaraDolananPage() {
 
           <div className="cd-logo-container">
             <Image
-              src="/caranedolanan/logo.webp"
+              src="/caranedolanan/pandom.png"
               alt="Carane Dolanan"
               width={600}
               height={250}
@@ -38,7 +36,7 @@ export default function CaraDolananPage() {
 
           <div className="cd-image-container">
             <Image
-              src="/caranedolanan/register.webp"
+              src="/caranedolanan/register_rev.jpeg"
               alt="Kaca Registrasi"
               width={800}
               height={450}
@@ -47,16 +45,16 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Pangguna bisa mbukak website Lelana Basa liwat tautan sing wis disediakake. Sawise tautan diakses, sistem bakal nampilake kaca registrasi, pangguna bisa ngisi data dhiri luwih dhisik. Sawise ngisi, pangguna bisa ngeklik tombol "<strong>Wiwit Lelana</strong>" kanggo mlebu ing menu utama.
+            Panganggo bisa mbukak website Lelana Basa lumantar pranala sing wis disamektakake. Sawise diakses, sistem bakal nampilake kaca Wiwitan, panganggo bisa ngisi dhata dhiri luwih dhisik. Sawise ngisi, Panganggo bisa milih pandom <strong>“Mlebu”.</strong>
           </p>
 
           <div className="cd-step-title">
-            2. Kaca Registrasi Akun
+            2. Kaca Akun
           </div>
 
           <div className="cd-image-container">
             <Image
-              src="/caranedolanan/login.webp"
+              src="/caranedolanan/login_rev.jpeg"
               alt="Kaca Registrasi Akun"
               width={800}
               height={450}
@@ -65,7 +63,7 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Yen pangguna wis duwe akun Lelana Basa, pangguna bisa ngisi <strong>username lan kata sandi</strong> ing kaca registrasi akun. Sawise iku, pangguna bisa ngeklik tombol "<strong>Wiwiti</strong>" kanggo mlebu ing menu utama.
+           Yen Panganggo wis duwe akun Lelana Basa, Panganggo bisa ngisi username lan kata sandi ing kaca akun. Sawise iku, Panganggo bisa milih pandom “Mlebu”.
           </p>
 
           <div className="cd-step-title">
@@ -74,7 +72,7 @@ export default function CaraDolananPage() {
 
           <div className="cd-image-container">
             <Image
-              src="/caranedolanan/menu_fix.jpeg"
+              src="/caranedolanan/menu_rev.jpeg"
               alt="Halaman Menu Utama"
               width={800}
               height={450}
@@ -83,23 +81,23 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Sawise ngeklik tombol "<strong>wiwiti</strong>" ing kaca registrasi, pangguna bakal diarahake menyang menu utama media pasinaon iki. Ing kaca menu utama, ana sawetara pilihan, yaiku:<br />
-            <strong>1. Materi</strong> kanggo mbukak materi undha usuk basa Jawa.<br />
-            <strong>2. Carane Dolanan</strong> kanggo mbukak kaca pandhuan panganggone media Lelana Basa.<br />
-            <strong>3. Wiwiti</strong> kanggo mbukak menu inti saka media pasinaon Lelana Basa.<br />
+            Sawise milih pandom &quot;<strong>Mlebu</strong>&quot; ing kaca akun, Panganggo bakal diarahake menyang menu utama medhia pasinaon iki. Ing kaca menu utama, ana sawetara pilihan, yaiku:<br />
+            <strong>1. Pandom</strong> kanggo mbukak kaca pandhuan panganggone medhia Lelana Basa.<br />
+            <strong>2. Materi</strong> kanggo mbukak materi undha usuk basa Jawa.<br />
+            <strong>3. Wiwit Dolanan</strong> kanggo mbukak menu inti saka medhia pasinaon Lelana Basa.<br />
             <strong>4. Profil Pangembang</strong> kanggo mbukak informasi pangembang media pasinaon Lelana Basa.<br />
-            <strong>5.</strong> Fitur tombol "<strong>wong</strong>" ing bagean pojok kiwa dhuwur kanggo ngerteni informasi akun pangguna.<br />
-            <strong>6.</strong> Fitur tombol "<strong>Speaker</strong>" ing bagean pojok tengen dhuwur kanggo nguripake utawa mateni backsound.<br />
-            <strong>7.</strong> Fitur tombol "<strong>Logout</strong>" ing bagean pojok tengen ngisor kanggo metu saka menu utama Lelana Basa.
+            <strong>5.</strong> Fitur pandom &quot;<strong>Wong</strong>&quot; ing bagean pojok kiwa dhuwur kanggo ngerteni informasi akun panganggo.<br />
+            <strong>6.</strong> Fitur pandom &quot;<strong>Speaker</strong>&quot; ing bagean pojok tengen dhuwur kanggo nguripi utawa mateni backsound.<br />
+            <strong>7.</strong> Fitur pandom &quot;<strong>Logout</strong>&quot; ing bagean pojok tengen ngisor kanggo metu saka menu utama Lelana Basa.
           </p>
 
           <div className="cd-step-title">
-            4. Kaca Sinopsis ing Menu Wiwiti
+            4. Kaca Ringkesan Crita ing Menu Wiwit Dolanan
           </div>
 
           <div className="cd-image-container">
             <Image
-              src="/caranedolanan/sinopsis.webp"
+              src="/caranedolanan/sinopsis_rev.jpeg"
               alt="Kaca Sinopsis"
               width={800}
               height={450}
@@ -108,7 +106,7 @@ export default function CaraDolananPage() {
           </div>
 
           <p className="cd-paragraph">
-            Ing kaca sinopsis, pangguna bakal diwenehi sinopsis lelakone Jaka Tulus. Ing kaca sinopsis uga ana sawetara fitur, yaiku:<br />
+            Ing kaca Ringkesan Crita, pangguna bakal diwenehi sinopsis lelakone Jaka Tulus. Ing kaca sinopsis uga ana sawetara fitur, yaiku:<br />
             1. Fitur tombol "<strong>Omah</strong>" ing bagean kiwa dhuwur kanggo bali menyang kaca utama game Lelana Basa.<br />
             2. Fitur tombol "<strong>Speaker</strong>" kanggo nguripake utawa mateni backsound.<br />
             3. Fitur tombol "<strong>Next</strong>" kanggo nerusake menyang kaca sabanjure.
@@ -270,10 +268,6 @@ export default function CaraDolananPage() {
             2. Pangguna bakal didhawuhi ngeklik tombol "<strong>Unduh PDF Ulasan Materi</strong>" minangka <strong>rangkuman evaluasi garapan saka website Lelana Basa.</strong><br />
             3. Pangguna didhawuhi ngeklik tombol "<strong>Home</strong>" kanggo bali menyang kaca utama.
           </p>
-
-          <button className="cd-back-btn" onClick={() => router.push('/menu')}>
-            Kembali
-          </button>
         </div>
       </div>
     </div>
